@@ -429,9 +429,13 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/ACM/">
+                                <span class="chip bg-color">ACM</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
@@ -464,7 +468,65 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h1><h2 id="常用-OJ"><a href="#常用-OJ" class="headerlink" title="常用 OJ"></a>常用 OJ</h2><p>• <a target="_blank" rel="noopener" href="https://vjudge.net/">Vjudge</a></p>
+<p>• <a target="_blank" rel="noopener" href="http://www.nowcoder.com/">nowcoder</a></p>
+<p>• <a target="_blank" rel="noopener" href="https://pintia.cn/">PTA</a></p>
+<h2 id="常用语言-C"><a href="#常用语言-C" class="headerlink" title="常用语言 - C++"></a>常用语言 - C++</h2><p><del>终于用回 C++ 了，程序设计基础转 C 好累</del></p>
+<p>万能头文件 <code>#include&lt;bits/stdc++.h&gt;</code></p>
+<p>等于以下头文件：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bitset&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;complex&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;deque&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;exception&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;fstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;functional&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iomanip&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ios&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iosfwd&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;istream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iterator&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;limits&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;list&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;locale&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;memory&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;new&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;numeric&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sstream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdexcept&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;streambuf&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;typeinfo&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;utility&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;valarray&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>(Visual Studio 不自带万能头文件)</p>
+<h2 id="时间（空间）复杂度"><a href="#时间（空间）复杂度" class="headerlink" title="时间（空间）复杂度"></a>时间（空间）复杂度</h2><p><del>dddd</del></p>
+<h1 id="C-STL"><a href="#C-STL" class="headerlink" title="C++: STL"></a>C++: STL</h1><h2 id="string-•-字符串"><a href="#string-•-字符串" class="headerlink" title="string • 字符串"></a>string • 字符串</h2><p>头文件 : <code>#include&lt;string&gt;</code></p>
+<p>常用函数</p>
+<ul>
+<li>赋初值</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> s1 = <span class="string">&quot;1234&quot;</span>;</span><br><span class="line"><span class="built_in">string</span> s2;</span><br><span class="line">s2 = <span class="string">&quot;1234&quot;</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>清除</p>
+<p><code>s1.clear();</code></p>
+</li>
+<li><p>求长度</p>
+<p><code>l = s1.length();</code></p>
+</li>
+<li><p>在尾部插入字符</p>
+<p><code>s1.push_back(&#39;x&#39;);</code></p>
+</li>
+<li><p>在尾部插入字符串</p>
+<p><code>s1.append(s2);</code></p>
+</li>
+<li><p>从s1中找到字符 ‘x’ 的位置</p>
+<p><code>pos = s1.find(&#39;x&#39;);</code></p>
+</li>
+<li><p>删除</p>
+<p><code>s1.erase()</code></p>
+</li>
+</ul>
+<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><p>构造</p>
+<p>​    <code>    vector&lt;int&gt;v1;</code></p>
+<p>​    <code>vector&lt;string&gt;v2(&quot;1234&quot;);</code></p>
+<p>​    <code>vecotr&lt;int&gt;v3(5,2);</code></p>
+<p>​    <code>vector&lt;int&gt;v4(v3);</code></p>
+<p>常用函数</p>
+<ul>
+<li><p>在数组的最后添加一个数据</p>
+<p><code>v1.push_back();</code></p>
+</li>
+<li><p>去掉数组的最后一个数据</p>
+<p><code>v1.pop_back();</code></p>
+</li>
+<li><p>得到数组头的引用</p>
+<p><code>v1.front();</code></p>
+</li>
+<li><p>得到数组的最后一个单元的引用</p>
+<p><code>v1.back();</code></p>
+</li>
+<li><p>获取 vector 大小</p>
+<p><code>v1.size();</code></p>
+</li>
+</ul>
+<h3 id="queue"><a href="#queue" class="headerlink" title="queue"></a>queue</h3>
                 
             </div>
             <hr/>
@@ -527,7 +589,11 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/ACM/">
+                                    <span class="chip bg-color">ACM</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -697,9 +763,45 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/01/20/hello-world/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        
+                        <span class="card-title">Hello World</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-20
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            John Doe
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
                 <a href="/2021/01/20/2020-1-20/">
@@ -731,41 +833,12 @@
                 </div>
 
                 
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/01/20/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-20
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            John Doe
-                            
-                        </span>
-                    </div>
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ACM/">
+                        <span class="chip bg-color">ACM</span>
+                    </a>
+                    
                 </div>
                 
             </div>
