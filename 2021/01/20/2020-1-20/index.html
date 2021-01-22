@@ -445,7 +445,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    737
+                    745
                 </div>
                 
 
@@ -510,9 +510,7 @@
 #include &lt;vector&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>(Visual Studio 不自带万能头文件)</p>
 <h3 id="时间（空间）复杂度"><a href="#时间（空间）复杂度" class="headerlink" title="时间（空间）复杂度"></a>时间（空间）复杂度</h3><p><del>dddd懂的都懂</del></p>
-<h2 id="C-STL"><a href="#C-STL" class="headerlink" title="C++: STL"></a>C++: STL</h2><h3 id="string-•-字符串"><a href="#string-•-字符串" class="headerlink" title="string • 字符串"></a>string • 字符串</h3><p>头文件 : <code>#include&lt;string&gt;</code></p>
-<p>常用函数</p>
-<ul>
+<h2 id="C-STL"><a href="#C-STL" class="headerlink" title="C++: STL"></a>C++: STL</h2><h3 id="string-•-字符串"><a href="#string-•-字符串" class="headerlink" title="string • 字符串"></a>string • 字符串</h3><h4 id="头文件-include-lt-string-gt"><a href="#头文件-include-lt-string-gt" class="headerlink" title="头文件 : #include<string>"></a>头文件 : <code>#include&lt;string&gt;</code></h4><h4 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h4><ul>
 <li>赋初值</li>
 </ul>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">string s1 = "1234";
@@ -538,13 +536,11 @@ s2 = "1234";<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <p><code>s1.erase()</code></p>
 </li>
 </ul>
-<h3 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h3><p>构造</p>
-<p>​    <code>    vector&lt;int&gt;v1;</code></p>
+<h3 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h3><h4 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h4><p>​    <code>    vector&lt;int&gt;v1;</code></p>
 <p>​    <code>vector&lt;string&gt;v2("1234");</code></p>
 <p>​    <code>vecotr&lt;int&gt;v3(5,2);</code></p>
 <p>​    <code>vector&lt;int&gt;v4(v3);</code></p>
-<p>常用函数</p>
-<ul>
+<h4 id="常用函数-1"><a href="#常用函数-1" class="headerlink" title="常用函数"></a>常用函数</h4><ul>
 <li><p>在数组的最后添加一个数据</p>
 <p><code>v1.push_back();</code></p>
 </li>
@@ -561,15 +557,12 @@ s2 = "1234";<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <p><code>v1.size();</code></p>
 </li>
 </ul>
-<p>复杂度</p>
-<ul>
+<h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><ul>
 <li>随机访问 <strong>O(1)</strong></li>
 <li>删除 <strong>O(n)</strong></li>
 </ul>
-<h3 id="queue-•-FIFO"><a href="#queue-•-FIFO" class="headerlink" title="queue • FIFO"></a>queue • FIFO</h3><p>构造</p>
-<p>​    <code>queue&lt;int&gt; q;</code></p>
-<p>常用函数</p>
-<ul>
+<h3 id="queue-•-FIFO"><a href="#queue-•-FIFO" class="headerlink" title="queue • FIFO"></a>queue • FIFO</h3><h4 id="构造-1"><a href="#构造-1" class="headerlink" title="构造"></a>构造</h4><p>​    <code>queue&lt;int&gt; q;</code></p>
+<h4 id="常用函数-2"><a href="#常用函数-2" class="headerlink" title="常用函数"></a>常用函数</h4><ul>
 <li><p>入队</p>
 <p><code>q.push();</code></p>
 </li>
@@ -589,10 +582,8 @@ s2 = "1234";<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <p><code>q.empty();</code></p>
 </li>
 </ul>
-<h3 id="stack-•-FILO"><a href="#stack-•-FILO" class="headerlink" title="stack • FILO"></a>stack • FILO</h3><p>构造</p>
-<p>​    <code>stack&lt;int&gt; s;</code></p>
-<p>常用函数</p>
-<ul>
+<h3 id="stack-•-FILO"><a href="#stack-•-FILO" class="headerlink" title="stack • FILO"></a>stack • FILO</h3><h4 id="构造-2"><a href="#构造-2" class="headerlink" title="构造"></a>构造</h4><p>​    <code>stack&lt;int&gt; s;</code></p>
+<h4 id="常用函数-3"><a href="#常用函数-3" class="headerlink" title="常用函数"></a>常用函数</h4><ul>
 <li><p>入队</p>
 <p><code>s.push();</code></p>
 </li>
@@ -609,10 +600,8 @@ s2 = "1234";<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <p><code>s.empty();</code></p>
 </li>
 </ul>
-<h3 id="set-•-集合"><a href="#set-•-集合" class="headerlink" title="set • 集合"></a>set • 集合</h3><p>构造</p>
-<p>​    <code>set&lt;int&gt;s;</code></p>
-<p>常用函数</p>
-<ul>
+<h3 id="set-•-集合"><a href="#set-•-集合" class="headerlink" title="set • 集合"></a>set • 集合</h3><h4 id="构造-3"><a href="#构造-3" class="headerlink" title="构造"></a>构造</h4><p>​    <code>set&lt;int&gt;s;</code></p>
+<h4 id="常用函数-4"><a href="#常用函数-4" class="headerlink" title="常用函数"></a>常用函数</h4><ul>
 <li><p>插入</p>
 <p><code>s.insert();</code></p>
 </li>
@@ -641,31 +630,25 @@ s2 = "1234";<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <p><code>s.empty();</code></p>
 </li>
 </ul>
-<p>复杂度</p>
-<ul>
+<h4 id="时间复杂度-1"><a href="#时间复杂度-1" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><ul>
 <li>查询 <strong>O(logn)</strong></li>
 <li>插入 <strong>O(logn)</strong></li>
 <li>删除 <strong>O(logn)</strong></li>
 </ul>
-<h3 id="map-•-key-value"><a href="#map-•-key-value" class="headerlink" title="map • key - value"></a>map • key - value</h3><p>构造</p>
-<p>​    1.<code>map&lt;int,int&gt;mp;</code></p>
+<h3 id="map-•-key-value"><a href="#map-•-key-value" class="headerlink" title="map • key - value"></a>map • key - value</h3><h4 id="构造-4"><a href="#构造-4" class="headerlink" title="构造"></a>构造</h4><p>​    1.<code>map&lt;int,int&gt;mp;</code></p>
 <p>​    2.<code>map&lt;string,int&gt;mp;</code></p>
-<p>常用函数</p>
-<ul>
+<h4 id="常用函数-5"><a href="#常用函数-5" class="headerlink" title="常用函数"></a>常用函数</h4><ul>
 <li><p>访问</p>
 <p>1.<code>mp[[int]] = [int];</code></p>
 <p>2.<code>mp[[string]] = [int];</code></p>
 </li>
 </ul>
-<p>复杂度</p>
-<ul>
+<h4 id="时间复杂度-2"><a href="#时间复杂度-2" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><ul>
 <li>插入 <strong>O(logn)</strong></li>
 <li>删除 <strong>O(logn)</strong></li>
 </ul>
-<h3 id="list-•-双向链表"><a href="#list-•-双向链表" class="headerlink" title="list • 双向链表"></a>list • 双向链表</h3><p>构造</p>
-<p>​    <code>list&lt;int&gt;li;</code></p>
-<p>常用函数</p>
-<ul>
+<h3 id="list-•-双向链表"><a href="#list-•-双向链表" class="headerlink" title="list • 双向链表"></a>list • 双向链表</h3><h4 id="构造-5"><a href="#构造-5" class="headerlink" title="构造"></a>构造</h4><p>​    <code>list&lt;int&gt;li;</code></p>
+<h4 id="常用函数-6"><a href="#常用函数-6" class="headerlink" title="常用函数"></a>常用函数</h4><ul>
 <li><p>加到末位</p>
 <p><code>li.push_back();</code></p>
 </li>
@@ -685,8 +668,7 @@ s2 = "1234";<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <p><code>li.erase();</code></p>
 </li>
 </ul>
-<p>复杂度</p>
-<ul>
+<h4 id="时间复杂度-3"><a href="#时间复杂度-3" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><ul>
 <li>随机访问 <strong>×</strong></li>
 <li>插入 <strong>O(1)</strong></li>
 <li>删除 <strong>O(1)</strong></li>
@@ -1209,7 +1191,7 @@ s2 = "1234";<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">1.5k</span>&nbsp;字
+                class="white-color">2.2k</span>&nbsp;字
             
             
             
