@@ -257,7 +257,7 @@ mark {
     position: fixed;
     bottom: 0;
     z-index: 300;
-    background: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background: linear-gradient(to right, #fe9ab4 0%, #fe9ab4 100%);
     opacity: 0.8;
 }
 
@@ -925,10 +925,12 @@ article .article-content .publish-author {
 
 .publish-author .icon-category {
     padding-left: 10px;
+    color: #fe9ab4;
 }
 
 .article-content .publish-author .post-category {
     padding-left: 5px;
+    color: #fe9ab4;
 }
 
 article .card .card-action {
@@ -942,6 +944,7 @@ article .article-tags .chip {
     font-weight: 400;
     height: 22px;
     line-height: 22px;
+    background-color: #fe9ab4;
     color: #fff;
     border-radius: 10px;
 }
