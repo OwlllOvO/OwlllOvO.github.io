@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Hello World, OwlllOvO">
+    <meta name="keywords" content="2020.1.25, OwlllOvO">
     <meta name="description" content="OwlllOvO Blog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Hello World | OwlllOvO</title>
+    <title>2020.1.25 | OwlllOvO</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -290,12 +290,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Hello World</h1>
+                    <h1 class="description center-align post-title">2020.1.25</h1>
                 </div>
             </div>
         </div>
@@ -409,12 +409,29 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
+                            </a>
+                        
+                            <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/">
+                                <span class="chip bg-color">线段树</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/ACM/" class="post-category">
+                                ACM
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -423,7 +440,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-20
+                    2021-01-25
                 </div>
                 
 
@@ -432,7 +449,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    73
+                    859
                 </div>
                 
 
@@ -452,16 +469,181 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo new <span class="token string">"My New Post"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo server<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo generate<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">$ hexo deploy<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+                <h1 id="2020-1-25"><a href="#2020-1-25" class="headerlink" title="2020.1.25"></a>2020.1.25</h1><h2 id="问题引入"><a href="#问题引入" class="headerlink" title="问题引入"></a>问题引入</h2><p>假设需要反复对一个数组 a[] 进行以下两个操作：</p>
+<ul>
+<li><p>Query • 求和</p>
+<p>对 a[l] ~ a[r] 求和</p>
+</li>
+<li><p>Update • 修改</p>
+<p>将 a[idx] 的值修改为 val</p>
+</li>
+</ul>
+<p>则有如下解决办法：</p>
+<h3 id="朴素做法"><a href="#朴素做法" class="headerlink" title="朴素做法"></a>朴素做法</h3><ul>
+<li><p>Build</p>
+<p><code>for (int i = 1; i &lt;= n; i++) scanf ("%d", &amp;a[i]);</code></p>
+</li>
+<li><p>Query</p>
+<p><code>for (int i = l; i &lt;= r; i++) sum += a[i];</code> <code>O(n)</code></p>
+</li>
+<li><p>Update</p>
+<p><code>a[idx] = val;</code> <code>O(1)</code></p>
+</li>
+</ul>
+<h3 id="前缀和"><a href="#前缀和" class="headerlink" title="前缀和"></a>前缀和</h3><ul>
+<li><p>Build</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">for (int i = 1; i &lt;= l; i++)
+{
+	scanf ("%d", &amp;a[i]);
+	sum_a[i] = sum_a[i-1] + a[i];
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>Query</p>
+<p><code>sum = sum_a[r] - sum_a[l - 1];</code> <code>O(1)</code></p>
+</li>
+<li><p>Update</p>
+<p><code>for (int i = idx; i &lt;= n; i++) sum_a[i] += val; </code> <code>O(n)</code></p>
+</li>
+</ul>
+<p>可见，两种方法的时间复杂度都较高，于是引入线段树的数据结构</p>
+<h2 id="线段树"><a href="#线段树" class="headerlink" title="线段树"></a>线段树</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><blockquote>
+<p>线段树是一种二叉搜索树，与区间树相似，它将一个区间划分成一些单元区间，每个单元区间对应线段树中的一个叶结点。</p>
+<p>——百度百科</p>
+</blockquote>
+<ul>
+<li><p>Build</p>
+<p>如图，区间依次对半分，每个节点存储一部分区间的和，节点按序标记为 1 ~ n（图中为 0 ~ n - 1）</p>
+<img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210125202804.png" style="zoom: 50%;">
+</li>
+<li><p>Query <code>O(logn)</code></p>
+<ul>
+<li>从根结点开始划分求和区间</li>
+<li>如果节点区间为求和区间的子集：返回节点值</li>
+<li>如果节点区间与求和区间无交集：返回 0</li>
+</ul>
+</li>
+<li><p>Update <code>O(logn)</code></p>
+<ul>
+<li>找到修改的节点，修改值</li>
+<li>向上更新节点值</li>
+</ul>
+</li>
+</ul>
+<h3 id="模板-•-单点修改-•-结构体"><a href="#模板-•-单点修改-•-结构体" class="headerlink" title="模板 • 单点修改 • 结构体"></a>模板 • 单点修改 • 结构体</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define MAXN 1e6+10
 
+int a[MAXN], n;
+
+struct segmentTree
+{
+    int l, r, sum;
+} node[MAXN &lt;&lt; 2];
+
+void pushUp(int i)
+{
+    node[i].sum = node[i &lt;&lt; 1].sum + node[i &lt;&lt; 1 | 1].sum;
+}
+
+void build_tree(int l, int r, int i)
+{
+    node[i] = { l, r };
+    if (l == r)
+    {
+        node[i],sum = a[l];
+        return;
+    }
+    int mid = l + r &gt;&gt; 1;
+    build_tree(l, mid, i &lt;&lt; 1);
+    build_tree(mid + 1, r, i &lt;&lt; 1 | 1);
+    pushUp(i);
+}
+
+int query_tree(int l, int r, int i)
+{
+    if (l &lt;= node[i].l &amp;&amp; node[i].r &lt;= r) return node[i].sum;
+    int mid = l + r &gt;&gt; 1;
+    int res = 0;
+    if (l &lt;= mid) res += query_tree(l, mid, i &lt;&lt; 1);
+    if (r &gt; mid)  res += query_tree(mid + 1, r, i &lt;&lt; 1 | 1);
+    return res;
+}
+
+void update_tree(int idx, int val, int i)
+{
+    if (node[i].l == idx &amp;&amp; node[i].r == idx)
+    {
+        node[i].sum = val;
+        return;
+    }
+    int mid = l + r &gt;&gt; 1;
+    if (idx &lt;= mid) update_tree(idx, val, i &lt;&lt; 1);
+    else update_tree(idx, val, i &lt;&lt; 1 | 1);
+    pushUp();
+}
+
+int main()
+{
+    build_tree(1, n, 1);
+    query_tree(l, r, 1);
+    update_tree(idx, val, 1);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>x &lt;&lt; 1: x * 2</li>
+<li>x &gt;&gt; 1: x / 2</li>
+<li>x &lt;&lt; 1 | 1: x * 2 + 1</li>
+</ul>
+<h3 id="模板-•-单点修改-•-数组"><a href="#模板-•-单点修改-•-数组" class="headerlink" title="模板 • 单点修改 • 数组"></a>模板 • 单点修改 • 数组</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define MAXN 1e6+10
+
+int a[MAXN], tree[MAXN * 4], n;
+
+void build_tree(int node, int start, int end)
+{
+    if (start == end) tree[node] = arr[start];
+    int mid = (start + end) / 2;
+    int left_node  = 2 * node;
+    int right_node = 2 * node + 1;
+    build_tree(left_node, start, mid);
+    build_tree(right_node, mid + 1, end);
+    tree[node] = tree[left_node] + tree[right_node];
+}
+
+int query_tree(int node, int start, int end, int L, int R)
+{
+    if (R &lt; start || L &gt; end) return 0;
+    if (L &lt;= start &amp;&amp; end &lt;= R) return tree[node];
+    if (start == end) return tree[node];
+    int mid = (start + end) / 2;
+    int left_node  = 2 * node;
+	int right_node = 2 * node + 1;
+    int sum_left  = query_tree(left_node,  start, mid, L, R);
+    int sum_right = query_tree(right_node, mid+1, end, L, R);
+}
+
+void update_tree(int node, int start, int end, int idx, int val)
+{
+    if (start == end)
+    {
+        a[idx] = val;
+        tree[node] = val;
+        return;
+    }
+    int mid = (start + end) / 2;
+    int left_node  = 2 * node;
+	int right_node = 2 * node + 1;
+    if (idx &gt;= start &amp;&amp; idx &lt;= mid)
+        update_tree(left_node, start, mid, idx, val);
+    else
+        update_tree(right_node, mid+1, end, idx, val);
+    tree[node] = tree[left_node] + tree[right_node];
+}
+
+int main()
+{
+    build_tree(1, 1, n);
+    query_tree(1, 1, n, L, R);
+    update_tree(1, 1, n, idx, val);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="模板-•-区间修改"><a href="#模板-•-区间修改" class="headerlink" title="模板 • 区间修改"></a>模板 • 区间修改</h3><h3 id="权值线段树"><a href="#权值线段树" class="headerlink" title="权值线段树"></a>权值线段树</h3><h1 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h1><h2 id="A-例题1-•-SPOJ-GSS1"><a href="#A-例题1-•-SPOJ-GSS1" class="headerlink" title="A 例题1 • SPOJ GSS1"></a>A <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/A">例题1</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/SPOJ-GSS1/origin">SPOJ GSS1</a></h2><h2 id="B-例题2-•-Gym-102770B"><a href="#B-例题2-•-Gym-102770B" class="headerlink" title="B 例题2 • Gym 102770B"></a>B <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/B">例题2</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/Gym-102770B/origin">Gym 102770B</a></h2><h2 id="C-例题3-•-POJ-2182"><a href="#C-例题3-•-POJ-2182" class="headerlink" title="C 例题3 • POJ 2182"></a>C <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/C">例题3</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-2182/origin">POJ 2182</a></h2><h2 id="D-【模板】单点修改-•-HDU-1166"><a href="#D-【模板】单点修改-•-HDU-1166" class="headerlink" title="D 【模板】单点修改 • HDU 1166"></a>D <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/D">【模板】单点修改</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1166/origin">HDU 1166</a></h2><h2 id="E-【模板】区间修改-•-POJ-3468"><a href="#E-【模板】区间修改-•-POJ-3468" class="headerlink" title="E 【模板】区间修改 • POJ 3468"></a>E <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/E">【模板】区间修改</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-3468/origin">POJ 3468</a></h2><h2 id="F-练习题1-•-CodeForces-339D"><a href="#F-练习题1-•-CodeForces-339D" class="headerlink" title="F 练习题1 • CodeForces 339D"></a>F <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/F">练习题1</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/CodeForces-339D/origin">CodeForces 339D</a></h2><h2 id="G-练习题2-•-HDU-2795"><a href="#G-练习题2-•-HDU-2795" class="headerlink" title="G 练习题2 • HDU 2795"></a>G <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/G">练习题2</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2795/origin">HDU 2795</a></h2><h2 id="H-练习题3-•-HDU-2852"><a href="#H-练习题3-•-HDU-2852" class="headerlink" title="H 练习题3 • HDU 2852"></a>H <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/H">练习题3</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2852/origin">HDU 2852</a></h2>
                 
             </div>
             <hr/>
@@ -477,7 +659,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">Hexo</a>
+                    <a href="/about" rel="external nofollow noreferrer">OwlllOvO</a>
                 </span>
             </div>
             <div class="reprint__type">
@@ -487,7 +669,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://owlllovo.github.io/2021/01/20/hello-world/">http://owlllovo.github.io/2021/01/20/hello-world/</a>
+                    <a href="http://owlllovo.github.io/2021/01/25/2020-1-25/">http://owlllovo.github.io/2021/01/25/2020-1-25/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -500,7 +682,7 @@
                     本博客所有文章除特別声明外，均采用
                     <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
                     许可协议。转载请注明来源
-                    <a href="/about" target="_blank">Hexo</a>
+                    <a href="/about" target="_blank">OwlllOvO</a>
                     !
                 </span>
             </div>
@@ -524,7 +706,15 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
+                                </a>
+                            
+                                <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/">
+                                    <span class="chip bg-color">线段树</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -568,65 +758,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
-            <div class="card">
-                <a href="/2021/01/20/creating-my-blog/">
-                    <div class="card-image">
-                        
-                        <img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/Hexo-logo.png" class="responsive-img" alt="Creating my blog">
-                        
-                        <span class="card-title">Creating my blog</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-20
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Web/" class="post-category">
-                                    Web
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                本篇&nbsp;<i class="far fa-dot-circle"></i>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2021/01/20/hello-world/">
+                <a href="/2021/01/25/2020-1-25/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="2020.1.25">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">2020.1.25</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -637,17 +780,98 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-25
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Hexo
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ACM/" class="post-category">
+                                    ACM
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/">
+                        <span class="chip bg-color">线段树</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/01/23/2020-1-23/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="2020.1.23">
+                        
+                        <span class="card-title">2020.1.23</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-23
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ACM/" class="post-category">
+                                    ACM
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/DFS/">
+                        <span class="chip bg-color">DFS</span>
+                    </a>
+                    
+                    <a href="/tags/BFS/">
+                        <span class="chip bg-color">BFS</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
+                        <span class="chip bg-color">拓扑排序</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/">
+                        <span class="chip bg-color">二分图</span>
+                    </a>
+                    
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>

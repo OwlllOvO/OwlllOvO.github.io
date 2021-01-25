@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2020.1.23, OwlllOvO">
+    <meta name="keywords" content="Creating my blog, OwlllOvO">
     <meta name="description" content="OwlllOvO Blog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2020.1.23 | OwlllOvO</title>
+    <title>Creating my blog | OwlllOvO</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -290,12 +290,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/16.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/Hexo-logo.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2020.1.23</h1>
+                    <h1 class="description center-align post-title">Creating my blog</h1>
                 </div>
             </div>
         </div>
@@ -411,24 +411,8 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/DFS/">
-                                <span class="chip bg-color">DFS</span>
-                            </a>
-                        
-                            <a href="/tags/BFS/">
-                                <span class="chip bg-color">BFS</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
-                                <span class="chip bg-color">拓扑排序</span>
-                            </a>
-                        
-                            <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/">
-                                <span class="chip bg-color">二分图</span>
-                            </a>
-                        
-                            <a href="/tags/C/">
-                                <span class="chip bg-color">C++</span>
+                            <a href="/tags/Hexo/">
+                                <span class="chip bg-color">Hexo</span>
                             </a>
                         
                     </div>
@@ -439,8 +423,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/ACM/" class="post-category">
-                                ACM
+                            <a href="/categories/Web/" class="post-category">
+                                Web
                             </a>
                         
                     </div>
@@ -452,7 +436,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-22
+                    2021-01-20
                 </div>
                 
 
@@ -461,7 +445,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    1.1k
                 </div>
                 
 
@@ -481,161 +465,147 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="2020-1-23"><a href="#2020-1-23" class="headerlink" title="2020.1.23"></a>2020.1.23</h1><h2 id="DFS-•-深度优先搜索"><a href="#DFS-•-深度优先搜索" class="headerlink" title="DFS • 深度优先搜索"></a>DFS • 深度优先搜索</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><blockquote>
-<p>深度优先搜索属于图算法的一种，英文缩写为 DFS 即 Depth First Search. 其过程简要来说是对每一个可能的分支路径深入到不能再深入为止，而且每个节点只能访问一次。</p>
-<p>——百度百科</p>
-</blockquote>
-<blockquote>
-<p>在一条路上的分岔按顺序选择方向，一条路走到底再返回到最近分岔选择下一条路，这个分岔下所有路全走完后再返回到更上一个分岔走下一条路。</p>
-</blockquote>
-<h3 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h3><blockquote>
-<p>深度优先遍历图的方法是，从图中某顶点v出发：</p>
-<ol>
-<li>访问顶点 v ；</li>
-<li>依次从v的未被访问的邻接点出发，对图进行深度优先遍历；直至图中和v有路径相通的顶点都被访问；</li>
-<li>若此时图中尚有顶点未被访问，则从一个未被访问的顶点出发，重新进行深度优先遍历，直到图中所有顶点均被访问过为止。</li>
-</ol>
-</blockquote>
-<p><u>搜索完节点后注意是否需要回溯！</u></p>
-<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">bool judge(int x, int y) {};	//判断当前状态是否合法
-
-bool check(int x, int y) {};	//判断是否为最终答案
-
-void dfs(int x, int y, int z)
-{
-    if(!judge(x, y)) return;
-    if(check(x, y))
-    {
-        //保存答案
-    }
-    visited[x][y] = 1;	//标记已搜索过此节点，防止重复搜索
-    /*
-        操作...
-    */
-    dfs(x - 1, y, z + 1);
-    dfs(x + 1, y, z + 1);
-    dfs(x, y - 1, z + 1);
-    dfs(x, y + 1, z + 1);
-    visited[x][y] = 0;	//回溯
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><h4 id="剪枝"><a href="#剪枝" class="headerlink" title="剪枝"></a>剪枝</h4><p>有些求最优解的题目，可以不用完全遍历，当目前 dfs 的解已经比历史遍历得到的最优解更差时，可以停止遍历，节省一部分时间复杂度。</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">bool judge(int x, int y) {};	//判断当前状态是否合法
-
-bool check(int x, int y) {};	//判断是否为最终答案
-
-void dfs(int x, int y, int z)
-{
-    if(!judge(x, y)) return;
-    if(z &gt; ans) return;
-    if(check(x, y))
-    {
-        ans = z;
-        //保存答案
-    }
-    visited[x][y] = 1;	//标记已搜索过此节点，防止重复搜索
-    /*
-        操作...
-    */
-    dfs(x - 1, y, z + 1);
-    dfs(x + 1, y, z + 1);
-    dfs(x, y - 1, z + 1);
-    dfs(x, y + 1, z + 1);
-    visited[x][y] = 0;	//回溯
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="记忆化搜索"><a href="#记忆化搜索" class="headerlink" title="记忆化搜索"></a>记忆化搜索</h4><p>对于遍历某些确定的类型时，如果到达一个节点之后的遍历结果是可以确定的，第一遍先向下遍历得到结果，将这个结果保存，之后再遍历到此节点时直接返回已得到的结果，可以节省一部分时间复杂度。</p>
-<p>如：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1434">洛谷 P1434 [SHOI2002]滑雪</a></p>
-<p>题目大意：矩阵求最长下降线路长度</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int fx[5] = { 0, 0, 0, 1, -1 };
-int fy[5] = { 0, 1, -1, 0, 0 };
-int dfs(int x, int y)
-{
-	if (f[x][y]) return f[x][y];	//记忆化搜索
-	f[x][y] = 1;	//题目中答案是有包含这个点的
-	for (int i = 1; i &lt;= 4; i++)
-	{
-		int xx = fx[i] + x;
-		int yy = fy[i] + y;	//四个方向
-		if (xx &gt; 0 &amp;&amp; yy &gt; 0 &amp;&amp; xx &lt;= n &amp;&amp; yy &lt;= m &amp;&amp; a[x][y] &gt; a[xx][yy])
-		{
-			f[x][y] = max(f[x][y], dfs(xx, yy) + 1);
-		}
-	}
-	return f[x][y];
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h2 id="BFS-•-广度优先搜索"><a href="#BFS-•-广度优先搜索" class="headerlink" title="BFS • 广度优先搜索"></a>BFS • 广度优先搜索</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><blockquote>
-<p>从出发点一层一层向外遍历，到达终点就结束。因此，到达终点的方案一定是最优解。</p>
-</blockquote>
-<blockquote>
-<p>无论有多少条路，每条路都只走一步，并记录下状态，等到所有的路都走完一步后，再从第一条路开始走第二步，直至有一条路走到终点。</p>
-</blockquote>
-<h3 id="基本思路-1"><a href="#基本思路-1" class="headerlink" title="基本思路"></a>基本思路</h3><blockquote>
-<p>广度优先搜索使用队列（queue）来实现，整个过程也可以看做一个倒立的树形：</p>
-<ol>
-<li><p>把根节点放到队列的末尾。</p>
+                <h1 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h1><h2 id="为什么选择-Hexo"><a href="#为什么选择-Hexo" class="headerlink" title="为什么选择 Hexo"></a>为什么选择 Hexo</h2><p>以前第一次建站的时候因为什么都不知道，就跟着一个教程做了 Wordpress 网站。Wordpress 的优点很明显——非常的方便。不仅建站的时候直接选择 Wordpress 就完成了，之后再在控制台维护网站就行。但之后因为上学，就没再去维护，服务器也没有续，网站就这么没有了..</p>
+<p>这次 ACM 寒假训练，要求我们创建自己的博客，我想着自己都已经创建过自己的网站，就不想用 CSDN、博客园之类的博客，于是又准备重新搭建网站。这时候我了解到了 Hexo，这是一个静态网站，把文件都放在 Github 上，由 Github 托管。这是 Hexo 的一大优点，这样一来不仅不收费，而且只要 Github 还在，网站就不会消失。但这不是我选择 Hexo 的原因。我选择 Hexo 的主要原因还是看到很多非常精美的博客都是用的 Hexo，而 Wordpress 的网站实在找不到好看的主题，于是我也想搭建 Hexo 网站。</p>
+<p>一开始用 Hexo 觉得很麻烦，什么东西都是在文件里修改参数，对网站的操作都要用命令执行，不像 Wordpress 有后台可以非常方便、直观地维护网站。但是用久了之后，学会了之后发现，Hexo 这样才更加方便。因为所有文件都在本地，网站的任何属性都写在文件里面了，想要修改什么直接在文件里修改，更加的灵活，这也是 Hexo 能做得更精美，更加个性化的原因。</p>
+<h2 id="Hexo-建站过程"><a href="#Hexo-建站过程" class="headerlink" title="Hexo 建站过程"></a>Hexo 建站过程</h2><p>写这些不仅是记录我建站的整个过程，还详细地记录我对网站的一些操作和修改，以后万一发生了什么情况需要重做网站，也可以帮助自己回忆 XD</p>
+<h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><ul>
+<li><p>macOS 切换 Root 用户</p>
+<ul>
+<li>终端输入指令：<code>sudo su</code></li>
+<li>输入用户密码</li>
+</ul>
 </li>
-<li><p>每次从队列的头部取出一个元素，查看这个元素所有的下一级元素，把它们放到队列的末尾。并把这个元素记为它下一级元素的前驱。</p>
+<li><p>安装 Node.js</p>
+<ul>
+<li>访问网站 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a> 下载最新版本</li>
+<li>安装</li>
+<li>安装完成后即可在终端（cmd）输入指令：<ul>
+<li><code>node -v </code>：查看已安装的 Node 版本，查看是否安装成功</li>
+<li><code>npm -v</code>：查看已安装的 npm 版本，查看是否安装成功</li>
+</ul>
 </li>
-<li><p>找到所要找的元素时结束程序。</p>
+</ul>
 </li>
-<li><p>如果遍历整个树还没有找到，结束程序。</p>
+<li><p>安装淘宝 cnpm 管理器（加速）</p>
+<ul>
+<li><code>npm install -g cnpm --registry=http://registry.npm.taobao.org</code></li>
+<li>自动安装</li>
+<li><code>cnpm -v</code>：查看已安装的 cnpm 版本，查看是否安装成功</li>
+</ul>
 </li>
-</ol>
-</blockquote>
-<h3 id="模板-1"><a href="#模板-1" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int fx[5] = { 0, -1, 1, 0, 0 };
-int fy[5] = { 0, 0, 0, -1, 1 };	//上下左右
-struct node
-{
-    int x, y, z;
-};
-
-bool check (int x, int y) {};	//判断点是否能走
-
-void bfs(int x, int y, int z)
-{
-    node start;
-	start.x = x;
-	start.y = y;
-	start.z = 0;	//start 为出发点，z 为步数
-    queue &lt;node&gt; q;
-	q.push(start);	//将出发点推入队列中等待处理
-	while (!q.empty())
-	{
-        node now;
-		now = q.front();	//从队列中取出首元素处理
-		q.pop();	//将该元素取出后要记得推出，否则只推入不推出，死循环
-		t[now.x][now.y] = now.z;	//这里是记录了到 [now.x][now.y] 的最短路径，也可以做其他操作
-		for (int i = 1; i &lt;= 4; i++)	//往四个方向继续遍历
-		{
-            if (check (now.x + fx[i], now.y + fy[i]))
-			{
-				node next;
-				next.x = now.x + fx[i];
-				next.y = now.y + fy[i];
-				next.z = now.z + 1;
-				vi[next.x][next.y] = 1;
-				q.push(next);	//将该点保存并推入队列中，等待前面的处理完后再走下一步
-			}
-		}
-	}
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h2 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h2><h3 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h3><blockquote>
-<p>对一个有向无环图 (Directed Acyclic Graph简称DAG) G进行拓扑排序，是将 G 中所有顶点排成一个线性序列，使得图中任意一对顶点 u 和 v，若边 &lt;u,v&gt;∈E(G)，则u在线性序列中出现在 v 之前。通常，这样的线性序列称为满足拓扑次序 (Topological Order) 的序列，简称拓扑序列。简单的说，由某个集合上的一个偏序得到该集合上的一个全序，这个操作称之为拓扑排序。</p>
-<p>——百度百科</p>
-</blockquote>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>由 AOV 网构造拓扑序列的拓扑排序算法主要是循环执行以下两步，直到不存在入度为0的顶点为止。</p>
-<ol>
-<li><p>选择一个入度为 0 的顶点并输出之；</p>
+</ul>
+<h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><ul>
+<li><p>安装 Hexo 框架</p>
+<ul>
+<li><code>cnpm install -g hexo-cli</code></li>
+<li>自动安装</li>
+<li><code>hexo -v</code>：查看已安装的 Hexo 版本，查看是否安装成功</li>
+</ul>
 </li>
-<li><p>从网中删除此顶点及所有出边。</p>
-<p>循环结束后，若输出的顶点数小于网中的顶点数，则输出“有回路”信息，否则输出的顶点序列就是一种拓扑序列。</p>
+<li><p>建立 Blog 文件夹</p>
+<ul>
+<li><code>mkdir Blog</code>：创建 Blog 文件夹</li>
+<li><code>cd blog</code>：进入 Blog 文件夹</li>
+<li>之后要是出现问题，直接删除 Blog 文件夹从头开始重新做就行</li>
+</ul>
 </li>
-</ol>
-<h2 id="二分图"><a href="#二分图" class="headerlink" title="二分图"></a>二分图</h2><p>待更</p>
-<h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><h3 id="A-Find-a-way-•-HDU-2612"><a href="#A-Find-a-way-•-HDU-2612" class="headerlink" title="A Find a way • HDU 2612"></a>A <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/A">Find a way</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2612/origin">HDU 2612</a></h3><h3 id="B-Dungeon-Master-•-POJ-2251"><a href="#B-Dungeon-Master-•-POJ-2251" class="headerlink" title="B Dungeon Master • POJ 2251"></a>B <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/B">Dungeon Master</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-2251/origin">POJ 2251</a></h3><h3 id="C-Red-and-Black-•-HDU-1312"><a href="#C-Red-and-Black-•-HDU-1312" class="headerlink" title="C Red and Black • HDU 1312"></a>C <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/C">Red and Black</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1312/origin">HDU 1312</a></h3><h3 id="D-Counting-Sheep-•-HDU-2952"><a href="#D-Counting-Sheep-•-HDU-2952" class="headerlink" title="D Counting Sheep • HDU 2952"></a>D <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/D">Counting Sheep</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2952/origin">HDU 2952</a></h3><h3 id="E-N皇后问题-•-HDU-2553"><a href="#E-N皇后问题-•-HDU-2553" class="headerlink" title="E N皇后问题 • HDU 2553"></a>E <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/E">N皇后问题</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2553/origin">HDU 2553</a></h3><h3 id="F-A-Funny-Bipartite-Graph-•-计蒜客-42577"><a href="#F-A-Funny-Bipartite-Graph-•-计蒜客-42577" class="headerlink" title="F  A Funny Bipartite Graph • 计蒜客 42577"></a>F <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/F"> A Funny Bipartite Graph</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/%E8%AE%A1%E8%92%9C%E5%AE%A2-42577/origin">计蒜客 42577</a></h3><h3 id="G-wyh2000-and-pupil-•-HDU-5285"><a href="#G-wyh2000-and-pupil-•-HDU-5285" class="headerlink" title="G wyh2000 and pupil • HDU 5285"></a>G <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/G">wyh2000 and pupil</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-5285/origin">HDU 5285</a></h3><h3 id="H-Legal-or-Not-•-HDU-3342"><a href="#H-Legal-or-Not-•-HDU-3342" class="headerlink" title="H Legal or Not • HDU 3342"></a>H <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/H">Legal or Not</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-3342/origin">HDU 3342</a></h3>
+<li><p>Windows 安装 Git</p>
+<ul>
+<li>访问 <a target="_blank" rel="noopener" href="https://git-scm.com/">Git</a>，下载 Git 并安装</li>
+<li>之后用 Git Bash 输命令或者继续用 cmd</li>
+</ul>
+</li>
+<li><p>创建 Hexo</p>
+<ul>
+<li>macOS：<code>sudo hexo init</code>：用管理员权限初始化 Hexo</li>
+<li>Windows：<code>hexo init</code>：初始化 Hexo</li>
+</ul>
+</li>
+</ul>
+<h3 id="Hexo-操作"><a href="#Hexo-操作" class="headerlink" title="Hexo 操作"></a>Hexo 操作</h3><ul>
+<li><p>启动 Hexo（本地预览）</p>
+<ul>
+<li><code>hexo s</code> s: start 启动 Hexo</li>
+<li>复制显示的网址用浏览器打开即可</li>
+<li><code>Ctrl + C</code> <code>Y</code> 停止</li>
+</ul>
+</li>
+<li><p>新建文章</p>
+<ul>
+<li><code>hexo n "title"</code> n: new 新建文章</li>
+<li>在 <code>Blog\source\_posts\</code> 中找到新建的 .md 文件用 Typora 编辑</li>
+</ul>
+</li>
+<li><p>生成 Hexo</p>
+<ul>
+<li><code>hexo clean</code>：清理 Hexo</li>
+<li><code>hexo g</code>：生成 Hexo</li>
+</ul>
+</li>
+<li><p>先生成，应用修改，后启动查看效果</p>
+</li>
+</ul>
+<h3 id="将博客部署到远端（Github）"><a href="#将博客部署到远端（Github）" class="headerlink" title="将博客部署到远端（Github）"></a>将博客部署到远端（Github）</h3><ul>
+<li><p>访问 <a target="_blank" rel="noopener" href="https://github.com/">Github</a></p>
+</li>
+<li><p>注册/登录 账号</p>
+</li>
+<li><p>新建仓库</p>
+<ul>
+<li>点击右上角 <code>+</code></li>
+<li>点击 <code>New repository</code></li>
+<li>Repository name 填写：Username.github.io</li>
+<li>点击 <code>create repository</code></li>
+</ul>
+</li>
+<li><p><code>cnpm install --save hexo-deployer-git</code> ：在 Blog 目录下安装 Git 部署插件</p>
+</li>
+<li><p>自动安装 忽略 Warning</p>
+</li>
+<li><p>编辑 <code>Blog\_config.yml</code> 文件</p>
+<ul>
+<li><p>下拉找到 <code>\# Deployment</code></p>
+<pre class="line-numbers language-none"><code class="language-none">deploy:
+  type: git
+  repo: https://github.com/Username/Username.github.io
+  branch: master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>如果 type 后有单引号’’，git 填在单引号里面</p>
+<p>repo 填的是 Github Repo 的地址，复制过来就行</p>
+</li>
+<li><p>保存并退出</p>
+</li>
+</ul>
+</li>
+<li><p><code>hexo d</code> d: deploy 部署到远端</p>
+<ul>
+<li>第一次部署要求输入 Github 账号密码</li>
+</ul>
+</li>
+<li><p>访问 Username.github.io 即可</p>
+</li>
+</ul>
+<h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><ul>
+<li><p><code>git clone 主题网址.git themes/主题名</code></p>
+</li>
+<li><p>编辑 <code>Blog\_config.yml</code> 文件</p>
+<ul>
+<li><p>下拉找到 <code>theme</code></p>
+</li>
+<li><p>修改为 <code>theme: 主题名</code></p>
+</li>
+<li><p>重新清理，生成，启动</p>
+</li>
+<li><p><code>hexo clean</code></p>
+</li>
+<li><p><code>hexo g</code></p>
+</li>
+<li><p><code>hexo s</code></p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="Hexo-个性化定制"><a href="#Hexo-个性化定制" class="headerlink" title="Hexo 个性化定制"></a>Hexo 个性化定制</h2>
                 
             </div>
             <hr/>
@@ -661,7 +631,7 @@ void bfs(int x, int y, int z)
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://owlllovo.github.io/2021/01/22/2020-1-23/">http://owlllovo.github.io/2021/01/22/2020-1-23/</a>
+                    <a href="http://owlllovo.github.io/2021/01/20/creating-my-blog/">http://owlllovo.github.io/2021/01/20/creating-my-blog/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -699,24 +669,8 @@ void bfs(int x, int y, int z)
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/DFS/">
-                                    <span class="chip bg-color">DFS</span>
-                                </a>
-                            
-                                <a href="/tags/BFS/">
-                                    <span class="chip bg-color">BFS</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
-                                    <span class="chip bg-color">拓扑排序</span>
-                                </a>
-                            
-                                <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/">
-                                    <span class="chip bg-color">二分图</span>
-                                </a>
-                            
-                                <a href="/tags/C/">
-                                    <span class="chip bg-color">C++</span>
+                                <a href="/tags/Hexo/">
+                                    <span class="chip bg-color">Hexo</span>
                                 </a>
                             
                         </div>
@@ -762,18 +716,16 @@ void bfs(int x, int y, int z)
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="far fa-dot-circle"></i>&nbsp;本篇
-            </div>
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/01/22/2020-1-23/">
+                <a href="/2021/01/20/mouseline-shu-biao-xi-fu-xian-tiao-xiao-guo/">
                     <div class="card-image">
                         
+                        <img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/mouseline.png" class="responsive-img" alt="Mouseline • 鼠标吸附线条效果">
                         
-                        <img src="/medias/featureimages/16.jpg" class="responsive-img" alt="2020.1.23">
-                        
-                        <span class="card-title">2020.1.23</span>
+                        <span class="card-title">Mouseline • 鼠标吸附线条效果</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -783,43 +735,30 @@ void bfs(int x, int y, int z)
                         
                     </div>
                     <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-22
-                            </span>
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-20
+                        </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/ACM/" class="post-category">
-                                    ACM
+                            <a href="/categories/Web/" class="post-category">
+                                    Web
                                 </a>
                             
                             
                         </span>
                     </div>
                 </div>
-
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/DFS/">
-                        <span class="chip bg-color">DFS</span>
+                    <a href="/tags/Hexo/">
+                        <span class="chip bg-color">Hexo</span>
                     </a>
                     
-                    <a href="/tags/BFS/">
-                        <span class="chip bg-color">BFS</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
-                        <span class="chip bg-color">拓扑排序</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/">
-                        <span class="chip bg-color">二分图</span>
-                    </a>
-                    
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
+                    <a href="/tags/JavaScript/">
+                        <span class="chip bg-color">JavaScript</span>
                     </a>
                     
                 </div>
@@ -833,13 +772,13 @@ void bfs(int x, int y, int z)
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/22/2020-1-22/">
+                <a href="/2021/01/20/hello-world/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="2020.1.22">
+                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
                         
-                        <span class="card-title">2020.1.22</span>
+                        <span class="card-title">Hello World</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -850,31 +789,15 @@ void bfs(int x, int y, int z)
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-20
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/ACM/" class="post-category">
-                                    ACM
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            Hexo
                             
                         </span>
                     </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E4%BA%8C%E5%88%86/">
-                        <span class="chip bg-color">二分</span>
-                    </a>
-                    
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
-                    </a>
-                    
                 </div>
                 
             </div>
@@ -1075,7 +998,7 @@ void bfs(int x, int y, int z)
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">4.2k</span>&nbsp;字
+                class="white-color">6.1k</span>&nbsp;字
             
             
             
