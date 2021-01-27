@@ -4,6 +4,19 @@
   
     
     <entry>
+      <title>2020.1.27</title>
+      <link href="2021/01/26/2020-1-27/"/>
+      <url>2021/01/26/2020-1-27/</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>2020.1.25</title>
       <link href="2021/01/25/2020-1-25/"/>
       <url>2021/01/25/2020-1-25/</url>
@@ -47,6 +60,8 @@
       
         <tags>
             
+            <tag> C++ </tag>
+            
             <tag> DFS </tag>
             
             <tag> BFS </tag>
@@ -54,8 +69,6 @@
             <tag> 拓扑排序 </tag>
             
             <tag> 二分图 </tag>
-            
-            <tag> C++ </tag>
             
         </tags>
       
@@ -80,9 +93,9 @@
       
         <tags>
             
-            <tag> 二分 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 二分 </tag>
             
         </tags>
       
@@ -107,9 +120,9 @@
       
         <tags>
             
-            <tag> 并查集 </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> 并查集 </tag>
             
         </tags>
       
@@ -134,9 +147,9 @@
       
         <tags>
             
-            <tag> STL </tag>
-            
             <tag> C++ </tag>
+            
+            <tag> STL </tag>
             
         </tags>
       
