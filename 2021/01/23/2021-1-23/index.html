@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2020.1.21, OwlllOvO">
+    <meta name="keywords" content="2021.1.23, OwlllOvO">
     <meta name="description" content="OwlllOvO Blog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2020.1.21 | OwlllOvO</title>
+    <title>2021.1.23 | OwlllOvO</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -268,12 +268,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2020.1.21</h1>
+                    <h1 class="description center-align post-title">2021.1.23</h1>
                 </div>
             </div>
         </div>
@@ -393,8 +393,20 @@
                                 <span class="chip bg-color">C++</span>
                             </a>
                         
-                            <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/">
-                                <span class="chip bg-color">并查集</span>
+                            <a href="/tags/DFS/">
+                                <span class="chip bg-color">DFS</span>
+                            </a>
+                        
+                            <a href="/tags/BFS/">
+                                <span class="chip bg-color">BFS</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
+                                <span class="chip bg-color">拓扑排序</span>
+                            </a>
+                        
+                            <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/">
+                                <span class="chip bg-color">二分图</span>
                             </a>
                         
                     </div>
@@ -418,7 +430,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-21
+                    2021-01-23
                 </div>
                 
 
@@ -427,7 +439,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    668
+                    1.6k
                 </div>
                 
 
@@ -447,113 +459,161 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="2020-1-21"><a href="#2020-1-21" class="headerlink" title="2020.1.21"></a>2020.1.21</h1><h2 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h2><blockquote>
-<p>并查集是一种树型的数据结构，用于处理一些不相交集合（disjoint sets）的合并及查询问题。常常在使用中以森林来表示。</p>
+                <h1 id="2021-1-23"><a href="#2021-1-23" class="headerlink" title="2021.1.23"></a>2021.1.23</h1><h2 id="DFS-•-深度优先搜索"><a href="#DFS-•-深度优先搜索" class="headerlink" title="DFS • 深度优先搜索"></a>DFS • 深度优先搜索</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><blockquote>
+<p>深度优先搜索属于图算法的一种，英文缩写为 DFS 即 Depth First Search. 其过程简要来说是对每一个可能的分支路径深入到不能再深入为止，而且每个节点只能访问一次。</p>
 <p>——百度百科</p>
 </blockquote>
-<h3 id="主要操作"><a href="#主要操作" class="headerlink" title="主要操作"></a>主要操作</h3><ul>
-<li><p>初始化</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int f[N];
-void ini(int x)
-{
-	for (int i = 1; i &lt;= x; i++)
-		f[i] = i;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>使所有元素都指向自己，将自己作为父节点</p>
-</li>
-<li><p>查找</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int find(int x)
-{
-    if (x == f[x]) return x;
-    return find(x);
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>合并</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void merge(int x, int y)
-{
-    f[find(x)] = find(y);
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-</li>
-</ul>
-<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><h4 id="路径压缩"><a href="#路径压缩" class="headerlink" title="路径压缩"></a>路径压缩</h4><blockquote>
-<p>每次查找的时候，如果路径较长，则修改信息，以便下次查找的时候速度更快。</p>
-<p>第一步，找到根结点。</p>
-<p>第二步，修改查找路径上的所有节点，将它们都指向根结点。</p>
-<p>——百度百科</p>
+<blockquote>
+<p>在一条路上的分岔按顺序选择方向，一条路走到底再返回到最近分岔选择下一条路，这个分岔下所有路全走完后再返回到更上一个分岔走下一条路。</p>
 </blockquote>
-<ul>
-<li><p>查找</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int find(int x)
+<h3 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h3><blockquote>
+<p>深度优先遍历图的方法是，从图中某顶点v出发：</p>
+<ol>
+<li>访问顶点 v ；</li>
+<li>依次从v的未被访问的邻接点出发，对图进行深度优先遍历；直至图中和v有路径相通的顶点都被访问；</li>
+<li>若此时图中尚有顶点未被访问，则从一个未被访问的顶点出发，重新进行深度优先遍历，直到图中所有顶点均被访问过为止。</li>
+</ol>
+</blockquote>
+<p><u>搜索完节点后注意是否需要回溯！</u></p>
+<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">bool judge(int x, int y) {};	//判断当前状态是否合法
+
+bool check(int x, int y) {};	//判断是否为最终答案
+
+void dfs(int x, int y, int z)
 {
-    if (x == f[x]) return x;
-    f[x] = find (f[x]);
-    return f[x];
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>或者写成这样：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int find(int x)
-{
-    if (x != f[x]) f[x] = find (f[x]);
-    return f[x];
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>再用二元运算符：</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int find(int x) { return x == f[x] ? x : (f[x] = find(f[x])); }<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p><del>这么写可以让自己看起来更加大佬</del></p>
-</li>
-</ul>
-<h4 id="按秩合并"><a href="#按秩合并" class="headerlink" title="按秩合并"></a>按秩合并</h4><p>将深度小的树合并到深度大的树上</p>
-<ul>
-<li><p>初始化</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void ini(int x)
-{
-	for (int i = 1; i &lt;= x; i++)
-	{
-		f[i] = i;
-		rank[i] = 1;	//深度都初始化为1
-	}
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>合并</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void merge(int x, int y)
-{
-	int a = find(x), b = find(y);	//先找到两个根节点
-	if (rank[a] &lt;= rank[b]) f[a] = b;
-	else fa[b] = a;
-	if (rank[a] == rank[b] &amp;&amp; a != b) rank[b]++;	//如果深度相同且根节点不同，则新的根节点的深度+1
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>因为是小的直接连接到大的根节点，所以合并时小的那一支的深度+1，只有当两者深度相同时才会产生更大的深度</p>
-</li>
-</ul>
-<h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><h4 id="种族并查集"><a href="#种族并查集" class="headerlink" title="种族并查集"></a>种族并查集</h4><p>通过多个并查集将不同的元素归类，并维护相互之间的关系</p>
-<p>例题：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2024">洛谷 P2024 食物链</a></p>
-<p>​    用三个并查集分别表示自己、自己的猎物（自己吃的）以及自己的天敌（吃自己的），同时维护三个并查集，通过他们三者的关系判断当前读入数据是否为真</p>
-<h4 id="带权并查集"><a href="#带权并查集" class="headerlink" title="带权并查集"></a>带权并查集</h4><p><u>基于路径压缩</u>，每个节点都记录的是与根节点之间的权值</p>
-<ul>
-<li><p>查找</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int find(int x)
-{
-	if (x != f[x])
-	{
-		int t = f[x];
-		f[x] = find(f[x]);
-		value[x] += value[t];
-	}
-	return f[x];
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>合并</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void merge(int x, int y)
-{
-    int px = find(x);
-    int py = find(y);
-    if (px != py)
+    if(!judge(x, y)) return;
+    if(check(x, y))
     {
-        f[px] = py;
-        value[px] = -value[x] + value[y] + s;
+        //保存答案
     }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210121213127.PNG"></p>
+    visited[x][y] = 1;	//标记已搜索过此节点，防止重复搜索
+    /*
+        操作...
+    */
+    dfs(x - 1, y, z + 1);
+    dfs(x + 1, y, z + 1);
+    dfs(x, y - 1, z + 1);
+    dfs(x, y + 1, z + 1);
+    visited[x][y] = 0;	//回溯
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><h4 id="剪枝"><a href="#剪枝" class="headerlink" title="剪枝"></a>剪枝</h4><p>有些求最优解的题目，可以不用完全遍历，当目前 dfs 的解已经比历史遍历得到的最优解更差时，可以停止遍历，节省一部分时间复杂度。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">bool judge(int x, int y) {};	//判断当前状态是否合法
+
+bool check(int x, int y) {};	//判断是否为最终答案
+
+void dfs(int x, int y, int z)
+{
+    if(!judge(x, y)) return;
+    if(z &gt; ans) return;
+    if(check(x, y))
+    {
+        ans = z;
+        //保存答案
+    }
+    visited[x][y] = 1;	//标记已搜索过此节点，防止重复搜索
+    /*
+        操作...
+    */
+    dfs(x - 1, y, z + 1);
+    dfs(x + 1, y, z + 1);
+    dfs(x, y - 1, z + 1);
+    dfs(x, y + 1, z + 1);
+    visited[x][y] = 0;	//回溯
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h4 id="记忆化搜索"><a href="#记忆化搜索" class="headerlink" title="记忆化搜索"></a>记忆化搜索</h4><p>对于遍历某些确定的类型时，如果到达一个节点之后的遍历结果是可以确定的，第一遍先向下遍历得到结果，将这个结果保存，之后再遍历到此节点时直接返回已得到的结果，可以节省一部分时间复杂度。</p>
+<p>如：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1434">洛谷 P1434 [SHOI2002]滑雪</a></p>
+<p>题目大意：矩阵求最长下降线路长度</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int fx[5] = { 0, 0, 0, 1, -1 };
+int fy[5] = { 0, 1, -1, 0, 0 };
+int dfs(int x, int y)
+{
+	if (f[x][y]) return f[x][y];	//记忆化搜索
+	f[x][y] = 1;	//题目中答案是有包含这个点的
+	for (int i = 1; i &lt;= 4; i++)
+	{
+		int xx = fx[i] + x;
+		int yy = fy[i] + y;	//四个方向
+		if (xx &gt; 0 &amp;&amp; yy &gt; 0 &amp;&amp; xx &lt;= n &amp;&amp; yy &lt;= m &amp;&amp; a[x][y] &gt; a[xx][yy])
+		{
+			f[x][y] = max(f[x][y], dfs(xx, yy) + 1);
+		}
+	}
+	return f[x][y];
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h2 id="BFS-•-广度优先搜索"><a href="#BFS-•-广度优先搜索" class="headerlink" title="BFS • 广度优先搜索"></a>BFS • 广度优先搜索</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><blockquote>
+<p>从出发点一层一层向外遍历，到达终点就结束。因此，到达终点的方案一定是最优解。</p>
+</blockquote>
+<blockquote>
+<p>无论有多少条路，每条路都只走一步，并记录下状态，等到所有的路都走完一步后，再从第一条路开始走第二步，直至有一条路走到终点。</p>
+</blockquote>
+<h3 id="基本思路-1"><a href="#基本思路-1" class="headerlink" title="基本思路"></a>基本思路</h3><blockquote>
+<p>广度优先搜索使用队列（queue）来实现，整个过程也可以看做一个倒立的树形：</p>
+<ol>
+<li><p>把根节点放到队列的末尾。</p>
 </li>
-</ul>
-<h3 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h3><h4 id="A-Ubiquitous-Religions-•-POJ-2524"><a href="#A-Ubiquitous-Religions-•-POJ-2524" class="headerlink" title="A Ubiquitous Religions • POJ 2524"></a>A <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418701#problem/A">Ubiquitous Religions</a> • <a target="_blank" rel="noopener" href="http://poj.org/problem?id=252">POJ 2524</a></h4><h4 id="B-食物链-•-洛谷-P2024"><a href="#B-食物链-•-洛谷-P2024" class="headerlink" title="B 食物链 • 洛谷 P2024"></a>B <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418701#problem/B">食物链</a> • <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2024">洛谷 P2024</a></h4><h4 id="C-How-Many-Tables-•-HDU-1213"><a href="#C-How-Many-Tables-•-HDU-1213" class="headerlink" title="C How Many Tables • HDU 1213"></a>C <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418701#problem/C">How Many Tables</a> • <a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=1213">HDU 1213</a></h4><h4 id="D-畅通工程-•-HDU-1232"><a href="#D-畅通工程-•-HDU-1232" class="headerlink" title="D 畅通工程 • HDU 1232"></a>D <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418701#problem/D">畅通工程</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1232/origin">HDU 1232</a></h4><h4 id="E-人见人爱A-B-•-HDU-2035"><a href="#E-人见人爱A-B-•-HDU-2035" class="headerlink" title="E 人见人爱A^B •  HDU 2035"></a>E <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418701#problem/E">人见人爱A^B</a> • <a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=2035"> HDU 2035</a></h4><h4 id="F-How-Many-Answers-Are-Wrong-•-HDU-3038"><a href="#F-How-Many-Answers-Are-Wrong-•-HDU-3038" class="headerlink" title="F How Many Answers Are Wrong •  HDU 3038"></a>F <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418701#problem/F">How Many Answers Are Wrong</a> • <a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=3038"> HDU 3038</a></h4>
+<li><p>每次从队列的头部取出一个元素，查看这个元素所有的下一级元素，把它们放到队列的末尾。并把这个元素记为它下一级元素的前驱。</p>
+</li>
+<li><p>找到所要找的元素时结束程序。</p>
+</li>
+<li><p>如果遍历整个树还没有找到，结束程序。</p>
+</li>
+</ol>
+</blockquote>
+<h3 id="模板-1"><a href="#模板-1" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int fx[5] = { 0, -1, 1, 0, 0 };
+int fy[5] = { 0, 0, 0, -1, 1 };	//上下左右
+struct node
+{
+    int x, y, z;
+};
+
+bool check (int x, int y) {};	//判断点是否能走
+
+void bfs(int x, int y, int z)
+{
+    node start;
+	start.x = x;
+	start.y = y;
+	start.z = 0;	//start 为出发点，z 为步数
+    queue &lt;node&gt; q;
+	q.push(start);	//将出发点推入队列中等待处理
+	while (!q.empty())
+	{
+        node now;
+		now = q.front();	//从队列中取出首元素处理
+		q.pop();	//将该元素取出后要记得推出，否则只推入不推出，死循环
+		t[now.x][now.y] = now.z;	//这里是记录了到 [now.x][now.y] 的最短路径，也可以做其他操作
+		for (int i = 1; i &lt;= 4; i++)	//往四个方向继续遍历
+		{
+            if (check (now.x + fx[i], now.y + fy[i]))
+			{
+				node next;
+				next.x = now.x + fx[i];
+				next.y = now.y + fy[i];
+				next.z = now.z + 1;
+				vi[next.x][next.y] = 1;
+				q.push(next);	//将该点保存并推入队列中，等待前面的处理完后再走下一步
+			}
+		}
+	}
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h2 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h2><h3 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h3><blockquote>
+<p>对一个有向无环图 (Directed Acyclic Graph简称DAG) G进行拓扑排序，是将 G 中所有顶点排成一个线性序列，使得图中任意一对顶点 u 和 v，若边 &lt;u,v&gt;∈E(G)，则u在线性序列中出现在 v 之前。通常，这样的线性序列称为满足拓扑次序 (Topological Order) 的序列，简称拓扑序列。简单的说，由某个集合上的一个偏序得到该集合上的一个全序，这个操作称之为拓扑排序。</p>
+<p>——百度百科</p>
+</blockquote>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>由 AOV 网构造拓扑序列的拓扑排序算法主要是循环执行以下两步，直到不存在入度为0的顶点为止。</p>
+<ol>
+<li><p>选择一个入度为 0 的顶点并输出之；</p>
+</li>
+<li><p>从网中删除此顶点及所有出边。</p>
+<p>循环结束后，若输出的顶点数小于网中的顶点数，则输出“有回路”信息，否则输出的顶点序列就是一种拓扑序列。</p>
+</li>
+</ol>
+<h2 id="二分图"><a href="#二分图" class="headerlink" title="二分图"></a>二分图</h2><p>待更</p>
+<h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><h3 id="A-Find-a-way-•-HDU-2612"><a href="#A-Find-a-way-•-HDU-2612" class="headerlink" title="A Find a way • HDU 2612"></a>A <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/A">Find a way</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2612/origin">HDU 2612</a></h3><h3 id="B-Dungeon-Master-•-POJ-2251"><a href="#B-Dungeon-Master-•-POJ-2251" class="headerlink" title="B Dungeon Master • POJ 2251"></a>B <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/B">Dungeon Master</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-2251/origin">POJ 2251</a></h3><h3 id="C-Red-and-Black-•-HDU-1312"><a href="#C-Red-and-Black-•-HDU-1312" class="headerlink" title="C Red and Black • HDU 1312"></a>C <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/C">Red and Black</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1312/origin">HDU 1312</a></h3><h3 id="D-Counting-Sheep-•-HDU-2952"><a href="#D-Counting-Sheep-•-HDU-2952" class="headerlink" title="D Counting Sheep • HDU 2952"></a>D <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/D">Counting Sheep</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2952/origin">HDU 2952</a></h3><h3 id="E-N皇后问题-•-HDU-2553"><a href="#E-N皇后问题-•-HDU-2553" class="headerlink" title="E N皇后问题 • HDU 2553"></a>E <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/E">N皇后问题</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2553/origin">HDU 2553</a></h3><h3 id="F-A-Funny-Bipartite-Graph-•-计蒜客-42577"><a href="#F-A-Funny-Bipartite-Graph-•-计蒜客-42577" class="headerlink" title="F  A Funny Bipartite Graph • 计蒜客 42577"></a>F <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/F"> A Funny Bipartite Graph</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/%E8%AE%A1%E8%92%9C%E5%AE%A2-42577/origin">计蒜客 42577</a></h3><h3 id="G-wyh2000-and-pupil-•-HDU-5285"><a href="#G-wyh2000-and-pupil-•-HDU-5285" class="headerlink" title="G wyh2000 and pupil • HDU 5285"></a>G <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/G">wyh2000 and pupil</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-5285/origin">HDU 5285</a></h3><h3 id="H-Legal-or-Not-•-HDU-3342"><a href="#H-Legal-or-Not-•-HDU-3342" class="headerlink" title="H Legal or Not • HDU 3342"></a>H <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/H">Legal or Not</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-3342/origin">HDU 3342</a></h3>
                 
             </div>
             <hr/>
@@ -579,7 +639,7 @@ void ini(int x)
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://owlllovo.github.io/2021/01/21/2020-1-21/">http://owlllovo.github.io/2021/01/21/2020-1-21/</a>
+                    <a href="http://owlllovo.github.io/2021/01/23/2021-1-23/">http://owlllovo.github.io/2021/01/23/2021-1-23/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -621,8 +681,20 @@ void ini(int x)
                                     <span class="chip bg-color">C++</span>
                                 </a>
                             
-                                <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/">
-                                    <span class="chip bg-color">并查集</span>
+                                <a href="/tags/DFS/">
+                                    <span class="chip bg-color">DFS</span>
+                                </a>
+                            
+                                <a href="/tags/BFS/">
+                                    <span class="chip bg-color">BFS</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
+                                    <span class="chip bg-color">拓扑排序</span>
+                                </a>
+                            
+                                <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/">
+                                    <span class="chip bg-color">二分图</span>
                                 </a>
                             
                         </div>
@@ -672,13 +744,13 @@ void ini(int x)
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/01/22/2020-1-22/">
+                <a href="/2021/01/25/2021-1-25/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="2020.1.22">
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="2021.1.25">
                         
-                        <span class="card-title">2020.1.22</span>
+                        <span class="card-title">2021.1.25</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -689,8 +761,61 @@ void ini(int x)
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-22
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-25
                         </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ACM/" class="post-category">
+                                    ACM
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                    <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/">
+                        <span class="chip bg-color">线段树</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/01/22/2021-1-22/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="2021.1.22">
+                        
+                        <span class="card-title">2021.1.22</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-22
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -712,59 +837,6 @@ void ini(int x)
                     
                     <a href="/tags/%E4%BA%8C%E5%88%86/">
                         <span class="chip bg-color">二分</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2021/01/20/2020-1-20/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="2020.1.20">
-                        
-                        <span class="card-title">2020.1.20</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-20
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/ACM/" class="post-category">
-                                    ACM
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/C/">
-                        <span class="chip bg-color">C++</span>
-                    </a>
-                    
-                    <a href="/tags/STL/">
-                        <span class="chip bg-color">STL</span>
                     </a>
                     
                 </div>
