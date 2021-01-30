@@ -2025,7 +2025,7 @@ footer .copy-right {
     /* fix the problem of hidden failure */
     margin-top: 0.4em;
     /* bg color = bg color under block */
-    background: white;
+    background: rgba (255, 255, 255, 0);
 }
 
 /*二级菜单*/

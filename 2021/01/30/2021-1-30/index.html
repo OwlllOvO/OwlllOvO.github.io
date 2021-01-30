@@ -387,12 +387,37 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                          <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
-                          </div>
+                    <div class="article-tag">
+                        
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
+                            </a>
+                        
+                            <a href="/tags/Floyd/">
+                                <span class="chip bg-color">Floyd</span>
+                            </a>
+                        
+                            <a href="/tags/Dijkstra/">
+                                <span class="chip bg-color">Dijkstra</span>
+                            </a>
+                        
+                            <a href="/tags/SPFA/">
+                                <span class="chip bg-color">SPFA</span>
+                            </a>
+                        
+                    </div>
                     
                 </div>
                 <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/ACM/" class="post-category">
+                                ACM
+                            </a>
+                        
+                    </div>
                     
                 </div>
             </div>
@@ -410,7 +435,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    0
+                    2.1k
                 </div>
                 
 
@@ -430,7 +455,219 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                
+                <h1 id="2021-1-30"><a href="#2021-1-30" class="headerlink" title="2021.1.30"></a>2021.1.30</h1><h2 id="最短路问题"><a href="#最短路问题" class="headerlink" title="最短路问题"></a>最短路问题</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><blockquote>
+<p>最短路问题是图论理论的一个经典问题。寻找最短路径就是在指定网络中两结点间找一条距离最小的路。最短路不仅仅指一般地理意义上的距离最短,还可以引申到其它的度量,如时间、费用、线路容量等。</p>
+<p>——百度百科</p>
+</blockquote>
+<h3 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h3><ul>
+<li><p>Chain • 链：一个点和边的交错序列 v<del>0</del> - e<del>1</del> - v<del>1</del> - e<del>2</del> - v<del>2</del> - … - e<del>k</del> - v<del>k</del></p>
+</li>
+<li><p>Trail • 迹：对于一条路径 w，若e<del>1</del>, e<del>2</del>, …, e<del>k</del> 两两互不相同，则 w 是一条迹</p>
+</li>
+<li><p>Path • 路径：对于一条迹 w，除了 v<del>0</del> 和 v<del>k</del> 允许相同外，其余点两两互不相同，则称 w 是一条路径</p>
+</li>
+<li><p>Circuit • 回路：对于一个迹 w，若 v<del>0</del> = v<del>k</del>，则称 w 是一个回路</p>
+</li>
+<li><p>Cycle • 环：对于一条路径 w，若 v<del>0</del> = v<del>k</del>，则称 w 是一个环</p>
+</li>
+</ul>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+<li><p>单源最短路</p>
+<p>包括确定起点的最短路径问题，确定终点的最短路径问题（与确定起点的问题相反，该问题是已知终结结点，求最短路径的问题。在无向图中该问题与确定起点的问题完全等同，在有向图中该问题等同于把所有路径方向反转的确定起点的问题。） 。</p>
+</li>
+<li><p>多源最短路</p>
+</li>
+</ul>
+<h2 id="Dijkstra-•-单源最短路"><a href="#Dijkstra-•-单源最短路" class="headerlink" title="Dijkstra • 单源最短路"></a>Dijkstra • 单源最短路</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
+<li>将所有节点分成两个集合，已求出最短路的集合（集合1）和未求出最短路的集合（集合2）。</li>
+<li>更新并记录集合2 中所有节点和源点的距离</li>
+<li>从集合2 中找到距离源点距离最近的点</li>
+<li>将该点移到集合1 中</li>
+<li>重复步骤 2-3，直到集合2 为空</li>
+</ol>
+<p>这个方法用了贪心的思想，每次把距离最小的点视作确定的，因为它已经是未确定的点中距离源点最近的了，不可能存在一条路经过其他未确定的点到这个点，距离还比直接到这个点近的了。</p>
+<ul>
+<li><strong>不能有负权边</strong></li>
+</ul>
+<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><ul>
+<li>dis[]：每个点到源点的距离</li>
+<li>vis[]：每个点属于的集合，0 - 未确定，1- 已确定</li>
+</ul>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void Dijkstra(int x)
+{
+    memset (dis, INF, sizeof (dis));	//源点到未更新到的点的距离为无穷大（无法达到）
+    memset (vis, 0, sizeof (vis));	//所有点都先放在集合2 中
+    dis[x] = 0;
+    for (int i = 1; i &lt; n; i++)
+    {
+        int tmp;
+        for (int j = 1; j &lt;= n; j++)
+            if (!vis[j] &amp;&amp; dis[j] &lt; dis[tmp]) tmp = j;	//找到集合2 中距离源点最近的点
+        vis[tmp] = 1;
+        for (int j = 1; j &lt;= n; j++)
+            dis[j] = min(dis[j], dis[tmp] + mp[x][j]);
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><ul>
+<li>O(n^2^)</li>
+</ul>
+<h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><ul>
+<li><p>从一个点出发到所有点的距离：正 Dijkstra</p>
+</li>
+<li><p>从所有点出发到一个点的距离（<a target="_blank" rel="noopener" href="http://poj.org/problem?id=3268">POJ 3268 • Silver Cow Party</a>）</p>
+<ul>
+<li><p>把图反向</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int tmp = map[i][j];
+map[i][j] = map[j][i];
+map[j][i] = tmp;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li><p>Dijkstra</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><h2 id="Floyd-•-多源最短路"><a href="#Floyd-•-多源最短路" class="headerlink" title="Floyd • 多源最短路"></a>Floyd • 多源最短路</h2><h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>我们定义一个数组 <code>dis[k][x][y]</code> ，表示只允许经过结点 V<del>1</del> 到 V<del>k</del>，结点 x 到结点 y 的最短路长度。很显然， <code>dis[n][x][y]</code> 就是最终结点 x 到结点 y 的最短路长度。</p>
+<p><code>dis[0][x][y]</code> 是 x 与 y 的边权，或者 0 ，或者 INF（当 x 与 y 间有直接相连的边的时候，为它们的边权；当 x = y 的时候为零，因为到本身的距离为零；当 x 与 y 没有直接相连的边的时候，为 INF）</p>
+<p><code>dis[k][x][y] = min(dis[k-1][x][y], dis[k-1][x][k]+dis[k-1][k][y])</code> （ <code>dis[k-1][x][y]</code> 为不经过 k 点的最短路径，而 <code>dis[k-1][x][k]+dis[k-1][k][y]</code> 为经过了 k 点的最短路）。</p>
+<ul>
+<li><p><strong>能有负权边</strong></p>
+</li>
+<li><p><strong>不能有负环</strong></p>
+</li>
+</ul>
+<h3 id="模板-1"><a href="#模板-1" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void Floyd()
+{
+    for (int k = 1; k &lt;= n; k++)
+    {
+        for (int i = 1; i &lt;= n; i++)
+        {
+        	for(int j = 1; j &lt;= n; j++)
+            {
+                dis[k][i][j] = min(dis[k - 1][i][j], dis[k - 1][i][k] + dis[k - 1][k][j]);
+            }
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>不难看出，k 每次循环后只是调用了 k - 1 的数据，而 k 之前的数据对结果没有作用，因此第一维是可以省略的（数据可以不保存，直接在下一次循环被覆盖，但是还是需要有这 k 次循环）</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void Floyd()
+{
+    for (int k = 1; k &lt;= n; k++)
+    {
+        for (int i = 1; i &lt;= n; i++)
+        {
+        	for(int j = 1; j &lt;= n; j++)
+            {
+                dis[i][j] = min(dis[i][j], dis[i][k] + di[k][j]);
+            }
+        }
+    }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="复杂度-1"><a href="#复杂度-1" class="headerlink" title="复杂度"></a>复杂度</h3><ul>
+<li>时间复杂度：O(n^3^)</li>
+<li>空间复杂度：O(n^2^)</li>
+</ul>
+<h2 id="Bellman-Ford-•-单源最短路"><a href="#Bellman-Ford-•-单源最短路" class="headerlink" title="Bellman-Ford • 单源最短路"></a>Bellman-Ford • 单源最短路</h2><h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><ul>
+<li><p>松弛</p>
+<p>每次松弛操作实际上是对相邻节点的访问，第 n 次松弛操作保证了所有深度为 n 的路径最短。由于图的最短路径最长不会经过超过 |V| - 1 条边，所以可知贝尔曼-福特算法所得为最短路径。</p>
+</li>
+<li><p>负边权操作</p>
+<p>与 Dijkstra 算法不同的是，迪科斯彻算法的基本操作“拓展”是在深度上寻路，而“松弛”操作则是在广度上寻路，这就确定了贝尔曼-福特算法可以对负边进行操作而不会影响结果。</p>
+</li>
+<li><p>负权环判定</p>
+<p>因为负权环可以无限制的降低总花费，所以如果发现第 n 次操作仍可降低花销，就一定存在负权环。</p>
+</li>
+</ul>
+<ul>
+<li><p><strong>能有负权边</strong></p>
+</li>
+<li><p><strong>能有负环</strong></p>
+</li>
+</ul>
+<h3 id="优化-1"><a href="#优化-1" class="headerlink" title="优化"></a>优化</h3><ul>
+<li><p>循环的提前跳出</p>
+<p>在实际操作中，贝尔曼-福特算法经常会在未达到 |V| - 1 次前就出解，|V| - 1 其实是最大值。于是可以在循环中设置判定，在某次循环不再进行松弛时，直接退出循环，进行负权环判定。</p>
+</li>
+<li><p>最短路径快速算法</p>
+<p>松弛操作必定只会发生在最短路径前导节点松弛成功过的节点上，用一个队列记录松弛过的节点，可以避免了冗余计算。该算法的复杂度为 O(k|E|)，k 是个比较小的系数，但该结论未得到广泛认可。</p>
+</li>
+</ul>
+<h3 id="模板-2"><a href="#模板-2" class="headerlink" title="模板"></a>模板</h3><ul>
+<li><del>SPFA已死</del></li>
+</ul>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;vector&gt;
+#include&lt;list&gt;
+using namespace std;
+struct Edge
+{
+	int to, len;
+};
+bool SPFA(const int&amp; beg,//出发点
+	const vector&lt;list&lt;Edge&gt; &gt;&amp; adjlist,//邻接表，通过传引用避免拷贝
+	vector&lt;int&gt;&amp; dist,//出发点到各点的最短路径长度
+	vector&lt;int&gt;&amp; path)//路径上到达该点的前一个点
+//没有负权回路返回0
+{
+	const int INF = 0x7FFFFFFF, NODE = adjlist.size();//用邻接表的大小传递顶点个数，减少参数传递
+	dist.assign(NODE, INF);//初始化距离为无穷大
+	path.assign(NODE, -1);//初始化路径为未知
+	list&lt;int&gt; que(1, beg);//处理队列
+	vector&lt;int&gt; cnt(NODE, 0);//记录各点入队次数，用于判断负权回路
+	vector&lt;bool&gt; flag(NODE, 0);//标志数组，判断是否在队列中
+	dist[beg] = 0;//出发点到自身路径长度为0
+	cnt[beg] = flag[beg] = 1;//入队并开始计数
+	while (!que.empty())
+	{
+		const int now = que.front();
+		que.pop_front();
+		flag[now] = 0;//将当前处理的点出队
+		for (list&lt;Edge&gt;::const_iterator//用常量迭代器遍历邻接表
+			i = adjlist[now].begin(); i != adjlist[now].end(); ++i)
+			if (dist[i-&gt;to] &gt; dist[now] + i-&gt;len)//不满足三角不等式
+			{
+				dist[i-&gt;to] = dist[now] + i-&gt;len;//更新
+				path[i-&gt;to] = now;//记录路径
+				if (!flag[i-&gt;to])//若未在处理队列中
+				{
+					if (NODE == ++cnt[i-&gt;to])return 1;//计数后出现负权回路
+					if (!que.empty() &amp;&amp; dist[i-&gt;to] &lt; dist[que.front()])//队列非空且优于队首（SLF）
+						que.push_front(i-&gt;to);//放在队首
+					else que.push_back(i-&gt;to);//否则放在队尾
+					flag[i-&gt;to] = 1;//入队
+				}
+			}
+	}
+	return 0;
+}
+int main()
+{
+	int n_num, e_num, beg;//含义见下
+	cout &lt;&lt; "输入点数、边数、出发点：";
+	cin &gt;&gt; n_num &gt;&gt; e_num &gt;&gt; beg;
+	vector&lt;list&lt;Edge&gt; &gt; adjlist(n_num, list&lt;Edge&gt;());//默认初始化邻接表
+	for (int i = 0, p; i != e_num; ++i)
+	{
+		Edge tmp;
+		cout &lt;&lt; "输入第" &lt;&lt; i + 1 &lt;&lt; "条边的起点、终点、长度：";
+		cin &gt;&gt; p &gt;&gt; tmp.to &gt;&gt; tmp.len;
+		adjlist[p].push_back(tmp);
+	}
+	vector&lt;int&gt; dist, path;//用于接收最短路径长度及路径各点
+	if (SPFA(beg, adjlist, dist, path))cout &lt;&lt; "图中存在负权回路\n";
+	else for (int i = 0; i != n_num; ++i)
+	{
+		cout &lt;&lt; beg &lt;&lt; "到" &lt;&lt; i &lt;&lt; "的最短距离为" &lt;&lt; dist[i] &lt;&lt; "，反向打印路径：";
+		for (int w = i; path[w] &gt;= 0; w = path[w])cout &lt;&lt; w &lt;&lt; "&lt;-";
+		cout &lt;&lt; beg &lt;&lt; '\n';
+	}
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="复杂度-2"><a href="#复杂度-2" class="headerlink" title="复杂度"></a>复杂度</h3><ul>
+<li>O(|V| · |E|)</li>
+</ul>
+<h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><h3 id="A-最短路-•-HDU-2544"><a href="#A-最短路-•-HDU-2544" class="headerlink" title="A  最短路 • HDU 2544"></a>A <a target="_blank" rel="noopener" href="https://vjudge.net/contest/420578#problem/A"> 最短路</a> • <a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=2544">HDU 2544</a></h3><h3 id="B-Til-the-Cows-Come-Home-•-POJ-2387"><a href="#B-Til-the-Cows-Come-Home-•-POJ-2387" class="headerlink" title="B  Til the Cows Come Home • POJ 2387"></a>B <a target="_blank" rel="noopener" href="https://vjudge.net/contest/420578#problem/B"> Til the Cows Come Home</a> • <a target="_blank" rel="noopener" href="http://poj.org/problem?id=2387">POJ 2387</a></h3><h3 id="C-Silver-Cow-Party-•-POJ-3268"><a href="#C-Silver-Cow-Party-•-POJ-3268" class="headerlink" title="C  Silver Cow Party • POJ 3268"></a>C <a target="_blank" rel="noopener" href="https://vjudge.net/contest/420578#problem/C"> Silver Cow Party</a> • <a target="_blank" rel="noopener" href="http://poj.org/problem?id=3268">POJ 3268</a></h3><h3 id="D-Heavy-Transportation-•-POJ-1797"><a href="#D-Heavy-Transportation-•-POJ-1797" class="headerlink" title="D  Heavy Transportation •  POJ 1797"></a>D <a target="_blank" rel="noopener" href="https://vjudge.net/contest/420578#problem/D"> Heavy Transportation</a> • <a target="_blank" rel="noopener" href="http://poj.org/problem?id=1797"> POJ 1797</a></h3><h3 id="E-Cow-Contest-•-POJ-3660"><a href="#E-Cow-Contest-•-POJ-3660" class="headerlink" title="E  Cow Contest • POJ 3660"></a>E <a target="_blank" rel="noopener" href="https://vjudge.net/contest/420578#problem/E"> Cow Contest</a> • <a target="_blank" rel="noopener" href="http://poj.org/problem?id=3660">POJ 3660</a></h3><h3 id="F-Edge-Deletion-•-CodeForces-1076D"><a href="#F-Edge-Deletion-•-CodeForces-1076D" class="headerlink" title="F Edge Deletion • CodeForces 1076D"></a>F <a target="_blank" rel="noopener" href="https://vjudge.net/contest/420578#problem/F">Edge Deletion</a> • <a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1076/D">CodeForces 1076D</a></h3>
                 
             </div>
             <hr/>
@@ -493,7 +730,23 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            <span class="chip bg-color">无标签</span>
+                            
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
+                                </a>
+                            
+                                <a href="/tags/Floyd/">
+                                    <span class="chip bg-color">Floyd</span>
+                                </a>
+                            
+                                <a href="/tags/Dijkstra/">
+                                    <span class="chip bg-color">Dijkstra</span>
+                                </a>
+                            
+                                <a href="/tags/SPFA/">
+                                    <span class="chip bg-color">SPFA</span>
+                                </a>
+                            
                         </div>
                     
                 </div>
@@ -563,13 +816,37 @@
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            OwlllOvO
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ACM/" class="post-category">
+                                    ACM
+                                </a>
+                            
                             
                         </span>
                     </div>
                 </div>
 
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                    <a href="/tags/Floyd/">
+                        <span class="chip bg-color">Floyd</span>
+                    </a>
+                    
+                    <a href="/tags/Dijkstra/">
+                        <span class="chip bg-color">Dijkstra</span>
+                    </a>
+                    
+                    <a href="/tags/SPFA/">
+                        <span class="chip bg-color">SPFA</span>
+                    </a>
+                    
+                </div>
                 
             </div>
         </div>
@@ -822,7 +1099,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">6.3k</span>&nbsp;字
+                class="white-color">8.4k</span>&nbsp;字
             
             
             
