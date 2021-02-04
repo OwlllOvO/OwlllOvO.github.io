@@ -460,15 +460,15 @@
 <p>——百度百科</p>
 </blockquote>
 <h3 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h3><ul>
-<li><p>Chain • 链：一个点和边的交错序列 v<del>0</del> - e<del>1</del> - v<del>1</del> - e<del>2</del> - v<del>2</del> - … - e<del>k</del> - v<del>k</del></p>
+<li><p>Chain • 链：一个点和边的交错序列 v<sub>0</sub> - e<sub>1</sub> - v<sub>1</sub> - e<sub>2</sub> - v<sub>2</sub> - … - e<sub>k</sub> - v<sub>k</sub></p>
 </li>
-<li><p>Trail • 迹：对于一条路径 w，若e<del>1</del>, e<del>2</del>, …, e<del>k</del> 两两互不相同，则 w 是一条迹</p>
+<li><p>Trail • 迹：对于一条路径 w，若e<sub>1</sub>, e<sub>2</sub>, …, e<sub>k</sub> 两两互不相同，则 w 是一条迹</p>
 </li>
-<li><p>Path • 路径：对于一条迹 w，除了 v<del>0</del> 和 v<del>k</del> 允许相同外，其余点两两互不相同，则称 w 是一条路径</p>
+<li><p>Path • 路径：对于一条迹 w，除了 v<sub>0</sub> 和 v<sub>k</sub> 允许相同外，其余点两两互不相同，则称 w 是一条路径</p>
 </li>
-<li><p>Circuit • 回路：对于一个迹 w，若 v<del>0</del> = v<del>k</del>，则称 w 是一个回路</p>
+<li><p>Circuit • 回路：对于一个迹 w，若 v<sub>0</sub> = v<sub>k</sub>，则称 w 是一个回路</p>
 </li>
-<li><p>Cycle • 环：对于一条路径 w，若 v<del>0</del> = v<del>k</del>，则称 w 是一个环</p>
+<li><p>Cycle • 环：对于一条路径 w，若 v<sub>0</sub> = v<sub>k</sub>，则称 w 是一个环</p>
 </li>
 </ul>
 <h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
@@ -509,7 +509,7 @@
     }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><ul>
-<li>O(n^2^)</li>
+<li>O(n<sup>2</sup>)</li>
 </ul>
 <h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><ul>
 <li><p>从一个点出发到所有点的距离：正 Dijkstra</p>
@@ -525,7 +525,7 @@ map[j][i] = tmp;<span aria-hidden="true" class="line-numbers-rows"><span></span>
 </ul>
 </li>
 </ul>
-<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><h2 id="Floyd-•-多源最短路"><a href="#Floyd-•-多源最短路" class="headerlink" title="Floyd • 多源最短路"></a>Floyd • 多源最短路</h2><h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>我们定义一个数组 <code>dis[k][x][y]</code> ，表示只允许经过结点 V<del>1</del> 到 V<del>k</del>，结点 x 到结点 y 的最短路长度。很显然， <code>dis[n][x][y]</code> 就是最终结点 x 到结点 y 的最短路长度。</p>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><h2 id="Floyd-•-多源最短路"><a href="#Floyd-•-多源最短路" class="headerlink" title="Floyd • 多源最短路"></a>Floyd • 多源最短路</h2><h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>我们定义一个数组 <code>dis[k][x][y]</code> ，表示只允许经过结点 V<sub>1</sub> 到 V<sub>k</sub>，结点 x 到结点 y 的最短路长度。很显然， <code>dis[n][x][y]</code> 就是最终结点 x 到结点 y 的最短路长度。</p>
 <p><code>dis[0][x][y]</code> 是 x 与 y 的边权，或者 0 ，或者 INF（当 x 与 y 间有直接相连的边的时候，为它们的边权；当 x = y 的时候为零，因为到本身的距离为零；当 x 与 y 没有直接相连的边的时候，为 INF）</p>
 <p><code>dis[k][x][y] = min(dis[k-1][x][y], dis[k-1][x][k]+dis[k-1][k][y])</code> （ <code>dis[k-1][x][y]</code> 为不经过 k 点的最短路径，而 <code>dis[k-1][x][k]+dis[k-1][k][y]</code> 为经过了 k 点的最短路）。</p>
 <ul>
@@ -564,8 +564,8 @@ map[j][i] = tmp;<span aria-hidden="true" class="line-numbers-rows"><span></span>
 
 
 <h3 id="复杂度-1"><a href="#复杂度-1" class="headerlink" title="复杂度"></a>复杂度</h3><ul>
-<li>时间复杂度：O(n^3^)</li>
-<li>空间复杂度：O(n^2^)</li>
+<li>时间复杂度：O(n<sup>3</sup>)</li>
+<li>空间复杂度：O(n<sup>2</sup>)</li>
 </ul>
 <h2 id="Bellman-Ford-•-单源最短路"><a href="#Bellman-Ford-•-单源最短路" class="headerlink" title="Bellman-Ford • 单源最短路"></a>Bellman-Ford • 单源最短路</h2><h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><ul>
 <li><p>松弛</p>
