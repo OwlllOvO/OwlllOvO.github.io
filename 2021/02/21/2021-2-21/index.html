@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2021.1.29, OwlllOvO">
+    <meta name="keywords" content="2021.2.21, OwlllOvO">
     <meta name="description" content="OwlllOvO Blog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2021.1.29 | OwlllOvO</title>
+    <title>2021.2.21 | OwlllOvO</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -268,12 +268,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2021.1.29</h1>
+                    <h1 class="description center-align post-title">2021.2.21</h1>
                 </div>
             </div>
         </div>
@@ -393,8 +393,8 @@
                                 <span class="chip bg-color">C++</span>
                             </a>
                         
-                            <a href="/tags/Hash/">
-                                <span class="chip bg-color">Hash</span>
+                            <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/">
+                                <span class="chip bg-color">计算几何</span>
                             </a>
                         
                     </div>
@@ -418,7 +418,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-29
+                    2021-02-21
                 </div>
                 
 
@@ -427,7 +427,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    157
+                    2.1k
                 </div>
                 
 
@@ -447,9 +447,331 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="2021-1-29"><a href="#2021-1-29" class="headerlink" title="2021.1.29"></a>2021.1.29</h1><h2 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h2><blockquote>
-<p>Hash，一般翻译做散列、杂凑，或音译为哈希，是把任意长度的输入（又叫做预映射pre-image）通过散列算法变换成固定长度的输出，该输出就是散列值。这种转换是一种压缩映射，也就是，散列值的空间通常远小于输入的空间，不同的输入可能会散列成相同的输出，所以不可能从散列值来确定唯一的输入值。简单的说就是一种将任意长度的消息压缩到某一固定长度的消息摘要的函数。</p>
-</blockquote>
+                <h1 id="2021-2-21"><a href="#2021-2-21" class="headerlink" title="2021.2.21"></a>2021.2.21</h1><h2 id="计算几何"><a href="#计算几何" class="headerlink" title="计算几何"></a>计算几何</h2><h3 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h3><h4 id="高精度圆周率"><a href="#高精度圆周率" class="headerlink" title="高精度圆周率"></a>高精度圆周率</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">const double pi = acos(-1.0);<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h4 id="偏差值"><a href="#偏差值" class="headerlink" title="偏差值"></a>偏差值</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">const double eps = 1e-8;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h4 id="sgn"><a href="#sgn" class="headerlink" title="sgn"></a>sgn</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int sgn(double x)	// 判断x是否等于0
+{
+	if (fabs(x) &lt; eps) return 0;
+	else return x &lt; 0 ? -1 : 1;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="dcmp"><a href="#dcmp" class="headerlink" title="dcmp"></a>dcmp</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int dcmp(double x, double y)	// 比较两个浮点数，0为相等，-1为小于，1为大于
+{
+	if (fabs(x - y) &lt; eps) return 0;
+	else return x &lt; y ? -1 : 1;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h3 id="点和向量"><a href="#点和向量" class="headerlink" title="点和向量"></a>点和向量</h3><h4 id="点"><a href="#点" class="headerlink" title="点"></a>点</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">struct Point
+{
+	double x, y;
+	Point() {}
+	Point(double x, double y) : x(x), y(y) {}
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="两点间距离"><a href="#两点间距离" class="headerlink" title="两点间距离"></a>两点间距离</h4><ol>
+<li><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">double Dist(Point A, Point B)
+{
+	return hypot(A.x - B.x, A.y - B.y);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">double Dist(Point A, Point B)
+{
+	return sqrt((A.x - B.x) * (A.x - B.x) + (A.y - B.y) * (A.y - B.y));
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+</li>
+</ol>
+<h4 id="向量"><a href="#向量" class="headerlink" title="向量"></a>向量</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">typedef Point Vector;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h4 id="向量的运算"><a href="#向量的运算" class="headerlink" title="向量的运算"></a>向量的运算</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">struct Point
+{
+	double x, y;
+	Point() {}
+	Point(double x, double y) : x(x), y(y) {}
+
+	Point operator+(Point B) { return Point(x + B.x, y + B.y); }	// 加
+
+	Point operator-(Point B) { return Point(x - B.x, y - B.y); }	// 减
+
+	Point operator*(double k) { return Point(x * k, y * k); }	// 乘
+
+	Point operator/(double k) { return Point(x / k, y / k); }	// 除
+
+	bool operator==(Point B) { return sgn(x - B.x) == 0 &amp;&amp; sgn(y - B.y) == 0; }	// 等于
+
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h3 id="点积"><a href="#点积" class="headerlink" title="点积"></a>点积</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p><code>A • B = |A||B|cosθ</code></p>
+<h4 id="几何定义"><a href="#几何定义" class="headerlink" title="几何定义"></a>几何定义</h4><p>θ: 表示向量 b 与向量 a 的夹角</p>
+<p>向量 b 在向量 a 上的投影长度乘以向量 a 的模长</p>
+<h4 id="公式"><a href="#公式" class="headerlink" title="公式"></a>公式</h4><p><code>A • B = A.x * B.x + A.y * B.y</code></p>
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">double Dot(Vector A, Vector B)
+{
+	return A.x * B.x + A.y * B.y;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h4><ol>
+<li><p>判断向量 A 与向量 B 的夹角是钝角还是锐角</p>
+<ul>
+<li>若 Dot(A, B) &gt; 0: 向量 A 与向量 B 的夹角为锐角</li>
+<li>若 Dot(A, B) &lt; 0: 向量 A 与向量 B 的夹角为顿角</li>
+<li>若 Dot(A, B) = 0: 向量 A 与向量 B 的夹角为直角</li>
+</ul>
+</li>
+<li><p>求向量 A 的模长</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">double Len(Vector A)
+{
+	return sqrt(Dot(A, A));
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>求向量 A 与向量 B 的夹角大小</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">double Angle(Vector A, Vector B)
+{
+	return acos(Dot(A, B) / Len(A) / Len(B));
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+</li>
+</ol>
+<h3 id="叉积"><a href="#叉积" class="headerlink" title="叉积"></a>叉积</h3><h4 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h4><p><code>A × B = |A||B|sinθ</code></p>
+<h4 id="几何意义"><a href="#几何意义" class="headerlink" title="几何意义"></a>几何意义</h4><p>θ: 向量 A 旋转到向量 B 所经过的夹角</p>
+<p>|A × B| 在数值上等于由向量和向量构成的平行四边形的面积</p>
+<h4 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">double Cross(Vector A, Vector B)
+{
+	return A.x * B.y - A.y * B.x;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="应用-1"><a href="#应用-1" class="headerlink" title="应用"></a>应用</h4><ol>
+<li><p>判断向量与向量的方向关系</p>
+<ul>
+<li>若 A × B &gt; 0，B 在 A 的逆时针方向</li>
+<li>若 A × B &lt; 0，B 在 A 的顺时针方向</li>
+<li>若 A × B = 0，B 与 A 共线，可能是同方向，也可能是反方向</li>
+</ul>
+</li>
+<li><p>计算两向量构成的平行四边形的有向面积</p>
+<p>3 个点 A, B, C 以 A 为公共点，得到两个向量 B - A, C - A 它们构成的平行四边形的面积如下</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">double Area2(Point A, Point B, Point C)
+{
+	return Cross(B - A, C - A);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>同理 Area2(A, B, C) / 2 就是计算以 A, B, C 三点构成三角形的面积</p>
+</li>
+<li><p>向量旋转</p>
+<p>向量 A 逆时针旋转的角度为 rad</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">Vector Rotate(Vector A, double rad)
+{
+	return Vector(A.x * cos(rad) - A.y * sin(rad), A.x * sin(rad) + A.y * cos(rad));
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>有时需要求单位法向量，即逆时针旋转 90°，然后取单位值</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">Vector Normal(Vector A)
+{
+	return Vector(-A.y / Len(A), A.x / Len(A));
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>用叉积检查两个向量是否平行或重合</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">bool Parallel(Vector A, Vector B)
+{
+	return sgn(Cross(A, B)) == 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+</li>
+</ol>
+<h3 id="点和线"><a href="#点和线" class="headerlink" title="点和线"></a>点和线</h3><h4 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">struct Line	// 直线
+{
+	Point p1, p2;	// 线上的两个点
+	Line() {}
+	// 直接用两个点来构造直线
+	Line(Point p1, Point p2) : p1(p1), p2(p2) {}
+	// 根据一个点和倾斜角angle确定直线，0≤angle≤pi
+	Line(Point p, double angle)
+	{
+		p1 = p;
+		if (sgn(angle - pi / 2) == 0)
+			p2 = (p1 + Point(0, 1));
+		else
+			p2 = (p1 + Point(1, tan(angle)));
+	}
+	// ax + by + c = 0
+	Line(double a, double b, double c)
+	{
+		if (sgn(a) == 0)
+		{
+			p1 = Point(0, -c / b);
+			p2 = Point(1, -c / b);
+		}
+		else if (sgn(b) == 0)
+		{
+			p1 = Point(-c / a, 0);
+			p2 = Point(-c / a, 1);
+		}
+		else
+		{
+			p1 = Point(0, -c / b);
+			p2 = Point(1, (-c - a) / b);
+		}
+	}
+};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="线段的表示"><a href="#线段的表示" class="headerlink" title="线段的表示"></a>线段的表示</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">typedef Line Segment;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h4 id="点和直线的位置关系"><a href="#点和直线的位置关系" class="headerlink" title="点和直线的位置关系"></a>点和直线的位置关系</h4><p>用直线 v 上的两点 p1 和 p2 与点 p 构成两个向量，用叉积的正负判断方向，得到相对的位置关系点</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int Point_line_relation(Point p, Line v)
+{
+	int c = sgn(Cross(p - v.p1, v.p2 - v.p1));
+	if (c &lt; 0) // 1：p在v的左边
+		return 1;
+	if (c &gt; 0) // 2：p在v的右边
+		return 2;
+	return 0; // 0：p在v上
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="点和线段的位置关系"><a href="#点和线段的位置关系" class="headerlink" title="点和线段的位置关系"></a>点和线段的位置关系</h4><p>判断点 p 是否在线段 v 上，先用叉积判断是否共线，然后用点积看 p 和 v 的两个端点产生的角是否为钝角</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">bool Point_on_seg(Point p, Line v)	// 0为点不在线段v上；1为点在线段v上
+{
+	return sgn(Cross(p - v.p1, v.p2 - v.p1)) == 0 &amp;&amp; sgn(Dot(p - v.p1, p - v.p2)) &lt;= 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="点到直线的距离"><a href="#点到直线的距离" class="headerlink" title="点到直线的距离"></a>点到直线的距离</h4><p>已知点 p 和直线 v(p1, p2)，求 p 到 v 的距离。首先用叉积求 p, p1, p2 构成的平行四边形的面积，然后用面积除以平行四边形的底边长，也就是线段 (p1, p2) 的长度，就得到了平行四边形的高，即点 p 到直线 v 的距离</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">double Dis_point_line(Point p, Line v)
+{
+	return fabs(Cross(p - v.p1, v.p2 - v.p1)) / Dist(v.p1, v.p2);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="点在直线上的投影"><a href="#点在直线上的投影" class="headerlink" title="点在直线上的投影"></a>点在直线上的投影</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">Point Point_line_proj(Point p, Line v)	// 点p在直线v上的投影
+{
+	double k = Dot(v.p2 - v.p1, p - v.p1) / Len2(v.p2 - v.p1);
+	return v.p1 + (v.p2 - v.p1) * k;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="点关于直线的对称点"><a href="#点关于直线的对称点" class="headerlink" title="点关于直线的对称点"></a>点关于直线的对称点</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">Point Point_line_symmetry(Point p, Line v)	// 点p关于直线v的对称点
+{
+	Point q = Point_line_proj(p, v);
+	return Point(2 * q.x - p.x, 2 * q.y - p.y);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="点到线段的距离"><a href="#点到线段的距离" class="headerlink" title="点到线段的距离"></a>点到线段的距离</h4><p>对于点 p 到线段 v(p1, p2) 的距离，在以下 3 个距离中取最小值：从 p 出发对线段 v 做垂线，如果交点在 v 上，这个距离就是最小值；p 到 p1 的距离，p 到 p2 的距离</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">double Dis_point_seg(Point p, Segment v)
+{
+	if (sgn(Dot(p - v.p1, v.p2 - v.p1)) &lt; 0 || sgn(Dot(p - v.p2, v.p1 - v.p2)) &lt; 0)
+		return min(Dist(p, v.p1), Dist(p, v.p2));
+	return Dis_point_line(p, v);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="两条直线的位置关系"><a href="#两条直线的位置关系" class="headerlink" title="两条直线的位置关系"></a>两条直线的位置关系</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int Line_relation(Line v1, Line v2)
+{
+	if (sgn(Cross(v1.p2 - v1.p1, v2.p2 - v2.p1)) == 0)
+	{
+		if (Point_line_relation(v1.p1, v2) == 0)
+			return 1; // 1：重合
+		else
+			return 0; // 0：平行
+	}
+	return 2; // 2：相交
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="求两条直线的交点"><a href="#求两条直线的交点" class="headerlink" title="求两条直线的交点"></a>求两条直线的交点</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">Point Cross_point(Point a, Point b, Point c, Point d)	// Line: ab, Line: cd
+{
+	double s1 = Cross(b - a, c - a);
+	double s2 = Cross(b - a, d - a);
+	return Point(c.x * s2 - d.x * s1, c.y * s2 - d.y * s1) / (s2 - s1);
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="判断两个线段是否规范相交"><a href="#判断两个线段是否规范相交" class="headerlink" title="判断两个线段是否规范相交"></a>判断两个线段是否规范相交</h4><p>这里利用叉积有正负的特点。如果一条线段的两端在另一条线段的两侧，那么两个端点与另一线段产生的两个叉积的正负相反，也就是说两个叉积相乘为负。如果两条线段互相满足这一点，那么就是规范相交的。</p>
+<p>规范相交：交点在线段内部</p>
+<p>非规范相交：交点在某条线段的端点</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">bool Cross_segment(Point a, Point b, Point c, Point d)
+{
+	// 规范相交
+	double c1 = Cross(b - a, c - a), c2 = Cross(b - a, d - a);
+	double d1 = Cross(d - c, a - c), d2 = Cross(d - c, b - c);
+	return sgn(c1) * sgn(c2) &lt; 0 &amp;&amp; sgn(d1) * sgn(d2) &lt; 0; // 1: 相交，0: 不相交
+
+	// 非规范相交
+	return max(a.x, b.x) &gt;= min(c.x, d.x) &amp;&amp; max(c.x, d.x) &gt;= min(a.x, b.x) &amp;&amp; max(a.y, b.y) &gt;= min(c.y, d.y) &amp;&amp; max(c.y, d.y) &gt;= min(a.y, b.y) &amp;&amp; sgn(Cross(b - a, c - a)) * sgn(Cross(b - a, d - a)) &lt;= 0 &amp;&amp; sgn(Cross(d - c, a - c)) * sgn(Cross(d - c, b - c)) &lt;= 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h3 id="多边形"><a href="#多边形" class="headerlink" title="多边形"></a>多边形</h3><h4 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">Point p[N];<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h4 id="应用-2"><a href="#应用-2" class="headerlink" title="应用"></a>应用</h4><ol>
+<li><p>判断点是否在多边形内部</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int Point_in_polygon(Point pt, Point* p, int n)	// 点pt，多边形Point* p
+{
+	for (int i = 0; i &lt; n; ++i)
+		if (p[i] == pt)
+			return 3;	// 3: 点在多边形的顶点上
+	for (int i = 0; i &lt; n; ++i)
+	{
+		Line v = Line(p[i], p[(i + 1) % n]);
+		if (Point_on_seg(pt, v))
+			return 2;	// 2: 点在多边形的边上
+	}
+	int num = 0;
+	for (int i = 0; i &lt; n; ++i)
+	{
+		int j = (i + 1) % n;
+		int c = sgn(Cross(pt - p[j], p[i] - p[j]));
+		int u = sgn(p[i].y - pt.y);
+		int v = sgn(p[j].y - pt.y);
+		if (c &gt; 0 &amp;&amp; u &lt; 0 &amp;&amp; v &gt;= 0)
+			++num;
+		if (c &lt; 0 &amp;&amp; u &gt;= 0 &amp;&amp; v &lt; 0)
+			--num;
+	}
+	return num != 0;	// 1: 点在内部；0: 点在外部
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>多边形的面积</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">double Polygon_area(Point* p, int n)
+{
+	double area = 0;
+	for (int i = 0; i &lt; n; ++i)
+		area += Cross(p[i], p[(i + 1) % n]);
+	return area / 2;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>求多边形的重心</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">Point Polygon_center(Point* p, int n)
+{
+	Point ans(0, 0);
+	if (Polygon_area(p, n) == 0)
+		return ans;
+	for (int i = 0; i &lt; n; ++i)
+		ans = ans + (p[i] + p[(i + 1) % n]) * Cross(p[i], p[(i + 1) % n]);
+	return ans / Polygon_area(p, n) / 6;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+</ol>
 
                 
             </div>
@@ -476,7 +798,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://owlllovo.github.io/2021/01/29/2021-1-29/">http://owlllovo.github.io/2021/01/29/2021-1-29/</a>
+                    <a href="http://owlllovo.github.io/2021/02/21/2021-2-21/">http://owlllovo.github.io/2021/02/21/2021-2-21/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -518,8 +840,8 @@
                                     <span class="chip bg-color">C++</span>
                                 </a>
                             
-                                <a href="/tags/Hash/">
-                                    <span class="chip bg-color">Hash</span>
+                                <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/">
+                                    <span class="chip bg-color">计算几何</span>
                                 </a>
                             
                         </div>
@@ -565,17 +887,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/01/30/2021-1-30/">
+                <a href="/2021/02/21/2021-2-21/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="2021.1.30">
+                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="2021.2.21">
                         
-                        <span class="card-title">2021.1.30</span>
+                        <span class="card-title">2021.2.21</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -585,9 +908,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-30
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -600,6 +923,7 @@
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -607,16 +931,8 @@
                         <span class="chip bg-color">C++</span>
                     </a>
                     
-                    <a href="/tags/Floyd/">
-                        <span class="chip bg-color">Floyd</span>
-                    </a>
-                    
-                    <a href="/tags/Dijkstra/">
-                        <span class="chip bg-color">Dijkstra</span>
-                    </a>
-                    
-                    <a href="/tags/SPFA/">
-                        <span class="chip bg-color">SPFA</span>
+                    <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/">
+                        <span class="chip bg-color">计算几何</span>
                     </a>
                     
                 </div>
@@ -630,13 +946,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/27/2021-1-27/">
+                <a href="/2021/02/20/2021-2-20/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="2021.1.27">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="2021.2.20">
                         
-                        <span class="card-title">2021.1.27</span>
+                        <span class="card-title">2021.2.20</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -647,7 +963,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-27
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-20
                             </span>
                         <span class="publish-author">
                             
@@ -668,8 +984,8 @@
                         <span class="chip bg-color">C++</span>
                     </a>
                     
-                    <a href="/tags/DP/">
-                        <span class="chip bg-color">DP</span>
+                    <a href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/">
+                        <span class="chip bg-color">博弈论</span>
                     </a>
                     
                 </div>
