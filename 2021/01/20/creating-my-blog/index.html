@@ -423,7 +423,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.2k
                 </div>
                 
 
@@ -583,7 +583,9 @@
 </ul>
 </li>
 </ul>
-<h2 id="Hexo-个性化定制"><a href="#Hexo-个性化定制" class="headerlink" title="Hexo 个性化定制"></a>Hexo 个性化定制</h2>
+<h2 id="Hexo-个性化定制"><a href="#Hexo-个性化定制" class="headerlink" title="Hexo 个性化定制"></a>Hexo 个性化定制</h2><h3 id="将目录背景设为透明"><a href="#将目录背景设为透明" class="headerlink" title="将目录背景设为透明"></a>将目录背景设为透明</h3><p><code>themes/matery/source/libs/materialize/materialize.min.css</code> 中搜索 <code>.card</code>，有一个结果的 <code>.card</code> 后面直接跟着 <code>{</code>。在这个大括号中删除原来的背景，添加 <code>background-color: rgba(255,255,255, 0) !important;</code></p>
+<p>（主要是在 <code>element.style</code> 里有将背景设为白色，但是找不到这个在哪，就用 <code>! important</code> 强制将背景改为透明，曲线救国）</p>
+
                 
             </div>
             <hr/>
@@ -976,7 +978,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">12.8k</span>&nbsp;字
+                class="white-color">13.8k</span>&nbsp;字
             
             
             
