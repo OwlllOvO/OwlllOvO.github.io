@@ -427,7 +427,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    859
+                    756
                 </div>
                 
 
@@ -506,119 +506,107 @@
 </ul>
 </li>
 </ul>
-<h3 id="模板-•-单点修改-•-结构体"><a href="#模板-•-单点修改-•-结构体" class="headerlink" title="模板 • 单点修改 • 结构体"></a>模板 • 单点修改 • 结构体</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define MAXN 1e6+10
+<h3 id="模板-•-单点修改-•-数组"><a href="#模板-•-单点修改-•-数组" class="headerlink" title="模板 • 单点修改 • 数组"></a>模板 • 单点修改 • 数组</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
 
-int a[MAXN], n;
-
-struct segmentTree
-{
-    int l, r, sum;
-} node[MAXN &lt;&lt; 2];
-
-void pushUp(int i)
-{
-    node[i].sum = node[i &lt;&lt; 1].sum + node[i &lt;&lt; 1 | 1].sum;
-}
-
-void build_tree(int l, int r, int i)
-{
-    node[i] = { l, r };
-    if (l == r)
-    {
-        node[i],sum = a[l];
-        return;
-    }
-    int mid = l + r &gt;&gt; 1;
-    build_tree(l, mid, i &lt;&lt; 1);
-    build_tree(mid + 1, r, i &lt;&lt; 1 | 1);
-    pushUp(i);
-}
-
-int query_tree(int l, int r, int i)
-{
-    if (l &lt;= node[i].l &amp;&amp; node[i].r &lt;= r) return node[i].sum;
-    int mid = l + r &gt;&gt; 1;
-    int res = 0;
-    if (l &lt;= mid) res += query_tree(l, mid, i &lt;&lt; 1);
-    if (r &gt; mid)  res += query_tree(mid + 1, r, i &lt;&lt; 1 | 1);
-    return res;
-}
-
-void update_tree(int idx, int val, int i)
-{
-    if (node[i].l == idx &amp;&amp; node[i].r == idx)
-    {
-        node[i].sum = val;
-        return;
-    }
-    int mid = l + r &gt;&gt; 1;
-    if (idx &lt;= mid) update_tree(idx, val, i &lt;&lt; 1);
-    else update_tree(idx, val, i &lt;&lt; 1 | 1);
-    pushUp();
-}
-
-int main()
-{
-    build_tree(1, n, 1);
-    query_tree(l, r, 1);
-    update_tree(idx, val, 1);
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ul>
-<li>x &lt;&lt; 1: x * 2</li>
-<li>x &gt;&gt; 1: x / 2</li>
-<li>x &lt;&lt; 1 | 1: x * 2 + 1</li>
-</ul>
-<h3 id="模板-•-单点修改-•-数组"><a href="#模板-•-单点修改-•-数组" class="headerlink" title="模板 • 单点修改 • 数组"></a>模板 • 单点修改 • 数组</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define MAXN 1e6+10
-
-int a[MAXN], tree[MAXN * 4], n;
+const int MAX_LEN = 1000016;
+int n, m, q;
+int arr[MAX_LEN], tree[MAX_LEN &lt;&lt; 2];
 
 void build_tree(int node, int start, int end)
 {
-    if (start == end) tree[node] = arr[start];
-    int mid = (start + end) / 2;
-    int left_node  = 2 * node;
-    int right_node = 2 * node + 1;
-    build_tree(left_node, start, mid);
-    build_tree(right_node, mid + 1, end);
-    tree[node] = tree[left_node] + tree[right_node];
-}
+	if (start == end)
+	{
+		tree[node] = arr[start];
+		return;
+	}
 
-int query_tree(int node, int start, int end, int L, int R)
-{
-    if (R &lt; start || L &gt; end) return 0;
-    if (L &lt;= start &amp;&amp; end &lt;= R) return tree[node];
-    if (start == end) return tree[node];
-    int mid = (start + end) / 2;
-    int left_node  = 2 * node;
-	int right_node = 2 * node + 1;
-    int sum_left  = query_tree(left_node,  start, mid, L, R);
-    int sum_right = query_tree(right_node, mid+1, end, L, R);
+	int mid = (start + end) &gt;&gt; 1;
+	int left_node  = node &lt;&lt; 1;
+	int right_node = node &lt;&lt; 1 | 1;
+
+	build_tree(left_node,  start,   mid);
+	build_tree(right_node, mid + 1, end);
+
+	tree[node] = tree[left_node] + tree[right_node];
 }
 
 void update_tree(int node, int start, int end, int idx, int val)
 {
-    if (start == end)
-    {
-        a[idx] = val;
-        tree[node] = val;
-        return;
-    }
-    int mid = (start + end) / 2;
-    int left_node  = 2 * node;
-	int right_node = 2 * node + 1;
-    if (idx &gt;= start &amp;&amp; idx &lt;= mid)
-        update_tree(left_node, start, mid, idx, val);
-    else
-        update_tree(right_node, mid+1, end, idx, val);
-    tree[node] = tree[left_node] + tree[right_node];
+	if (start == end)
+	{
+		arr[idx] = val;
+		tree[node] = arr[idx];
+		return;
+	}
+
+	int mid = (start + end) &gt;&gt; 1;
+	int left_node  = node &lt;&lt; 1;
+	int right_node = node &lt;&lt; 1 | 1;
+
+	if (idx &lt;= mid)
+        update_tree(left_node,  start,   mid, idx, val);
+	else
+        update_tree(right_node, mid + 1, end, idx, val);
+
+	tree[node] = tree[left_node] + tree[right_node];
+}
+
+int query_tree(int node, int start, int end, int l, int r)
+{
+	if (r &lt; start || l &gt; end) return 0;
+	if (l &lt;= start &amp;&amp; r &gt;= end) return tree[node];
+	if (start == end) return tree[node];
+
+	int mid = (start + end) &gt;&gt; 1;
+	int left_node  = node &lt;&lt; 1;
+	int right_node = node &lt;&lt; 1 | 1;
+	int sum_left  = query_tree(left_node,  start,   mid, l, r);
+	int sum_right = query_tree(right_node, mid + 1, end, l, r);
+
+	return sum_left + sum_right;
 }
 
 int main()
 {
-    build_tree(1, 1, n);
-    query_tree(1, 1, n, L, R);
-    update_tree(1, 1, n, idx, val);
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	while (scanf("%d", &amp;n) != EOF)
+	{
+		for (int i = 1; i &lt;= n; i++) scanf("%d", &amp;arr[i]);
+		build_tree(1, 1, n);
+		scanf("%d", &amp;m);
+		while (m--)
+		{
+			int idx, val;
+			scanf("%d%d", &amp;idx, &amp;val);
+			update_tree(1, 1, n, idx, val);
+		}
+		scanf("%d", &amp;q);
+		while (q--)
+		{
+			int l, r;
+			scanf("%d%d", &amp;l, &amp;r);
+			printf("%d\n", query_tree(1, 1, n, l, r));
+		}
+	}
+
+
+	return 0;
+
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <h3 id="模板-•-区间修改"><a href="#模板-•-区间修改" class="headerlink" title="模板 • 区间修改"></a>模板 • 区间修改</h3><h3 id="权值线段树"><a href="#权值线段树" class="headerlink" title="权值线段树"></a>权值线段树</h3><h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><h3 id="A-例题1-•-SPOJ-GSS1"><a href="#A-例题1-•-SPOJ-GSS1" class="headerlink" title="A 例题1 • SPOJ GSS1"></a>A <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/A">例题1</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/SPOJ-GSS1/origin">SPOJ GSS1</a></h3><h3 id="B-例题2-•-Gym-102770B"><a href="#B-例题2-•-Gym-102770B" class="headerlink" title="B 例题2 • Gym 102770B"></a>B <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/B">例题2</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/Gym-102770B/origin">Gym 102770B</a></h3><h3 id="C-例题3-•-POJ-2182"><a href="#C-例题3-•-POJ-2182" class="headerlink" title="C 例题3 • POJ 2182"></a>C <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/C">例题3</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-2182/origin">POJ 2182</a></h3><h3 id="D-【模板】单点修改-•-HDU-1166"><a href="#D-【模板】单点修改-•-HDU-1166" class="headerlink" title="D 【模板】单点修改 • HDU 1166"></a>D <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/D">【模板】单点修改</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1166/origin">HDU 1166</a></h3><h3 id="E-【模板】区间修改-•-POJ-3468"><a href="#E-【模板】区间修改-•-POJ-3468" class="headerlink" title="E 【模板】区间修改 • POJ 3468"></a>E <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/E">【模板】区间修改</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-3468/origin">POJ 3468</a></h3><h3 id="F-练习题1-•-CodeForces-339D"><a href="#F-练习题1-•-CodeForces-339D" class="headerlink" title="F 练习题1 • CodeForces 339D"></a>F <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/F">练习题1</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/CodeForces-339D/origin">CodeForces 339D</a></h3><h3 id="G-练习题2-•-HDU-2795"><a href="#G-练习题2-•-HDU-2795" class="headerlink" title="G 练习题2 • HDU 2795"></a>G <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/G">练习题2</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2795/origin">HDU 2795</a></h3><h3 id="H-练习题3-•-HDU-2852"><a href="#H-练习题3-•-HDU-2852" class="headerlink" title="H 练习题3 • HDU 2852"></a>H <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/H">练习题3</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2852/origin">HDU 2852</a></h3>
@@ -1047,7 +1035,7 @@ int main()
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">16.5k</span>&nbsp;字
+                class="white-color">16.4k</span>&nbsp;字
             
             
             
