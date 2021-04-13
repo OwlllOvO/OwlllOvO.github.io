@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Creating my blog, OwlllOvO">
+    <meta name="keywords" content="OwlllOvO">
     <meta name="description" content="OwlllOvO Blog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Creating my blog | OwlllOvO</title>
+    <title>OwlllOvO</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -268,12 +268,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/Hexo-logo.png')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Creating my blog</h1>
+                    <h1 class="description center-align post-title"></h1>
                 </div>
             </div>
         </div>
@@ -387,25 +387,12 @@
             <div class="row tag-cate">
                 <div class="col s7">
                     
-                    <div class="article-tag">
-                        
-                            <a href="/tags/Hexo/">
-                                <span class="chip bg-color">Hexo</span>
-                            </a>
-                        
-                    </div>
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
                     
                 </div>
                 <div class="col s5 right-align">
-                    
-                    <div class="post-cate">
-                        <i class="fas fa-bookmark fa-fw icon-category"></i>
-                        
-                            <a href="/categories/Web/" class="post-category">
-                                Web
-                            </a>
-                        
-                    </div>
                     
                 </div>
             </div>
@@ -414,7 +401,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-20
+                    2021-04-12
                 </div>
                 
 
@@ -423,7 +410,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.2k
+                    1.5k
                 </div>
                 
 
@@ -443,148 +430,431 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h1><h2 id="为什么选择-Hexo"><a href="#为什么选择-Hexo" class="headerlink" title="为什么选择 Hexo"></a>为什么选择 Hexo</h2><p>以前第一次建站的时候因为什么都不知道，就跟着一个教程做了 Wordpress 网站。Wordpress 的优点很明显——非常的方便。不仅建站的时候直接选择 Wordpress 就完成了，之后再在控制台维护网站就行。但之后因为上学，就没再去维护，服务器也没有续，网站就这么没有了..</p>
-<p>这次 ACM 寒假训练，要求我们创建自己的博客，我想着自己都已经创建过自己的网站，就不想用 CSDN、博客园之类的博客，于是又准备重新搭建网站。这时候我了解到了 Hexo，这是一个静态网站，把文件都放在 Github 上，由 Github 托管。这是 Hexo 的一大优点，这样一来不仅不收费，而且只要 Github 还在，网站就不会消失。但这不是我选择 Hexo 的原因。我选择 Hexo 的主要原因还是看到很多非常精美的博客都是用的 Hexo，而 Wordpress 的网站实在找不到好看的主题，于是我也想搭建 Hexo 网站。</p>
-<p>一开始用 Hexo 觉得很麻烦，什么东西都是在文件里修改参数，对网站的操作都要用命令执行，不像 Wordpress 有后台可以非常方便、直观地维护网站。但是用久了之后，学会了之后发现，Hexo 这样才更加方便。因为所有文件都在本地，网站的任何属性都写在文件里面了，想要修改什么直接在文件里修改，更加的灵活，这也是 Hexo 能做得更精美，更加个性化的原因。</p>
-<h2 id="Hexo-建站过程"><a href="#Hexo-建站过程" class="headerlink" title="Hexo 建站过程"></a>Hexo 建站过程</h2><p>写这些不仅是记录我建站的整个过程，还详细地记录我对网站的操作和修改，以后万一需要重做网站，也可以帮助自己回忆 XD</p>
-<h3 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h3><ul>
-<li><p>macOS 切换 Root 用户</p>
-<ul>
-<li>终端输入指令：<code>sudo su</code></li>
-<li>输入用户密码</li>
-</ul>
+                <h1 id="2021-4-12"><a href="#2021-4-12" class="headerlink" title="2021.4.12"></a>2021.4.12</h1><h2 id="问题引入"><a href="#问题引入" class="headerlink" title="问题引入"></a>问题引入</h2><p>给定 2 个字符串 text 和 pattern，在 text 中寻找是否存在 pattern 这个子串（连续）</p>
+<h3 id="传统方法-•-暴力"><a href="#传统方法-•-暴力" class="headerlink" title="传统方法 • 暴力"></a>传统方法 • 暴力</h3><h4 id="做法"><a href="#做法" class="headerlink" title="做法"></a>做法</h4><p>从第一位开始，对两个字符串进行逐位比对， 不相等则从下一位开始逐位比对</p>
+<h4 id="复杂度-•-O-mn"><a href="#复杂度-•-O-mn" class="headerlink" title="复杂度 • O(mn)"></a>复杂度 • O(mn)</h4><h2 id="KMP"><a href="#KMP" class="headerlink" title="KMP"></a>KMP</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><blockquote>
+<p>KMP 算法是一种改进的字符串匹配算法，由 D.E.Knuth，J.H.Morris 和 V.R.Pratt 提出的，因此人们称它为克努特—莫里斯—普拉特操作（简称 KMP 算法）。KMP 算法的核心是利用匹配失败后的信息，尽量减少模式串与主串的匹配次数以达到快速匹配的目的。具体实现就是通过一个 next() 函数实现，函数本身包含了模式串的局部匹配信息。</p>
+<p>KMP 算法是三位学者在 Brute-Force 算法的基础上同时提出的模式匹配的改进算法。Brute- Force 算法在模式串中有多个字符和主串中的若干个连续字符比较都相等，但最后一个字符比较不相等时，主串的比较位置需要回退。KMP 算法在上述情况下，主串位置不需要回退，从而可以大大提高效率</p>
+</blockquote>
+<h3 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h3><p>不难发现，暴力的方法进行了大量的无效比对。如以下这个例子：text: “aaaaaaaaab”, pattern: “aaaab”<br>每次都对比到第 n 位才发现不相等，后移一 位后又从第一位开始比对，因此可以创造 一种算法，先对 pattern 字符串进行预处理，标记上前缀与后缀相等的长度，之后再进行比对时，当比对到不相等的位置时，由于已知前缀与后缀相等的长度，因此可以跳过这一段，比对之后的串即可。</p>
+<p>例子中， 当比对第 1 位时，</p>
+<table>
+<thead>
+<tr>
+<th>pos</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>text</td>
+<td>a</td>
+<td>a</td>
+<td>a</td>
+<td>a</td>
+<td>a</td>
+<td>a</td>
+<td>a</td>
+<td>a</td>
+<td>a</td>
+<td>b</td>
+</tr>
+<tr>
+<td>pattern</td>
+<td>a</td>
+<td>a</td>
+<td>a</td>
+<td>a</td>
+<td>b</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<p>前 4 位都相等，到了第 5 位时不相等，而对 pattern 串，除去不相等的第 5 位，前 4 位中的前缀与后缀的相等长度为 2（1, 2与 3, 4相等），而经过比比对，3, 4 位已经与 text 对应相等，因此可以把第 1, 2 位直接移到此位置即可，减少无效比对。</p>
+<table>
+<thead>
+<tr>
+<th>pos</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+<th>10</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>text</td>
+<td>a</td>
+<td>a</td>
+<td>a</td>
+<td>a</td>
+<td>a</td>
+<td>a</td>
+<td>a</td>
+<td>a</td>
+<td>a</td>
+<td>b</td>
+</tr>
+<tr>
+<td>pattern</td>
+<td></td>
+<td></td>
+<td>a</td>
+<td>a</td>
+<td>a</td>
+<td>a</td>
+<td>b</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="做法-1"><a href="#做法-1" class="headerlink" title="做法"></a>做法</h3><ol>
+<li><p>对 pattern 进行预处理得到 pattern 的前缀表 prefix table</p>
+<p>逐位判断前后缀相等长度，保存在 prefix 数组</p>
+<p>将 prefix 数组整体后移 1 位，prefix[0] = -1</p>
 </li>
-<li><p>安装 Node.js</p>
-<ul>
-<li>访问网站 <a target="_blank" rel="noopener" href="https://nodejs.org/en/">Node.js</a> 下载最新版本</li>
-<li>安装</li>
-<li>安装完成后即可在终端（cmd）输入指令：<ul>
-<li><code>node -v </code>：查看已安装的 Node 版本，查看是否安装成功</li>
-<li><code>npm -v</code>：查看已安装的 npm 版本，查看是否安装成功</li>
-</ul>
+<li><p>KMP<br>两串相等继续；不相等则将 pattern 的指针 j 指向 pattern[j]</p>
 </li>
-</ul>
-</li>
-<li><p>安装淘宝 cnpm 管理器（加速）</p>
-<ul>
-<li><code>npm install -g cnpm --registry=http://registry.npm.taobao.org</code></li>
-<li>自动安装</li>
-<li><code>cnpm -v</code>：查看已安装的 cnpm 版本，查看是否安装成功</li>
-</ul>
-</li>
-</ul>
-<h3 id="安装-Hexo"><a href="#安装-Hexo" class="headerlink" title="安装 Hexo"></a>安装 Hexo</h3><ul>
-<li><p>安装 Hexo 框架</p>
-<ul>
-<li><code>cnpm install -g hexo-cli</code></li>
-<li>自动安装</li>
-<li><code>hexo -v</code>：查看已安装的 Hexo 版本，查看是否安装成功</li>
-</ul>
-</li>
-<li><p>建立 Blog 文件夹</p>
-<ul>
-<li><code>mkdir Blog</code>：创建 Blog 文件夹</li>
-<li><code>cd blog</code>：进入 Blog 文件夹</li>
-<li>之后要是出现问题，直接删除 Blog 文件夹从头开始重新做就行</li>
-</ul>
-</li>
-<li><p>Windows 安装 Git</p>
-<ul>
-<li>访问 <a target="_blank" rel="noopener" href="https://git-scm.com/">Git</a>，下载 Git 并安装</li>
-<li>之后用 Git Bash 输命令或者继续用 cmd</li>
-</ul>
-</li>
-<li><p>创建 Hexo</p>
-<ul>
-<li>macOS：<code>sudo hexo init</code>：用管理员权限初始化 Hexo</li>
-<li>Windows：<code>hexo init</code>：初始化 Hexo</li>
-</ul>
-</li>
-</ul>
-<h3 id="Hexo-操作"><a href="#Hexo-操作" class="headerlink" title="Hexo 操作"></a>Hexo 操作</h3><ul>
-<li><p>启动 Hexo（本地预览）</p>
-<ul>
-<li><code>hexo s</code> s: start 启动 Hexo</li>
-<li>复制显示的网址用浏览器打开即可</li>
-<li><code>Ctrl + C</code> <code>Y</code> 停止</li>
-</ul>
-</li>
-<li><p>新建文章</p>
-<ul>
-<li><code>hexo n "title"</code> n: new 新建文章</li>
-<li>在 <code>Blog\source\_posts\</code> 中找到新建的 .md 文件用 Typora 编辑</li>
-</ul>
-</li>
-<li><p>生成 Hexo</p>
-<ul>
-<li><code>hexo clean</code>：清理 Hexo</li>
-<li><code>hexo g</code>：生成 Hexo</li>
-</ul>
-</li>
-<li><p>先生成，应用修改，后启动查看效果</p>
-</li>
-</ul>
-<h3 id="将博客部署到远端（Github）"><a href="#将博客部署到远端（Github）" class="headerlink" title="将博客部署到远端（Github）"></a>将博客部署到远端（Github）</h3><ul>
-<li><p>访问 <a target="_blank" rel="noopener" href="https://github.com/">Github</a></p>
-</li>
-<li><p>注册/登录 账号</p>
-</li>
-<li><p>新建仓库</p>
-<ul>
-<li>点击右上角 <code>+</code></li>
-<li>点击 <code>New repository</code></li>
-<li>Repository name 填写：Username.github.io</li>
-<li>点击 <code>create repository</code></li>
-</ul>
-</li>
-<li><p><code>cnpm install --save hexo-deployer-git</code> ：在 Blog 目录下安装 Git 部署插件</p>
-</li>
-<li><p>自动安装 忽略 Warning</p>
-</li>
-<li><p>编辑 <code>Blog\_config.yml</code> 文件</p>
-<ul>
-<li><p>下拉找到 <code>\# Deployment</code></p>
-<pre class="line-numbers language-none"><code class="language-none">deploy:
-  type: git
-  repo: https://github.com/Username/Username.github.io
-  branch: master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>如果 type 后有单引号’’，git 填在单引号里面</p>
-<p>repo 填的是 Github Repo 的地址，复制过来就行</p>
-</li>
-<li><p>保存并退出</p>
-</li>
-</ul>
-</li>
-<li><p><code>hexo d</code> d: deploy 部署到远端</p>
-<ul>
-<li>第一次部署要求输入 Github 账号密码</li>
-</ul>
-</li>
-<li><p>访问 Username.github.io 即可</p>
-</li>
-</ul>
-<h3 id="更换主题"><a href="#更换主题" class="headerlink" title="更换主题"></a>更换主题</h3><ul>
-<li><p><code>git clone 主题网址.git themes/主题名</code></p>
-</li>
-<li><p>编辑 <code>Blog\_config.yml</code> 文件</p>
-<ul>
-<li><p>下拉找到 <code>theme</code></p>
-</li>
-<li><p>修改为 <code>theme: 主题名</code></p>
-</li>
-<li><p>重新清理，生成，启动</p>
-</li>
-<li><p><code>hexo clean</code></p>
-</li>
-<li><p><code>hexo g</code></p>
-</li>
-<li><p><code>hexo s</code></p>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="Hexo-个性化定制"><a href="#Hexo-个性化定制" class="headerlink" title="Hexo 个性化定制"></a>Hexo 个性化定制</h2><h3 id="将目录背景设为透明"><a href="#将目录背景设为透明" class="headerlink" title="将目录背景设为透明"></a>将目录背景设为透明</h3><p><code>themes/matery/source/libs/materialize/materialize.min.css</code> 中搜索 <code>.card</code>，有一个结果的 <code>.card</code> 后面直接跟着 <code>{</code>。在这个大括号中删除原来的背景，添加 <code>background-color: rgba(255,255,255, 0) !important;</code></p>
-<p>（主要是在 <code>element.style</code> 里有将背景设为白色，但是找不到这个在哪，就用 <code>! important</code> 强制将背景改为透明，曲线救国）</p>
+</ol>
+<h3 id="复杂度-•-O-m-n"><a href="#复杂度-•-O-m-n" class="headerlink" title="复杂度 • O(m + n)"></a>复杂度 • O(m + n)</h3><h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+const int MAX_LEN = 10000017;
+
+int lenpattern, lentext;
+char pattern[MAX_LEN];
+char text[MAX_LEN];
+int prefix[MAX_LEN];
+
+void prefix_table()
+{
+	prefix[0] = 0;
+	int len = 0;
+	int i = 1;
+	while (i &lt; lenpattern)
+	{
+		if (pattern[i] == pattern[len])
+		{
+			len++;
+			prefix[i] = len;
+			i++;
+		}
+		else
+		{
+			if (len &gt; 0) len = prefix[len - 1];
+			else
+			{
+				prefix[i] = len;
+				i++;
+			}
+		}
+	}
+}
+
+void move_prefix_table()
+{
+	for (int i = lenpattern - 1; i &gt; 0; i--) prefix[i] = prefix[i - 1];
+	prefix[0] = -1;
+}
+
+void kmp_search()
+{
+	prefix_table();
+	move_prefix_table();
+	int i = 0, j = 0;
+	while (i &lt; lentext)
+	{
+		if (j == lenpattern - 1 &amp;&amp; text[i] == pattern[j])
+		{
+			printf("Found pattern at %d\n", i - j);
+			j = prefix[j];
+			if (j == -1)
+			{
+				i++;
+				j++;
+			}
+		}
+		else
+		{
+			if (text[i] == pattern[j])
+			{
+				i++;
+				j++;
+			}
+			else
+			{
+				j = prefix[j];
+				if (j == -1)
+				{
+					i++;
+					j++;
+				}
+			}
+		}
+	}
+}
+
+int main()
+{
+	scanf("%s", text);
+	scanf("%s", pattern);
+	lentext = strlen(text);
+	lenpattern = strlen(pattern);
+
+	kmp_search();
+
+
+	return 0;
+
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>text: 目标字符串</p>
+<p>pattern: 匹配字符串</p>
+<h3 id="101466E-•-Text-Editor"><a href="#101466E-•-Text-Editor" class="headerlink" title="101466E • Text Editor"></a><a target="_blank" rel="noopener" href="https://codeforces.com/gym/101466/problem/E">101466E • Text Editor</a></h3><p>time limit per test: 1 second</p>
+<p>memory limit per test: 512 megabytes</p>
+<p>input: standard input</p>
+<p>output: standard output</p>
+<h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>One of the most useful tools nowadays are text editors, their use is so important that the Unique Natural Advanced Language (UNAL) organization has studied many of the benefits working with them.</p>
+<p>They are interested specifically in the feature “find”, that option looks when a pattern occurs in a text, furthermore, it counts the number of times the pattern occurs in a text. The tool is so well designed that while writing each character of the pattern it updates the number of times that the corresponding prefix of the total pattern appears on the text.</p>
+<p>Now the UNAL is working with the editor, finding patterns in some texts, however, they realize that many of the patterns appear just very few times in the corresponding texts, as they really want to see more number of appearances of the patterns in the texts, they put a lower bound on the minimum number of times the pattern should be found in the text and use only prefixes of the original pattern. On the other hand, the UNAL is very picky about language, so they will just use the largest non-empty prefix of the original pattern that fit into the bound.</p>
+<h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><p>The first line contains the text <em>A</em> (1 ≤ |<em>A</em>| ≤  10<sup>5</sup>) The second line contains the original pattern <em>B</em> (1 ≤ |<em>B</em>| ≤  |<em>A</em>|) The third line contains an integer <em>n</em> (1 ≤ <em>n</em> ≤  |<em>A</em>|) - the minimum number of times a pattern should be found on the text.</p>
+<h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><p>A single line, with the prefix of the original pattern used by the UNAL, if there is no such prefix then print “IMPOSSIBLE” (without the quotes)</p>
+<h4 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h4><h5 id="Input-1"><a href="#Input-1" class="headerlink" title="Input 1"></a>Input 1</h5><pre class="line-numbers language-none"><code class="language-none">aaaaa
+aaa
+4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="Output-1"><a href="#Output-1" class="headerlink" title="Output 1"></a>Output 1</h5><pre class="line-numbers language-none"><code class="language-none">aa<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h5 id="Input-2"><a href="#Input-2" class="headerlink" title="Input 2"></a>Input 2</h5><pre class="line-numbers language-none"><code class="language-none">programming
+unal
+1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="Output-2"><a href="#Output-2" class="headerlink" title="Output 2"></a>Output 2</h5><pre class="line-numbers language-none"><code class="language-none">IMPOSSIBLE<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h5 id="Input-3"><a href="#Input-3" class="headerlink" title="Input 3"></a>Input 3</h5><pre class="line-numbers language-none"><code class="language-none">abracadabra
+abra
+1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="Output-3"><a href="#Output-3" class="headerlink" title="Output 3"></a>Output 3</h5><pre class="line-numbers language-none"><code class="language-none">abra<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h5 id="Input-4"><a href="#Input-4" class="headerlink" title="Input 4"></a>Input 4</h5><pre class="line-numbers language-none"><code class="language-none">Hello World!
+H W
+5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h5 id="Output-4"><a href="#Output-4" class="headerlink" title="Output 4"></a>Output 4</h5><pre class="line-numbers language-none"><code class="language-none">IMPOSSIBLE<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>把 B 字符串对 A 字符串进行 KMP。</p>
+<p>但是如果单纯的从长到短 KMP 的话复杂度为 O(n<sup>2</sup>)，因此要对长度进行二分。</p>
+<h4 id="Accepted-Code"><a href="#Accepted-Code" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+const int MAX_LEN = 10000017;
+
+int n;
+int lenpattern, lentext;
+char pattern[MAX_LEN];
+char text[MAX_LEN];
+int prefix[MAX_LEN];
+
+void prefix_table()
+{
+	prefix[0] = 0;
+	int len = 0;
+	int i = 1;
+	while (i &lt; lenpattern)
+	{
+		if (pattern[i] == pattern[len])
+		{
+			len++;
+			prefix[i] = len;
+			i++;
+		}
+		else
+		{
+			if (len &gt; 0) len = prefix[len - 1];
+			else
+			{
+				prefix[i] = len;
+				i++;
+			}
+		}
+	}
+}
+
+void move_prefix_table()
+{
+	for (int i = lenpattern; i &gt; 0; i--) prefix[i] = prefix[i - 1];
+	prefix[0] = -1;
+}
+
+int kmp_search(int x)
+{
+	int cnt = 0;
+	int i = 0, j = 0;
+	while (i &lt; lentext)
+	{
+		if (j == x - 1 &amp;&amp; text[i] == pattern[j])
+		{
+			cnt++;
+			j = prefix[j];
+			if (j == -1)
+			{
+				i++;
+				j++;
+			}
+		}
+		else
+		{
+			if (text[i] == pattern[j])
+			{
+				i++;
+				j++;
+			}
+			else
+			{
+				j = prefix[j];
+				if (j == -1)
+				{
+					i++;
+					j++;
+				}
+			}
+		}
+
+	}
+	return cnt;
+}
+
+int main()
+{
+	freopen("in.txt", "r", stdin);
+
+	gets_s(text);
+	gets_s(pattern);
+	scanf("%d", &amp;n);
+	lenpattern = strlen(pattern);
+	lentext = strlen(text);
+
+	prefix_table();
+	move_prefix_table();
+
+	int l = 0, r = lenpattern, mid, ans = 0;
+	while (l &lt;= r)
+	{
+		int mid = (l + r) / 2;
+		if (kmp_search(mid) &gt;= n)
+		{
+			ans = mid;
+			l = mid + 1;
+		}
+		else r = mid - 1;
+	}
+	if (ans)
+	{
+		for (int i = 0; i &lt; ans; i++) printf("%c", pattern[i]);
+	}
+	else printf("IMPOSSIBLE");
+    
+    
+	return 0;
+    
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 
             </div>
@@ -611,7 +881,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://owlllovo.github.io/2021/01/20/creating-my-blog/">http://owlllovo.github.io/2021/01/20/creating-my-blog/</a>
+                    <a href="http://owlllovo.github.io/2021/04/12/2021-4-12/">http://owlllovo.github.io/2021/04/12/2021-4-12/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -648,11 +918,7 @@
                 <div class="post-meta__tag-list" style="display: inline-block;">
                     
                         <div class="article-tag">
-                            
-                                <a href="/tags/Hexo/">
-                                    <span class="chip bg-color">Hexo</span>
-                                </a>
-                            
+                            <span class="chip bg-color">无标签</span>
                         </div>
                     
                 </div>
@@ -696,52 +962,39 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/01/20/mouseline-shu-biao-xi-fu-xian-tiao-xiao-guo/">
+                <a href="/2021/04/12/2021-4-12/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/mouseline.png" class="responsive-img" alt="Mouseline • 鼠标吸附线条效果">
                         
-                        <span class="card-title">Mouseline • 鼠标吸附线条效果</span>
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Mouseline
+                            
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-20
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-12
+                            </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/Web/" class="post-category">
-                                    Web
-                                </a>
-                            
+                            <i class="fas fa-user fa-fw"></i>
+                            OwlllOvO
                             
                         </span>
                     </div>
                 </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/Hexo/">
-                        <span class="chip bg-color">Hexo</span>
-                    </a>
-                    
-                    <a href="/tags/JavaScript/">
-                        <span class="chip bg-color">JavaScript</span>
-                    </a>
-                    
-                </div>
+
                 
             </div>
         </div>
@@ -752,32 +1005,44 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/20/hello-world/">
+                <a href="/2021/04/02/qualified-for-zjpsc-2021/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="Qualified for ZJPSC 2021">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">Qualified for ZJPSC 2021</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            Welcome to Hexo!
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-02
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            Hexo
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ACM/" class="post-category">
+                                    ACM
+                                </a>
+                            
                             
                         </span>
                     </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/ZJPSC-2021/">
+                        <span class="chip bg-color">ZJPSC 2021</span>
+                    </a>
+                    
                 </div>
                 
             </div>
