@@ -427,7 +427,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    756
+                    1.1k
                 </div>
                 
 
@@ -609,7 +609,113 @@ int main()
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h3 id="模板-•-区间修改"><a href="#模板-•-区间修改" class="headerlink" title="模板 • 区间修改"></a>模板 • 区间修改</h3><h3 id="权值线段树"><a href="#权值线段树" class="headerlink" title="权值线段树"></a>权值线段树</h3><h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><h3 id="A-例题1-•-SPOJ-GSS1"><a href="#A-例题1-•-SPOJ-GSS1" class="headerlink" title="A 例题1 • SPOJ GSS1"></a>A <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/A">例题1</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/SPOJ-GSS1/origin">SPOJ GSS1</a></h3><h3 id="B-例题2-•-Gym-102770B"><a href="#B-例题2-•-Gym-102770B" class="headerlink" title="B 例题2 • Gym 102770B"></a>B <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/B">例题2</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/Gym-102770B/origin">Gym 102770B</a></h3><h3 id="C-例题3-•-POJ-2182"><a href="#C-例题3-•-POJ-2182" class="headerlink" title="C 例题3 • POJ 2182"></a>C <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/C">例题3</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-2182/origin">POJ 2182</a></h3><h3 id="D-【模板】单点修改-•-HDU-1166"><a href="#D-【模板】单点修改-•-HDU-1166" class="headerlink" title="D 【模板】单点修改 • HDU 1166"></a>D <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/D">【模板】单点修改</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1166/origin">HDU 1166</a></h3><h3 id="E-【模板】区间修改-•-POJ-3468"><a href="#E-【模板】区间修改-•-POJ-3468" class="headerlink" title="E 【模板】区间修改 • POJ 3468"></a>E <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/E">【模板】区间修改</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-3468/origin">POJ 3468</a></h3><h3 id="F-练习题1-•-CodeForces-339D"><a href="#F-练习题1-•-CodeForces-339D" class="headerlink" title="F 练习题1 • CodeForces 339D"></a>F <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/F">练习题1</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/CodeForces-339D/origin">CodeForces 339D</a></h3><h3 id="G-练习题2-•-HDU-2795"><a href="#G-练习题2-•-HDU-2795" class="headerlink" title="G 练习题2 • HDU 2795"></a>G <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/G">练习题2</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2795/origin">HDU 2795</a></h3><h3 id="H-练习题3-•-HDU-2852"><a href="#H-练习题3-•-HDU-2852" class="headerlink" title="H 练习题3 • HDU 2852"></a>H <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/H">练习题3</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2852/origin">HDU 2852</a></h3>
+<h3 id="模板-•-区间修改"><a href="#模板-•-区间修改" class="headerlink" title="模板 • 区间修改"></a>模板 • 区间修改</h3><h3 id="模板-•-权值线段树"><a href="#模板-•-权值线段树" class="headerlink" title="模板 • 权值线段树"></a>模板 • 权值线段树</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+
+int n, m, p;
+int a[10001];
+int arr[10001];	//arr[x]表示数 x 有多少个
+int tree[10001];
+
+void build_tree(int node, int l, int r)
+{
+	int mid = (l + r) / 2;
+	if (l == r)
+	{
+		tree[node] = arr[l];
+		return;
+	}
+	int left_node = node * 2;
+	int right_node = node * 2 + 1;
+	build_tree(left_node, l, mid);
+	build_tree(right_node, mid + 1, r);
+	tree[node] = tree[left_node] + tree[right_node];
+}
+
+void update_tree(int node, int l, int r, int k, int cnt)	//表示数k的个数多cnt个
+{
+	int mid = (l + r) / 2;
+	if (l == r)
+	{
+		tree[node] += cnt;
+		return;
+	}
+
+	int left_node = node * 2;
+	int right_node = node * 2 + 1;
+
+	if (k &lt;= mid)
+		update_tree(left_node, l, mid, k, cnt);
+	else
+		update_tree(right_node, mid + 1, r, k, cnt);
+	tree[node] = tree[left_node] + tree[right_node];
+}
+
+int query_tree(int node, int l, int r, int k)	//查询数k有多少个
+{
+	int mid = (l + r) / 2;
+	if (l == r)
+		return tree[node];
+
+	int left_node = node * 2;
+	int right_node = node * 2 + 1;
+
+	if (k &lt;= mid)
+		return query_tree(left_node, l, mid, k);
+	else
+		return query_tree(right_node, mid + 1, r, k);
+}
+
+int kth_tree(int node, int l, int r, int k)	//查询第k大值是多少
+{
+	int mid = (l + r) / 2;
+	if (l == r)
+		return l;
+
+	int left_node = node * 2;
+	int right_node = node * 2 + 1;
+	int s1 = tree[left_node];
+	int s2 = tree[right_node];
+
+	if (k &lt;= s2)
+		return kth_tree(right_node, mid + 1, r, k);
+	else
+		return kth_tree(left_node, l, mid, k - s2);
+}
+
+int main()
+{
+	freopen("in.txt", "r", stdin);
+	scanf("%d", &amp;n);
+	for (int i = 1; i &lt;= n; i++)
+	{
+		scanf("%d", &amp;a[i]);
+		arr[a[i]]++;
+	}
+	scanf("%d%d", &amp;m, &amp;p);
+	build_tree(1, 1, m);
+	printf("%d", kth_tree(1, 1, m, p));
+
+	return 0;
+
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><h3 id="A-例题1-•-SPOJ-GSS1"><a href="#A-例题1-•-SPOJ-GSS1" class="headerlink" title="A 例题1 • SPOJ GSS1"></a>A <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/A">例题1</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/SPOJ-GSS1/origin">SPOJ GSS1</a></h3><h3 id="B-例题2-•-Gym-102770B"><a href="#B-例题2-•-Gym-102770B" class="headerlink" title="B 例题2 • Gym 102770B"></a>B <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/B">例题2</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/Gym-102770B/origin">Gym 102770B</a></h3><h3 id="C-例题3-•-POJ-2182"><a href="#C-例题3-•-POJ-2182" class="headerlink" title="C 例题3 • POJ 2182"></a>C <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/C">例题3</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-2182/origin">POJ 2182</a></h3><h3 id="D-【模板】单点修改-•-HDU-1166"><a href="#D-【模板】单点修改-•-HDU-1166" class="headerlink" title="D 【模板】单点修改 • HDU 1166"></a>D <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/D">【模板】单点修改</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1166/origin">HDU 1166</a></h3><h3 id="E-【模板】区间修改-•-POJ-3468"><a href="#E-【模板】区间修改-•-POJ-3468" class="headerlink" title="E 【模板】区间修改 • POJ 3468"></a>E <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/E">【模板】区间修改</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-3468/origin">POJ 3468</a></h3><h3 id="F-练习题1-•-CodeForces-339D"><a href="#F-练习题1-•-CodeForces-339D" class="headerlink" title="F 练习题1 • CodeForces 339D"></a>F <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/F">练习题1</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/CodeForces-339D/origin">CodeForces 339D</a></h3><h3 id="G-练习题2-•-HDU-2795"><a href="#G-练习题2-•-HDU-2795" class="headerlink" title="G 练习题2 • HDU 2795"></a>G <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/G">练习题2</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2795/origin">HDU 2795</a></h3><h3 id="H-练习题3-•-HDU-2852"><a href="#H-练习题3-•-HDU-2852" class="headerlink" title="H 练习题3 • HDU 2852"></a>H <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419506#problem/H">练习题3</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2852/origin">HDU 2852</a></h3>
                 
             </div>
             <hr/>
@@ -1035,7 +1141,7 @@ int main()
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17.9k</span>&nbsp;字
+                class="white-color">19.5k</span>&nbsp;字
             
             
             

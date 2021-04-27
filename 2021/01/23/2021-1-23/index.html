@@ -439,7 +439,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.6k
+                    2k
                 </div>
                 
 
@@ -612,6 +612,124 @@ void bfs(int x, int y, int z)
 <p>循环结束后，若输出的顶点数小于网中的顶点数，则输出“有回路”信息，否则输出的顶点序列就是一种拓扑序列。</p>
 </li>
 </ol>
+<h3 id="GYM-102219-J-•-Kitchen-Plates"><a href="#GYM-102219-J-•-Kitchen-Plates" class="headerlink" title="GYM 102219 J • Kitchen Plates"></a><a target="_blank" rel="noopener" href="https://codeforces.com/gym/102219/problem/J">GYM 102219 J • Kitchen Plates</a></h3><p>time limit per test: 1 second</p>
+<p>memory limit per test: 256 megabytes</p>
+<p>input: standard input</p>
+<p>output: standard output</p>
+<h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>You are given 5 different sizes of kitchen plates. Each plate is marked with a letter A, B, C, D, or E. You are given 5 statements comparing two different plates, you need to rearrange the plates from smallest size to biggest size. For example: the sizes of these plates.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210416193013.png"></p>
+<h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><p>The input consist of 5 lines. In each line there will be 3 characters, the first and last character will be either A, B, C, D, or E and the middle character will be either &gt; or &lt; describing the comparison between two plates sizes. No two plates will be equal.</p>
+<h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><p>The output consist of 55 characters, the sorted order of balls from smallest to biggest plate. Otherwise, if the statements are contradicting print impossibleimpossible. If there are multiple answers, print any of them.</p>
+<h4 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h4><h5 id="input-1"><a href="#input-1" class="headerlink" title="input 1"></a>input 1</h5><pre class="line-numbers language-none"><code class="language-none">D&gt;B
+A&gt;D
+E&lt;C
+A&gt;B
+B&gt;C<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="output-1"><a href="#output-1" class="headerlink" title="output 1"></a>output 1</h5><pre class="line-numbers language-none"><code class="language-none">ECBDA<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h5 id="input-2"><a href="#input-2" class="headerlink" title="input 2"></a>input 2</h5><pre class="line-numbers language-none"><code class="language-none">B&gt;E
+A&gt;B
+E&gt;A
+C&lt;B
+D&lt;B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h5 id="output-2"><a href="#output-2" class="headerlink" title="output 2"></a>output 2</h5><pre class="line-numbers language-none"><code class="language-none">impossible<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>拓扑排序</p>
+<h4 id="Accepted-Code"><a href="#Accepted-Code" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+
+char str[10], ans[10];
+int indegree[10], e[10][10];
+bool book[10];
+
+int main()
+{
+	while (scanf("%s", str) != EOF)
+	{
+		memset(e, 0, sizeof(e));
+		memset(indegree, 0, sizeof(indegree));
+		memset(book, 0, sizeof(book));
+
+		if (str[1] == '&lt;')
+		{
+			indegree[str[0] - 'A']++;
+			e[str[2] - 'A'][str[0] - 'A']++;
+		}
+		else
+		{
+			indegree[str[2] - 'A']++;
+			e[str[0] - 'A'][str[2] - 'A']++;
+		}
+		for (int i = 1; i &lt;= 4; i++)
+		{
+			scanf("%s", str);
+
+			if (str[1] == '&lt;')
+			{
+				indegree[str[0] - 'A']++;
+				e[str[2] - 'A'][str[0] - 'A']++;
+			}
+			else
+			{
+				indegree[str[2] - 'A']++;
+				e[str[0] - 'A'][str[2] - 'A']++;
+			}
+		}
+		int len = 0;
+
+		while (1)
+		{
+			int temp = 0;
+			for (int i = 0; i &lt; 5; i++)
+				if (!indegree[i] &amp;&amp; book[i] == false)
+				{
+					temp = 1;
+					book[i] = 1;
+					ans[len++] = i + 'A';
+					for (int j = 0; j &lt; 5; j++)
+					{
+						if (e[i][j])
+						{
+							e[i][j]--;
+							indegree[j]--;
+						}
+					}
+					break;
+				}
+			if (!temp)
+				break;
+		}
+		if (len == 5)
+		{
+			for (int i = len - 1; i &gt;= 0; i--)
+				printf("%c", ans[i]);
+			printf("\n");
+		}
+		else printf("impossible\n");
+	}
+
+
+	return 0;
+
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
 <h2 id="二分图"><a href="#二分图" class="headerlink" title="二分图"></a>二分图</h2><p>待更</p>
 <h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><h3 id="A-Find-a-way-•-HDU-2612"><a href="#A-Find-a-way-•-HDU-2612" class="headerlink" title="A Find a way • HDU 2612"></a>A <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/A">Find a way</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2612/origin">HDU 2612</a></h3><h3 id="B-Dungeon-Master-•-POJ-2251"><a href="#B-Dungeon-Master-•-POJ-2251" class="headerlink" title="B Dungeon Master • POJ 2251"></a>B <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/B">Dungeon Master</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-2251/origin">POJ 2251</a></h3><h3 id="C-Red-and-Black-•-HDU-1312"><a href="#C-Red-and-Black-•-HDU-1312" class="headerlink" title="C Red and Black • HDU 1312"></a>C <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/C">Red and Black</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1312/origin">HDU 1312</a></h3><h3 id="D-Counting-Sheep-•-HDU-2952"><a href="#D-Counting-Sheep-•-HDU-2952" class="headerlink" title="D Counting Sheep • HDU 2952"></a>D <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/D">Counting Sheep</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2952/origin">HDU 2952</a></h3><h3 id="E-N皇后问题-•-HDU-2553"><a href="#E-N皇后问题-•-HDU-2553" class="headerlink" title="E N皇后问题 • HDU 2553"></a>E <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/E">N皇后问题</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2553/origin">HDU 2553</a></h3><h3 id="F-A-Funny-Bipartite-Graph-•-计蒜客-42577"><a href="#F-A-Funny-Bipartite-Graph-•-计蒜客-42577" class="headerlink" title="F  A Funny Bipartite Graph • 计蒜客 42577"></a>F <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/F"> A Funny Bipartite Graph</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/%E8%AE%A1%E8%92%9C%E5%AE%A2-42577/origin">计蒜客 42577</a></h3><h3 id="G-wyh2000-and-pupil-•-HDU-5285"><a href="#G-wyh2000-and-pupil-•-HDU-5285" class="headerlink" title="G wyh2000 and pupil • HDU 5285"></a>G <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/G">wyh2000 and pupil</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-5285/origin">HDU 5285</a></h3><h3 id="H-Legal-or-Not-•-HDU-3342"><a href="#H-Legal-or-Not-•-HDU-3342" class="headerlink" title="H Legal or Not • HDU 3342"></a>H <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/H">Legal or Not</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-3342/origin">HDU 3342</a></h3>
                 
@@ -1039,7 +1157,7 @@ void bfs(int x, int y, int z)
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">17.9k</span>&nbsp;字
+                class="white-color">19.5k</span>&nbsp;字
             
             
             
