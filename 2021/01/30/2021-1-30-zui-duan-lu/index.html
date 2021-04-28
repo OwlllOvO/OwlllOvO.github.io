@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2021.1.22, OwlllOvO">
+    <meta name="keywords" content="最短路, OwlllOvO">
     <meta name="description" content="OwlllOvO Blog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2021.1.22 | OwlllOvO</title>
+    <title>最短路 | OwlllOvO</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -268,12 +268,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/22.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2021.1.22</h1>
+                    <h1 class="description center-align post-title">最短路</h1>
                 </div>
             </div>
         </div>
@@ -393,8 +393,16 @@
                                 <span class="chip bg-color">C++</span>
                             </a>
                         
-                            <a href="/tags/%E4%BA%8C%E5%88%86/">
-                                <span class="chip bg-color">二分</span>
+                            <a href="/tags/Floyd/">
+                                <span class="chip bg-color">Floyd</span>
+                            </a>
+                        
+                            <a href="/tags/Dijkstra/">
+                                <span class="chip bg-color">Dijkstra</span>
+                            </a>
+                        
+                            <a href="/tags/SPFA/">
+                                <span class="chip bg-color">SPFA</span>
                             </a>
                         
                     </div>
@@ -418,7 +426,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-22
+                    2021-01-30
                 </div>
                 
 
@@ -427,7 +435,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    696
+                    2.5k
                 </div>
                 
 
@@ -447,117 +455,456 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="2021-1-22"><a href="#2021-1-22" class="headerlink" title="2021.1.22"></a>2021.1.22</h1><h2 id="二分查找-•-Binary-Search"><a href="#二分查找-•-Binary-Search" class="headerlink" title="二分查找 • Binary Search"></a>二分查找 • Binary Search</h2><blockquote>
-<p>二分查找也称折半查找（Binary Search），它是一种效率较高的查找方法。但是，折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列。</p>
+                <h1 id="最短路"><a href="#最短路" class="headerlink" title="最短路"></a>最短路</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
+<p>最短路问题是图论理论的一个经典问题。寻找最短路径就是在指定网络中两结点间找一条距离最小的路。最短路不仅仅指一般地理意义上的距离最短,还可以引申到其它的度量,如时间、费用、线路容量等。</p>
 <p>——百度百科</p>
 </blockquote>
+<h2 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h2><ul>
+<li><p>Chain • 链：一个点和边的交错序列 v<sub>0</sub> - e<sub>1</sub> - v<sub>1</sub> - e<sub>2</sub> - v<sub>2</sub> - … - e<sub>k</sub> - v<sub>k</sub></p>
+</li>
+<li><p>Trail • 迹：对于一条路径 w，若e<sub>1</sub>, e<sub>2</sub>, …, e<sub>k</sub> 两两互不相同，则 w 是一条迹</p>
+</li>
+<li><p>Path • 路径：对于一条迹 w，除了 v<sub>0</sub> 和 v<sub>k</sub> 允许相同外，其余点两两互不相同，则称 w 是一条路径</p>
+</li>
+<li><p>Circuit • 回路：对于一个迹 w，若 v<sub>0</sub> = v<sub>k</sub>，则称 w 是一个回路</p>
+</li>
+<li><p>Cycle • 环：对于一条路径 w，若 v<sub>0</sub> = v<sub>k</sub>，则称 w 是一个环</p>
+</li>
+</ul>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><ul>
+<li><p>单源最短路</p>
+<p>包括确定起点的最短路径问题，确定终点的最短路径问题（与确定起点的问题相反，该问题是已知终结结点，求最短路径的问题。在无向图中该问题与确定起点的问题完全等同，在有向图中该问题等同于把所有路径方向反转的确定起点的问题。） 。</p>
+</li>
+<li><p>多源最短路</p>
+</li>
+</ul>
+<h2 id="链式前向星"><a href="#链式前向星" class="headerlink" title="链式前向星"></a>链式前向星</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+#define INF 0x3f3f3f3f
+
+int n, m;	//n 个点，m 条单向边
+int cnt;
+int front[10001];
+
+struct EDGE
+{
+	int to, next, w;
+};
+
+EDGE edge[10001];
+
+void Init()
+{
+	memset(front, 0, sizeof(front));
+	cnt = 0;
+}
+
+void add_edge(int u, int v, int w)
+{
+	++cnt;
+	edge[cnt].to   = v;
+	edge[cnt].w    = w;
+	edge[cnt].next = front[u];
+	front[u] = cnt;
+}
+
+int main()
+{
+	freopen("in.txt", "r", stdin);
+	Init();
+	scanf("%d%d", &amp;n, &amp;m);
+	for (int i = 1; i &lt;= m; i++)
+	{
+		int u, v, w;
+		scanf("%d%d%d", &amp;u, &amp;v, &amp;w);
+		add_edge(u, v, w);
+		add_edge(v, u, w);	//双向边
+	}
+
+	//遍历与每个点相连的所有边
+	for (int i = 1; i &lt;= n; i++)
+	{
+		printf("%d\n", i);
+		for (int j = front[i]; j; j = edge[j].next)
+		{
+			printf("%d %d %d\n", i, edge[j].to, edge[j].w);
+		}
+		printf("\n");
+	}
+
+	return 0;
+
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h2 id="Dijkstra-•-单源最短路"><a href="#Dijkstra-•-单源最短路" class="headerlink" title="Dijkstra • 单源最短路"></a>Dijkstra • 单源最短路</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
+<li>将所有节点分成两个集合，已求出最短路的集合（集合1）和未求出最短路的集合（集合2）。</li>
+<li>更新并记录集合2 中所有节点和源点的距离</li>
+<li>从集合2 中找到距离源点距离最近的点</li>
+<li>将该点移到集合1 中</li>
+<li>重复步骤 2-3，直到集合2 为空</li>
+</ol>
+<p>这个方法用了贪心的思想，每次把距离最小的点视作确定的，因为它已经是未确定的点中距离源点最近的了，不可能存在一条路经过其他未确定的点到这个点，距离还比直接到这个点近的了。</p>
 <ul>
-<li><p>有序排列</p>
-<p><code>sort (a + 1, a + n + 1, cmp);</code></p>
+<li><strong>不能有负权边</strong></li>
+</ul>
+<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><ul>
+<li>dis[]：每个点到源点的距离</li>
+<li>vis[]：每个点属于的集合，0 - 未确定，1 - 已确定</li>
+</ul>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+#define INF 0x3f3f3f3f
+
+int n, m;	//n 个点，m 条边
+int mp[10001][10001];
+int dis[10001], vis[10001];
+
+void Init()
+{
+	memset(mp, INF, sizeof(mp));
+	for (int i = 1; i &lt;= n; i++) mp[i][i] = 0;
+}
+
+void Getmap()
+{
+	int u, v, w;
+	for (int t = 1; t &lt;= m; t++)
+	{
+		scanf("%d%d%d", &amp;u, &amp;v, &amp;w);
+		if (w &lt; mp[u][v])
+		{
+			mp[u][v] = w;
+			mp[v][u] = w;
+		}
+	}
+}
+
+void Dijkstra(int x)
+{
+	memset(vis, 0, sizeof(vis));
+	for (int t = 1; t &lt;= n; t++) dis[t] = mp[x][t];
+
+	vis[x] = 1;
+	for (int t = 1; t &lt; n; t++)
+	{
+		int minn = INF, temp;
+		for (int i = 1; i &lt;= n; i++)
+		{
+			if (!vis[i] &amp;&amp; dis[i] &lt; minn)
+			{
+				minn = dis[i];
+				temp = i;
+			}
+		}
+		vis[temp] = 1;
+		for (int i = 1; i &lt;= n; i++)
+			if (mp[temp][i] + dis[temp] &lt; dis[i])
+				dis[i] = mp[temp][i] + dis[temp];
+	}
+}
+
+int main()
+{
+	scanf("%d%d", &amp;n, &amp;m);	//n 个点，m 条边
+	Init();	//地图初始化
+	Getmap();	//读图
+	Dijkstra(x);	//以点 x 为出发点的单源最短路
+	for (int i = 1; i &lt;= n; i++) printf("%d\t%d\n", i, dis[i]);	//dis[i]：x 点到 n 点的最短距离
+
+
+	return 0;
+
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="复杂度-·-O-n2"><a href="#复杂度-·-O-n2" class="headerlink" title="复杂度 · O(n2)"></a>复杂度 · O(n<sup>2</sup>)</h3><h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><ul>
+<li><p>从一个点出发到所有点的距离：正 Dijkstra</p>
 </li>
-<li><p>时间复杂度 <strong>O(logn)</strong></p>
+<li><p>从所有点出发到一个点的距离（<a target="_blank" rel="noopener" href="http://poj.org/problem?id=3268">POJ 3268 • Silver Cow Party</a>）</p>
+<ul>
+<li><p>把图反向</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int tmp = map[i][j];
+map[i][j] = map[j][i];
+map[j][i] = tmp;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li><p>Dijkstra</p>
 </li>
 </ul>
-<p>学了二分以后给我的感觉就是很多东西都可以拿来二分，以前以为只有查找可以用二分，现在知道原来很多有范围的东西，都可以用二分来逼近答案。</p>
-<h3 id="整数二分"><a href="#整数二分" class="headerlink" title="整数二分"></a>整数二分</h3><h4 id="找-gt-s-的数中最小的"><a href="#找-gt-s-的数中最小的" class="headerlink" title="找 >= s 的数中最小的"></a>找 &gt;= s 的数中最小的</h4><ul>
-<li><p>记录答案</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">bool check (int x)
+</li>
+</ul>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><h2 id="Floyd-•-多源最短路"><a href="#Floyd-•-多源最短路" class="headerlink" title="Floyd • 多源最短路"></a>Floyd • 多源最短路</h2><h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>我们定义一个数组 <code>dis[k][x][y]</code> ，表示只允许经过结点 V<sub>1</sub> 到 V<sub>k</sub>，结点 x 到结点 y 的最短路长度。很显然， <code>dis[n][x][y]</code> 就是最终结点 x 到结点 y 的最短路长度。</p>
+<p><code>dis[0][x][y]</code> 是 x 与 y 的边权，或者 0 ，或者 INF（当 x 与 y 间有直接相连的边的时候，为它们的边权；当 x = y 的时候为零，因为到本身的距离为零；当 x 与 y 没有直接相连的边的时候，为 INF）</p>
+<p><code>dis[k][x][y] = min(dis[k-1][x][y], dis[k-1][x][k]+dis[k-1][k][y])</code> （ <code>dis[k-1][x][y]</code> 为不经过 k 点的最短路径，而 <code>dis[k-1][x][k]+dis[k-1][k][y]</code> 为经过了 k 点的最短路）。</p>
+<ul>
+<li><p><strong>能有负权边</strong></p>
+</li>
+<li><p><strong>不能有负环</strong></p>
+</li>
+</ul>
+<h3 id="模板-1"><a href="#模板-1" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void Floyd()
 {
-    if (a[x] &gt;= s) return 1;
-    else return 0;
-}
-
-int l = 1, r = n, ans = 0;
-while (l &lt;= r)
-{
-    int mid = (l + r) / 2;
-    if (check (mid))
+    for (int k = 1; k &lt;= n; k++)
     {
-        ans = mid;
-        r = mid - 1;
+        for (int i = 1; i &lt;= n; i++)
+        {
+        	for(int j = 1; j &lt;= n; j++)
+            {
+                dis[k][i][j] = min(dis[k - 1][i][j], dis[k - 1][i][k] + dis[k - 1][k][j]);
+            }
+        }
     }
-    else l = mid + 1;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>不难看出，k 每次循环后只是调用了 k - 1 的数据，而 k 之前的数据对结果没有作用，因此第一维是可以省略的（数据可以不保存，直接在下一次循环被覆盖，但是还是需要有这 k 次循环）</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+#define INF 0x3f3f3f3f
+
+int n, m;	//n 个点，m 条边
+int dis[10001][10001];
+
+void Init()
+{
+    memset(dis, INF, sizeof(dis));
+    for (int i = 1; i &lt;= n; i++) dis[i][i] = 0;
 }
-printf ("%d", a[ans]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+void Getmap()
+{
+    for (int i = 1; i &lt;= m; i++)
+    {
+        int u, v, w;
+        scanf("%d%d%d", &amp;u, &amp;v, &amp;w);
+        if (w &lt; dis[u][v])
+        {
+            dis[u][v] = w;
+            dis[v][u] = w;
+        }
+    }
+}
+
+void Floyd()
+{
+    for (int k = 1; k &lt;= n; k++)
+    {
+        for (int i = 1; i &lt;= n; i++)
+        {
+            for (int j = 1; j &lt;= n; j++)
+            {
+                dis[i][j] = min(dis[i][j], dis[i][k] + dis[k][j]);
+            }
+        }
+    }
+}
+
+int main()
+{
+    scanf("%d%d", &amp;n, &amp;m);
+    Init();
+    Getmap();
+    Floyd();
+    for (int i = 1; i &lt;= n; i++)
+    {
+        for (int j = i; j &lt;= n; j++)
+        {
+            printf("%d %d %d\n", i, j, dis[i][j]);  //dis[i][j] = i 到 j 的最短距离
+        }
+    }
 
 
+	return 0;
+
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><ul>
+<li>时间复杂度：O(n<sup>3</sup>)</li>
+<li>空间复杂度：O(n<sup>2</sup>)</li>
+</ul>
+<h2 id="Bellman-Ford-•-单源最短路"><a href="#Bellman-Ford-•-单源最短路" class="headerlink" title="Bellman-Ford • 单源最短路"></a>Bellman-Ford • 单源最短路</h2><h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><ul>
+<li><p>松弛</p>
+<p>每次松弛操作实际上是对相邻节点的访问，第 n 次松弛操作保证了所有深度为 n 的路径最短。由于图的最短路径最长不会经过超过 |V| - 1 条边，所以可知贝尔曼-福特算法所得为最短路径。</p>
+</li>
+<li><p>负边权操作</p>
+<p>与 Dijkstra 算法不同的是，迪科斯彻算法的基本操作“拓展”是在深度上寻路，而“松弛”操作则是在广度上寻路，这就确定了贝尔曼-福特算法可以对负边进行操作而不会影响结果。</p>
+</li>
+<li><p>负权环判定</p>
+<p>因为负权环可以无限制的降低总花费，所以如果发现第 n 次操作仍可降低花销，就一定存在负权环。</p>
 </li>
 </ul>
 <ul>
-<li><p>不记录答案 • r 逼近答案</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int l = 1, r = n;
-while (l &lt; r)
-{
-    int mid = (l + r) / 2;
-    if (a[mid] &gt;= s) r = mid;
-    else l = mid + 1;
-}
-printf ("%d", a[r]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>如果 a[mid] &gt;= s 成立，接下来应该向左继续查找，而此时 mid 是符合要求的，所以要保留，因此 r = mid</p>
+<li><p><strong>能有负权边</strong></p>
 </li>
-<li><p>如果 a[mid] &gt;= s 不成立，接下来应该向右继续查找，而此时 mid 是不符合要求的，所以要舍弃，因此 l = mid + 1</p>
-</li>
-<li><p>输出的数一定是要符合要求的，每次查找 r = mid，r一定是符合要求，而 l 不一定，所以输出 r</p>
+<li><p><strong>能有负环</strong></p>
 </li>
 </ul>
-<h4 id="找-lt-s-的数中最大的"><a href="#找-lt-s-的数中最大的" class="headerlink" title="找 < s 的数中最大的"></a>找 &lt; s 的数中最大的</h4><ul>
-<li><p>记录答案</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">bool check (int x)
-{
-    if (a[x] &lt; s) return 1;
-    else return 0;
-}
-
-int l = 1, r = n, ans = 0;
-while (l &lt;= r)
-{
-    int mid = (l + r) / 2;
-    if (check (mid))
-    {
-        ans = mid;
-        l = mid + 1;
-    }
-    else r = mid - 1;
-}
-printf ("%d", a[ans]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
+<h3 id="优化-1"><a href="#优化-1" class="headerlink" title="优化"></a>优化</h3><ul>
+<li><p>循环的提前跳出</p>
+<p>在实际操作中，贝尔曼-福特算法经常会在未达到 |V| - 1 次前就出解，|V| - 1 其实是最大值。于是可以在循环中设置判定，在某次循环不再进行松弛时，直接退出循环，进行负权环判定。</p>
+</li>
+<li><p>最短路径快速算法</p>
+<p>松弛操作必定只会发生在最短路径前导节点松弛成功过的节点上，用一个队列记录松弛过的节点，可以避免了冗余计算。该算法的复杂度为 O(k|E|)，k 是个比较小的系数，但该结论未得到广泛认可。</p>
 </li>
 </ul>
-<ul>
-<li><p>不记录答案 • l 逼近答案</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int l = 1, r = n;
-while (l &lt; r)
-{
-    int mid = (l + r + 1) / 2;
-    if (a[i] &lt; s) l = mid;
-    else r = mid - 1;
-}
-printf ("%d", a[l]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>如果 a[mid] &lt; s 成立，接下来应该向右继续查找，而此时 mid 是符合答案的，所以要保留，因此 l = mid</p>
-</li>
-<li><p>如果 a[mid] &lt; s 不成立，接下来应该向左继续查找，而此时 mid 是不符合答案的，所以要舍弃，因此 r = mid - 1</p>
-</li>
-<li><p>输出的数一定是要符合要求的，每次查找 l = mid，l一定是符合要求，而 r 不一定，所以输出 l</p>
-</li>
+<h3 id="模板-2"><a href="#模板-2" class="headerlink" title="模板"></a>模板</h3><ul>
+<li><del>SPFA已死</del></li>
 </ul>
-<h3 id="浮点二分"><a href="#浮点二分" class="headerlink" title="浮点二分"></a>浮点二分</h3><p>浮点二分只能用记录答案方法，而且要设置一个范围使得查找能退出循环</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">const double eps = 1e-8;
-double l = 0, r = n;
-while (r - l &gt; eps)
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+#define INF 0x3f3f3f3f
+
+int n, m;	//n 个点，m 条单向边
+int cnt;
+int dis[10001];
+int front[10001];
+
+struct EDGE
 {
-    double mid = (l + r) / 2;
-    if (check (mid))
-    {
-        ans = mid;
-        r = mid - 1;
-    }
-    else l = r + 1;
+	int to, next, w;
+};
+
+EDGE edge[10001];
+
+void Init()
+{
+	memset(front, 0, sizeof(front));
+	cnt = 0;
 }
-printf ("%d", ans);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+void add_edge(int u, int v, int w)
+{
+	++cnt;
+	edge[cnt].to = v;
+	edge[cnt].w = w;
+	edge[cnt].next = front[u];
+	front[u] = cnt;
+}
+
+bool SPFA(int s)
+{
+	queue&lt;int&gt; q;
+	bool vis[10001];
+	int  cnt[10001];
+	memset(dis, INF, sizeof(dis));
+	memset(vis, 0, sizeof(vis));
+	memset(cnt, 0, sizeof(cnt));
+	while (!q.empty()) q.pop();
+	dis[s] = 0;
+	cnt[s] = 1;
+	q.push(s);
+	vis[s] = 1;
+	while (!q.empty())
+	{
+		int x = q.front();
+		q.pop();
+		vis[x] = 0;
+		for (int i = front[x]; i; i = edge[i].next)
+		{
+			int k = edge[i].to;
+			if (dis[k] &gt; dis[x] + edge[i].w)
+			{
+				dis[k] = dis[x] + edge[i].w;
+				cnt[k] = cnt[x] + 1;
+				if (cnt[k] &gt; n) return 0;
+				if (!vis[k])
+				{
+					vis[k] = 1;
+					q.push(k);
+				}
+			}
+		}
+	}
+	return 1;
+}
+
+int main()
+{
+	freopen("in.txt", "r", stdin);
+	Init();
+	scanf("%d%d", &amp;n, &amp;m);
+	for (int i = 1; i &lt;= m; i++)
+	{
+		int u, v, w;
+		scanf("%d%d%d", &amp;u, &amp;v, &amp;w);
+		add_edge(u, v, w);
+		add_edge(v, u, w);	//双向边
+	}
+
+	//SPFA(x)：以 x 点为源点的单源最短路
+	//dis[y]：x 到 y 的最短距离
+	//SPFA 返回值：是否存在负环
+	for (int i = 1; i &lt;= n; i++)
+	{
+		if (!SPFA(i)) printf("%d Yes\n", i);
+		else printf("%d No\n", i);
+		for (int j = 1; j &lt;= n; j++)
+		{
+			printf("%d %d %d\n", i, j, dis[j]);
+		}
+		printf("\n");
+	}
+
+	return 0;
+
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><h3 id="A-Can-you-solve-this-equation-•-HDU-2199"><a href="#A-Can-you-solve-this-equation-•-HDU-2199" class="headerlink" title="A Can you solve this equation? • HDU 2199"></a>A <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418909#problem/A">Can you solve this equation?</a> • <a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=2199">HDU 2199</a></h3><h3 id="B-Dating-with-girls-1-•-HDU-2578"><a href="#B-Dating-with-girls-1-•-HDU-2578" class="headerlink" title="B Dating with girls(1) • HDU 2578"></a>B <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418909#problem/B">Dating with girls(1)</a> • <a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=2578">HDU 2578</a></h3><h3 id="C-Aggressive-cows-•-POJ-2456"><a href="#C-Aggressive-cows-•-POJ-2456" class="headerlink" title="C Aggressive cows • POJ 2456"></a>C <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418909#problem/C">Aggressive cows</a> • <a target="_blank" rel="noopener" href="http://poj.org/problem?id=2456">POJ 2456</a></h3><h3 id="D-Pie-•-POJ-3122"><a href="#D-Pie-•-POJ-3122" class="headerlink" title="D  Pie • POJ 3122"></a>D <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418909#problem/D"> Pie</a> • <a target="_blank" rel="noopener" href="http://poj.org/problem?id=3122">POJ 3122</a></h3><h3 id="E-River-Hopscotch-•-POJ-3258"><a href="#E-River-Hopscotch-•-POJ-3258" class="headerlink" title="E River Hopscotch • POJ 3258"></a>E <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418909#problem/E">River Hopscotch</a> • <a target="_blank" rel="noopener" href="http://poj.org/problem?id=3258">POJ 3258</a></h3><h3 id="F-4-Values-whose-Sum-is-0-•-POJ-2785"><a href="#F-4-Values-whose-Sum-is-0-•-POJ-2785" class="headerlink" title="F 4 Values whose Sum is 0 • POJ 2785"></a>F <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418909#problem/F">4 Values whose Sum is 0</a> • <a target="_blank" rel="noopener" href="http://poj.org/problem?id=2785">POJ 2785</a></h3><h3 id="G-Defuse-the-Bombs-•-Gym-102822D"><a href="#G-Defuse-the-Bombs-•-Gym-102822D" class="headerlink" title="G Defuse the Bombs • Gym 102822D"></a>G <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418909#problem/G">Defuse the Bombs</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/Gym-102822D/origin">Gym 102822D</a></h3>
+<h3 id="复杂度-·-O-V-·-E"><a href="#复杂度-·-O-V-·-E" class="headerlink" title="复杂度 · O(|V| · |E|)"></a>复杂度 · O(|V| · |E|)</h3><h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><h3 id="A-最短路-•-HDU-2544"><a href="#A-最短路-•-HDU-2544" class="headerlink" title="A  最短路 • HDU 2544"></a>A <a target="_blank" rel="noopener" href="https://vjudge.net/contest/420578#problem/A"> 最短路</a> • <a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=2544">HDU 2544</a></h3><h3 id="B-Til-the-Cows-Come-Home-•-POJ-2387"><a href="#B-Til-the-Cows-Come-Home-•-POJ-2387" class="headerlink" title="B  Til the Cows Come Home • POJ 2387"></a>B <a target="_blank" rel="noopener" href="https://vjudge.net/contest/420578#problem/B"> Til the Cows Come Home</a> • <a target="_blank" rel="noopener" href="http://poj.org/problem?id=2387">POJ 2387</a></h3><h3 id="C-Silver-Cow-Party-•-POJ-3268"><a href="#C-Silver-Cow-Party-•-POJ-3268" class="headerlink" title="C  Silver Cow Party • POJ 3268"></a>C <a target="_blank" rel="noopener" href="https://vjudge.net/contest/420578#problem/C"> Silver Cow Party</a> • <a target="_blank" rel="noopener" href="http://poj.org/problem?id=3268">POJ 3268</a></h3><h3 id="D-Heavy-Transportation-•-POJ-1797"><a href="#D-Heavy-Transportation-•-POJ-1797" class="headerlink" title="D  Heavy Transportation •  POJ 1797"></a>D <a target="_blank" rel="noopener" href="https://vjudge.net/contest/420578#problem/D"> Heavy Transportation</a> • <a target="_blank" rel="noopener" href="http://poj.org/problem?id=1797"> POJ 1797</a></h3><h3 id="E-Cow-Contest-•-POJ-3660"><a href="#E-Cow-Contest-•-POJ-3660" class="headerlink" title="E  Cow Contest • POJ 3660"></a>E <a target="_blank" rel="noopener" href="https://vjudge.net/contest/420578#problem/E"> Cow Contest</a> • <a target="_blank" rel="noopener" href="http://poj.org/problem?id=3660">POJ 3660</a></h3><h3 id="F-Edge-Deletion-•-CodeForces-1076D"><a href="#F-Edge-Deletion-•-CodeForces-1076D" class="headerlink" title="F Edge Deletion • CodeForces 1076D"></a>F <a target="_blank" rel="noopener" href="https://vjudge.net/contest/420578#problem/F">Edge Deletion</a> • <a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1076/D">CodeForces 1076D</a></h3>
                 
             </div>
             <hr/>
@@ -583,7 +930,7 @@ printf ("%d", ans);<span aria-hidden="true" class="line-numbers-rows"><span></sp
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://owlllovo.github.io/2021/01/22/2021-1-22/">http://owlllovo.github.io/2021/01/22/2021-1-22/</a>
+                    <a href="http://owlllovo.github.io/2021/01/30/2021-1-30-zui-duan-lu/">http://owlllovo.github.io/2021/01/30/2021-1-30-zui-duan-lu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -625,8 +972,16 @@ printf ("%d", ans);<span aria-hidden="true" class="line-numbers-rows"><span></sp
                                     <span class="chip bg-color">C++</span>
                                 </a>
                             
-                                <a href="/tags/%E4%BA%8C%E5%88%86/">
-                                    <span class="chip bg-color">二分</span>
+                                <a href="/tags/Floyd/">
+                                    <span class="chip bg-color">Floyd</span>
+                                </a>
+                            
+                                <a href="/tags/Dijkstra/">
+                                    <span class="chip bg-color">Dijkstra</span>
+                                </a>
+                            
+                                <a href="/tags/SPFA/">
+                                    <span class="chip bg-color">SPFA</span>
                                 </a>
                             
                         </div>
@@ -676,13 +1031,13 @@ printf ("%d", ans);<span aria-hidden="true" class="line-numbers-rows"><span></sp
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/01/23/2021-1-23/">
+                <a href="/2021/01/31/2021-1-31-zui-xiao-sheng-cheng-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/23.jpg" class="responsive-img" alt="2021.1.23">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="最小生成树">
                         
-                        <span class="card-title">2021.1.23</span>
+                        <span class="card-title">最小生成树</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -693,7 +1048,7 @@ printf ("%d", ans);<span aria-hidden="true" class="line-numbers-rows"><span></sp
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-23
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-31
                         </span>
                         <span class="publish-author">
                             
@@ -714,20 +1069,16 @@ printf ("%d", ans);<span aria-hidden="true" class="line-numbers-rows"><span></sp
                         <span class="chip bg-color">C++</span>
                     </a>
                     
-                    <a href="/tags/DFS/">
-                        <span class="chip bg-color">DFS</span>
+                    <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">
+                        <span class="chip bg-color">最小生成树</span>
                     </a>
                     
-                    <a href="/tags/BFS/">
-                        <span class="chip bg-color">BFS</span>
+                    <a href="/tags/Kruskal/">
+                        <span class="chip bg-color">Kruskal</span>
                     </a>
                     
-                    <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
-                        <span class="chip bg-color">拓扑排序</span>
-                    </a>
-                    
-                    <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/">
-                        <span class="chip bg-color">二分图</span>
+                    <a href="/tags/Prim/">
+                        <span class="chip bg-color">Prim</span>
                     </a>
                     
                 </div>
@@ -741,13 +1092,13 @@ printf ("%d", ans);<span aria-hidden="true" class="line-numbers-rows"><span></sp
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/21/2021-1-21/">
+                <a href="/2021/01/29/2021-1-29/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/21.jpg" class="responsive-img" alt="2021.1.21">
+                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="2021.1.29">
                         
-                        <span class="card-title">2021.1.21</span>
+                        <span class="card-title">2021.1.29</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -758,7 +1109,7 @@ printf ("%d", ans);<span aria-hidden="true" class="line-numbers-rows"><span></sp
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-29
                             </span>
                         <span class="publish-author">
                             
@@ -779,8 +1130,8 @@ printf ("%d", ans);<span aria-hidden="true" class="line-numbers-rows"><span></sp
                         <span class="chip bg-color">C++</span>
                     </a>
                     
-                    <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/">
-                        <span class="chip bg-color">并查集</span>
+                    <a href="/tags/Hash/">
+                        <span class="chip bg-color">Hash</span>
                     </a>
                     
                 </div>
@@ -983,7 +1334,7 @@ printf ("%d", ans);<span aria-hidden="true" class="line-numbers-rows"><span></sp
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19.5k</span>&nbsp;字
+                class="white-color">20.2k</span>&nbsp;字
             
             
             

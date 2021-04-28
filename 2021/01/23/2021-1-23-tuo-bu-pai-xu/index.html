@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2021.1.30, OwlllOvO">
+    <meta name="keywords" content="拓扑排序, OwlllOvO">
     <meta name="description" content="OwlllOvO Blog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2021.1.30 | OwlllOvO</title>
+    <title>拓扑排序 | OwlllOvO</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -268,12 +268,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2021.1.30</h1>
+                    <h1 class="description center-align post-title">拓扑排序</h1>
                 </div>
             </div>
         </div>
@@ -393,16 +393,8 @@
                                 <span class="chip bg-color">C++</span>
                             </a>
                         
-                            <a href="/tags/Floyd/">
-                                <span class="chip bg-color">Floyd</span>
-                            </a>
-                        
-                            <a href="/tags/Dijkstra/">
-                                <span class="chip bg-color">Dijkstra</span>
-                            </a>
-                        
-                            <a href="/tags/SPFA/">
-                                <span class="chip bg-color">SPFA</span>
+                            <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
+                                <span class="chip bg-color">拓扑排序</span>
                             </a>
                         
                     </div>
@@ -426,7 +418,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-30
+                    2021-01-23
                 </div>
                 
 
@@ -435,7 +427,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.1k
+                    1k
                 </div>
                 
 
@@ -455,219 +447,208 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="2021-1-30"><a href="#2021-1-30" class="headerlink" title="2021.1.30"></a>2021.1.30</h1><h2 id="最短路问题"><a href="#最短路问题" class="headerlink" title="最短路问题"></a>最短路问题</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><blockquote>
-<p>最短路问题是图论理论的一个经典问题。寻找最短路径就是在指定网络中两结点间找一条距离最小的路。最短路不仅仅指一般地理意义上的距离最短,还可以引申到其它的度量,如时间、费用、线路容量等。</p>
+                <h1 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><blockquote>
+<p>对一个有向无环图 (Directed Acyclic Graph 简称 DAG) G 进行拓扑排序，是将 G 中所有顶点排成一个线性序列，使得图中任意一对顶点 u 和 v，若边 &lt;u,v&gt; ∈ E(G)，则 u 在线性序列中出现在 v 之前。通常，这样的线性序列称为满足拓扑次序 (Topological Order) 的序列，简称拓扑序列。简单的说，由某个集合上的一个偏序得到该集合上的一个全序，这个操作称之为拓扑排序。</p>
 <p>——百度百科</p>
 </blockquote>
-<h3 id="名词解释"><a href="#名词解释" class="headerlink" title="名词解释"></a>名词解释</h3><ul>
-<li><p>Chain • 链：一个点和边的交错序列 v<sub>0</sub> - e<sub>1</sub> - v<sub>1</sub> - e<sub>2</sub> - v<sub>2</sub> - … - e<sub>k</sub> - v<sub>k</sub></p>
+<h2 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h2><p>由 AOV 网构造拓扑序列的拓扑排序算法主要是循环执行以下两步，直到不存在入度为0的顶点为止。</p>
+<ol>
+<li><p>选择一个入度为 0 的顶点并输出之；</p>
 </li>
-<li><p>Trail • 迹：对于一条路径 w，若e<sub>1</sub>, e<sub>2</sub>, …, e<sub>k</sub> 两两互不相同，则 w 是一条迹</p>
+<li><p>从网中删除此顶点及所有出边。</p>
+<p>循环结束后，若输出的顶点数小于网中的顶点数，则输出“有回路”信息，否则输出的顶点序列就是一种拓扑序列。</p>
 </li>
-<li><p>Path • 路径：对于一条迹 w，除了 v<sub>0</sub> 和 v<sub>k</sub> 允许相同外，其余点两两互不相同，则称 w 是一条路径</p>
-</li>
-<li><p>Circuit • 回路：对于一个迹 w，若 v<sub>0</sub> = v<sub>k</sub>，则称 w 是一个回路</p>
-</li>
-<li><p>Cycle • 环：对于一条路径 w，若 v<sub>0</sub> = v<sub>k</sub>，则称 w 是一个环</p>
-</li>
-</ul>
-<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
-<li><p>单源最短路</p>
-<p>包括确定起点的最短路径问题，确定终点的最短路径问题（与确定起点的问题相反，该问题是已知终结结点，求最短路径的问题。在无向图中该问题与确定起点的问题完全等同，在有向图中该问题等同于把所有路径方向反转的确定起点的问题。） 。</p>
-</li>
-<li><p>多源最短路</p>
-</li>
-</ul>
-<h2 id="Dijkstra-•-单源最短路"><a href="#Dijkstra-•-单源最短路" class="headerlink" title="Dijkstra • 单源最短路"></a>Dijkstra • 单源最短路</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
-<li>将所有节点分成两个集合，已求出最短路的集合（集合1）和未求出最短路的集合（集合2）。</li>
-<li>更新并记录集合2 中所有节点和源点的距离</li>
-<li>从集合2 中找到距离源点距离最近的点</li>
-<li>将该点移到集合1 中</li>
-<li>重复步骤 2-3，直到集合2 为空</li>
 </ol>
-<p>这个方法用了贪心的思想，每次把距离最小的点视作确定的，因为它已经是未确定的点中距离源点最近的了，不可能存在一条路经过其他未确定的点到这个点，距离还比直接到这个点近的了。</p>
-<ul>
-<li><strong>不能有负权边</strong></li>
-</ul>
-<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><ul>
-<li>dis[]：每个点到源点的距离</li>
-<li>vis[]：每个点属于的集合，0 - 未确定，1 - 已确定</li>
-</ul>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void Dijkstra(int x)
-{
-    memset (dis, INF, sizeof (dis));	//源点到未更新到的点的距离为无穷大（无法达到）
-    memset (vis, 0, sizeof (vis));	//所有点都先放在集合2 中
-    dis[x] = 0;
-    for (int i = 1; i &lt; n; i++)
-    {
-        int tmp;
-        for (int j = 1; j &lt;= n; j++)
-            if (!vis[j] &amp;&amp; dis[j] &lt; dis[tmp]) tmp = j;	//找到集合2 中距离源点最近的点
-        vis[tmp] = 1;
-        for (int j = 1; j &lt;= n; j++)
-            dis[j] = min(dis[j], dis[tmp] + mp[x][j]);
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h3><ul>
-<li>O(n<sup>2</sup>)</li>
-</ul>
-<h3 id="拓展"><a href="#拓展" class="headerlink" title="拓展"></a>拓展</h3><ul>
-<li><p>从一个点出发到所有点的距离：正 Dijkstra</p>
-</li>
-<li><p>从所有点出发到一个点的距离（<a target="_blank" rel="noopener" href="http://poj.org/problem?id=3268">POJ 3268 • Silver Cow Party</a>）</p>
-<ul>
-<li><p>把图反向</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int tmp = map[i][j];
-map[i][j] = map[j][i];
-map[j][i] = tmp;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
-<li><p>Dijkstra</p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><h2 id="Floyd-•-多源最短路"><a href="#Floyd-•-多源最短路" class="headerlink" title="Floyd • 多源最短路"></a>Floyd • 多源最短路</h2><h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>我们定义一个数组 <code>dis[k][x][y]</code> ，表示只允许经过结点 V<sub>1</sub> 到 V<sub>k</sub>，结点 x 到结点 y 的最短路长度。很显然， <code>dis[n][x][y]</code> 就是最终结点 x 到结点 y 的最短路长度。</p>
-<p><code>dis[0][x][y]</code> 是 x 与 y 的边权，或者 0 ，或者 INF（当 x 与 y 间有直接相连的边的时候，为它们的边权；当 x = y 的时候为零，因为到本身的距离为零；当 x 与 y 没有直接相连的边的时候，为 INF）</p>
-<p><code>dis[k][x][y] = min(dis[k-1][x][y], dis[k-1][x][k]+dis[k-1][k][y])</code> （ <code>dis[k-1][x][y]</code> 为不经过 k 点的最短路径，而 <code>dis[k-1][x][k]+dis[k-1][k][y]</code> 为经过了 k 点的最短路）。</p>
-<ul>
-<li><p><strong>能有负权边</strong></p>
-</li>
-<li><p><strong>不能有负环</strong></p>
-</li>
-</ul>
-<h3 id="模板-1"><a href="#模板-1" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">void Floyd()
-{
-    for (int k = 1; k &lt;= n; k++)
-    {
-        for (int i = 1; i &lt;= n; i++)
-        {
-        	for(int j = 1; j &lt;= n; j++)
-            {
-                dis[k][i][j] = min(dis[k - 1][i][j], dis[k - 1][i][k] + dis[k - 1][k][j]);
-            }
-        }
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>不难看出，k 每次循环后只是调用了 k - 1 的数据，而 k 之前的数据对结果没有作用，因此第一维是可以省略的（数据可以不保存，直接在下一次循环被覆盖，但是还是需要有这 k 次循环）</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void Floyd()
-{
-    for (int k = 1; k &lt;= n; k++)
-    {
-        for (int i = 1; i &lt;= n; i++)
-        {
-        	for(int j = 1; j &lt;= n; j++)
-            {
-                dis[i][j] = min(dis[i][j], dis[i][k] + di[k][j]);
-            }
-        }
-    }
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h3 id="复杂度-1"><a href="#复杂度-1" class="headerlink" title="复杂度"></a>复杂度</h3><ul>
-<li>时间复杂度：O(n<sup>3</sup>)</li>
-<li>空间复杂度：O(n<sup>2</sup>)</li>
-</ul>
-<h2 id="Bellman-Ford-•-单源最短路"><a href="#Bellman-Ford-•-单源最短路" class="headerlink" title="Bellman-Ford • 单源最短路"></a>Bellman-Ford • 单源最短路</h2><h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><ul>
-<li><p>松弛</p>
-<p>每次松弛操作实际上是对相邻节点的访问，第 n 次松弛操作保证了所有深度为 n 的路径最短。由于图的最短路径最长不会经过超过 |V| - 1 条边，所以可知贝尔曼-福特算法所得为最短路径。</p>
-</li>
-<li><p>负边权操作</p>
-<p>与 Dijkstra 算法不同的是，迪科斯彻算法的基本操作“拓展”是在深度上寻路，而“松弛”操作则是在广度上寻路，这就确定了贝尔曼-福特算法可以对负边进行操作而不会影响结果。</p>
-</li>
-<li><p>负权环判定</p>
-<p>因为负权环可以无限制的降低总花费，所以如果发现第 n 次操作仍可降低花销，就一定存在负权环。</p>
-</li>
-</ul>
-<ul>
-<li><p><strong>能有负权边</strong></p>
-</li>
-<li><p><strong>能有负环</strong></p>
-</li>
-</ul>
-<h3 id="优化-1"><a href="#优化-1" class="headerlink" title="优化"></a>优化</h3><ul>
-<li><p>循环的提前跳出</p>
-<p>在实际操作中，贝尔曼-福特算法经常会在未达到 |V| - 1 次前就出解，|V| - 1 其实是最大值。于是可以在循环中设置判定，在某次循环不再进行松弛时，直接退出循环，进行负权环判定。</p>
-</li>
-<li><p>最短路径快速算法</p>
-<p>松弛操作必定只会发生在最短路径前导节点松弛成功过的节点上，用一个队列记录松弛过的节点，可以避免了冗余计算。该算法的复杂度为 O(k|E|)，k 是个比较小的系数，但该结论未得到广泛认可。</p>
-</li>
-</ul>
-<h3 id="模板-2"><a href="#模板-2" class="headerlink" title="模板"></a>模板</h3><ul>
-<li><del>SPFA已死</del></li>
-</ul>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
 #include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
 #include&lt;list&gt;
 using namespace std;
-struct Edge
+#define MAXN 10005
+
+int n, m, cnt;  //n 个数, m 个关系, cnt: 存储ans数组的下标
+bool mp[MAXN][MAXN];
+int indeg[MAXN], ans[MAXN];	//indeg[i]: 第i个点的入度; ans[]: 答案队列
+queue &lt;int&gt; q;
+
+void Getmap(void)
 {
-	int to, len;
-};
-bool SPFA(const int&amp; beg,//出发点
-	const vector&lt;list&lt;Edge&gt; &gt;&amp; adjlist,//邻接表，通过传引用避免拷贝
-	vector&lt;int&gt;&amp; dist,//出发点到各点的最短路径长度
-	vector&lt;int&gt;&amp; path)//路径上到达该点的前一个点
-//没有负权回路返回0
-{
-	const int INF = 0x7FFFFFFF, NODE = adjlist.size();//用邻接表的大小传递顶点个数，减少参数传递
-	dist.assign(NODE, INF);//初始化距离为无穷大
-	path.assign(NODE, -1);//初始化路径为未知
-	list&lt;int&gt; que(1, beg);//处理队列
-	vector&lt;int&gt; cnt(NODE, 0);//记录各点入队次数，用于判断负权回路
-	vector&lt;bool&gt; flag(NODE, 0);//标志数组，判断是否在队列中
-	dist[beg] = 0;//出发点到自身路径长度为0
-	cnt[beg] = flag[beg] = 1;//入队并开始计数
-	while (!que.empty())
+	scanf("%d%d", &amp;n, &amp;m);
+	for (int i = 1; i &lt;= m; i++)
 	{
-		const int now = que.front();
-		que.pop_front();
-		flag[now] = 0;//将当前处理的点出队
-		for (list&lt;Edge&gt;::const_iterator//用常量迭代器遍历邻接表
-			i = adjlist[now].begin(); i != adjlist[now].end(); ++i)
-			if (dist[i-&gt;to] &gt; dist[now] + i-&gt;len)//不满足三角不等式
+		int x, y;
+		scanf("%d%d", &amp;x, &amp;y);
+		mp[x][y] = 1;
+		indeg[y]++;	//建图, 同时统计入度
+	}
+}
+
+void topo_sort(void)
+{
+	for (int i = 1; i &lt;= n; i++)
+		if (!indeg[i])
+			q.push(i);	//将所有入度为 0 的点入队
+	while (!q.empty())	//开始搜索
+	{
+		int u = q.front();
+		ans[++cnt] = u;//入度为0的点记得放到答案队列里, 判断环的核心, 看答案数组是否有 n 个
+		q.pop();
+		for (int i = 1; i &lt;= n; i++)
+			if (mp[u][i])	//删边的操作转化为入度减1
 			{
-				dist[i-&gt;to] = dist[now] + i-&gt;len;//更新
-				path[i-&gt;to] = now;//记录路径
-				if (!flag[i-&gt;to])//若未在处理队列中
-				{
-					if (NODE == ++cnt[i-&gt;to])return 1;//计数后出现负权回路
-					if (!que.empty() &amp;&amp; dist[i-&gt;to] &lt; dist[que.front()])//队列非空且优于队首（SLF）
-						que.push_front(i-&gt;to);//放在队首
-					else que.push_back(i-&gt;to);//否则放在队尾
-					flag[i-&gt;to] = 1;//入队
-				}
+				indeg[i]--;
+				if (!indeg[i])	//如果这个点变成入度为 0, 入队列
+					q.push(i);
 			}
 	}
-	return 0;
 }
+
 int main()
 {
-	int n_num, e_num, beg;//含义见下
-	cout &lt;&lt; "输入点数、边数、出发点：";
-	cin &gt;&gt; n_num &gt;&gt; e_num &gt;&gt; beg;
-	vector&lt;list&lt;Edge&gt; &gt; adjlist(n_num, list&lt;Edge&gt;());//默认初始化邻接表
-	for (int i = 0, p; i != e_num; ++i)
+	Getmap();
+	topo_sort();
+
+	if (cnt &lt; n)//判断是否有环, 答案队列不足即有环
 	{
-		Edge tmp;
-		cout &lt;&lt; "输入第" &lt;&lt; i + 1 &lt;&lt; "条边的起点、终点、长度：";
-		cin &gt;&gt; p &gt;&gt; tmp.to &gt;&gt; tmp.len;
-		adjlist[p].push_back(tmp);
+		printf("Circle\n");
+		return 0;
 	}
-	vector&lt;int&gt; dist, path;//用于接收最短路径长度及路径各点
-	if (SPFA(beg, adjlist, dist, path))cout &lt;&lt; "图中存在负权回路\n";
-	else for (int i = 0; i != n_num; ++i)
-	{
-		cout &lt;&lt; beg &lt;&lt; "到" &lt;&lt; i &lt;&lt; "的最短距离为" &lt;&lt; dist[i] &lt;&lt; "，反向打印路径：";
-		for (int w = i; path[w] &gt;= 0; w = path[w])cout &lt;&lt; w &lt;&lt; "&lt;-";
-		cout &lt;&lt; beg &lt;&lt; '\n';
-	}
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	for (int i = 1; i &lt;= n; i++)
+		printf("%d\n", ans[i]);
+
+	return 0;
+
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h3 id="复杂度-2"><a href="#复杂度-2" class="headerlink" title="复杂度"></a>复杂度</h3><ul>
-<li>O(|V| · |E|)</li>
-</ul>
-<h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><h3 id="A-最短路-•-HDU-2544"><a href="#A-最短路-•-HDU-2544" class="headerlink" title="A  最短路 • HDU 2544"></a>A <a target="_blank" rel="noopener" href="https://vjudge.net/contest/420578#problem/A"> 最短路</a> • <a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=2544">HDU 2544</a></h3><h3 id="B-Til-the-Cows-Come-Home-•-POJ-2387"><a href="#B-Til-the-Cows-Come-Home-•-POJ-2387" class="headerlink" title="B  Til the Cows Come Home • POJ 2387"></a>B <a target="_blank" rel="noopener" href="https://vjudge.net/contest/420578#problem/B"> Til the Cows Come Home</a> • <a target="_blank" rel="noopener" href="http://poj.org/problem?id=2387">POJ 2387</a></h3><h3 id="C-Silver-Cow-Party-•-POJ-3268"><a href="#C-Silver-Cow-Party-•-POJ-3268" class="headerlink" title="C  Silver Cow Party • POJ 3268"></a>C <a target="_blank" rel="noopener" href="https://vjudge.net/contest/420578#problem/C"> Silver Cow Party</a> • <a target="_blank" rel="noopener" href="http://poj.org/problem?id=3268">POJ 3268</a></h3><h3 id="D-Heavy-Transportation-•-POJ-1797"><a href="#D-Heavy-Transportation-•-POJ-1797" class="headerlink" title="D  Heavy Transportation •  POJ 1797"></a>D <a target="_blank" rel="noopener" href="https://vjudge.net/contest/420578#problem/D"> Heavy Transportation</a> • <a target="_blank" rel="noopener" href="http://poj.org/problem?id=1797"> POJ 1797</a></h3><h3 id="E-Cow-Contest-•-POJ-3660"><a href="#E-Cow-Contest-•-POJ-3660" class="headerlink" title="E  Cow Contest • POJ 3660"></a>E <a target="_blank" rel="noopener" href="https://vjudge.net/contest/420578#problem/E"> Cow Contest</a> • <a target="_blank" rel="noopener" href="http://poj.org/problem?id=3660">POJ 3660</a></h3><h3 id="F-Edge-Deletion-•-CodeForces-1076D"><a href="#F-Edge-Deletion-•-CodeForces-1076D" class="headerlink" title="F Edge Deletion • CodeForces 1076D"></a>F <a target="_blank" rel="noopener" href="https://vjudge.net/contest/420578#problem/F">Edge Deletion</a> • <a target="_blank" rel="noopener" href="https://codeforces.com/problemset/problem/1076/D">CodeForces 1076D</a></h3>
+<h2 id="GYM-102219-J-•-Kitchen-Plates"><a href="#GYM-102219-J-•-Kitchen-Plates" class="headerlink" title="GYM 102219 J • Kitchen Plates"></a><a target="_blank" rel="noopener" href="https://codeforces.com/gym/102219/problem/J">GYM 102219 J • Kitchen Plates</a></h2><p>time limit per test: 1 second</p>
+<p>memory limit per test: 256 megabytes</p>
+<p>input: standard input</p>
+<p>output: standard output</p>
+<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>You are given 5 different sizes of kitchen plates. Each plate is marked with a letter A, B, C, D, or E. You are given 5 statements comparing two different plates, you need to rearrange the plates from smallest size to biggest size. For example: the sizes of these plates.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210416193013.png"></p>
+<h3 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h3><p>The input consist of 5 lines. In each line there will be 3 characters, the first and last character will be either A, B, C, D, or E and the middle character will be either &gt; or &lt; describing the comparison between two plates sizes. No two plates will be equal.</p>
+<h3 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h3><p>The output consist of 55 characters, the sorted order of balls from smallest to biggest plate. Otherwise, if the statements are contradicting print impossibleimpossible. If there are multiple answers, print any of them.</p>
+<h3 id="Example-Input-1"><a href="#Example-Input-1" class="headerlink" title="Example Input 1"></a>Example Input 1</h3><pre class="line-numbers language-none"><code class="language-none">D&gt;B
+A&gt;D
+E&lt;C
+A&gt;B
+B&gt;C<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Example-Output-1"><a href="#Example-Output-1" class="headerlink" title="Example Output 1"></a>Example Output 1</h3><pre class="line-numbers language-none"><code class="language-none">ECBDA<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h3 id="Example-Input-2"><a href="#Example-Input-2" class="headerlink" title="Example Input 2"></a>Example Input 2</h3><pre class="line-numbers language-none"><code class="language-none">B&gt;E
+A&gt;B
+E&gt;A
+C&lt;B
+D&lt;B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="Example-Output-2"><a href="#Example-Output-2" class="headerlink" title="Example Output 2"></a>Example Output 2</h3><pre class="line-numbers language-none"><code class="language-none">impossible<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p>拓扑排序</p>
+<h3 id="Accepted-Code"><a href="#Accepted-Code" class="headerlink" title="Accepted Code"></a>Accepted Code</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+
+char str[10], ans[10];
+int indegree[10], e[10][10];
+bool book[10];
+
+int main()
+{
+	while (scanf("%s", str) != EOF)
+	{
+		memset(e, 0, sizeof(e));
+		memset(indegree, 0, sizeof(indegree));
+		memset(book, 0, sizeof(book));
+
+		if (str[1] == '&lt;')
+		{
+			indegree[str[0] - 'A']++;
+			e[str[2] - 'A'][str[0] - 'A']++;
+		}
+		else
+		{
+			indegree[str[2] - 'A']++;
+			e[str[0] - 'A'][str[2] - 'A']++;
+		}
+		for (int i = 1; i &lt;= 4; i++)
+		{
+			scanf("%s", str);
+
+			if (str[1] == '&lt;')
+			{
+				indegree[str[0] - 'A']++;
+				e[str[2] - 'A'][str[0] - 'A']++;
+			}
+			else
+			{
+				indegree[str[2] - 'A']++;
+				e[str[0] - 'A'][str[2] - 'A']++;
+			}
+		}
+		int len = 0;
+
+		while (1)
+		{
+			int temp = 0;
+			for (int i = 0; i &lt; 5; i++)
+				if (!indegree[i] &amp;&amp; book[i] == false)
+				{
+					temp = 1;
+					book[i] = 1;
+					ans[len++] = i + 'A';
+					for (int j = 0; j &lt; 5; j++)
+					{
+						if (e[i][j])
+						{
+							e[i][j]--;
+							indegree[j]--;
+						}
+					}
+					break;
+				}
+			if (!temp)
+				break;
+		}
+		if (len == 5)
+		{
+			for (int i = len - 1; i &gt;= 0; i--)
+				printf("%c", ans[i]);
+			printf("\n");
+		}
+		else printf("impossible\n");
+	}
+
+
+	return 0;
+
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
                 
             </div>
             <hr/>
@@ -693,7 +674,7 @@ int main()
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://owlllovo.github.io/2021/01/30/2021-1-30/">http://owlllovo.github.io/2021/01/30/2021-1-30/</a>
+                    <a href="http://owlllovo.github.io/2021/01/23/2021-1-23-tuo-bu-pai-xu/">http://owlllovo.github.io/2021/01/23/2021-1-23-tuo-bu-pai-xu/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -735,16 +716,8 @@ int main()
                                     <span class="chip bg-color">C++</span>
                                 </a>
                             
-                                <a href="/tags/Floyd/">
-                                    <span class="chip bg-color">Floyd</span>
-                                </a>
-                            
-                                <a href="/tags/Dijkstra/">
-                                    <span class="chip bg-color">Dijkstra</span>
-                                </a>
-                            
-                                <a href="/tags/SPFA/">
-                                    <span class="chip bg-color">SPFA</span>
+                                <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
+                                    <span class="chip bg-color">拓扑排序</span>
                                 </a>
                             
                         </div>
@@ -794,13 +767,13 @@ int main()
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/01/31/2021-1-31/">
+                <a href="/2021/01/25/2021-1-25-xian-duan-shu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="2021.1.31">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="线段树">
                         
-                        <span class="card-title">2021.1.31</span>
+                        <span class="card-title">线段树</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -811,7 +784,7 @@ int main()
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-31
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-25
                         </span>
                         <span class="publish-author">
                             
@@ -832,8 +805,8 @@ int main()
                         <span class="chip bg-color">C++</span>
                     </a>
                     
-                    <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/">
-                        <span class="chip bg-color">最小生成树</span>
+                    <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/">
+                        <span class="chip bg-color">线段树</span>
                     </a>
                     
                 </div>
@@ -847,13 +820,13 @@ int main()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/29/2021-1-29/">
+                <a href="/2021/01/23/2021-1-23-sou-suo/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="2021.1.29">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="搜索">
                         
-                        <span class="card-title">2021.1.29</span>
+                        <span class="card-title">搜索</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -864,7 +837,7 @@ int main()
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-29
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-23
                             </span>
                         <span class="publish-author">
                             
@@ -885,8 +858,16 @@ int main()
                         <span class="chip bg-color">C++</span>
                     </a>
                     
-                    <a href="/tags/Hash/">
-                        <span class="chip bg-color">Hash</span>
+                    <a href="/tags/%E6%90%9C%E7%B4%A2/">
+                        <span class="chip bg-color">搜索</span>
+                    </a>
+                    
+                    <a href="/tags/DFS/">
+                        <span class="chip bg-color">DFS</span>
+                    </a>
+                    
+                    <a href="/tags/BFS/">
+                        <span class="chip bg-color">BFS</span>
                     </a>
                     
                 </div>
@@ -1089,7 +1070,7 @@ int main()
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19.5k</span>&nbsp;字
+                class="white-color">20.2k</span>&nbsp;字
             
             
             

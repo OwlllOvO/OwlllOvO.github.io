@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Qualified for ZJCPC 2021, OwlllOvO">
+    <meta name="keywords" content="搜索, OwlllOvO">
     <meta name="description" content="OwlllOvO Blog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Qualified for ZJCPC 2021 | OwlllOvO</title>
+    <title>搜索 | OwlllOvO</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -268,12 +268,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Qualified for ZJCPC 2021</h1>
+                    <h1 class="description center-align post-title">搜索</h1>
                 </div>
             </div>
         </div>
@@ -389,8 +389,20 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ZJCPC-2021/">
-                                <span class="chip bg-color">ZJCPC 2021</span>
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%90%9C%E7%B4%A2/">
+                                <span class="chip bg-color">搜索</span>
+                            </a>
+                        
+                            <a href="/tags/DFS/">
+                                <span class="chip bg-color">DFS</span>
+                            </a>
+                        
+                            <a href="/tags/BFS/">
+                                <span class="chip bg-color">BFS</span>
                             </a>
                         
                     </div>
@@ -414,7 +426,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-02
+                    2021-01-23
                 </div>
                 
 
@@ -423,7 +435,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    1.3k
                 </div>
                 
 
@@ -443,437 +455,150 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Qualified-for-ZJCPC-2021"><a href="#Qualified-for-ZJCPC-2021" class="headerlink" title="Qualified for ZJCPC 2021"></a>Qualified for ZJCPC 2021</h1><p>2021.3.31，我们实验室举行了2021年浙江省赛的选拔赛，我们学校总共有8支队伍的名额。虽然最终我们 Accepted-Graph 队获得了省赛的资格，但是一路可谓是跌宕起伏，幸好最后是有惊无险</p>
-<h2 id="The-Qualification-Trial"><a href="#The-Qualification-Trial" class="headerlink" title="The Qualification Trial"></a>The Qualification Trial</h2><p>这次比赛学长说题目很简单，但是由于我们的的能力问题，总共只 AC 了四道题：A, H, I, J. 其中 A, H, J 是签到题……</p>
-<h3 id="A-•-Array-Permutation"><a href="#A-•-Array-Permutation" class="headerlink" title="A • Array Permutation"></a>A • Array Permutation</h3><h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><blockquote>
-<p>Little H is so boring that he wants to generate an array of length n.</p>
-<p>Little H uses the following method to generate the array.</p>
-<ul>
-<li>Suppose the current array length is m(m &lt; n). Then he will randomly generate a number x from [1, n − m]. Then he will follow the ordered permutation of [1, x](such as x = 3, the ordered permutation is [1, 2, 3]) after the array.</li>
-<li>If the length of the array after the append operation is completed is n，then finish the entire process, otherwise repeat the above steps.</li>
-</ul>
-<p>Now little H want to know how many different arrays there are for a certain n。</p>
-<p>Due to the limited ability of counting little H, you just need to output the answer modulo 10<sup>9</sup> + 7.</p>
+                <h1 id="搜索"><a href="#搜索" class="headerlink" title="搜索"></a>搜索</h1><h2 id="DFS-•-深度优先搜索"><a href="#DFS-•-深度优先搜索" class="headerlink" title="DFS • 深度优先搜索"></a>DFS • 深度优先搜索</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><blockquote>
+<p>深度优先搜索属于图算法的一种，英文缩写为 DFS 即 Depth First Search. 其过程简要来说是对每一个可能的分支路径深入到不能再深入为止，而且每个节点只能访问一次。</p>
+<p>——百度百科</p>
 </blockquote>
-<h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><blockquote>
-<p>There are several test cases.</p>
-<p>The first line contains a single integer T(1 ≤ T ≤ 10<sup>3</sup>), denoting the number of test cases. Then follow all the test cases.</p>
-<p>For each test case, only one line which contains a single integer n(1 ≤ n ≤ 10<sup>6</sup>), denoting the length of the array little H wants to generate.</p>
+<p>在一条路上的分岔按顺序选择方向，一条路走到底再返回到最近分岔选择下一条路，这个分岔下所有路全走完后再返回到更上一个分岔走下一条路。</p>
+<h3 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h3><blockquote>
+<p>深度优先遍历图的方法是，从图中某顶点v出发：</p>
+<ol>
+<li>访问顶点 v ；</li>
+<li>依次从v的未被访问的邻接点出发，对图进行深度优先遍历；直至图中和v有路径相通的顶点都被访问；</li>
+<li>若此时图中尚有顶点未被访问，则从一个未被访问的顶点出发，重新进行深度优先遍历，直到图中所有顶点均被访问过为止。</li>
+</ol>
 </blockquote>
-<h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><blockquote>
-<p>For each test case, print a integer in one line which denoting the answer.</p>
-</blockquote>
-<h4 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h4><pre class="line-numbers language-none"><code class="language-none">3
-1
-100
-1000000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h4><pre class="line-numbers language-none"><code class="language-none">1
-988185646
-617521033<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>理解题意，我们要按照规则生成一个长度为 n 的数列：已生成数列长度为 m，在 [1, n - m] 之间随机取一个数字 x，然后将 x 长度的数列添加到已生成的数列中，问有多少种可能性。</p>
-<p>从长度为 1 开始找规律</p>
-<p>n = 1 时，只有一种可能性</p>
-<p>n = 2 时，第一次生成的 x 可能为 1 or 2</p>
-<p>​    若 x = 1，则剩余长度为 1，只有 1 种可能性</p>
-<p>​    若 x = 2，则剩余长度为 0，此时为 1 种可能性</p>
-<p>​    因此 n = 2 时有两种可能性</p>
-<p>n = 3 时，第一次生成的 x 可能为 1, 2 or 3</p>
-<p>​    若 x = 1，则剩余长度为 2，根据之前推到结果，有 2 种可能性</p>
-<p>​    若 x = 2，则剩余长度为 1，根据之前推到结果，有 1 种可能性</p>
-<p>​    若 x = 3，则剩余长度为 0，此时为 1 种可能性</p>
-<p>​    因此 n = 3 时有 4 种可能性</p>
-<p>……</p>
-<p>易得，答案为 2<sup>n-1</sup>.</p>
-<p>只需按快速幂的方法，求出 2<sup>n-1</sup> % (10<sup>9</sup> + 7) 即可</p>
-<h4 id="Accepted-Code"><a href="#Accepted-Code" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
-#pragma warning(disable:4996)
-#include&lt;cstdio&gt;
-#include&lt;cstring&gt;
-#include&lt;string&gt;
-#include&lt;cmath&gt;
-#include&lt;cctype&gt;
-#include&lt;algorithm&gt;
-#include&lt;iostream&gt;
-#include&lt;queue&gt;
-#include&lt;stack&gt;
-#include&lt;vector&gt;
-#include&lt;map&gt;
-#include&lt;set&gt;
-#include&lt;list&gt;
-using namespace std;
+<p><strong>搜索完节点后注意是否需要回溯！</strong></p>
+<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">bool judge(int x, int y) {};	//判断当前状态是否合法
 
-const int mod = 1e9 + 7;
+bool check(int x, int y) {};	//判断是否为最终答案
 
-int t, n;
-
-long long qpow(int x)
+void dfs(int x, int y, int z)
 {
-	if (!x) return 1;
-	else if (x &amp; 1) return (qpow(x - 1) &lt;&lt; 1) % mod;
-	else
-	{
-		long long temp = (qpow(x &gt;&gt; 1)) % mod;
-		return temp * temp % mod;
-	}
-}
+    if(!judge(x, y)) return;
+    if(check(x, y))
+    {
+        //保存答案
+    }
+    vis[x][y] = 1;	//标记已搜索过此节点，防止重复搜索
+    /*
+        操作...
+    */
+    dfs(x - 1, y, z + 1);
+    dfs(x + 1, y, z + 1);
+    dfs(x, y - 1, z + 1);
+    dfs(x, y + 1, z + 1);
+    vis[x][y] = 0;	//回溯
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><h4 id="剪枝"><a href="#剪枝" class="headerlink" title="剪枝"></a>剪枝</h4><p>有些求最优解的题目，可以不用完全遍历，当目前 dfs 的解已经比历史遍历得到的最优解更差时，可以停止遍历，节省一部分时间复杂度。</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">bool judge(int x, int y) {};	//判断当前状态是否合法
 
-int main()
+bool check(int x, int y) {};	//判断是否为最终答案
+
+void dfs(int x, int y, int z)
 {
-	scanf("%d", &amp;t);
-	while (t--)
-	{
-		scanf("%d", &amp;n);
-		printf("%lld\n", qpow(n - 1));
-	}
-	return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    if(!judge(x, y)) return;
+    if(z &gt;= ans) return;
+    if(check(x, y))
+    {
+        ans = z;
+        //保存答案
+    }
+    vis[x][y] = 1;	//标记已搜索过此节点，防止重复搜索
+    /*
+        操作...
+    */
+    dfs(x - 1, y, z + 1);
+    dfs(x + 1, y, z + 1);
+    dfs(x, y - 1, z + 1);
+    dfs(x, y + 1, z + 1);
+    vis[x][y] = 0;	//回溯
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h3 id="H-•-Hsueh-And-Treasure"><a href="#H-•-Hsueh-And-Treasure" class="headerlink" title="H • Hsueh- And Treasure"></a>H • Hsueh- And Treasure</h3><h4 id="Description-1"><a href="#Description-1" class="headerlink" title="Description"></a>Description</h4><blockquote>
-<p>Hsueh- Dreaming one night, dreaming that he was in a vast ocean.</p>
-<p>In a faraway place, there is an island. It is said that there are some precious treasures on it. There are treasures left by the King of Sailing Kwords to give to the world.</p>
-<p>So Hsueh- wants to find the treasure left by Kwords。</p>
-<p>We assume that the sea is a two-dimensional plane, Hsueh- is currently at (0, 0), and the location of the treasure is at (x, y).</p>
-<p>Next, due to the influence of the cosmic background radiation wave, Hsueh- can only take exactly i steps at the i-th moment, and each step can only walk one square in four directions, up, down, left, and right. The initial moment is 0.</p>
-<p>Hsueh- is too anxious to find the last treasure, so he asks you, can you help him plan the shortest route to the destination (x, y). And please output this route.</p>
-<p>Note that there may be multiple routes, and you can output any route.</p>
-</blockquote>
-<h4 id="Input-1"><a href="#Input-1" class="headerlink" title="Input"></a>Input</h4><blockquote>
-<p>The first line contains a single integer T(1 ≤ T ≤ 10), denoting the number of test cases.</p>
-<p>For next T lines, each line contains two integers x, y(|x|,|y| ≤ 10<sup>9</sup>), representing the location of the treasure.</p>
-</blockquote>
-<h4 id="Output-1"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h4><blockquote>
-<p>For each test case,the output format must meet the following requirements.</p>
-<p>The first line you need to print “Case #i:”(without quotation marks), representing the current number of test cases.</p>
-<p>The second line you need to print a single integer t, which indicates the final moment at which it can reach (xi, yi).</p>
-<p>Next t lines, each line contains two integers separated by a space, denoting the location of the j-th moment.</p>
-</blockquote>
-<h4 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input"></a>Sample Input</h4><pre class="line-numbers language-none"><code class="language-none">2
-1 0
-2 2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h4 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output"></a>Sample Output</h4><pre class="line-numbers language-none"><code class="language-none">Case #1:
-1
-1 0
-Case #2:
-3
-1 0
-1 2
-2 2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h4><p>比赛时审了好几次题，每次审题都有新发现（英语差是原罪</p>
-<p>第一次审题，把题目审难了：没看到 <code>each step can only walk one square in four directions</code>，以为是第 i 次可以走 i 步，但是这 i 步都是要朝同一方向，那就还得考虑越后面能走得越多，会产生朝一个方向的浪费的问题了</p>
-<p>第二次审题，把题目审简单了：没看到 <code>exactly i steps at the i-th moment</code>，以为是第 i 次可以走 i 步，每一步任意方向，只要走到就可以了。那很简单啊，先按左右方向，然后上下方向走完就可以了。甚至还自信地 Submit 了三次，都直接 WA 在了 test1，这才意识到一定是题目读错了，重新审了一次题</p>
-<p>（这里必须 diss 江宇杰，写完代码只测样例就敢 Submit，都不自己造数据测试、、连负数都没考虑到！）</p>
-<p>第三次审题，终于读对题目了，第 i 次一定要走完 i 步。因此，前期还是跟上一次的想法一样，先左右走，走到了以后再向上下走。如果已经到了目的地就左右横跳。如果剩余步数为奇数就走到相邻的一格，如果是偶数就在原地。</p>
-<p>第三次审题，终于读对题目了，第 i 次一定要走完 i 步。因此，前期还是跟上一次的想法一样，先左右走，走到了以后再向上下走</p>
-<h4 id="Accepted-Code-1"><a href="#Accepted-Code-1" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
-#pragma warning(disable:4996)
-#include&lt;cstdio&gt;
-#include&lt;cstring&gt;
-#include&lt;string&gt;
-#include&lt;cmath&gt;
-#include&lt;cctype&gt;
-#include&lt;algorithm&gt;
-#include&lt;iostream&gt;
-#include&lt;queue&gt;
-#include&lt;stack&gt;
-#include&lt;vector&gt;
-#include&lt;map&gt;
-#include&lt;set&gt;
-#include&lt;list&gt;
-using namespace std;
-
-int T;
-long long sx, sy;		//当前的坐标
-long long fx, fy;		//目的地坐标
-int negx = 1, negy = 1;	//用于标记目的地的方向是正方向还是负方向
-bool flag, FLAG;		//flag:是否到达过目的地; FLAG:是否恰好到达了目的地
-int res;				//每一次剩余的步数
-
-int px[100015], py[100015], cnt;
-
-bool arrive()
+<h4 id="记忆化搜索"><a href="#记忆化搜索" class="headerlink" title="记忆化搜索"></a>记忆化搜索</h4><p>对于遍历某些确定的类型时，如果到达一个节点之后的遍历结果是可以确定的，第一遍先向下遍历得到结果，将这个结果保存，之后再遍历到此节点时直接返回已得到的结果，可以节省一部分时间复杂度。</p>
+<p>如：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1434">洛谷 P1434 [SHOI2002]滑雪</a></p>
+<p>题目大意：矩阵求最长下降线路长度</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int fx[5] = { 0, 0, 0, 1, -1 };
+int fy[5] = { 0, 1, -1, 0, 0 };
+int dfs(int x, int y)
 {
-	if (sx == fx &amp;&amp; sy == fy) return 1;
-	return 0;
-}
-
-int LeftRight(int x)
-{
-	if (x &lt; fx - sx)
+	if (f[x][y]) return f[x][y];	//记忆化搜索
+	f[x][y] = 1;	//题目中答案是有包含这个点的
+	for (int i = 1; i &lt;= 4; i++)
 	{
-		sx += x;
-		x = 0;
-	}
-	else
-	{
-		x -= fx - sx;
-		sx = fx;
-	}
-	return x;
-}
-
-int UpDown(int y)
-{
-	if (y &lt; fy - sy)
-	{
-		sy += y;
-		y = 0;
-	}
-	else
-	{
-		y -= fy - sy;
-		sy = fy;
-	}
-	return y;
-}
-
-void init()
-{
-	negx = fx &gt; 0 ? 1 : -1;
-	negy = fy &gt; 0 ? 1 : -1;
-	fx = abs(fx);
-	fy = abs(fy);
-	sx = 0;
-	sy = 0;
-	flag = 0;
-	FLAG = 0;
-    memset (px, 0, sizeof (px));
-    memset (py, 0, sizeof (py));
-	return;
-}
-
-int main()
-{
-	scanf("%d", &amp;T);
-	for (int t = 1; t &lt;= T; t++)
-	{
-		scanf("%lld%lld", &amp;fx, &amp;fy);
-
-		printf("Case #%d:\n", t);
-
-		if (!fx &amp;&amp; !fy)	//如果目的地为原点，应该输出共 0 步，并且输出 0 行坐标
+		int xx = fx[i] + x;
+		int yy = fy[i] + y;	//四个方向
+		if (xx &gt; 0 &amp;&amp; yy &gt; 0 &amp;&amp; xx &lt;= n &amp;&amp; yy &lt;= m &amp;&amp; a[x][y] &gt; a[xx][yy])
 		{
-			printf("0\n");
-			continue;
+			f[x][y] = max(f[x][y], dfs(xx, yy) + 1);
 		}
-
-		init();
-
-		for (cnt = 1; !FLAG; cnt++)
-		{
-			res = cnt;
-			if (!flag)
-			{
-				res = LeftRight(res);
-				res = UpDown(res);
-				if (arrive()) flag = 1;
-			}
-			if (flag)
-			{
-				if (res % 2)
-				{
-					if (arrive()) sx++;
-					else sx--;
-				}
-				res = 0;
-				if (arrive()) FLAG = 1;
-			}
-			px[cnt] = sx * negx;
-			py[cnt] = sy * negy;
-		}
-
-		cnt--;
-		printf("%d\n", cnt);
-
-		for (int i = 1; i &lt;= cnt; i++) printf("%d %d\n", px[i], py[i]);
 	}
+	return f[x][y];
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-	return 0;
-
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h3 id="I-•-Iaom-and-Chicken-feet"><a href="#I-•-Iaom-and-Chicken-feet" class="headerlink" title="I • Iaom and Chicken feet"></a>I • Iaom and Chicken feet</h3><h4 id="Description-2"><a href="#Description-2" class="headerlink" title="Description"></a>Description</h4><blockquote>
-<p>Baom likes chicken very much.</p>
-<p>One day ,while he was thinking a problem on tree he found it looks like chicken’s feet.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210402224246.png"></p>
-<p>He fall into thinking,how much chicken feet are there on the tree.</p>
-<p>The “chicken feet” is a subgraph of given tree which shapes like the picture above</p>
-<p>Baom wonder the number of “chicken feet” all over the tree.Two “feet”s are consider the same iff the set of edges of “chicken feet”s are the same.</p>
+<h2 id="BFS-•-广度优先搜索"><a href="#BFS-•-广度优先搜索" class="headerlink" title="BFS • 广度优先搜索"></a>BFS • 广度优先搜索</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><blockquote>
+<p>从出发点一层一层向外遍历，到达终点就结束。因此，到达终点的方案一定是最优解。</p>
 </blockquote>
-<h4 id="Input-2"><a href="#Input-2" class="headerlink" title="Input"></a>Input</h4><blockquote>
-<p>The first line contains one integer n(1 ≤ n ≤ 5 ⋅ 10<sup>5</sup>) —The number of nodes each of next n − 1 line contains a description of an edge: two integers u and v(1 ≤ u, v ≤ n, u ≠ v) The given edges form a tree.</p>
+<blockquote>
+<p>无论有多少条路，每条路都只走一步，并记录下状态，等到所有的路都走完一步后，再从第一条路开始走第二步，直至有一条路走到终点。</p>
 </blockquote>
-<h4 id="Output-2"><a href="#Output-2" class="headerlink" title="Output"></a>Output</h4><blockquote>
-<p>Print a single integer — the number of “chicken feet” modulo 998244353.</p>
+<h3 id="基本思路-1"><a href="#基本思路-1" class="headerlink" title="基本思路"></a>基本思路</h3><blockquote>
+<p>广度优先搜索使用队列（queue）来实现，整个过程也可以看做一个倒立的树形：</p>
+<ol>
+<li><p>把根节点放到队列的末尾。</p>
+</li>
+<li><p>每次从队列的头部取出一个元素，查看这个元素所有的下一级元素，把它们放到队列的末尾。并把这个元素记为它下一级元素的前驱。</p>
+</li>
+<li><p>找到所要找的元素时结束程序。</p>
+</li>
+<li><p>如果遍历整个树还没有找到，结束程序。</p>
+</li>
+</ol>
 </blockquote>
-<h4 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input"></a>Sample Input</h4><pre class="line-numbers language-none"><code class="language-none">7
-1 2
-2 3
-2 4
-5 4
-6 4
-7 4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output"></a>Sample Output</h4><pre class="line-numbers language-none"><code class="language-none">1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h4><p>将 4 号点提起，枚举 2 号点，令 sz[x] 表示与点 x 相连的点的个数，答案为 C<sup>3</sup><sub>sz[4]−1</sub> · C<sup>2</sup><sub>sz[2]−1</sub> 之和</p>
-<p>（这里再次 diss 江宇杰，莫名其妙喜欢用 cin/cout，导致 TLE… scanf/printf 它不香吗？？？</p>
-<h4 id="Accepted-Code-2"><a href="#Accepted-Code-2" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
-#pragma warning(disable:4996)
-#include&lt;cstdio&gt;
-#include&lt;cstring&gt;
-#include&lt;string&gt;
-#include&lt;cmath&gt;
-#include&lt;cctype&gt;
-#include&lt;algorithm&gt;
-#include&lt;iostream&gt;
-#include&lt;queue&gt;
-#include&lt;stack&gt;
-#include&lt;vector&gt;
-#include&lt;map&gt;
-#include&lt;set&gt;
-#include&lt;list&gt;
-using namespace std;
-
-const int maxn = 5e5 + 10;
-const int mod = 998244353;
-
-int t;
-int u, v;
-long long sum = 0;
-long long num[maxn];
-
-vector&lt;int&gt; q[maxn];
-
-int main()
+<h3 id="模板-1"><a href="#模板-1" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int fx[5] = { 0, -1, 1, 0, 0 };
+int fy[5] = { 0, 0, 0, -1, 1 };	//上下左右
+struct node
 {
-	scanf("%d", &amp;t);
-	for (int i = 1; i &lt;= t - 1; i++)	//建立边
+    int x, y, z;
+};
+
+bool check (int x, int y) {};	//判断点是否能走
+
+void bfs(int x, int y, int z)
+{
+    node start;
+	start.x = x;
+	start.y = y;
+	start.z = 0;	//start 为出发点，z 为步数
+    queue &lt;node&gt; q;
+	q.push(start);	//将出发点推入队列中等待处理
+	while (!q.empty())
 	{
-		scanf("%d%d", &amp;u, &amp;v);
-		q[u].push_back(v);
-		q[v].push_back(u);
-		num[u]++;
-		num[v]++;
-	}
-	for (int i = 1; i &lt;= t; i++)
-	{
-		if (num[i] &gt;= 3)
+        node now;
+		now = q.front();	//从队列中取出首元素处理
+		q.pop();	//将该元素取出后要记得推出，否则只推入不推出，死循环
+		t[now.x][now.y] = now.z;	//这里是记录了到 [now.x][now.y] 的最短路径，也可以做其他操作
+		for (int i = 1; i &lt;= 4; i++)	//往四个方向继续遍历
 		{
-			for (int j = 0; j &lt; num[i]; j++)
+            if (check (now.x + fx[i], now.y + fy[i]))
 			{
-				if (num[q[i][j]] &gt;= 4)
-				{
-					sum += (((num[i] - 1) * (num[i] - 2)) &gt;&gt; 1) * ((num[q[i][j]] - 1) * (num[q[i][j]] - 2) * (num[q[i][j]] - 3) / 6) % mod;
-					sum %= mod;
-				}
+				node next;
+				next.x = now.x + fx[i];
+				next.y = now.y + fy[i];
+				next.z = now.z + 1;
+				vi[next.x][next.y] = 1;
+				q.push(next);	//将该点保存并推入队列中，等待前面的处理完后再走下一步
 			}
 		}
 	}
-	printf("%lld\n", sum);
-	return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h3 id="J-•-Jew-Sorting"><a href="#J-•-Jew-Sorting" class="headerlink" title="J • Jew Sorting"></a>J • Jew Sorting</h3><h4 id="Description-3"><a href="#Description-3" class="headerlink" title="Description"></a>Description</h4><blockquote>
-<p>Hello, guys, I am the King of boredom.</p>
-<p>I have a array of length 2<sup>k</sup>(0 ≤ k ≤ 20). You can delete the first half or the second half of each operation.</p>
-<p>So, you need to tell me the minimum number of operations required can make this sequence non-decreasing.</p>
-</blockquote>
-<h4 id="Input-3"><a href="#Input-3" class="headerlink" title="Input"></a>Input</h4><blockquote>
-<p>The first line contains a single integer k(0 ≤ k ≤ 20), denoting the length of the array is 2<sup>k</sup>.</p>
-<p>The second line contains 2<sup>k</sup> integers, the ii-th integer is ai(1 ≤ ai ≤ 10<sup>9</sup>) representing the array.</p>
-</blockquote>
-<h4 id="Output-3"><a href="#Output-3" class="headerlink" title="Output"></a>Output</h4><blockquote>
-<p>Print a single integer, denoting the answer.</p>
-</blockquote>
-<h4 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input 1"></a>Sample Input 1</h4><pre class="line-numbers language-none"><code class="language-none">2
-1 3 2 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h4 id="Sample-Output1"><a href="#Sample-Output1" class="headerlink" title="Sample Output1"></a>Sample Output1</h4><pre class="line-numbers language-none"><code class="language-none">1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input 2"></a>Sample Input 2</h4><pre class="line-numbers language-none"><code class="language-none">2
-1 2 3 4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h4 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output 2"></a>Sample Output 2</h4><pre class="line-numbers language-none"><code class="language-none">0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution"></a>Solution</h4><p>按照题目模拟</p>
-<h4 id="Accepted-Code-3"><a href="#Accepted-Code-3" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
-#pragma warning(disable:4996)
-#include&lt;cstdio&gt;
-#include&lt;cstring&gt;
-#include&lt;string&gt;
-#include&lt;cmath&gt;
-#include&lt;cctype&gt;
-#include&lt;algorithm&gt;
-#include&lt;iostream&gt;
-#include&lt;queue&gt;
-#include&lt;stack&gt;
-#include&lt;vector&gt;
-#include&lt;map&gt;
-#include&lt;set&gt;
-#include&lt;list&gt;
-using namespace std;
-
-int k, start = 1, num = 1, minans = INT_MAX, times;
-int a[2000006];
-int head[2000006];
-long long maxnum;
-
-void init(int x, int n, int halfsize)
-{
-	if (n != k + 1)
-	{
-		head[x] = n;
-		init(x + halfsize / 2, n + 1, halfsize / 2);
-		init(x - halfsize / 2, n + 1, halfsize / 2);
-	}
-}
-
-int main()
-{
-	scanf("%d", &amp;k);
-	maxnum = pow(2, k);
-	init(1 + maxnum / 2, 1, maxnum / 2);
-	scanf("%d", &amp;a[1]);
-
-	for (int i = 2; i &lt;= maxnum; i++)
-	{
-		scanf("%d", &amp;a[i]);
-
-		if (a[i] &gt;= a[i - 1] &amp;&amp; i != maxnum) num += 1;
-		else
-		{
-			times = 0;
-			int temp = maxnum;
-			if (i == maxnum &amp;&amp; a[i] &gt;= a[i - 1]) num++;
-			while (num &lt; temp)
-			{
-				temp /= 2;
-				times++;
-			}
-			times = max(times, head[start]);
-			if (times &lt; minans) minans = times;
-
-			start = i;
-			num = 1;
-		}
-	}
-	printf("%d\n", minans);
-
-
-	return 0;
-
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 
-<h2 id="After-Trial"><a href="#After-Trial" class="headerlink" title="After Trial"></a>After Trial</h2><p>这段的故事就比较跌宕起伏了……</p>
-<p>首先是在比赛中我们队伍排名第十</p>
-<p>但是有三个队伍是打星队伍，不参加排名，所以我们又排名第 7.</p>
-<p>然而，有两个队伍是不用参加选拔赛的，我们又排名第 9 了 :)</p>
-<p>就在今天，队长又突然通知我，有一个队伍放弃参赛，于是名额就轮到我们了，听到这个消息那是真的激动啊！</p>
-<p>作为唯一一支大一的队伍参赛，既是兴奋，又有忐忑……</p>
-<p>清明节也留校参加实验室的训练了，这几天一定要认真训练，巩固基础知识，多学习算法，再刷点往年的省赛题目，争取在省赛中取得好的名次（虽然只是第一次参赛）</p>
-<h1 id="End"><a href="#End" class="headerlink" title="End"></a>End</h1><p>特别鸣谢：江宇杰、王梓仰</p>
-
+<h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><h3 id="A-Find-a-way-•-HDU-2612"><a href="#A-Find-a-way-•-HDU-2612" class="headerlink" title="A Find a way • HDU 2612"></a>A <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/A">Find a way</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2612/origin">HDU 2612</a></h3><h3 id="B-Dungeon-Master-•-POJ-2251"><a href="#B-Dungeon-Master-•-POJ-2251" class="headerlink" title="B Dungeon Master • POJ 2251"></a>B <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/B">Dungeon Master</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-2251/origin">POJ 2251</a></h3><h3 id="C-Red-and-Black-•-HDU-1312"><a href="#C-Red-and-Black-•-HDU-1312" class="headerlink" title="C Red and Black • HDU 1312"></a>C <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/C">Red and Black</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1312/origin">HDU 1312</a></h3><h3 id="D-Counting-Sheep-•-HDU-2952"><a href="#D-Counting-Sheep-•-HDU-2952" class="headerlink" title="D Counting Sheep • HDU 2952"></a>D <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/D">Counting Sheep</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2952/origin">HDU 2952</a></h3><h3 id="E-N皇后问题-•-HDU-2553"><a href="#E-N皇后问题-•-HDU-2553" class="headerlink" title="E N皇后问题 • HDU 2553"></a>E <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/E">N皇后问题</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2553/origin">HDU 2553</a></h3><h3 id="F-A-Funny-Bipartite-Graph-•-计蒜客-42577"><a href="#F-A-Funny-Bipartite-Graph-•-计蒜客-42577" class="headerlink" title="F  A Funny Bipartite Graph • 计蒜客 42577"></a>F <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/F"> A Funny Bipartite Graph</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/%E8%AE%A1%E8%92%9C%E5%AE%A2-42577/origin">计蒜客 42577</a></h3><h3 id="G-wyh2000-and-pupil-•-HDU-5285"><a href="#G-wyh2000-and-pupil-•-HDU-5285" class="headerlink" title="G wyh2000 and pupil • HDU 5285"></a>G <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/G">wyh2000 and pupil</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-5285/origin">HDU 5285</a></h3><h3 id="H-Legal-or-Not-•-HDU-3342"><a href="#H-Legal-or-Not-•-HDU-3342" class="headerlink" title="H Legal or Not • HDU 3342"></a>H <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/H">Legal or Not</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-3342/origin">HDU 3342</a></h3>
                 
             </div>
             <hr/>
@@ -899,7 +624,7 @@ int main()
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://owlllovo.github.io/2021/04/02/qualified-for-zjcpc-2021/">http://owlllovo.github.io/2021/04/02/qualified-for-zjcpc-2021/</a>
+                    <a href="http://owlllovo.github.io/2021/01/23/2021-1-23-sou-suo/">http://owlllovo.github.io/2021/01/23/2021-1-23-sou-suo/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -937,8 +662,20 @@ int main()
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/ZJCPC-2021/">
-                                    <span class="chip bg-color">ZJCPC 2021</span>
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%90%9C%E7%B4%A2/">
+                                    <span class="chip bg-color">搜索</span>
+                                </a>
+                            
+                                <a href="/tags/DFS/">
+                                    <span class="chip bg-color">DFS</span>
+                                </a>
+                            
+                                <a href="/tags/BFS/">
+                                    <span class="chip bg-color">BFS</span>
                                 </a>
                             
                         </div>
@@ -988,13 +725,13 @@ int main()
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/04/12/2021-4-12-kmp/">
+                <a href="/2021/01/23/2021-1-23-tuo-bu-pai-xu/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="2021.4.12">
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="拓扑排序">
                         
-                        <span class="card-title">2021.4.12</span>
+                        <span class="card-title">拓扑排序</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1005,7 +742,7 @@ int main()
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-12
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-23
                         </span>
                         <span class="publish-author">
                             
@@ -1022,8 +759,12 @@ int main()
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/KMP/">
-                        <span class="chip bg-color">KMP</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
+                        <span class="chip bg-color">拓扑排序</span>
                     </a>
                     
                 </div>
@@ -1037,28 +778,33 @@ int main()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/20/eth/">
+                <a href="/2021/01/22/2021-1-22-er-fen-cha-zhao/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210321101424.jpg" class="responsive-img" alt="ETH">
                         
-                        <span class="card-title">ETH</span>
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="二分查找">
+                        
+                        <span class="card-title">二分查找</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            How to start mining ETH
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-22
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            OwlllOvO
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ACM/" class="post-category">
+                                    ACM
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -1066,8 +812,12 @@ int main()
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ETH/">
-                        <span class="chip bg-color">ETH</span>
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                    <a href="/tags/%E4%BA%8C%E5%88%86/">
+                        <span class="chip bg-color">二分</span>
                     </a>
                     
                 </div>
@@ -1270,7 +1020,7 @@ int main()
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19.5k</span>&nbsp;字
+                class="white-color">20.2k</span>&nbsp;字
             
             
             

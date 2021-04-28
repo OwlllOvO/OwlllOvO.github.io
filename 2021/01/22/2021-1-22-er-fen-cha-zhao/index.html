@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="2021.1.23, OwlllOvO">
+    <meta name="keywords" content="二分查找, OwlllOvO">
     <meta name="description" content="OwlllOvO Blog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>2021.1.23 | OwlllOvO</title>
+    <title>二分查找 | OwlllOvO</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -268,12 +268,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/19.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">2021.1.23</h1>
+                    <h1 class="description center-align post-title">二分查找</h1>
                 </div>
             </div>
         </div>
@@ -393,20 +393,8 @@
                                 <span class="chip bg-color">C++</span>
                             </a>
                         
-                            <a href="/tags/DFS/">
-                                <span class="chip bg-color">DFS</span>
-                            </a>
-                        
-                            <a href="/tags/BFS/">
-                                <span class="chip bg-color">BFS</span>
-                            </a>
-                        
-                            <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
-                                <span class="chip bg-color">拓扑排序</span>
-                            </a>
-                        
-                            <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/">
-                                <span class="chip bg-color">二分图</span>
+                            <a href="/tags/%E4%BA%8C%E5%88%86/">
+                                <span class="chip bg-color">二分</span>
                             </a>
                         
                     </div>
@@ -430,7 +418,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-23
+                    2021-01-22
                 </div>
                 
 
@@ -439,7 +427,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2k
+                    691
                 </div>
                 
 
@@ -459,279 +447,117 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="2021-1-23"><a href="#2021-1-23" class="headerlink" title="2021.1.23"></a>2021.1.23</h1><h2 id="DFS-•-深度优先搜索"><a href="#DFS-•-深度优先搜索" class="headerlink" title="DFS • 深度优先搜索"></a>DFS • 深度优先搜索</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><blockquote>
-<p>深度优先搜索属于图算法的一种，英文缩写为 DFS 即 Depth First Search. 其过程简要来说是对每一个可能的分支路径深入到不能再深入为止，而且每个节点只能访问一次。</p>
+                <h1 id="二分查找"><a href="#二分查找" class="headerlink" title="二分查找"></a>二分查找</h1><blockquote>
+<p>二分查找也称折半查找（Binary Search），它是一种效率较高的查找方法。但是，折半查找要求线性表必须采用顺序存储结构，而且表中元素按关键字有序排列。</p>
 <p>——百度百科</p>
 </blockquote>
-<blockquote>
-<p>在一条路上的分岔按顺序选择方向，一条路走到底再返回到最近分岔选择下一条路，这个分岔下所有路全走完后再返回到更上一个分岔走下一条路。</p>
-</blockquote>
-<h3 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h3><blockquote>
-<p>深度优先遍历图的方法是，从图中某顶点v出发：</p>
-<ol>
-<li>访问顶点 v ；</li>
-<li>依次从v的未被访问的邻接点出发，对图进行深度优先遍历；直至图中和v有路径相通的顶点都被访问；</li>
-<li>若此时图中尚有顶点未被访问，则从一个未被访问的顶点出发，重新进行深度优先遍历，直到图中所有顶点均被访问过为止。</li>
-</ol>
-</blockquote>
-<p><u>搜索完节点后注意是否需要回溯！</u></p>
-<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">bool judge(int x, int y) {};	//判断当前状态是否合法
-
-bool check(int x, int y) {};	//判断是否为最终答案
-
-void dfs(int x, int y, int z)
+<ul>
+<li><p>有序排列</p>
+<p><code>sort (a + 1, a + n + 1, cmp);</code></p>
+</li>
+<li><p>时间复杂度 <strong>O(logn)</strong></p>
+</li>
+</ul>
+<p>学了二分以后给我的感觉就是很多东西都可以拿来二分，以前以为只有查找可以用二分，现在知道原来很多有范围的东西，都可以用二分来逼近答案。</p>
+<h2 id="整数二分"><a href="#整数二分" class="headerlink" title="整数二分"></a>整数二分</h2><h3 id="找-gt-s-的数中最小的"><a href="#找-gt-s-的数中最小的" class="headerlink" title="找 >= s 的数中最小的"></a>找 &gt;= s 的数中最小的</h3><ul>
+<li><p>记录答案</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">bool check (int x)
 {
-    if(!judge(x, y)) return;
-    if(check(x, y))
+    if (a[x] &gt;= s) return 1;
+    else return 0;
+}
+
+int l = 1, r = n, ans = 0;
+while (l &lt;= r)
+{
+    int mid = (l + r) / 2;
+    if (check (mid))
     {
-        //保存答案
+        ans = mid;
+        r = mid - 1;
     }
-    visited[x][y] = 1;	//标记已搜索过此节点，防止重复搜索
-    /*
-        操作...
-    */
-    dfs(x - 1, y, z + 1);
-    dfs(x + 1, y, z + 1);
-    dfs(x, y - 1, z + 1);
-    dfs(x, y + 1, z + 1);
-    visited[x][y] = 0;	//回溯
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><h4 id="剪枝"><a href="#剪枝" class="headerlink" title="剪枝"></a>剪枝</h4><p>有些求最优解的题目，可以不用完全遍历，当目前 dfs 的解已经比历史遍历得到的最优解更差时，可以停止遍历，节省一部分时间复杂度。</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">bool judge(int x, int y) {};	//判断当前状态是否合法
+    else l = mid + 1;
+}
+printf ("%d", a[ans]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-bool check(int x, int y) {};	//判断是否为最终答案
 
-void dfs(int x, int y, int z)
+</li>
+</ul>
+<ul>
+<li><p>不记录答案 • r 逼近答案</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int l = 1, r = n;
+while (l &lt; r)
 {
-    if(!judge(x, y)) return;
-    if(z &gt; ans) return;
-    if(check(x, y))
+    int mid = (l + r) / 2;
+    if (a[mid] &gt;= s) r = mid;
+    else l = mid + 1;
+}
+printf ("%d", a[r]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>如果 a[mid] &gt;= s 成立，接下来应该向左继续查找，而此时 mid 是符合要求的，所以要保留，因此 r = mid</p>
+</li>
+<li><p>如果 a[mid] &gt;= s 不成立，接下来应该向右继续查找，而此时 mid 是不符合要求的，所以要舍弃，因此 l = mid + 1</p>
+</li>
+<li><p>输出的数一定是要符合要求的，每次查找 r = mid，r一定是符合要求，而 l 不一定，所以输出 r</p>
+</li>
+</ul>
+<h3 id="找-lt-s-的数中最大的"><a href="#找-lt-s-的数中最大的" class="headerlink" title="找 < s 的数中最大的"></a>找 &lt; s 的数中最大的</h3><ul>
+<li><p>记录答案</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">bool check (int x)
+{
+    if (a[x] &lt; s) return 1;
+    else return 0;
+}
+
+int l = 1, r = n, ans = 0;
+while (l &lt;= r)
+{
+    int mid = (l + r) / 2;
+    if (check (mid))
     {
-        ans = z;
-        //保存答案
+        ans = mid;
+        l = mid + 1;
     }
-    visited[x][y] = 1;	//标记已搜索过此节点，防止重复搜索
-    /*
-        操作...
-    */
-    dfs(x - 1, y, z + 1);
-    dfs(x + 1, y, z + 1);
-    dfs(x, y - 1, z + 1);
-    dfs(x, y + 1, z + 1);
-    visited[x][y] = 0;	//回溯
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="记忆化搜索"><a href="#记忆化搜索" class="headerlink" title="记忆化搜索"></a>记忆化搜索</h4><p>对于遍历某些确定的类型时，如果到达一个节点之后的遍历结果是可以确定的，第一遍先向下遍历得到结果，将这个结果保存，之后再遍历到此节点时直接返回已得到的结果，可以节省一部分时间复杂度。</p>
-<p>如：<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1434">洛谷 P1434 [SHOI2002]滑雪</a></p>
-<p>题目大意：矩阵求最长下降线路长度</p>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int fx[5] = { 0, 0, 0, 1, -1 };
-int fy[5] = { 0, 1, -1, 0, 0 };
-int dfs(int x, int y)
+    else r = mid - 1;
+}
+printf ("%d", a[ans]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+</li>
+</ul>
+<ul>
+<li><p>不记录答案 • l 逼近答案</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int l = 1, r = n;
+while (l &lt; r)
 {
-	if (f[x][y]) return f[x][y];	//记忆化搜索
-	f[x][y] = 1;	//题目中答案是有包含这个点的
-	for (int i = 1; i &lt;= 4; i++)
-	{
-		int xx = fx[i] + x;
-		int yy = fy[i] + y;	//四个方向
-		if (xx &gt; 0 &amp;&amp; yy &gt; 0 &amp;&amp; xx &lt;= n &amp;&amp; yy &lt;= m &amp;&amp; a[x][y] &gt; a[xx][yy])
-		{
-			f[x][y] = max(f[x][y], dfs(xx, yy) + 1);
-		}
-	}
-	return f[x][y];
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h2 id="BFS-•-广度优先搜索"><a href="#BFS-•-广度优先搜索" class="headerlink" title="BFS • 广度优先搜索"></a>BFS • 广度优先搜索</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><blockquote>
-<p>从出发点一层一层向外遍历，到达终点就结束。因此，到达终点的方案一定是最优解。</p>
-</blockquote>
-<blockquote>
-<p>无论有多少条路，每条路都只走一步，并记录下状态，等到所有的路都走完一步后，再从第一条路开始走第二步，直至有一条路走到终点。</p>
-</blockquote>
-<h3 id="基本思路-1"><a href="#基本思路-1" class="headerlink" title="基本思路"></a>基本思路</h3><blockquote>
-<p>广度优先搜索使用队列（queue）来实现，整个过程也可以看做一个倒立的树形：</p>
-<ol>
-<li><p>把根节点放到队列的末尾。</p>
+    int mid = (l + r + 1) / 2;
+    if (a[i] &lt; s) l = mid;
+    else r = mid - 1;
+}
+printf ("%d", a[l]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>如果 a[mid] &lt; s 成立，接下来应该向右继续查找，而此时 mid 是符合答案的，所以要保留，因此 l = mid</p>
 </li>
-<li><p>每次从队列的头部取出一个元素，查看这个元素所有的下一级元素，把它们放到队列的末尾。并把这个元素记为它下一级元素的前驱。</p>
+<li><p>如果 a[mid] &lt; s 不成立，接下来应该向左继续查找，而此时 mid 是不符合答案的，所以要舍弃，因此 r = mid - 1</p>
 </li>
-<li><p>找到所要找的元素时结束程序。</p>
+<li><p>输出的数一定是要符合要求的，每次查找 l = mid，l一定是符合要求，而 r 不一定，所以输出 l</p>
 </li>
-<li><p>如果遍历整个树还没有找到，结束程序。</p>
-</li>
-</ol>
-</blockquote>
-<h3 id="模板-1"><a href="#模板-1" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int fx[5] = { 0, -1, 1, 0, 0 };
-int fy[5] = { 0, 0, 0, -1, 1 };	//上下左右
-struct node
+</ul>
+<h2 id="浮点二分"><a href="#浮点二分" class="headerlink" title="浮点二分"></a>浮点二分</h2><p>浮点二分只能用记录答案方法，而且要设置一个范围使得查找能退出循环</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">const double eps = 1e-8;
+double l = 0, r = n;
+while (r - l &gt; eps)
 {
-    int x, y, z;
-};
-
-bool check (int x, int y) {};	//判断点是否能走
-
-void bfs(int x, int y, int z)
-{
-    node start;
-	start.x = x;
-	start.y = y;
-	start.z = 0;	//start 为出发点，z 为步数
-    queue &lt;node&gt; q;
-	q.push(start);	//将出发点推入队列中等待处理
-	while (!q.empty())
-	{
-        node now;
-		now = q.front();	//从队列中取出首元素处理
-		q.pop();	//将该元素取出后要记得推出，否则只推入不推出，死循环
-		t[now.x][now.y] = now.z;	//这里是记录了到 [now.x][now.y] 的最短路径，也可以做其他操作
-		for (int i = 1; i &lt;= 4; i++)	//往四个方向继续遍历
-		{
-            if (check (now.x + fx[i], now.y + fy[i]))
-			{
-				node next;
-				next.x = now.x + fx[i];
-				next.y = now.y + fy[i];
-				next.z = now.z + 1;
-				vi[next.x][next.y] = 1;
-				q.push(next);	//将该点保存并推入队列中，等待前面的处理完后再走下一步
-			}
-		}
-	}
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+    double mid = (l + r) / 2;
+    if (check (mid))
+    {
+        ans = mid;
+        r = mid - 1;
+    }
+    else l = r + 1;
+}
+printf ("%d", ans);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h2 id="拓扑排序"><a href="#拓扑排序" class="headerlink" title="拓扑排序"></a>拓扑排序</h2><h3 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h3><blockquote>
-<p>对一个有向无环图 (Directed Acyclic Graph简称DAG) G进行拓扑排序，是将 G 中所有顶点排成一个线性序列，使得图中任意一对顶点 u 和 v，若边 &lt;u,v&gt;∈E(G)，则u在线性序列中出现在 v 之前。通常，这样的线性序列称为满足拓扑次序 (Topological Order) 的序列，简称拓扑序列。简单的说，由某个集合上的一个偏序得到该集合上的一个全序，这个操作称之为拓扑排序。</p>
-<p>——百度百科</p>
-</blockquote>
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>由 AOV 网构造拓扑序列的拓扑排序算法主要是循环执行以下两步，直到不存在入度为0的顶点为止。</p>
-<ol>
-<li><p>选择一个入度为 0 的顶点并输出之；</p>
-</li>
-<li><p>从网中删除此顶点及所有出边。</p>
-<p>循环结束后，若输出的顶点数小于网中的顶点数，则输出“有回路”信息，否则输出的顶点序列就是一种拓扑序列。</p>
-</li>
-</ol>
-<h3 id="GYM-102219-J-•-Kitchen-Plates"><a href="#GYM-102219-J-•-Kitchen-Plates" class="headerlink" title="GYM 102219 J • Kitchen Plates"></a><a target="_blank" rel="noopener" href="https://codeforces.com/gym/102219/problem/J">GYM 102219 J • Kitchen Plates</a></h3><p>time limit per test: 1 second</p>
-<p>memory limit per test: 256 megabytes</p>
-<p>input: standard input</p>
-<p>output: standard output</p>
-<h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>You are given 5 different sizes of kitchen plates. Each plate is marked with a letter A, B, C, D, or E. You are given 5 statements comparing two different plates, you need to rearrange the plates from smallest size to biggest size. For example: the sizes of these plates.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210416193013.png"></p>
-<h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><p>The input consist of 5 lines. In each line there will be 3 characters, the first and last character will be either A, B, C, D, or E and the middle character will be either &gt; or &lt; describing the comparison between two plates sizes. No two plates will be equal.</p>
-<h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><p>The output consist of 55 characters, the sorted order of balls from smallest to biggest plate. Otherwise, if the statements are contradicting print impossibleimpossible. If there are multiple answers, print any of them.</p>
-<h4 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h4><h5 id="input-1"><a href="#input-1" class="headerlink" title="input 1"></a>input 1</h5><pre class="line-numbers language-none"><code class="language-none">D&gt;B
-A&gt;D
-E&lt;C
-A&gt;B
-B&gt;C<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="output-1"><a href="#output-1" class="headerlink" title="output 1"></a>output 1</h5><pre class="line-numbers language-none"><code class="language-none">ECBDA<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-<h5 id="input-2"><a href="#input-2" class="headerlink" title="input 2"></a>input 2</h5><pre class="line-numbers language-none"><code class="language-none">B&gt;E
-A&gt;B
-E&gt;A
-C&lt;B
-D&lt;B<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h5 id="output-2"><a href="#output-2" class="headerlink" title="output 2"></a>output 2</h5><pre class="line-numbers language-none"><code class="language-none">impossible<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>拓扑排序</p>
-<h4 id="Accepted-Code"><a href="#Accepted-Code" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
-#pragma warning(disable:4996)
-#include&lt;cstdio&gt;
-#include&lt;cstring&gt;
-#include&lt;string&gt;
-#include&lt;cmath&gt;
-#include&lt;cctype&gt;
-#include&lt;algorithm&gt;
-#include&lt;iostream&gt;
-#include&lt;queue&gt;
-#include&lt;stack&gt;
-#include&lt;vector&gt;
-#include&lt;map&gt;
-#include&lt;set&gt;
-#include&lt;list&gt;
-using namespace std;
-
-char str[10], ans[10];
-int indegree[10], e[10][10];
-bool book[10];
-
-int main()
-{
-	while (scanf("%s", str) != EOF)
-	{
-		memset(e, 0, sizeof(e));
-		memset(indegree, 0, sizeof(indegree));
-		memset(book, 0, sizeof(book));
-
-		if (str[1] == '&lt;')
-		{
-			indegree[str[0] - 'A']++;
-			e[str[2] - 'A'][str[0] - 'A']++;
-		}
-		else
-		{
-			indegree[str[2] - 'A']++;
-			e[str[0] - 'A'][str[2] - 'A']++;
-		}
-		for (int i = 1; i &lt;= 4; i++)
-		{
-			scanf("%s", str);
-
-			if (str[1] == '&lt;')
-			{
-				indegree[str[0] - 'A']++;
-				e[str[2] - 'A'][str[0] - 'A']++;
-			}
-			else
-			{
-				indegree[str[2] - 'A']++;
-				e[str[0] - 'A'][str[2] - 'A']++;
-			}
-		}
-		int len = 0;
-
-		while (1)
-		{
-			int temp = 0;
-			for (int i = 0; i &lt; 5; i++)
-				if (!indegree[i] &amp;&amp; book[i] == false)
-				{
-					temp = 1;
-					book[i] = 1;
-					ans[len++] = i + 'A';
-					for (int j = 0; j &lt; 5; j++)
-					{
-						if (e[i][j])
-						{
-							e[i][j]--;
-							indegree[j]--;
-						}
-					}
-					break;
-				}
-			if (!temp)
-				break;
-		}
-		if (len == 5)
-		{
-			for (int i = len - 1; i &gt;= 0; i--)
-				printf("%c", ans[i]);
-			printf("\n");
-		}
-		else printf("impossible\n");
-	}
-
-
-	return 0;
-
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h2 id="二分图"><a href="#二分图" class="headerlink" title="二分图"></a>二分图</h2><p>待更</p>
-<h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><h3 id="A-Find-a-way-•-HDU-2612"><a href="#A-Find-a-way-•-HDU-2612" class="headerlink" title="A Find a way • HDU 2612"></a>A <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/A">Find a way</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2612/origin">HDU 2612</a></h3><h3 id="B-Dungeon-Master-•-POJ-2251"><a href="#B-Dungeon-Master-•-POJ-2251" class="headerlink" title="B Dungeon Master • POJ 2251"></a>B <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/B">Dungeon Master</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-2251/origin">POJ 2251</a></h3><h3 id="C-Red-and-Black-•-HDU-1312"><a href="#C-Red-and-Black-•-HDU-1312" class="headerlink" title="C Red and Black • HDU 1312"></a>C <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/C">Red and Black</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1312/origin">HDU 1312</a></h3><h3 id="D-Counting-Sheep-•-HDU-2952"><a href="#D-Counting-Sheep-•-HDU-2952" class="headerlink" title="D Counting Sheep • HDU 2952"></a>D <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/D">Counting Sheep</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2952/origin">HDU 2952</a></h3><h3 id="E-N皇后问题-•-HDU-2553"><a href="#E-N皇后问题-•-HDU-2553" class="headerlink" title="E N皇后问题 • HDU 2553"></a>E <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/E">N皇后问题</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2553/origin">HDU 2553</a></h3><h3 id="F-A-Funny-Bipartite-Graph-•-计蒜客-42577"><a href="#F-A-Funny-Bipartite-Graph-•-计蒜客-42577" class="headerlink" title="F  A Funny Bipartite Graph • 计蒜客 42577"></a>F <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/F"> A Funny Bipartite Graph</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/%E8%AE%A1%E8%92%9C%E5%AE%A2-42577/origin">计蒜客 42577</a></h3><h3 id="G-wyh2000-and-pupil-•-HDU-5285"><a href="#G-wyh2000-and-pupil-•-HDU-5285" class="headerlink" title="G wyh2000 and pupil • HDU 5285"></a>G <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/G">wyh2000 and pupil</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-5285/origin">HDU 5285</a></h3><h3 id="H-Legal-or-Not-•-HDU-3342"><a href="#H-Legal-or-Not-•-HDU-3342" class="headerlink" title="H Legal or Not • HDU 3342"></a>H <a target="_blank" rel="noopener" href="https://vjudge.net/contest/419048#problem/H">Legal or Not</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-3342/origin">HDU 3342</a></h3>
+<h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><h3 id="A-Can-you-solve-this-equation-•-HDU-2199"><a href="#A-Can-you-solve-this-equation-•-HDU-2199" class="headerlink" title="A Can you solve this equation? • HDU 2199"></a>A <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418909#problem/A">Can you solve this equation?</a> • <a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=2199">HDU 2199</a></h3><h3 id="B-Dating-with-girls-1-•-HDU-2578"><a href="#B-Dating-with-girls-1-•-HDU-2578" class="headerlink" title="B Dating with girls(1) • HDU 2578"></a>B <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418909#problem/B">Dating with girls(1)</a> • <a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=2578">HDU 2578</a></h3><h3 id="C-Aggressive-cows-•-POJ-2456"><a href="#C-Aggressive-cows-•-POJ-2456" class="headerlink" title="C Aggressive cows • POJ 2456"></a>C <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418909#problem/C">Aggressive cows</a> • <a target="_blank" rel="noopener" href="http://poj.org/problem?id=2456">POJ 2456</a></h3><h3 id="D-Pie-•-POJ-3122"><a href="#D-Pie-•-POJ-3122" class="headerlink" title="D  Pie • POJ 3122"></a>D <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418909#problem/D"> Pie</a> • <a target="_blank" rel="noopener" href="http://poj.org/problem?id=3122">POJ 3122</a></h3><h3 id="E-River-Hopscotch-•-POJ-3258"><a href="#E-River-Hopscotch-•-POJ-3258" class="headerlink" title="E River Hopscotch • POJ 3258"></a>E <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418909#problem/E">River Hopscotch</a> • <a target="_blank" rel="noopener" href="http://poj.org/problem?id=3258">POJ 3258</a></h3><h3 id="F-4-Values-whose-Sum-is-0-•-POJ-2785"><a href="#F-4-Values-whose-Sum-is-0-•-POJ-2785" class="headerlink" title="F 4 Values whose Sum is 0 • POJ 2785"></a>F <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418909#problem/F">4 Values whose Sum is 0</a> • <a target="_blank" rel="noopener" href="http://poj.org/problem?id=2785">POJ 2785</a></h3><h3 id="G-Defuse-the-Bombs-•-Gym-102822D"><a href="#G-Defuse-the-Bombs-•-Gym-102822D" class="headerlink" title="G Defuse the Bombs • Gym 102822D"></a>G <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418909#problem/G">Defuse the Bombs</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/Gym-102822D/origin">Gym 102822D</a></h3>
                 
             </div>
             <hr/>
@@ -757,7 +583,7 @@ int main()
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://owlllovo.github.io/2021/01/23/2021-1-23/">http://owlllovo.github.io/2021/01/23/2021-1-23/</a>
+                    <a href="http://owlllovo.github.io/2021/01/22/2021-1-22-er-fen-cha-zhao/">http://owlllovo.github.io/2021/01/22/2021-1-22-er-fen-cha-zhao/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -799,20 +625,8 @@ int main()
                                     <span class="chip bg-color">C++</span>
                                 </a>
                             
-                                <a href="/tags/DFS/">
-                                    <span class="chip bg-color">DFS</span>
-                                </a>
-                            
-                                <a href="/tags/BFS/">
-                                    <span class="chip bg-color">BFS</span>
-                                </a>
-                            
-                                <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/">
-                                    <span class="chip bg-color">拓扑排序</span>
-                                </a>
-                            
-                                <a href="/tags/%E4%BA%8C%E5%88%86%E5%9B%BE/">
-                                    <span class="chip bg-color">二分图</span>
+                                <a href="/tags/%E4%BA%8C%E5%88%86/">
+                                    <span class="chip bg-color">二分</span>
                                 </a>
                             
                         </div>
@@ -862,13 +676,13 @@ int main()
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/01/25/2021-1-25/">
+                <a href="/2021/01/23/2021-1-23-sou-suo/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="2021.1.25">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="搜索">
                         
-                        <span class="card-title">2021.1.25</span>
+                        <span class="card-title">搜索</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -879,7 +693,7 @@ int main()
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-25
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-01-23
                         </span>
                         <span class="publish-author">
                             
@@ -900,8 +714,16 @@ int main()
                         <span class="chip bg-color">C++</span>
                     </a>
                     
-                    <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/">
-                        <span class="chip bg-color">线段树</span>
+                    <a href="/tags/%E6%90%9C%E7%B4%A2/">
+                        <span class="chip bg-color">搜索</span>
+                    </a>
+                    
+                    <a href="/tags/DFS/">
+                        <span class="chip bg-color">DFS</span>
+                    </a>
+                    
+                    <a href="/tags/BFS/">
+                        <span class="chip bg-color">BFS</span>
                     </a>
                     
                 </div>
@@ -915,13 +737,13 @@ int main()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/22/2021-1-22/">
+                <a href="/2021/01/21/2021-1-21-bing-cha-ji/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="2021.1.22">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="并查集">
                         
-                        <span class="card-title">2021.1.22</span>
+                        <span class="card-title">并查集</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -932,7 +754,7 @@ int main()
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-22
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-21
                             </span>
                         <span class="publish-author">
                             
@@ -953,8 +775,8 @@ int main()
                         <span class="chip bg-color">C++</span>
                     </a>
                     
-                    <a href="/tags/%E4%BA%8C%E5%88%86/">
-                        <span class="chip bg-color">二分</span>
+                    <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/">
+                        <span class="chip bg-color">并查集</span>
                     </a>
                     
                 </div>
@@ -1157,7 +979,7 @@ int main()
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">19.5k</span>&nbsp;字
+                class="white-color">20.2k</span>&nbsp;字
             
             
             
