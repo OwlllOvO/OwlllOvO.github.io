@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Qualified for ZJCPC 2021, OwlllOvO">
+    <meta name="keywords" content="快速幂, OwlllOvO">
     <meta name="description" content="OwlllOvO Blog">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Qualified for ZJCPC 2021 | OwlllOvO</title>
+    <title>快速幂 | OwlllOvO</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -268,12 +268,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/18.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/14.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Qualified for ZJCPC 2021</h1>
+                    <h1 class="description center-align post-title">快速幂</h1>
                 </div>
             </div>
         </div>
@@ -389,8 +389,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/ZJCPC-2021/">
-                                <span class="chip bg-color">ZJCPC 2021</span>
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/">
+                                <span class="chip bg-color">快速幂</span>
                             </a>
                         
                     </div>
@@ -414,7 +418,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-04-02
+                    2021-05-10
                 </div>
                 
 
@@ -423,7 +427,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    2.8k
+                    935
                 </div>
                 
 
@@ -443,436 +447,77 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="Qualified-for-ZJCPC-2021"><a href="#Qualified-for-ZJCPC-2021" class="headerlink" title="Qualified for ZJCPC 2021"></a>Qualified for ZJCPC 2021</h1><p>2021.3.31，我们实验室举行了2021年浙江省赛的选拔赛，我们学校总共有8支队伍的名额。虽然最终我们 Accepted-Graph 队获得了省赛的资格，但是一路可谓是跌宕起伏，幸好最后是有惊无险</p>
-<h2 id="The-Qualification-Trial"><a href="#The-Qualification-Trial" class="headerlink" title="The Qualification Trial"></a>The Qualification Trial</h2><p>这次比赛学长说题目很简单，但是由于我们的的能力问题，总共只 AC 了四道题：A, H, I, J. 其中 A, H, J 是签到题……</p>
-<h3 id="A-•-Array-Permutation"><a href="#A-•-Array-Permutation" class="headerlink" title="A • Array Permutation"></a>A • Array Permutation</h3><h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><blockquote>
-<p>Little H is so boring that he wants to generate an array of length n.</p>
-<p>Little H uses the following method to generate the array.</p>
-<ul>
-<li>Suppose the current array length is m(m &lt; n). Then he will randomly generate a number x from [1, n − m]. Then he will follow the ordered permutation of [1, x](such as x = 3, the ordered permutation is [1, 2, 3]) after the array.</li>
-<li>If the length of the array after the append operation is completed is n，then finish the entire process, otherwise repeat the above steps.</li>
+                <h1 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>快速幂，二进制取幂（Binary Exponentiation，也称平方法），是一个在 $O(log \ n)$ 的时间内计算 $a^{n}$ 的小技巧，而暴力的计算需要 $O(n)$ 的时间。而这个技巧也常常用在非计算的场景，因为它可以应用在任何具有结合律的运算中。其中显然的是它可以应用于模意义下取幂、矩阵幂等运算，我们接下来会讨论。</p>
+<h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>计算 a 的 n 次方表示将 n 个 a 乘在一起： $a^{n} \ = a \ \times \ a \ \times \ \cdots \ \times \ a$ （n 个 a）</p>
+<p>然而当 a, n 太大的时侯，这种方法就不太适用了。不过我们知道：$a^{b+c} \ = \ a^{b}\ \cdot \ a^{c}$, $a^{2b}\ =\ a^{b}\ \cdot \ a^{b} \ = \ (a^{b})^{2}$。二进制取幂的想法是，我们将取幂的任务按照指数的 <strong>二进制表示</strong> 来分割成更小的任务。</p>
+<p>首先我们将 n 表示为 2 进制，举一个例子：</p>
+<p>$3^{(13)<em>{10}} \ = \ 3^{(1101)</em>{2}} \ = \ 3^{8} \ \cdot \ 3^{4} \ \cdot \ 3^{1}$</p>
+<p>因为 n 有 $\lfloor \log_{2}n \rfloor \ + \ 1$ 个二进制位，因此当我们知道了 $a^{1}, \ a^{2}, \ a^{4}, \ a^{8}, \ \cdots, \ a^{2^{\lfloor\log_{2}n\rfloor}}, \ $后，我们只用计算 $O(\log n)$ 次乘法就可以计算出 $a^{n}$。</p>
+<p>于是我们只需要知道一个快速的方法来计算上述 3 的 $2^{k}$ 次幂的序列。这个问题很简单，因为序列中（除第一个）任意一个元素就是其前一个元素的平方。举一个例子：<br>$$<br>\begin{matrix}<br>3^{1} &amp; = &amp; 3\<br>3^{2} &amp; = &amp; (3^{1})^{2} &amp; = &amp; 3^{2} &amp; = &amp; 9\<br>3^{4} &amp; = &amp; (3^{2})^{2} &amp; = &amp; 9^{2} &amp; = &amp; 81\<br>3^{8} &amp; = &amp; (3^{4})^{2} &amp; = &amp; 81^{2} &amp; = &amp; 6561\<br>\end{matrix}<br>$$</p>
+<p>因此为了计算 $3^{13}$，我们只需要将对应二进制位为 1 的整系数幂乘起来就行了：</p>
+<p>$3^{13} \ = \ 6561 \ \cdot \ 81 \ \cdot \ 3\ = \ 1594323$</p>
+<p>将上述过程说得形式化一些，如果把 n 写作二进制为 $(n_{t}n_{t-1}\cdots n_{1}n_{0})$，那么有：</p>
+<p>$n \ = \ n_{t}2^{t} \ + \ n_{t-1}2^{t-1} \ + \ n_{t-2}2^{t-2} \ + \ \cdots \ + \ n_{1}2^{1} \ + \ n_{0}2^{0}$</p>
+<p>其中 。那么就有</p>
+<p>$a^{n} \ = \ (a^{n_{t}2^{t} \ + \ \cdots \ + \ n_{0}2^{0}}) \ = \ a^{n_{0}2^{0}} \ \times \ a^{n_{1}2^{1}} \ \times \ \cdots \ \times \ a^{n_{t}2^{t}}$</p>
+<p>根据上式我们发现，原问题被我们转化成了形式相同的子问题的乘积，并且我们可以在常数时间内从 $2^{i}$ 项推出 $2^{i+1}$ 项。</p>
+<p>这个算法的复杂度是 $O(\log n)$ 的，我们计算了 $O(\log n)$ 个 $2^{k}$ 次幂的数，然后花费 $O(\log n)$ 的时间选择二进制为 1 对应的幂来相乘。</p>
+<h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><ul>
+<li><p>递归法</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">long long binpow(long long a, long long b)
+{
+  if (!b) return 1;
+  long long res = binpow(a, b / 2);
+  if (b % 2)
+    return res * res * a;
+  else
+    return res * res;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+</li>
 </ul>
-<p>Now little H want to know how many different arrays there are for a certain n。</p>
-<p>Due to the limited ability of counting little H, you just need to output the answer modulo 10<sup>9</sup> + 7.</p>
-</blockquote>
-<h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><blockquote>
-<p>There are several test cases.</p>
-<p>The first line contains a single integer T(1 ≤ T ≤ 10<sup>3</sup>), denoting the number of test cases. Then follow all the test cases.</p>
-<p>For each test case, only one line which contains a single integer n(1 ≤ n ≤ 10<sup>6</sup>), denoting the length of the array little H wants to generate.</p>
-</blockquote>
-<h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><blockquote>
-<p>For each test case, print a integer in one line which denoting the answer.</p>
-</blockquote>
-<h4 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h4><pre class="line-numbers language-none"><code class="language-none">3
-1
-100
-1000000<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h4><pre class="line-numbers language-none"><code class="language-none">1
-988185646
-617521033<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>理解题意，我们要按照规则生成一个长度为 n 的数列：已生成数列长度为 m，在 [1, n - m] 之间随机取一个数字 x，然后将 x 长度的数列添加到已生成的数列中，问有多少种可能性。</p>
-<p>从长度为 1 开始找规律</p>
-<p>n = 1 时，只有一种可能性</p>
-<p>n = 2 时，第一次生成的 x 可能为 1 or 2</p>
-<p>​    若 x = 1，则剩余长度为 1，只有 1 种可能性</p>
-<p>​    若 x = 2，则剩余长度为 0，此时为 1 种可能性</p>
-<p>​    因此 n = 2 时有两种可能性</p>
-<p>n = 3 时，第一次生成的 x 可能为 1, 2 or 3</p>
-<p>​    若 x = 1，则剩余长度为 2，根据之前推到结果，有 2 种可能性</p>
-<p>​    若 x = 2，则剩余长度为 1，根据之前推到结果，有 1 种可能性</p>
-<p>​    若 x = 3，则剩余长度为 0，此时为 1 种可能性</p>
-<p>​    因此 n = 3 时有 4 种可能性</p>
-<p>……</p>
-<p>易得，答案为 2<sup>n-1</sup>.</p>
-<p>只需按快速幂的方法，求出 2<sup>n-1</sup> % (10<sup>9</sup> + 7) 即可</p>
-<h4 id="Accepted-Code"><a href="#Accepted-Code" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
-#pragma warning(disable:4996)
-#include&lt;cstdio&gt;
-#include&lt;cstring&gt;
-#include&lt;string&gt;
-#include&lt;cmath&gt;
-#include&lt;cctype&gt;
-#include&lt;algorithm&gt;
-#include&lt;iostream&gt;
-#include&lt;queue&gt;
-#include&lt;stack&gt;
-#include&lt;vector&gt;
-#include&lt;map&gt;
-#include&lt;set&gt;
-#include&lt;list&gt;
-using namespace std;
-
-const int mod = 1e9 + 7;
-
-int t, n;
-
-long long qpow(int x)
+<ul>
+<li><p>非递归法（稍快）</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">long long binpow(long long a, long long b)
 {
-	if (!x) return 1;
-	else if (x &amp; 1) return (qpow(x - 1) &lt;&lt; 1) % mod;
-	else
-	{
-		long long temp = (qpow(x &gt;&gt; 1)) % mod;
-		return temp * temp % mod;
-	}
-}
+  long long res = 1;
+  while (b &gt; 0)
+  {
+    if (b &amp; 1) res = res * a;
+    a = a * a;
+    b &gt;&gt;= 1;
+  }
+  return res;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-int main()
+
+</li>
+</ul>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="模意义下取幂"><a href="#模意义下取幂" class="headerlink" title="模意义下取幂"></a>模意义下取幂</h3><p>计算 $x^{n} \ mod \ m$</p>
+<p>这是一个非常常见的应用，例如它可以用于计算模意义下的乘法逆元。</p>
+<p>既然我们知道取模的运算不会干涉乘法运算，因此我们只需要在计算的过程中取模即可。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">long long binpow(long long a, long long b, long long m)
 {
-	scanf("%d", &amp;t);
-	while (t--)
-	{
-		scanf("%d", &amp;n);
-		printf("%lld\n", qpow(n - 1));
-	}
-	return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h3 id="H-•-Hsueh-And-Treasure"><a href="#H-•-Hsueh-And-Treasure" class="headerlink" title="H • Hsueh- And Treasure"></a>H • Hsueh- And Treasure</h3><h4 id="Description-1"><a href="#Description-1" class="headerlink" title="Description"></a>Description</h4><blockquote>
-<p>Hsueh- Dreaming one night, dreaming that he was in a vast ocean.</p>
-<p>In a faraway place, there is an island. It is said that there are some precious treasures on it. There are treasures left by the King of Sailing Kwords to give to the world.</p>
-<p>So Hsueh- wants to find the treasure left by Kwords。</p>
-<p>We assume that the sea is a two-dimensional plane, Hsueh- is currently at (0, 0), and the location of the treasure is at (x, y).</p>
-<p>Next, due to the influence of the cosmic background radiation wave, Hsueh- can only take exactly i steps at the i-th moment, and each step can only walk one square in four directions, up, down, left, and right. The initial moment is 0.</p>
-<p>Hsueh- is too anxious to find the last treasure, so he asks you, can you help him plan the shortest route to the destination (x, y). And please output this route.</p>
-<p>Note that there may be multiple routes, and you can output any route.</p>
-</blockquote>
-<h4 id="Input-1"><a href="#Input-1" class="headerlink" title="Input"></a>Input</h4><blockquote>
-<p>The first line contains a single integer T(1 ≤ T ≤ 10), denoting the number of test cases.</p>
-<p>For next T lines, each line contains two integers x, y(|x|,|y| ≤ 10<sup>9</sup>), representing the location of the treasure.</p>
-</blockquote>
-<h4 id="Output-1"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h4><blockquote>
-<p>For each test case,the output format must meet the following requirements.</p>
-<p>The first line you need to print “Case #i:”(without quotation marks), representing the current number of test cases.</p>
-<p>The second line you need to print a single integer t, which indicates the final moment at which it can reach (xi, yi).</p>
-<p>Next t lines, each line contains two integers separated by a space, denoting the location of the j-th moment.</p>
-</blockquote>
-<h4 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input"></a>Sample Input</h4><pre class="line-numbers language-none"><code class="language-none">2
-1 0
-2 2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<h4 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output"></a>Sample Output</h4><pre class="line-numbers language-none"><code class="language-none">Case #1:
-1
-1 0
-Case #2:
-3
-1 0
-1 2
-2 2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h4><p>比赛时审了好几次题，每次审题都有新发现（英语差是原罪</p>
-<p>第一次审题，把题目审难了：没看到 <code>each step can only walk one square in four directions</code>，以为是第 i 次可以走 i 步，但是这 i 步都是要朝同一方向，那就还得考虑越后面能走得越多，会产生朝一个方向的浪费的问题了</p>
-<p>第二次审题，把题目审简单了：没看到 <code>exactly i steps at the i-th moment</code>，以为是第 i 次可以走 i 步，每一步任意方向，只要走到就可以了。那很简单啊，先按左右方向，然后上下方向走完就可以了。甚至还自信地 Submit 了三次，都直接 WA 在了 test1，这才意识到一定是题目读错了，重新审了一次题</p>
-<p>（这里必须 diss 江宇杰，写完代码只测样例就敢 Submit，都不自己造数据测试、、连负数都没考虑到！）</p>
-<p>第三次审题，终于读对题目了，第 i 次一定要走完 i 步。因此，前期还是跟上一次的想法一样，先左右走，走到了以后再向上下走。如果已经到了目的地就左右横跳。如果剩余步数为奇数就走到相邻的一格，如果是偶数就在原地。</p>
-<p>第三次审题，终于读对题目了，第 i 次一定要走完 i 步。因此，前期还是跟上一次的想法一样，先左右走，走到了以后再向上下走</p>
-<h4 id="Accepted-Code-1"><a href="#Accepted-Code-1" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
-#pragma warning(disable:4996)
-#include&lt;cstdio&gt;
-#include&lt;cstring&gt;
-#include&lt;string&gt;
-#include&lt;cmath&gt;
-#include&lt;cctype&gt;
-#include&lt;algorithm&gt;
-#include&lt;iostream&gt;
-#include&lt;queue&gt;
-#include&lt;stack&gt;
-#include&lt;vector&gt;
-#include&lt;map&gt;
-#include&lt;set&gt;
-#include&lt;list&gt;
-using namespace std;
-
-int T;
-long long sx, sy;		//当前的坐标
-long long fx, fy;		//目的地坐标
-int negx = 1, negy = 1;	//用于标记目的地的方向是正方向还是负方向
-bool flag, FLAG;		//flag:是否到达过目的地; FLAG:是否恰好到达了目的地
-int res;				//每一次剩余的步数
-
-int px[100015], py[100015], cnt;
-
-bool arrive()
-{
-	if (sx == fx &amp;&amp; sy == fy) return 1;
-	return 0;
-}
-
-int LeftRight(int x)
-{
-	if (x &lt; fx - sx)
-	{
-		sx += x;
-		x = 0;
-	}
-	else
-	{
-		x -= fx - sx;
-		sx = fx;
-	}
-	return x;
-}
-
-int UpDown(int y)
-{
-	if (y &lt; fy - sy)
-	{
-		sy += y;
-		y = 0;
-	}
-	else
-	{
-		y -= fy - sy;
-		sy = fy;
-	}
-	return y;
-}
-
-void init()
-{
-	negx = fx &gt; 0 ? 1 : -1;
-	negy = fy &gt; 0 ? 1 : -1;
-	fx = abs(fx);
-	fy = abs(fy);
-	sx = 0;
-	sy = 0;
-	flag = 0;
-	FLAG = 0;
-    memset (px, 0, sizeof (px));
-    memset (py, 0, sizeof (py));
-	return;
-}
-
-int main()
-{
-	scanf("%d", &amp;T);
-	for (int t = 1; t &lt;= T; t++)
-	{
-		scanf("%lld%lld", &amp;fx, &amp;fy);
-
-		printf("Case #%d:\n", t);
-
-		if (!fx &amp;&amp; !fy)	//如果目的地为原点，应该输出共 0 步，并且输出 0 行坐标
-		{
-			printf("0\n");
-			continue;
-		}
-
-		init();
-
-		for (cnt = 1; !FLAG; cnt++)
-		{
-			res = cnt;
-			if (!flag)
-			{
-				res = LeftRight(res);
-				res = UpDown(res);
-				if (arrive()) flag = 1;
-			}
-			if (flag)
-			{
-				if (res % 2)
-				{
-					if (arrive()) sx++;
-					else sx--;
-				}
-				res = 0;
-				if (arrive()) FLAG = 1;
-			}
-			px[cnt] = sx * negx;
-			py[cnt] = sy * negy;
-		}
-
-		cnt--;
-		printf("%d\n", cnt);
-
-		for (int i = 1; i &lt;= cnt; i++) printf("%d %d\n", px[i], py[i]);
-	}
-
-
-	return 0;
-
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h3 id="I-•-Iaom-and-Chicken-feet"><a href="#I-•-Iaom-and-Chicken-feet" class="headerlink" title="I • Iaom and Chicken feet"></a>I • Iaom and Chicken feet</h3><h4 id="Description-2"><a href="#Description-2" class="headerlink" title="Description"></a>Description</h4><blockquote>
-<p>Baom likes chicken very much.</p>
-<p>One day ,while he was thinking a problem on tree he found it looks like chicken’s feet.</p>
-<p><img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210402224246.png"></p>
-<p>He fall into thinking,how much chicken feet are there on the tree.</p>
-<p>The “chicken feet” is a subgraph of given tree which shapes like the picture above</p>
-<p>Baom wonder the number of “chicken feet” all over the tree.Two “feet”s are consider the same iff the set of edges of “chicken feet”s are the same.</p>
-</blockquote>
-<h4 id="Input-2"><a href="#Input-2" class="headerlink" title="Input"></a>Input</h4><blockquote>
-<p>The first line contains one integer n(1 ≤ n ≤ 5 ⋅ 10<sup>5</sup>) —The number of nodes each of next n − 1 line contains a description of an edge: two integers u and v(1 ≤ u, v ≤ n, u ≠ v) The given edges form a tree.</p>
-</blockquote>
-<h4 id="Output-2"><a href="#Output-2" class="headerlink" title="Output"></a>Output</h4><blockquote>
-<p>Print a single integer — the number of “chicken feet” modulo 998244353.</p>
-</blockquote>
-<h4 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input"></a>Sample Input</h4><pre class="line-numbers language-none"><code class="language-none">7
-1 2
-2 3
-2 4
-5 4
-6 4
-7 4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h4 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output"></a>Sample Output</h4><pre class="line-numbers language-none"><code class="language-none">1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h4><p>将 4 号点提起，枚举 2 号点，令 sz[x] 表示与点 x 相连的点的个数，答案为 C<sup>3</sup><sub>sz[4]−1</sub> · C<sup>2</sup><sub>sz[2]−1</sub> 之和</p>
-<p>（这里再次 diss 江宇杰，莫名其妙喜欢用 cin/cout，导致 TLE… scanf/printf 它不香吗？？？</p>
-<h4 id="Accepted-Code-2"><a href="#Accepted-Code-2" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
-#pragma warning(disable:4996)
-#include&lt;cstdio&gt;
-#include&lt;cstring&gt;
-#include&lt;string&gt;
-#include&lt;cmath&gt;
-#include&lt;cctype&gt;
-#include&lt;algorithm&gt;
-#include&lt;iostream&gt;
-#include&lt;queue&gt;
-#include&lt;stack&gt;
-#include&lt;vector&gt;
-#include&lt;map&gt;
-#include&lt;set&gt;
-#include&lt;list&gt;
-using namespace std;
-
-const int maxn = 5e5 + 10;
-const int mod = 998244353;
-
-int t;
-int u, v;
-long long sum = 0;
-long long num[maxn];
-
-vector&lt;int&gt; q[maxn];
-
-int main()
-{
-	scanf("%d", &amp;t);
-	for (int i = 1; i &lt;= t - 1; i++)	//建立边
-	{
-		scanf("%d%d", &amp;u, &amp;v);
-		q[u].push_back(v);
-		q[v].push_back(u);
-		num[u]++;
-		num[v]++;
-	}
-	for (int i = 1; i &lt;= t; i++)
-	{
-		if (num[i] &gt;= 3)
-		{
-			for (int j = 0; j &lt; num[i]; j++)
-			{
-				if (num[q[i][j]] &gt;= 4)
-				{
-					sum += (((num[i] - 1) * (num[i] - 2)) &gt;&gt; 1) * ((num[q[i][j]] - 1) * (num[q[i][j]] - 2) * (num[q[i][j]] - 3) / 6) % mod;
-					sum %= mod;
-				}
-			}
-		}
-	}
-	printf("%lld\n", sum);
-	return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h3 id="J-•-Jew-Sorting"><a href="#J-•-Jew-Sorting" class="headerlink" title="J • Jew Sorting"></a>J • Jew Sorting</h3><h4 id="Description-3"><a href="#Description-3" class="headerlink" title="Description"></a>Description</h4><blockquote>
-<p>Hello, guys, I am the King of boredom.</p>
-<p>I have a array of length 2<sup>k</sup>(0 ≤ k ≤ 20). You can delete the first half or the second half of each operation.</p>
-<p>So, you need to tell me the minimum number of operations required can make this sequence non-decreasing.</p>
-</blockquote>
-<h4 id="Input-3"><a href="#Input-3" class="headerlink" title="Input"></a>Input</h4><blockquote>
-<p>The first line contains a single integer k(0 ≤ k ≤ 20), denoting the length of the array is 2<sup>k</sup>.</p>
-<p>The second line contains 2<sup>k</sup> integers, the ii-th integer is ai(1 ≤ ai ≤ 10<sup>9</sup>) representing the array.</p>
-</blockquote>
-<h4 id="Output-3"><a href="#Output-3" class="headerlink" title="Output"></a>Output</h4><blockquote>
-<p>Print a single integer, denoting the answer.</p>
-</blockquote>
-<h4 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input 1"></a>Sample Input 1</h4><pre class="line-numbers language-none"><code class="language-none">2
-1 3 2 1<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h4 id="Sample-Output1"><a href="#Sample-Output1" class="headerlink" title="Sample Output1"></a>Sample Output1</h4><pre class="line-numbers language-none"><code class="language-none">1<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input 2"></a>Sample Input 2</h4><pre class="line-numbers language-none"><code class="language-none">2
-1 2 3 4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h4 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output 2"></a>Sample Output 2</h4><pre class="line-numbers language-none"><code class="language-none">0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h4 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution"></a>Solution</h4><p>按照题目模拟</p>
-<h4 id="Accepted-Code-3"><a href="#Accepted-Code-3" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
-#pragma warning(disable:4996)
-#include&lt;cstdio&gt;
-#include&lt;cstring&gt;
-#include&lt;string&gt;
-#include&lt;cmath&gt;
-#include&lt;cctype&gt;
-#include&lt;algorithm&gt;
-#include&lt;iostream&gt;
-#include&lt;queue&gt;
-#include&lt;stack&gt;
-#include&lt;vector&gt;
-#include&lt;map&gt;
-#include&lt;set&gt;
-#include&lt;list&gt;
-using namespace std;
-
-int k, start = 1, num = 1, minans = INT_MAX, times;
-int a[2000006];
-int head[2000006];
-long long maxnum;
-
-void init(int x, int n, int halfsize)
-{
-	if (n != k + 1)
-	{
-		head[x] = n;
-		init(x + halfsize / 2, n + 1, halfsize / 2);
-		init(x - halfsize / 2, n + 1, halfsize / 2);
-	}
-}
-
-int main()
-{
-	scanf("%d", &amp;k);
-	maxnum = pow(2, k);
-	init(1 + maxnum / 2, 1, maxnum / 2);
-	scanf("%d", &amp;a[1]);
-
-	for (int i = 2; i &lt;= maxnum; i++)
-	{
-		scanf("%d", &amp;a[i]);
-
-		if (a[i] &gt;= a[i - 1] &amp;&amp; i != maxnum) num += 1;
-		else
-		{
-			times = 0;
-			int temp = maxnum;
-			if (i == maxnum &amp;&amp; a[i] &gt;= a[i - 1]) num++;
-			while (num &lt; temp)
-			{
-				temp /= 2;
-				times++;
-			}
-			times = max(times, head[start]);
-			if (times &lt; minans) minans = times;
-
-			start = i;
-			num = 1;
-		}
-	}
-	printf("%d\n", minans);
-
-
-	return 0;
-
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  a %= m;
+  long long res = 1;
+  while (b &gt; 0)
+  {
+    if (b &amp; 1) res = res * a % m;
+    a = a * a % m;
+    b &gt;&gt;= 1;
+  }
+  return res;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>注意：根据费马小定理，如果 m 是一个质数，我们可以计算 $x^{n \ mod \ (m-1)}$ 来加速算法过程。</p>
+<h3 id="模意义下大整数乘法"><a href="#模意义下大整数乘法" class="headerlink" title="模意义下大整数乘法"></a>模意义下大整数乘法</h3><p>计算 $a \ \times \ b \ mod \ m, \ a, \ b \ \leq \ m \ \leq \ 10^{18}$</p>
+<pre class="line-numbers language-none"><code class="language-none"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
 
-<h2 id="After-Trial"><a href="#After-Trial" class="headerlink" title="After Trial"></a>After Trial</h2><p>这段的故事就比较跌宕起伏了……</p>
-<p>首先是在比赛中我们队伍排名第十</p>
-<p>但是有三个队伍是打星队伍，不参加排名，所以我们又排名第 7.</p>
-<p>然而，有两个队伍是不用参加选拔赛的，我们又排名第 9 了 :)</p>
-<p>就在今天，队长又突然通知我，有一个队伍放弃参赛，于是名额就轮到我们了，听到这个消息那是真的激动啊！</p>
-<p>作为唯一一支大一的队伍参赛，既是兴奋，又有忐忑……</p>
-<p>清明节也留校参加实验室的训练了，这几天一定要认真训练，巩固基础知识，多学习算法，再刷点往年的省赛题目，争取在省赛中取得好的名次（虽然只是第一次参赛）</p>
-<h1 id="End"><a href="#End" class="headerlink" title="End"></a>End</h1><p>特别鸣谢：江宇杰、王梓仰</p>
+
+
 
                 
             </div>
@@ -899,7 +544,7 @@ int main()
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://owlllovo.github.io/2021/04/02/2021-4-2-qualified-for-zjcpc-2021/">http://owlllovo.github.io/2021/04/02/2021-4-2-qualified-for-zjcpc-2021/</a>
+                    <a href="http://owlllovo.github.io/2021/05/10/2021-5-10-kuai-su-mi/">http://owlllovo.github.io/2021/05/10/2021-5-10-kuai-su-mi/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -937,8 +582,12 @@ int main()
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/ZJCPC-2021/">
-                                    <span class="chip bg-color">ZJCPC 2021</span>
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/">
+                                    <span class="chip bg-color">快速幂</span>
                                 </a>
                             
                         </div>
@@ -984,17 +633,18 @@ int main()
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2021/04/12/2021-4-12-kmp/">
+                <a href="/2021/05/10/2021-5-10-kuai-su-mi/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/22.jpg" class="responsive-img" alt="KMP">
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="快速幂">
                         
-                        <span class="card-title">KMP</span>
+                        <span class="card-title">快速幂</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -1004,9 +654,9 @@ int main()
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-12
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-10
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -1019,6 +669,7 @@ int main()
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -1026,8 +677,8 @@ int main()
                         <span class="chip bg-color">C++</span>
                     </a>
                     
-                    <a href="/tags/KMP/">
-                        <span class="chip bg-color">KMP</span>
+                    <a href="/tags/%E5%BF%AB%E9%80%9F%E5%B9%82/">
+                        <span class="chip bg-color">快速幂</span>
                     </a>
                     
                 </div>
@@ -1041,28 +692,33 @@ int main()
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/20/2021-3-20-eth/">
+                <a href="/2021/04/27/2021-4-27-vim/">
                     <div class="card-image">
                         
-                        <img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210321101424.jpg" class="responsive-img" alt="ETH">
                         
-                        <span class="card-title">ETH</span>
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Vim">
+                        
+                        <span class="card-title">Vim</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            How to start mining ETH
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-20
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-27
                             </span>
                         <span class="publish-author">
                             
-                            <i class="fas fa-user fa-fw"></i>
-                            OwlllOvO
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Coding/" class="post-category">
+                                    Coding
+                                </a>
+                            
                             
                         </span>
                     </div>
@@ -1070,8 +726,8 @@ int main()
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/ETH/">
-                        <span class="chip bg-color">ETH</span>
+                    <a href="/tags/Vim/">
+                        <span class="chip bg-color">Vim</span>
                     </a>
                     
                 </div>
@@ -1202,6 +858,13 @@ int main()
 
 </main>
 
+
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
 
 
 

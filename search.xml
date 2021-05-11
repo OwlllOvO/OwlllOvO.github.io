@@ -4,6 +4,33 @@
   
     
     <entry>
+      <title>快速幂</title>
+      <link href="2021/05/10/2021-5-10-kuai-su-mi/"/>
+      <url>2021/05/10/2021-5-10-kuai-su-mi/</url>
+      
+        <content type="html"><![CDATA[<h1 id="快速幂"><a href="#快速幂" class="headerlink" title="快速幂"></a>快速幂</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>快速幂，二进制取幂（Binary Exponentiation，也称平方法），是一个在 $O(log \ n)$ 的时间内计算 $a^{n}$ 的小技巧，而暴力的计算需要 $O(n)$ 的时间。而这个技巧也常常用在非计算的场景，因为它可以应用在任何具有结合律的运算中。其中显然的是它可以应用于模意义下取幂、矩阵幂等运算，我们接下来会讨论。</p><h2 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h2><p>计算 a 的 n 次方表示将 n 个 a 乘在一起： $a^{n} \ = a \ \times \ a \ \times \ \cdots \ \times \ a$ （n 个 a）</p><p>然而当 a, n 太大的时侯，这种方法就不太适用了。不过我们知道：$a^{b+c} \ = \ a^{b}\ \cdot \ a^{c}$, $a^{2b}\ =\ a^{b}\ \cdot \ a^{b} \ = \ (a^{b})^{2}$。二进制取幂的想法是，我们将取幂的任务按照指数的 <strong>二进制表示</strong> 来分割成更小的任务。</p><p>首先我们将 n 表示为 2 进制，举一个例子：</p><p>$3^{(13)<em>{10}} \ = \ 3^{(1101)</em>{2}} \ = \ 3^{8} \ \cdot \ 3^{4} \ \cdot \ 3^{1}$</p><p>因为 n 有 $\lfloor \log_{2}n \rfloor \ + \ 1$ 个二进制位，因此当我们知道了 $a^{1}, \ a^{2}, \ a^{4}, \ a^{8}, \ \cdots, \ a^{2^{\lfloor\log_{2}n\rfloor}}, \ $后，我们只用计算 $O(\log n)$ 次乘法就可以计算出 $a^{n}$。</p><p>于是我们只需要知道一个快速的方法来计算上述 3 的 $2^{k}$ 次幂的序列。这个问题很简单，因为序列中（除第一个）任意一个元素就是其前一个元素的平方。举一个例子：<br>$$<br>\begin{matrix}<br>3^{1} &amp; = &amp; 3\<br>3^{2} &amp; = &amp; (3^{1})^{2} &amp; = &amp; 3^{2} &amp; = &amp; 9\<br>3^{4} &amp; = &amp; (3^{2})^{2} &amp; = &amp; 9^{2} &amp; = &amp; 81\<br>3^{8} &amp; = &amp; (3^{4})^{2} &amp; = &amp; 81^{2} &amp; = &amp; 6561\<br>\end{matrix}<br>$$</p><p>因此为了计算 $3^{13}$，我们只需要将对应二进制位为 1 的整系数幂乘起来就行了：</p><p>$3^{13} \ = \ 6561 \ \cdot \ 81 \ \cdot \ 3\ = \ 1594323$</p><p>将上述过程说得形式化一些，如果把 n 写作二进制为 $(n_{t}n_{t-1}\cdots n_{1}n_{0})$，那么有：</p><p>$n \ = \ n_{t}2^{t} \ + \ n_{t-1}2^{t-1} \ + \ n_{t-2}2^{t-2} \ + \ \cdots \ + \ n_{1}2^{1} \ + \ n_{0}2^{0}$</p><p>其中 。那么就有</p><p>$a^{n} \ = \ (a^{n_{t}2^{t} \ + \ \cdots \ + \ n_{0}2^{0}}) \ = \ a^{n_{0}2^{0}} \ \times \ a^{n_{1}2^{1}} \ \times \ \cdots \ \times \ a^{n_{t}2^{t}}$</p><p>根据上式我们发现，原问题被我们转化成了形式相同的子问题的乘积，并且我们可以在常数时间内从 $2^{i}$ 项推出 $2^{i+1}$ 项。</p><p>这个算法的复杂度是 $O(\log n)$ 的，我们计算了 $O(\log n)$ 个 $2^{k}$ 次幂的数，然后花费 $O(\log n)$ 的时间选择二进制为 1 对应的幂来相乘。</p><h2 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h2><ul><li><p>递归法</p><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">long long binpow(long long a, long long b){  if (!b) return 1;  long long res = binpow(a, b / 2);  if (b % 2)    return res * res * a;  else    return res * res;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul><ul><li><p>非递归法（稍快）</p><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">long long binpow(long long a, long long b){  long long res = 1;  while (b &gt; 0)  {    if (b &amp; 1) res = res * a;    a = a * a;    b &gt;&gt;= 1;  }  return res;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li></ul><h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="模意义下取幂"><a href="#模意义下取幂" class="headerlink" title="模意义下取幂"></a>模意义下取幂</h3><p>计算 $x^{n} \ mod \ m$</p><p>这是一个非常常见的应用，例如它可以用于计算模意义下的乘法逆元。</p><p>既然我们知道取模的运算不会干涉乘法运算，因此我们只需要在计算的过程中取模即可。</p><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">long long binpow(long long a, long long b, long long m){  a %= m;  long long res = 1;  while (b &gt; 0)  {    if (b &amp; 1) res = res * a % m;    a = a * a % m;    b &gt;&gt;= 1;  }  return res;}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>注意：根据费马小定理，如果 m 是一个质数，我们可以计算 $x^{n \ mod \ (m-1)}$ 来加速算法过程。</p><h3 id="模意义下大整数乘法"><a href="#模意义下大整数乘法" class="headerlink" title="模意义下大整数乘法"></a>模意义下大整数乘法</h3><p>计算 $a \ \times \ b \ mod \ m, \ a, \ b \ \leq \ m \ \leq \ 10^{18}$</p><pre class="line-numbers language-none"><code class="language-none"><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>]]></content>
+      
+      
+      <categories>
+          
+          <category> ACM </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> C++ </tag>
+            
+            <tag> 快速幂 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Vim</title>
       <link href="2021/04/27/2021-4-27-vim/"/>
       <url>2021/04/27/2021-4-27-vim/</url>
