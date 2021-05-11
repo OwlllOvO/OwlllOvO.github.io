@@ -1,0 +1,2414 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="DP, OwlllOvO">
+    <meta name="description" content="OwlllOvO Blog">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>DP | OwlllOvO</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.3.0">
+<style>.github-emoji { position: relative; display: inline-block; width: 1.2em; min-height: 1.2em; overflow: hidden; vertical-align: top; color: transparent; }  .github-emoji > span { position: relative; z-index: 10; }  .github-emoji img, .github-emoji .fancybox { margin: 0 !important; padding: 0 !important; border: none !important; outline: none !important; text-decoration: none !important; user-select: none !important; cursor: auto !important; }  .github-emoji img { height: 1.2em !important; width: 1.2em !important; position: absolute !important; left: 50% !important; top: 50% !important; transform: translate(-50%, -50%) !important; user-select: none !important; cursor: auto !important; } .github-emoji-fallback { color: inherit; } .github-emoji-fallback img { opacity: 0 !important; }</style>
+</head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">OwlllOvO</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">OwlllOvO</div>
+        <div class="logo-desc">
+            
+            OwlllOvO Blog
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/OwlllOvO/OwlllOvO.github.io" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/OwlllOvO/OwlllOvO.github.io" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/4.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">DP</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        width: 345px;
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        padding: 35px 0 15px 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content {
+        padding-bottom: 30px;
+        overflow: auto;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #fe9ab4;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+
+        position: absolute;
+        right: 23.5vw;
+        display: block;
+    }
+
+    #toc-content .is-active-link {
+        color: #fe9ab4;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 15px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
+                            </a>
+                        
+                            <a href="/tags/DP/">
+                                <span class="chip bg-color">DP</span>
+                            </a>
+                        
+                            <a href="/tags/%E5%8C%BA%E9%97%B4DP/">
+                                <span class="chip bg-color">区间DP</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/ACM/" class="post-category">
+                                ACM
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-05-02
+                </div>
+                
+
+                
+
+                
+                <div class="info-break-policy">
+                    <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
+                    11.3k
+                </div>
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h1 id="DP"><a href="#DP" class="headerlink" title="DP"></a>DP</h1><h2 id="基础-DP"><a href="#基础-DP" class="headerlink" title="基础 DP"></a>基础 DP</h2><h3 id="最长公共子串"><a href="#最长公共子串" class="headerlink" title="最长公共子串"></a>最长公共子串</h3><h4 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>连续</li>
+</ul>
+<h4 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h4><p>动态转移方程</p>
+<p><code>if (a[i] == b[j]) dp[i][j] = dp[i-1][j-1] + 1;</code></p>
+<p><code>else dp[i][j] = 0;</code></p>
+<h4 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h4><pre class="line-numbers language-none"><code class="language-none">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+#define INF 0x7fffffff
+
+int n, m;
+char a[10001], b[10001];
+int dp[10001][10001];
+int maxn;
+
+int main()
+{
+    scanf ("%s", a + 1);
+    scanf ("%s", b + 1);
+    int n = strlen (a + 1);
+    int m = strlen (b + 1);
+    for (int i = 1; i &lt;= n; i++)
+    {
+        for (int j = 1; j &lt;= m; j++)
+        {
+            if (a[i]  == b[j]) dp[i][j] = dp[i-1][j-1] + 1;
+            maxn = max (maxn, dp[i][j]);
+        }
+    }
+    printf ("%d", maxn);
+    
+    return 0;
+    
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="最长公共子序列"><a href="#最长公共子序列" class="headerlink" title="最长公共子序列"></a>最长公共子序列</h3><h4 id="特点-1"><a href="#特点-1" class="headerlink" title="特点"></a>特点</h4><ul>
+<li>可以不连续</li>
+</ul>
+<p>动态转移方程</p>
+<p><code>if (a[i] == b[j]) dp[i][j] = dp[i-1][j-1] + 1;</code><br><code>dp[i][j] = max(dp[i][j], dp[i-1][j], dp[i][j-1]);</code></p>
+<h4 id="模板-1"><a href="#模板-1" class="headerlink" title="模板"></a>模板</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+#define INF 0x7fffffff
+
+int n, m;
+int a[10001], b[10001];
+int dp[10001][10001];
+
+bool cmp(int x, int y)
+{
+    return x &gt; y;
+}
+
+int max1(int x, int y, int z)
+{
+    int t[4] = { 0, x, y, z };
+    sort (t + 1, t + 4, cmp);
+    return t[1];
+}
+
+int main()
+{
+    scanf ("%d%d", &amp;n, &amp;m);
+    for (int i = 1; i &lt;= n; i++) scanf ("%d", &amp;a[i]);
+    for (int i = 1; i &lt;= m; i++) scanf ("%d", &amp;b[i]);
+    for (int i = 1; i &lt;= n; i++)
+    {
+        for (int j = 1; j &lt;= m; j++)
+        {
+            if (a[i] == b[j]) dp[i][j] = dp[i-1][j-1] + 1;
+            dp[i][j] = max1(dp[i][j], dp[i-1][j], dp[i][j-1]);
+        }
+    }
+    printf ("%d", dp[n][m]);
+    
+    return 0;
+    
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h2 id="01-背包"><a href="#01-背包" class="headerlink" title="01 背包"></a>01 背包</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>已知条件有第 i 个物品的重量 w[i]，价值 v[i]，以及背包的总容量 W。</p>
+<h3 id="特点-2"><a href="#特点-2" class="headerlink" title="特点"></a>特点</h3><p>有多样物品</p>
+<ul>
+<li>每样物品只有一件</li>
+<li>每件物品只有 <code>取</code> 或 <code>不取</code> 两种状态</li>
+</ul>
+<h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><p>dp[i][j]：在只能取前 i 件物品的情况下，容量为 j 的背包能取的最大价值</p>
+<p>假设当前已经处理好了前 i - 1 个物品的所有状态，那么对于第 i 个物品，有取或不取两种选择</p>
+<ul>
+<li>当其不放入背包时，背包的剩余容量不变，背包中物品的总价值也不变，故这种情况的最大价值为 f[i-1][j]</li>
+<li>当其放入背包时，背包的剩余容量会减小 ，背包中物品的总价值会增大 ，故这种情况的最大价值为 f[i-1][j-w[i]] + v[i]。</li>
+</ul>
+<p>动态转移方程：<code>dp[i][j] = max(dp[i-1][j], dp[i-1][j - w[i]] + v[i])</code></p>
+<h3 id="模板-2"><a href="#模板-2" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for (int i = 1; i &lt;= n; i++)
+  for (int j = w[i]; j &lt;= W; j++)
+    dp[i][j] = max(dp[i-1][j], dp[i-1][j - w[i]] + v[i]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="优化"><a href="#优化" class="headerlink" title="优化"></a>优化</h3><p>可以发现，第 i 次循环时的 dp 数组只受第 i - 1 层的影响，因此可以去掉第一维</p>
+<p>但是若 j 从前往后便利，则会在同一层将之后需要用到的数据覆盖掉，相当于可以多次将物品 i 多次放入背包（这就是完全背包的解法），因此要从后往前遍历。</p>
+<p>动态转移方程：<code>dp[j] = max(dp[j], dp[j - w[i]] + v[i])</code></p>
+<h3 id="模板-3"><a href="#模板-3" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for (int i = 1; i &lt;= n; i++)
+  for (int j = W; j &gt;= w[i]; j--)
+    dp[j] = max(dp[j], dp[j - w[i]] + v[i]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h2 id="完全背包"><a href="#完全背包" class="headerlink" title="完全背包"></a>完全背包</h2><h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><p>已知条件有第 i 个物品的重量 w[i]，价值 v[i]，以及背包的总容量 W。</p>
+<h3 id="特点-3"><a href="#特点-3" class="headerlink" title="特点"></a>特点</h3><p>有多样物品</p>
+<ul>
+<li>每样物品有无数件</li>
+<li>每件物品只有 <code>取</code> 或 <code>不取</code> 两种状态</li>
+</ul>
+<h3 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h3><p>dp[i][j]：在只能取前 i 件物品的情况下，容量为 j 的背包能取的最大价值</p>
+<p>遍历时对于 <code>取</code> 的状态，在同一层中计算，因此 j 将遍历到第 i 件物品的倍数，相当于对这件物品多次取</p>
+<p>若 j 从后往前遍历，会出现同一层中需要用到的数据还未计算的情况，因此需从前往后遍历。</p>
+<p>动态转移方程：<code>dp[i][j] = max(dp[i-1][j], dp[i][j - w[i]] + v[i])</code></p>
+<h3 id="模板-4"><a href="#模板-4" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">dpor (int i = 1; i &lt;= n; i++)
+  dpor (int j = w[i]; j &lt;= W; j++)
+    dp[i][j] = max(dp[i-1][j], dp[i][j - w[i]] + v[i]);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="优化-1"><a href="#优化-1" class="headerlink" title="优化"></a>优化</h3><p>跟 01 背包的优化思路一样，可以去除一层数组</p>
+<p><code>dp[j] = max(dp[j], dp[j - w[i]] + v[i])</code></p>
+<h3 id="模板-5"><a href="#模板-5" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-none"><code class="language-none">dpor (int i = 1; i &lt;= n; i++)
+  dpor (int j = w[i]; j &lt;= W; j++)
+    dp[j] = max(dp[j], dp[j - w[i]] + v[i])<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h2 id="多重背包"><a href="#多重背包" class="headerlink" title="多重背包"></a>多重背包</h2><h3 id="简介-2"><a href="#简介-2" class="headerlink" title="简介"></a>简介</h3><p>已知条件有第 i 个物品的重量 w[i]，价值 v[i]，以及背包的总容量 W。</p>
+<h3 id="特点-4"><a href="#特点-4" class="headerlink" title="特点"></a>特点</h3><p>有多样物品</p>
+<ul>
+<li>每样物品有 <code>1 件</code> 或 <code>k 件</code></li>
+<li>每件物品只有 <code>取</code> 或 <code>不取</code> 两种状态</li>
+</ul>
+<h3 id="思路-3"><a href="#思路-3" class="headerlink" title="思路"></a>思路</h3><p>把 “每种物品有 k<sub>i</sub> 件” 等价转换为 “有 k<sub>i</sub> 个相同的物品，每个物品只有一件”。这样就转换成了一个 01 背包模型，套用上文所述的方法就可已解决。</p>
+<h3 id="优化-2"><a href="#优化-2" class="headerlink" title="优化"></a>优化</h3><h4 id="二进制分组优化"><a href="#二进制分组优化" class="headerlink" title="二进制分组优化"></a>二进制分组优化</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int index = 0;
+for (int i = 1; i &lt;= m; i++)
+{
+	int c = 1, p, h, k;
+  scanf ("%d%d%d", &amp;p, &amp;h, &amp;k);
+  while (k - c &gt; 0)
+  {
+    k -= c;
+    list[++index].w = c * p;
+    list[index].v = c * h;
+    c *= 2;
+  }
+  list[++index].w = p * k;
+  list[index].v = h * k;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h2 id="混合背包"><a href="#混合背包" class="headerlink" title="混合背包"></a>混合背包</h2><h3 id="简介-3"><a href="#简介-3" class="headerlink" title="简介"></a>简介</h3><p>已知条件有第 i 个物品的重量 w[i]，价值 v[i]，以及背包的总容量 W。</p>
+<h3 id="特点-5"><a href="#特点-5" class="headerlink" title="特点"></a>特点</h3><p>有多样物品</p>
+<ul>
+<li>每样物品有 <code>1 件</code> / <code>k 件</code> 或 <code>无数件</code></li>
+<li>每件物品只有 <code>取</code> 或 <code>不取</code> 两种状态</li>
+</ul>
+<h3 id="思路-4"><a href="#思路-4" class="headerlink" title="思路"></a>思路</h3><p>将每一类背包问题分别求解</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for (循环物品种类)
+{
+  if (是 01 背包)
+    套用 01 背包代码;
+  else if (是完全背包)
+    套用完全背包代码;
+  else if (是多重背包)
+    套用多重背包代码;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h2 id="二维费用背包"><a href="#二维费用背包" class="headerlink" title="二维费用背包"></a>二维费用背包</h2><h3 id="简介-4"><a href="#简介-4" class="headerlink" title="简介"></a>简介</h3><p>已知条件有第 i 个物品的重量 w[i]，耗时 t[i]，价值 v[i]，以及背包的总容量 W。</p>
+<h3 id="特点-6"><a href="#特点-6" class="headerlink" title="特点"></a>特点</h3><p>有多样物品</p>
+<ul>
+<li>每样物品只有 <code>1 件</code></li>
+<li>每件物品只有 <code>取</code> 或 <code>不取</code> 两种状态</li>
+</ul>
+<h3 id="模板-6"><a href="#模板-6" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for (int k = 1; k &lt;= n; k++)	//对物品进行枚举
+  for (int i = m; i &gt;= mi; i--)	// 对经费进行一层枚举
+    for (int j = t; j &gt;= ti; j--)	// 对时间进行一层枚举
+      dp[i][j] = max(dp[i][j], dp[i - mi][j - ti] + 1);<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h2 id="分组背包"><a href="#分组背包" class="headerlink" title="分组背包"></a>分组背包</h2><h3 id="简介-5"><a href="#简介-5" class="headerlink" title="简介"></a>简介</h3><p>所谓分组背包，就是将物品分组，每组的物品 <strong>相互冲突</strong> ，最多只能选一个物品放进去。</p>
+<h3 id="思路-5"><a href="#思路-5" class="headerlink" title="思路"></a>思路</h3><p>从「在所有物品中选择一件」变成了「从当前组中选择一件」，于是就对每一组进行一次 01 背包就可以了。</p>
+<p>可以将 t[k][i] 表示第 k 组的第 i 件物品的编号是多少，再用 cnt[k] 表示第 k 组物品有多少个。</p>
+<h3 id="模板-7"><a href="#模板-7" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">for (int k = 1; k &lt;= ts; k++)          // 循环每一组
+  for (int i = m; i &gt;= 0; i--)         // 循环背包容量
+    for (int j = 1; j &lt;= cnt[k]; j++)  // 循环该组的每一个物品
+      if (i &gt;= w[t[k][j]])
+        dp[i] = max(dp[i], dp[i - w[t[k][j]]] + c[t[k][j]]);  // 像0-1背包一样状态转移<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>注意循环顺序</strong></p>
+<h2 id="有依赖的背包"><a href="#有依赖的背包" class="headerlink" title="有依赖的背包"></a>有依赖的背包</h2><h3 id="简介-6"><a href="#简介-6" class="headerlink" title="简介"></a>简介</h3><p>如果选第 i 件物品，就必须选第 j 件物品，保证不会循环引用，一部分题目甚至会出现多叉树的引用形式。为了方便，就称不依赖于别的物品的物品称为「主件」，依赖于某主件的物品称为「附件」。</p>
+<h3 id="思路-6"><a href="#思路-6" class="headerlink" title="思路"></a>思路</h3><p>对于包含一个主件和若干个附件的集合有以下可能性：仅选择主件，选择主件后再选择一个附件，选择主件后再选择两个附件……需要将以上可能性的容量和价值转换成一件件物品。因为这几种可能性只能选一种，所以可以将这看成分组背包。</p>
+<p>如果是多叉树的集合，则要先算子节点的集合，最后算父节点的集合。</p>
+<h2 id="区间DP"><a href="#区间DP" class="headerlink" title="区间DP"></a>区间DP</h2><h3 id="简介-7"><a href="#简介-7" class="headerlink" title="简介"></a>简介</h3><p>区间类动态规划是线性动态规划的扩展，它在分阶段地划分问题时，与阶段中元素出现的顺序和由前一阶段的哪些元素合并而来有很大的关系。令状态 f(i, j) 表示将下标位置 i 到 j 的所有元素合并能获得的价值的最大值，那么 <code>f(i, j) = max { f(i, k) + f(k + 1, j) + cost }</code>，cost 为将这两组元素合并起来的代价。</p>
+<h3 id="特点-7"><a href="#特点-7" class="headerlink" title="特点"></a>特点</h3><ul>
+<li><strong>合并</strong>：即将两个或多个部分进行整合，当然也可以反过来；</li>
+<li><strong>特征</strong>：能将问题分解为能两两合并的形式；</li>
+<li><strong>求解</strong>：对整个问题设最优值，枚举合并点，将问题分解为左右两个部分，最后合并两个部分的最优值得到原问题的最优值。</li>
+</ul>
+<h3 id="思路-7"><a href="#思路-7" class="headerlink" title="思路"></a>思路</h3><p>既然让我求解在一个区间上的最优解，那么我把这个区间分割成一个个小区间，求解每个小区间的最优解，再合并小区间得到大区间即可。所以在代码实现上，我可以枚举区间长度 len 为每次分割成的小区间长度（由短到长不断合并），内层枚举该长度下可以的起点，自然终点也就明了了。然后在这个起点终点之间枚举分割点，求解这段小区间在某个分割点下的最优解。</p>
+<h3 id="模板-8"><a href="#模板-8" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">for(int len = 1; len&lt;=n; len++)	//枚举长度
+{
+		for(int j = 1; j + len &lt;= n + 1; j++)	//枚举起点，ends &lt;= n
+		{
+				int ends = j + len - 1;
+				for(int i = j; i &lt; ends; i++)	//枚举分割点，更新小区间最优解
+				{
+					dp[j][ends] = min(dp[j][ends], dp[j][i] + dp[i+1][ends] + something);
+				}
+		}
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="朴素区间-DP-O-n3"><a href="#朴素区间-DP-O-n3" class="headerlink" title="朴素区间 DP O(n3)"></a>朴素区间 DP O(n<sup>3</sup>)</h3><h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>N  堆石子摆成一条线。现要将石子有次序地合并成一堆。规定每次只能选相邻的 2 堆石子合并成新的一堆，并将新的一堆石子数记为该次合并的代价。计算将 N 堆石子合并成一堆的最小代价。</p>
+<h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><p>数据的第 1 行是正整数 N，表示有 N 堆石子。第 2 行有 N 个整数，第 i 个整数 a<sub>i</sub> 表示第 i 堆石子的个数。</p>
+<h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><p>输出共 1 行：最小得分。</p>
+<h4 id="Example-Input"><a href="#Example-Input" class="headerlink" title="Example Input"></a>Example Input</h4><pre class="line-numbers language-none"><code class="language-none">4
+1 2 3 4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+<h4 id="Example-Output"><a href="#Example-Output" class="headerlink" title="Example Output"></a>Example Output</h4><pre class="line-numbers language-none"><code class="language-none">19<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h4 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h4><p>1 2 3 4 (0) -&gt; 3 3 4 (3) -&gt; 6 4 (9) -&gt; 10 (19)</p>
+<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>f[x][y]：从 x 到 y 的最小得分</p>
+<p>w[x][y]：从 x 到 y 的重量和</p>
+<p>转移方程：<code>f[i][j] = min(f[i][j], f[i][k] + f[k + 1][j] + w[i][ends]);</code></p>
+<p>其中 w[x][y] 可以用前缀和数组 sum[] 代替，w[x][y] = sum[y] - sum[x - 1]</p>
+<h4 id="Accepted-Code"><a href="#Accepted-Code" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+#define INF 0x7fffffff
+
+int n, a[101], arr[101];
+int f[101][101];
+
+int main()
+{
+    scanf ("%d", &amp;n);
+    for (int i = 1; i &lt;= n; i++)
+    {
+        scanf ("%d", &amp;a[i]);
+        arr[i] = arr[i-1] + a[i];
+    }
+    
+    for (int p = 1; p &lt; n; p++)
+    {
+        for (int i = 1, j = i + p; i &lt; n &amp;&amp; j &lt;= n; i++, j = i + p)
+        {
+            f[i][j] = INF;
+            for (int k = i; k &lt; j; k++)
+            {
+                f[i][j] = min(f[i][j], f[i][k] + f[k+1][j] + arr[j] - arr[i-1]);
+            }
+        }
+    }
+    
+    printf ("%d", f[1][n]);
+    
+    return 0;
+  
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h3 id="线性变环状"><a href="#线性变环状" class="headerlink" title="线性变环状"></a>线性变环状</h3><h4 id="NOI-1995-石子合并"><a href="#NOI-1995-石子合并" class="headerlink" title="NOI 1995 石子合并"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1880">NOI 1995 石子合并</a></h4><h4 id="Description-1"><a href="#Description-1" class="headerlink" title="Description"></a>Description</h4><p>在一个圆形操场的四周摆放 N 堆石子，现要将石子有次序地合并成一堆。规定每次只能选相邻的 2 堆合并成新的一堆，并将新的一堆的石子数，记为该次合并的得分。试设计出一个算法，计算出将 N 堆石子合并成 1 堆的最小得分和最大得分。</p>
+<h4 id="Input-1"><a href="#Input-1" class="headerlink" title="Input"></a>Input</h4><p>数据的第 1 行是正整数 N，表示有 N 堆石子。第 2 行有 N 个整数，第 i 个整数 a<sub>i</sub> 表示第 i 堆石子的个数。</p>
+<h4 id="Output-1"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h4><p>输出共 2 行，第 1 行为最小得分，第 2 行为最大得分。</p>
+<h4 id="Example-Input-1"><a href="#Example-Input-1" class="headerlink" title="Example Input"></a>Example Input</h4><pre class="line-numbers language-none"><code class="language-none">4
+4 5 9 4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+<h4 id="Example-Output-1"><a href="#Example-Output-1" class="headerlink" title="Example Output"></a>Example Output</h4><pre class="line-numbers language-none"><code class="language-none">43
+54<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+<h4 id="Hint-1"><a href="#Hint-1" class="headerlink" title="Hint"></a>Hint</h4><p>1 ≤ N ≤ 100，0 ≤ a<sub>i</sub> ≤ 200 ≤ a<sub>i</sub> ≤ 20。</p>
+<h4 id="Solution-1"><a href="#Solution-1" class="headerlink" title="Solution"></a>Solution</h4><p>f1[x][y]：从 x 到 y 的最小得分</p>
+<p>w[x][y]：从 x 到 y 的重量和</p>
+<p>转移方程：<code>f1[i][j] = min(f1[i][j], f1[i][k] + f1[k + 1][j] + w[i][ends]);</code></p>
+<p>其中 w[x][y] 可以用前缀和数组 sum[] 代替，w[x][y] = sum[y] - sum[x - 1]</p>
+<h4 id="Accepted-Code-1"><a href="#Accepted-Code-1" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+#define INF 0x7fffffff
+
+int n, minl, maxl, f1[300][300], f2[300][300], num[300];
+int s[300];
+int d(int i,int j)  //转移方程：f[i][j] = max(f[i][k]+f[k+1][j]+d[i][j];
+{
+    return s[j] - s[i - 1];
+    
+}
+
+int main()
+{
+    scanf("%d", &amp;n);
+    for(int i = 1; i &lt;= n + n; i++) //因为是一个环，所以需要开到两倍再枚举分界线，最后肯定是最大的
+    {
+        scanf("%d", &amp;num[i]);
+        num[i + n] = num[i];
+        s[i] = s[i - 1] + num[i];
+    }
+    for(int p = 1; p &lt; n; p++)
+    {
+        for(int i = 1,j = i + p; (j &lt; n + n) &amp;&amp; (i &lt; n + n); i++, j = i + p)
+        {
+            f2[i][j] = INF;
+            for(int k = i; k &lt; j; k++)
+            {
+                f1[i][j] = max(f1[i][j], f1[i][k] + f1[k + 1][j] + d(i, j));
+                f2[i][j] = min(f2[i][j], f2[i][k] + f2[k + 1][j] + d(i, j));
+            }
+        }
+    }
+    minl = INF;
+    for(int i = 1; i &lt;= n; i++)
+    {
+        maxl = max(maxl, f1[i][i + n - 1]);
+        minl = min(minl, f2[i][i + n - 1]);
+    }
+    
+    printf("%d\n%d", minl, maxl);
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="四边形优化-O-n2"><a href="#四边形优化-O-n2" class="headerlink" title="四边形优化 O(n2)"></a>四边形优化 O(n<sup>2</sup>)</h3><h4 id="思路-8"><a href="#思路-8" class="headerlink" title="思路"></a>思路</h4><p>在查找最优分割点的时候，我们浪费了大量时间。那么我们可以把最优分割点保存下来，在查找的时候利用保存的最优分割点来优化查找过程。</p>
+<h4 id="四边形不等式优化"><a href="#四边形不等式优化" class="headerlink" title="四边形不等式优化"></a>四边形不等式优化</h4><ol>
+<li>功能：用来寻找，s[i][j] （i ~ j 的最优分割点）与其他分割点的关系</li>
+<li>不等式内容：如果某东西满足 a &lt; b &lt;= c &lt; d 且f[a][c] + f[b][d] &lt;= f[a][d] + f[b][c]，则说这个东西满足四边形不等式。简而言之：交叉小于包含！</li>
+<li>结论关系：s[i][j-1] &lt;= s[i][j] &lt;= s[i+1][j] </li>
+<li>证明过程：<ol>
+<li>证明 w 满足四边形不等式，这里 w 是 m 的附属量，形如 m[i, j] = opt{ m[i, k] + m[k, j] + w[i, j] }，此时大多要先证明 w 满足条件才能进一步证明 m 满足条件</li>
+<li>证明 m 满足四边形不等式</li>
+<li>证明 s[i, j-1] ≤ s[i, j] ≤ s[i+1, j]</li>
+</ol>
+</li>
+</ol>
+<h4 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+#define INF 0x7fffffff
+
+int n;
+int dp[2005][2005];
+int sum[2005];
+int relation[2005][2005];
+int num[2005];
+
+int main()
+{
+    scanf("%d", &amp;n);
+    memset(sum, 0, sizeof(sum));
+    memset(dp, INF, sizeof(dp));
+    for(int i = 1; i &lt;= n; i++)
+    {
+        scanf("%d", &amp;num[i]);
+        dp[i][i] = 0;
+        relation[i][i] = i;
+        sum[i] = sum[i-1] + num[i];
+    }
+    for(int i = 1; i &lt;= n; i++)
+    {
+        sum[i+n] = sum[i+n-1] + num[i];
+        relation[i+n][i+n] = i + n; //分割点初始化
+        dp[i+n][i+n] = 0;
+    }
+    for(int len = 1; len &lt;= n; len++)
+    {
+        for(int j = 1; j + len &lt;= 2 * n; j++)
+        {
+            int ends = j + len - 1;
+            for(int k = relation[j][ends-1]; k &lt;= relation[j+1][ends]; k++) //k的范围
+            {
+                if(dp[j][ends] &gt; dp[j][k] + dp[k+1][ends] + sum[ends] - sum[j-1])
+                {
+                    dp[j][ends] = dp[j][k] + dp[k+1][ends] + sum[ends] - sum[j-1];
+                    relation[j][ends] = k;
+                }
+            }
+        }
+    }
+    int ans = INF;
+    for(int i = 1; i &lt;= n; i++)
+    {
+        ans = min(ans, dp[i][i+n-1]);
+    }
+    printf("%d\n", ans);
+    
+    return 0;
+    
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="POJ-2955-Brackets-括号匹配"><a href="#POJ-2955-Brackets-括号匹配" class="headerlink" title="POJ 2955 Brackets 括号匹配"></a><a target="_blank" rel="noopener" href="http://poj.org/problem?id=2955">POJ 2955 Brackets 括号匹配</a></h3><h4 id="Description-2"><a href="#Description-2" class="headerlink" title="Description"></a>Description</h4><p>We give the following inductive definition of a “regular brackets” sequence:the empty sequence is a regular brackets sequence,if s is a regular brackets sequence, then (s) and [s] are regular brackets sequences, andif a and b are regular brackets sequences, then ab is a regular brackets sequence.no other sequence is a regular brackets sequenceFor instance, all of the following character sequences are regular brackets sequences: <code>()</code>, <code>[]</code>, <code>(())</code>, <code>()[]</code>, <code>()[()]</code> while the following character sequences are not: <code>(</code>, <code>]</code>, <code>)(</code>, <code>([)]</code>, <code>([(]</code> Given a brackets sequence of characters a<sub>1</sub>a<sub>2</sub> … a<sub>n</sub>, your goal is to find the length of the longest regular brackets sequence that is a subsequence of s. That is, you wish to find the largest m such that for indices i<sub>1</sub>, i<sub>2</sub>, …, im where 1 ≤ i<sub>1</sub> &lt; i<sub>2</sub> &lt; … &lt; i<sub>m</sub> ≤ n, a<sub>i1</sub>a<sub>i2</sub> … a<sub>im</sub> is a regular brackets sequence.Given the initial sequence <code>([([]])]</code>, the longest regular brackets subsequence is <code>[([])]</code>.</p>
+<h4 id="Input-2"><a href="#Input-2" class="headerlink" title="Input"></a>Input</h4><p>The input test file will contain multiple test cases. Each input test case consists of a single line containing only the characters (, ), [, and ]; each input test will have length between 1 and 100, inclusive. The end-of-file is marked by a line containing the word “end” and should not be processed.</p>
+<h4 id="Output-2"><a href="#Output-2" class="headerlink" title="Output"></a>Output</h4><p>For each input case, the program should print the length of the longest possible regular brackets subsequence on a single line.</p>
+<h4 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h4><pre class="line-numbers language-none"><code class="language-none">((()))
+()()()
+([]])
+)[)(
+([][][)
+end<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h4><pre class="line-numbers language-none"><code class="language-none">6
+6
+4
+0
+6<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="Solution-2"><a href="#Solution-2" class="headerlink" title="Solution"></a>Solution</h4><p>题意：给出一个的只有 ‘(‘, ‘)’, ‘[‘, ‘]’ 四种括号组成的字符串，求最多有多少个括号满足题目里所描述的完全匹配。</p>
+<p>动态转移方程：如果 s[i] 与 s[j] 匹配：<code>dp[i][j] = dp[i+1][j-1] + 2</code></p>
+<p>再遍历中间节点：<code>dp[i][j] = max(dp[i][j], dp[i][k] + dp[k+1][j])</code></p>
+<h4 id="Accpted-Code"><a href="#Accpted-Code" class="headerlink" title="Accpted Code"></a>Accpted Code</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+#define INF 0x7fffffff
+
+char s[110];
+int f[110][110];
+
+int main()
+{
+    while (1)
+    {
+        memset (s, 0, sizeof (s));
+        memset (f, 0, sizeof (f));
+        scanf ("%s", s + 1);
+        if (s[1] == 'e') return 0;
+        s[0] = 1;
+        int l = strlen (s+1);
+        for (int p = 2; p &lt;= l; p++)    //区间大小：2 ~ l
+        {
+            for (int i = 1, j = i + p - 1; j &lt;= l; i++, j = i + p - 1)  //区间：i ~ j
+            {
+                if ((s[i] == '(' &amp;&amp; s[j] == ')') || (s[i] == '[' &amp;&amp; s[j] == ']'))
+                    f[i][j] = f[i+1][j-1] + 2;
+                for (int k = i; k &lt; j; k++)
+                {
+                    f[i][j] = max(f[i][j], f[i][k] + f[k+1][j]);
+                }
+            }
+        }
+        
+        printf ("%d\n", f[1][l]);
+        
+    }
+    
+    
+    return 0;
+    
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="POJ-1651-Multiplication-Puzzle-抽卡片"><a href="#POJ-1651-Multiplication-Puzzle-抽卡片" class="headerlink" title="POJ 1651 Multiplication Puzzle 抽卡片"></a><a target="_blank" rel="noopener" href="http://poj.org/problem?id=1651">POJ 1651 Multiplication Puzzle 抽卡片</a></h3><h4 id="Description-3"><a href="#Description-3" class="headerlink" title="Description"></a>Description</h4><p>The multiplication puzzle is played with a row of cards, each containing a single positive integer. During the move player takes one card out of the row and scores the number of points equal to the product of the number on the card taken and the numbers on the cards on the left and on the right of it. It is not allowed to take out the first and the last card in the row. After the final move, only two cards are left in the row. </p>
+<p>The goal is to take cards in such order as to minimize the total number of scored points. </p>
+<p>For example, if cards in the row contain numbers 10 1 50 20 5, player might take a card with 1, then 20 and 50, scoring<br>10 * 1 * 50 + 50 * 20 * 5 + 10 * 50 * 5 = 500 + 5000 + 2500 = 8000<br>If he would take the cards in the opposite order, i.e. 50, then 20, then 1, the score would be<br>1 * 50 * 20 + 1 * 20 * 5 + 10 * 1 * 5 = 1000 + 100 + 50 = 1150.</p>
+<h4 id="Input-3"><a href="#Input-3" class="headerlink" title="Input"></a>Input</h4><p>The first line of the input contains the number of cards N (3 &lt;= N &lt;= 100). The second line contains N integers in the range from 1 to 100, separated by spaces.</p>
+<h4 id="Output-3"><a href="#Output-3" class="headerlink" title="Output"></a>Output</h4><p>Output must contain a single integer - the minimal score.</p>
+<h4 id="Sample-Input-1"><a href="#Sample-Input-1" class="headerlink" title="Sample Input"></a>Sample Input</h4><pre class="line-numbers language-none"><code class="language-none">6
+10 1 50 50 20 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="Sample-Output-1"><a href="#Sample-Output-1" class="headerlink" title="Sample Output"></a>Sample Output</h4><pre class="line-numbers language-none"><code class="language-none">3650<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h4 id="Solution-3"><a href="#Solution-3" class="headerlink" title="Solution"></a>Solution</h4><p>题意：给出 n 个数字，要求不能删除两端点的数字，然后删除其他数字的代价是该数字和左右相邻数字的乘积，问把数字（除端点）删完后的最小总代价。</p>
+<p>dp[i][j]：抽出 i ~ (j - 1) 卡片的最小值</p>
+<p>动态转移方程：<code>dp[i][j] = min(dp[i][j], dp[i][k] + dp[k+1][j] + a[i-1] * a[k] * a[j])</code></p>
+<h4 id="Accepted-Code-2"><a href="#Accepted-Code-2" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+#define INF 0x7fffffff
+
+int n;
+int a[101];
+int dp[101][101];
+
+int main()
+{
+    scanf ("%d", &amp;n);
+    for (int i = 1; i &lt;= n; i++)
+    {
+        scanf ("%d", &amp;a[i]);
+    }
+    
+    for (int p = 1; p &lt; n; p++)
+    {
+        for (int i = 2, j = i + p; j &lt;= n; i++, j = i + p)
+        {
+            dp[i][j] = INF;
+            for (int k = i; k &lt; j; k++)
+            {
+                dp[i][j] = min(dp[i][j], dp[i][k] + dp[k+1][j] + a[i-1] * a[k] * a[j]);
+            }
+        }
+    }
+    
+    printf ("%d", dp[2][n]);
+    
+    
+    return 0;
+    
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h3 id="HDU-4632-Palindrome-subsequence-最长回文子串"><a href="#HDU-4632-Palindrome-subsequence-最长回文子串" class="headerlink" title="HDU 4632 Palindrome subsequence 最长回文子串"></a><a target="_blank" rel="noopener" href="http://acm.hdu.edu.cn/showproblem.php?pid=4632">HDU 4632 Palindrome subsequence 最长回文子串</a></h3><h4 id="Description-4"><a href="#Description-4" class="headerlink" title="Description"></a>Description</h4><p>In mathematics, a subsequence is a sequence that can be derived from another sequence by deleting some elements without changing the order of the remaining elements. For example, the sequence &lt;A, B, D&gt; is a subsequence of &lt;A, B, C, D, E, F&gt;.<br><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/Subsequence">http://en.wikipedia.org/wiki/Subsequence</a></p>
+<p>Given a string S, your task is to find out how many different subsequence of S is palindrome. Note that for any two subsequence X = &lt;S<sub>x1</sub>, S<sub>x2</sub>, …, S<sub>xk</sub>&gt; and Y = &lt;S<sub>y1</sub>, S<sub>y2</sub>, …, S<sub>yk</sub>&gt; , if there exist an integer i (1 &lt;= i &lt;= k) such that xi != yi, the subsequence X and Y should be consider different even if S<sub>xi</sub> = S<sub>yi</sub>. Also two subsequences with different length should be considered different.</p>
+<h4 id="Input-4"><a href="#Input-4" class="headerlink" title="Input"></a>Input</h4><p>The first line contains only one integer T (T &lt;= 50), which is the number of test cases. Each test case contains a string S, the length of S is not greater than 1000 and only contains lowercase letters.</p>
+<h4 id="Output-4"><a href="#Output-4" class="headerlink" title="Output"></a>Output</h4><p>For each test case, output the case number first, then output the number of different subsequence of the given string, the answer should be module 10007.</p>
+<h4 id="Sample-Input-2"><a href="#Sample-Input-2" class="headerlink" title="Sample Input"></a>Sample Input</h4><pre class="line-numbers language-none"><code class="language-none">4
+a
+aaaaa
+goodafternooneveryone
+welcometoooxxourproblems<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="Sample-Output-2"><a href="#Sample-Output-2" class="headerlink" title="Sample Output"></a>Sample Output</h4><pre class="line-numbers language-none"><code class="language-none">Case 1: 1
+Case 2: 31
+Case 3: 421
+Case 4: 960<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="Solution-4"><a href="#Solution-4" class="headerlink" title="Solution"></a>Solution</h4><p>题意：给出一个字符串，求出其最多的可构成的回文字串（不要求连续），注：这里不同的回文字串只要求位置不同即可视为不同，如：aaaaa 的最多回文子串数目是 31.</p>
+<p>dp[i][j]：i ~ j 构成的最多回文串个数</p>
+<p>动态转移方程：</p>
+<ul>
+<li>根据容斥定理：dp[i+1][j] 并 dp[i][j-1] = dp[i+1][j] + dp[i][j-1] - dp[i+1][j-1]</li>
+<li>如果 s[i] == s[j]<ul>
+<li>两端单独可以构成回文子序列 + 1</li>
+<li>与dp[i+1][j], dp[i][j-1], dp[i+1][j-1] 中的每个回文序列可以构成新的回文序列 + dp[i+1][j-1]</li>
+</ul>
+</li>
+</ul>
+<p>注：这里因为容斥时有减法，所以要先加上模再取模，否则会出现负数</p>
+<p><code>dp[i][j] = (dp[i+1][j] + dp[i][j-1] - dp[i+1][j-1] + 10007) % 10007;</code></p>
+<p><code>if (s[i] == s[j]) dp[i][j] = (dp[i][j] + dp[i+1][j-1] + 1) % 10007;</code></p>
+<h4 id="Accepted-Code-3"><a href="#Accepted-Code-3" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+#define INF 0x7fffffff
+
+int T;
+char s[1010];
+int dp[1010][1010];
+
+int main()
+{
+    scanf ("%d", &amp;T);
+    for (int t = 1; t &lt;= T; t++)
+    {
+        memset(s, 0, sizeof (s));
+        memset(dp, 0, sizeof (dp));
+        scanf ("%s", s + 1);
+        int l = strlen(s + 1);
+        for (int i = 1; i &lt;= l; i++) dp[i][i] = 1;  //自己单独构成一个回文
+        for (int p = 1; p &lt;= l; p++)
+        {
+            for (int i = 1, j = i + p - 1; j &lt;= l; i++, j = i + p - 1)
+            {
+                dp[i][j] = (dp[i+1][j] + dp[i][j-1] - dp[i+1][j-1] + 10007) % 10007;
+                if (s[i] == s[j]) dp[i][j] = (dp[i][j] + dp[i+1][j-1] + 1) % 10007; //如果两端相等，dp[i][j] = 原来的 + 两端与中间每一个回文也可以构成回文（dp[i+1][j-1]) + 两端单独构成一个回文（1）
+            }
+        }
+        printf ("Case %d: %d\n", t, dp[1][l]);
+    }
+    
+    return 0;
+    
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h1 id="DAG-上的-DP"><a href="#DAG-上的-DP" class="headerlink" title="DAG 上的 DP"></a>DAG 上的 DP</h1><h3 id="简介-8"><a href="#简介-8" class="headerlink" title="简介"></a>简介</h3><p>DAG 即 <strong>有向无环图</strong>，一些实际问题中的二元关系都可使用 DAG 来建模，如转化为 DAG 上的最长路、最短路和路径计数问题。</p>
+<h3 id="The-Tower-of-Babylon"><a href="#The-Tower-of-Babylon" class="headerlink" title="The Tower of Babylon"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/UVA437">The Tower of Babylon</a></h3><h4 id="Descrpition"><a href="#Descrpition" class="headerlink" title="Descrpition"></a>Descrpition</h4><p>Perhaps you have heard of the legend of the Tower of Babylon. Nowadays many details of this tale have been forgotten. So now, in line with the educational nature of this contest, we will tell you the whole story:</p>
+<p>The babylonians had n types of blocks, and an unlimited supply of blocks of each type. Each type-i block was a rectangular solid with linear dimensions (xi,yi,zi). A block could be reoriented so that any two of its three dimensions determined the dimensions of the base and the other dimension was the height.</p>
+<p>They wanted to construct the tallest tower possible by stacking blocks. The problem was that, in building a tower, one block could only be placed on top of another block as long as the two base dimensions of the upper block were both strictly smaller than the corresponding base dimensions of the lower block. This meant, for example, that blocks oriented to have equal-sized bases couldn’t be stacked.</p>
+<p>Your job is to write a program that determines the height of the tallest tower the babylonians can build with a given set of blocks.</p>
+<h4 id="Input-5"><a href="#Input-5" class="headerlink" title="Input"></a>Input</h4><p>The input file will contain one or more test cases. The first line of each test case contains an integer n, representing the number of different blocks in the following data set. The maximum value for n is 30.</p>
+<p>Each of the next n lines contains three integers representing the values xi, yi and zi. Input is terminated by a value of zero (0) for n.</p>
+<h4 id="Output-5"><a href="#Output-5" class="headerlink" title="Output"></a>Output</h4><p>For each test case, print one line containing the case number (they are numbered sequentially starting from 1) and the height of the tallest possible tower in the format</p>
+<p>‘Case case: maximum height = height’</p>
+<h4 id="Sample-Input-3"><a href="#Sample-Input-3" class="headerlink" title="Sample Input"></a>Sample Input</h4><pre class="line-numbers language-none"><code class="language-none">1
+10 20 30
+2
+6 8 10
+5 5 5
+7
+1 1 1
+2 2 2
+3 3 3
+4 4 4
+5 5 5
+6 6 6
+7 7 7
+5
+31 41 59
+26 53 58
+97 93 23
+84 62 64
+33 83 27
+0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="Sample-Output-3"><a href="#Sample-Output-3" class="headerlink" title="Sample Output"></a>Sample Output</h4><pre class="line-numbers language-none"><code class="language-none">Case 1: maximum height = 40
+Case 2: maximum height = 21
+Case 3: maximum height = 28
+Case 4: maximum height = 342<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="Solution-5"><a href="#Solution-5" class="headerlink" title="Solution"></a>Solution</h4><ul>
+<li><p>建立 DAG</p>
+<p>由于每个砖块的底面长宽分别严格小于它下方砖块的底面长宽，因此不难将这样一种关系作为建图的依据，而本题也就转化为最长路问题。</p>
+<p>也就是说如果砖块 j 能放在砖块 i 上，那么 i 和 j 之间存在一条边 (i, j)，且边权就是砖块 j 所选取的高。</p>
+<p>本题的另一个问题在于每个砖块的高有三种选法，怎样建图更合适呢？</p>
+<p>不妨将每个砖块拆解为三种堆叠方式，即将一个砖块分解为三个砖块，每一个拆解得到的砖块都选取不同的高。</p>
+<p>初始的起点是大地，大地的底面是无穷大的，则大地可达任意砖块，当然我们写程序时不必特意写上无穷大。</p>
+<p>假设有两个砖块，三条边分别为 31, 41, 59 和 33, 83, 27，那么整张 DAG 应该如下图所示。</p>
+</li>
+</ul>
+<p>  <img src="https://cdn.jsdelivr.net/gh/OwlllOvO/Hexo-image/20210509235622.png" alt="DAG"></p>
+<p>  图中蓝实框所表示的是一个砖块拆解得到的一组砖块，之所以用 {} 表示底面边长，是因为砖块一旦选取了高，底面边长就是无序的。</p>
+<p>  图中黄虚框表示的是重复计算部分，为下文做铺垫。</p>
+<ul>
+<li><p>转移</p>
+<p>题目要求的是塔的最大高度，已经转化为最长路问题，其起点上文已指出是大地，那么终点呢？</p>
+<p>显然终点已经自然确定，那就是某砖块上不能再搭别的砖块的时候。</p>
+<p>之前在图上标记的黄虚框表明有重复计算，下面我们开始考虑转移方程。</p>
+<p>显然，砖块一旦选取了高，那么这块砖块上最大能放的高度是确定的。</p>
+<p>某个砖块 i 有三种堆叠方式分别记为 0, 1, 2，那么对于砖块 i 和其堆叠方式 r 来说则有如下转移方程 <code>d(i, r) = max(d(j, r') + h')</code></p>
+<p>其中 j 是所有那些在砖块 i 以 r 方式堆叠时可放上的砖块，r’ 对应 j 此时的摆放方式，也就确定了此时唯一的高度 h’。</p>
+<p>在实际编写时，将所有 d(i, r) 都初始化为 -1，表示未计算过。</p>
+<p>在试图计算前，如果发现已经计算过，直接返回保存的值；否则就按步计算，并保存。</p>
+<p>最终答案是所有 d(i, r) 的最大值。</p>
+</li>
+</ul>
+<h4 id="Accepted-Code-4"><a href="#Accepted-Code-4" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+#define MAXN 35
+#define MAXV 505
+
+int t;
+int d[MAXN][3];
+int x[MAXN], y[MAXN], z[MAXN];
+
+int babylon_sub(int c, int rot, int n)
+{
+    if (d[c][rot] != -1)
+    {
+        return d[c][rot];
+    }
+    d[c][rot] = 0;
+    int base1 = 0, base2 = 0;
+    if (rot == 0)
+    {
+        base1 = x[c];
+        base2 = y[c];
+    }
+    if (rot == 1)
+    {
+        base1 = y[c];
+        base2 = z[c];
+    }
+    if (rot == 2)
+    {
+        base1 = x[c];
+        base2 = z[c];
+    }
+    for (int i = 0; i &lt; n; i++)
+    {
+        if ((x[i] &lt; base1 &amp;&amp; y[i] &lt; base2) || (y[i] &lt; base1 &amp;&amp; x[i] &lt; base2))
+            d[c][rot] = max(d[c][rot], babylon_sub(i, 0, n) + z[i]);
+        if ((y[i] &lt; base1 &amp;&amp; z[i] &lt; base2) || (z[i] &lt; base1 &amp;&amp; y[i] &lt; base2))
+            d[c][rot] = max(d[c][rot], babylon_sub(i, 1, n) + x[i]);
+        if ((x[i] &lt; base1 &amp;&amp; z[i] &lt; base2) || (z[i] &lt; base1 &amp;&amp; x[i] &lt; base2))
+            d[c][rot] = max(d[c][rot], babylon_sub(i, 2, n) + y[i]);
+    }
+    
+    return d[c][rot];
+}
+
+int babylon(int n)
+{
+    for (int i = 0; i &lt; n; i++)
+    {
+        d[i][0] = -1;
+        d[i][1] = -1;
+        d[i][2] = -1;
+    }
+    int r = 0;
+    for (int i = 0; i &lt; n; i++)
+    {
+        r = max(r, babylon_sub(i, 0, n) + z[i]);
+        r = max(r, babylon_sub(i, 1, n) + x[i]);
+        r = max(r, babylon_sub(i, 2, n) + y[i]);
+    }
+    
+    return r;
+}
+
+int main()
+{
+    while (1)
+    {
+        int n;
+        scanf ("%d", &amp;n);
+        if (!n) return 0;
+        for (int i = 0; i &lt; n; i++)
+        {
+            scanf ("%d%d%d", &amp;x[i], &amp;y[i], &amp;z[i]);
+        }
+        printf ("Case %d: maximum height = %d\n", ++t, babylon(n));
+    }
+    
+    return 0;
+    
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h2 id="树形-DP"><a href="#树形-DP" class="headerlink" title="树形 DP"></a>树形 DP</h2><h3 id="简介-9"><a href="#简介-9" class="headerlink" title="简介"></a>简介</h3><p>树形 DP，即在树上进行的 DP。由于树固有的递归性质，树形 DP 一般都是递归进行的。</p>
+<h3 id="特点-8"><a href="#特点-8" class="headerlink" title="特点"></a>特点</h3><ul>
+<li>不存在环</li>
+<li>具有明显而又严格的层数关系</li>
+</ul>
+<h3 id="建树"><a href="#建树" class="headerlink" title="建树"></a>建树</h3><p>如果节点数小于 5000，那么我们可以用邻接矩阵存储，如果更大可以用邻接表来存储（注意边要开到 2 * n，因为是双向的）。如果是二叉树或者是需要多叉转二叉，那么我们可以用两个一维数组 brother[], child[] 来存储</p>
+<h3 id="树形-DP-方程"><a href="#树形-DP-方程" class="headerlink" title="树形 DP 方程"></a>树形 DP 方程</h3><p>通过观察孩子和父亲之间的关系建立方程。我们通常认为，树形DP的写法有两种：</p>
+<ol>
+<li>根到叶子，不过这种动态规划在实际的问题中运用的不多。</li>
+<li>叶子到根：即根的子节点传递有用的信息给根，完后根得出最优解的过程。这类的习题比较的多。</li>
+</ol>
+<p>注：这两种写法一般情况下是不能相互转化的。但是有时可以同时使用</p>
+<h3 id="加分二叉树"><a href="#加分二叉树" class="headerlink" title="加分二叉树"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1040">加分二叉树</a></h3><h4 id="Description-5"><a href="#Description-5" class="headerlink" title="Description"></a>Description</h4><p>设一个 n<em>n</em> 个节点的二叉树 tree 的中序遍历为 (1, 2, 3, …, n)，其中数字 1, 2, 3, …, n 为节点编号。每个节点都有一个分数（均为正整数），记第 i 个节点的分数为 d<sub>i</sub>，tree 及它的每个子树都有一个加分，任一棵子树 subtree（也包含 tree 本身）的加分计算方法如下：</p>
+<p>subtree 的左子树的加分 × subtree 的右子树的加分 + subtree 的根的分数。</p>
+<p>若某个子树为空，规定其加分为 1，叶子的加分就是叶节点本身的分数。不考虑它的空子树。</p>
+<p>试求一棵符合中序遍历为 (1, 2, 3, …, n) 且加分最高的二叉树 tree。要求输出tree 的最高加分。tree 的前序遍历。</p>
+<h4 id="Input-6"><a href="#Input-6" class="headerlink" title="Input"></a>Input</h4><p>第 1 行 1 个整数 n，为节点个数。</p>
+<p>第 2 行 n 个用空格隔开的整数，为每个节点的分数</p>
+<h4 id="Output-6"><a href="#Output-6" class="headerlink" title="Output"></a>Output</h4><p>第 1 行 1 个整数，为最高加分（ans ≤ 4,000,000,000）。</p>
+<p>第 2 行 n 个用空格隔开的整数，为该树的前序遍历。</p>
+<h4 id="Sample-Input-4"><a href="#Sample-Input-4" class="headerlink" title="Sample Input"></a>Sample Input</h4><pre class="line-numbers language-none"><code class="language-none">5
+5 7 1 2 10<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+<h4 id="Sample-Output-4"><a href="#Sample-Output-4" class="headerlink" title="Sample Output"></a>Sample Output</h4><pre class="line-numbers language-none"><code class="language-none">145
+3 1 2 4 5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+<h4 id="Hint-2"><a href="#Hint-2" class="headerlink" title="Hint"></a>Hint</h4><p>n &lt; 30</p>
+<p>分数 &lt; 100</p>
+<h4 id="Solution-6"><a href="#Solution-6" class="headerlink" title="Solution"></a>Solution</h4><p>看到这个问题，我们首先应该想到的是这道题是否属于动态规划，而这里我们发现，结合问题，如果整棵树的权值最大，必然有左子树的权值最大，右子树的权值也最大，符合最优性原理。所以是动态规划。</p>
+<p>而却不是一道树规的题目。因为我们可以用区间动规的模型解决掉：直接定义一个 f[i][j] 表示从 i 到 j 的最大值，则 <code>f[i][j] = max(f[i][k-1] * f[k+1][j] + f[k][k])</code>，枚举 k 即可。接下来是如何建树的问题，只有把树建好了，才能输出其前序遍历。于是，我们看到了两个关键词：二叉树，中序遍历。有了这两个关键词，加上区间动规，这棵树就能建起来了。根据二叉树的特性来建树。所以这颗树的前序遍历，只需要边动规边记录下 root[i][j] = k 表示 i 到 j 的根为 k 即可确定树的构造。</p>
+<h4 id="Accepted-Code-5"><a href="#Accepted-Code-5" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+
+const int MAXN = 50;
+
+long long n;
+long long f[MAXN][MAXN], root[MAXN][MAXN];
+
+void print(long long l, long long r)
+{
+    if (l &gt; r)return;
+    printf("%lld ", root[l][r]);
+    if (l == r)return;
+    print(l, root[l][r] - 1);
+    print(root[l][r]+1,r);
+}
+
+int main()
+{
+    scanf("%lld", &amp;n);
+    for (int i = 1; i &lt;= n; i++)
+    {
+        scanf("%lld", &amp;f[i][i]);
+        f[i][i-1] = 1;
+        root[i][i] = i;
+    }
+    for (int len = 1; len &lt; n; ++len)
+    {
+        for (int i = 1; i + len &lt;= n; ++i)
+        {
+            int j = i + len;
+            f[i][j] = f[i + 1][j] + f[i][i];    //默认它的左子树为空，如果有的话，这肯定不是最优解
+            root[i][j] = i; //默认从起点选根
+            for (int k = i + 1; k &lt; j; ++k)
+            {
+                if (f[i][j] &lt; f[i][k - 1] * f[k + 1][j] + f[k][k])
+                {
+                    f[i][j] = f[i][k - 1] * f[k + 1][j] + f[k][k];
+                    root[i][j] = k;
+                }
+            }
+        }
+    }
+    
+    cout &lt;&lt; f[1][n] &lt;&lt; endl;
+    print(1, n);
+    
+    
+    return 0;
+
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="树上背包-·-选课"><a href="#树上背包-·-选课" class="headerlink" title="树上背包 · 选课"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2014">树上背包 · 选课</a></h3><h4 id="Description-6"><a href="#Description-6" class="headerlink" title="Description"></a>Description</h4><p>在大学里每个学生，为了达到一定的学分，必须从很多课程里选择一些课程来学习，在课程里有些课程必须在某些课程之前学习，如高等数学总是在其它课程之前学习。现在有 N 门功课，每门课有个学分，每门课有一门或没有直接先修课（若课程 a 是课程 b 的先修课即只有学完了课程 a，才能学习课程 b）。一个学生要从这些课程里选择 M 门课程学习，问他能获得的最大学分是多少？</p>
+<h4 id="Input-7"><a href="#Input-7" class="headerlink" title="Input"></a>Input</h4><p>第一行有两个整数 N , M 用空格隔开。(1 ≤ N ≤ 300, 1 ≤ M ≤ 300) 接下来的 N 行,第 I + 1 行包含两个整数 k<sub>i</sub> 和 s<sub>i</sub>, k<sub>i</sub> 表示第I门课的直接先修课，s<sub>i</sub> 表示第 I 门课的学分。若 k<sub>i</sub> = 0 表示没有直接先修课（1 ≤ k<sub>i</sub> ≤ N, 1 ≤ s<sub>i</sub> ≤ 20）。</p>
+<h4 id="Output-7"><a href="#Output-7" class="headerlink" title="Output"></a>Output</h4><p>只有一行，选 M 门课程的最大得分。</p>
+<h4 id="Sample-Input-5"><a href="#Sample-Input-5" class="headerlink" title="Sample Input"></a>Sample Input</h4><pre class="line-numbers language-none"><code class="language-none">7  4
+2  2
+0  1
+0  4
+2  1
+7  1
+7  6
+2  2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="Sample-Output-5"><a href="#Sample-Output-5" class="headerlink" title="Sample Output"></a>Sample Output</h4><pre class="line-numbers language-none"><code class="language-none">13<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h4 id="Solution-7"><a href="#Solution-7" class="headerlink" title="Solution"></a>Solution</h4><p>这道题的意思是每本书要想选择一门课，必须要先学会它的必修课，所以这就形成了一种依赖行为，即选择一门课必须要选择必修课。那么他又说要选择的价值最大，这就要用到树形背包的知识了。</p>
+<p>树形背包的基本代码形式（即上面的树形背包类）</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">/*
+设dp[i][j]表示选择以i为根的子树中j个节点。
+u代表当前根节点，tot代表其选择的节点的总额。
+*/
+void dfs(int u,int tot)
+{
+	for(int i = head[x]; i; i = e[i].next)
+	{
+		int v = e[i].to;
+		for(int k = 0; k &lt; tot; k++)	//这里k从o开始到tot-1，因为v的子树可以选择的节点是u的子树的节点数减一
+			dp[v][k] = dp[u][k] + val[u];
+		dfs(v, tot - 1);
+		for(int k = 1; k &lt;= tot; k++)
+			dp[u][k] = max(dp[u][k], dp[v][k-1]);	//这里是把子树的值赋给了根节点，因为u选择k个点v只能选择k-1个点。
+	}
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="Accepted-Code-6"><a href="#Accepted-Code-6" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+
+int n,m;
+
+struct edge
+{
+    int next,to;
+}e[1000];
+
+int rt, head[1000], tot, val[1000], dp[1000][1000];
+
+void add(int x,int y)
+{
+    e[++tot].next=head[x];
+    head[x] = tot;
+    e[tot].to = y;
+}
+
+void dfs(int u, int t)
+{
+    if (t &lt;= 0) return;
+    for (int i = head[u]; i; i = e[i].next)
+    {
+        int v = e[i].to;
+        for (int k = 0; k &lt; t; ++k)
+            dp[v][k] = dp[u][k] + val[v];
+        dfs(v, t - 1);
+        for (int k = 1; k &lt;= t; ++k)
+            dp[u][k] = max(dp[u][k], dp[v][k-1]);
+    }
+}
+
+int main()
+{
+    scanf("%d%d", &amp;n, &amp;m);
+    for(int i = 1; i &lt;= n; i++)
+    {
+        int a;
+        scanf("%d%d", &amp;a, &amp;val[i]);
+        if(a)  add(a, i);
+        if(!a) add(0, i);
+    }
+    
+    dfs(0, m);
+    
+    printf("%d", dp[0][m]);
+    
+    return 0;
+    
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h2 id="状压-DP"><a href="#状压-DP" class="headerlink" title="状压 DP"></a>状压 DP</h2><h3 id="简介-10"><a href="#简介-10" class="headerlink" title="简介"></a>简介</h3><p>状压 dp 是动态规划的一种，通过将状态压缩为整数来达到优化转移的目的。</p>
+<h3 id="互不侵犯"><a href="#互不侵犯" class="headerlink" title="互不侵犯"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P1896">互不侵犯</a></h3><h4 id="Descrpition-1"><a href="#Descrpition-1" class="headerlink" title="Descrpition"></a>Descrpition</h4><p>在 N × N 的棋盘里面放 K 个国王，使他们互不攻击，共有多少种摆放方案。国王能攻击到它上下左右，以及左上左下右上右下八个方向上附近的各一个格子，共 8 个格子。</p>
+<h4 id="Input-8"><a href="#Input-8" class="headerlink" title="Input"></a>Input</h4><p>只有一行，包含两个数 N，K (1 &lt;= N &lt;=9, 0 &lt;= K &lt;= N * N)</p>
+<h4 id="Output-8"><a href="#Output-8" class="headerlink" title="Output"></a>Output</h4><p>所得的方案数</p>
+<h4 id="Sample-Input-6"><a href="#Sample-Input-6" class="headerlink" title="Sample Input"></a>Sample Input</h4><pre class="line-numbers language-none"><code class="language-none">3 2<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h4 id="Sample-Output-6"><a href="#Sample-Output-6" class="headerlink" title="Sample Output"></a>Sample Output</h4><pre class="line-numbers language-none"><code class="language-none">16<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h4 id="Solution-8"><a href="#Solution-8" class="headerlink" title="Solution"></a>Solution</h4><p>首先，看到这一题，就知道如果不是搜索，就是 DP。当然搜索是过不了的，所以就应该尝试想出一个 DP 的解法。</p>
+<p>DP 的前提之一当然是要找出一个可以互相递推的状态。显然，目前已使用的国王个数当然必须是状态中的一个部分，因为这是一个限制条件。那么除此之外另外的部分是什么呢？</p>
+<p>我们考虑到每行每列之间都有互相的约束关系。因此，我们可以用行和列作为另一个状态的部分（矩阵状压 DP 常用行作为状态，一下的论述中也用行作为状态）。</p>
+<p>又看到数据范围： 1 &lt;= N &lt;= 9。这里我们就可以用一个新的方法表示行和列的状态：数字。考虑任何一个十进制数都可以转化成一个二进制数，而一行的状态就可以表示成这样——例如：</p>
+<p>1010 (2 进制)</p>
+<p>就表示：这一行的第一个格子没有国王，第二个格子放了国王，第三个格子没有放国王，第四个格子放了国王（注意，格子从左到右的顺序是与二进制从左到右的顺序相反的，因为真正在程序进行处理的时候就像是这样的）。而这个二进制下的数就可以转化成十进制：</p>
+<p>10 (10)</p>
+<p>于是，我们的三个状态就有了：第几行（用 i 表示）、此行放什么状态（用 j 表示）、包括这一行已经使用了的国王数（用 s 表示）。</p>
+<p>考虑状态转移方程。我们预先处理出每一个状态（sit[x]）其中包含二进制下 1 的个数，及此状态下这一行放的国王个数（gs[x]），于是就有：</p>
+<p><code>f[i][j][s] = sum(f[i−1][k][s−gs[j]])</code>，f[i][j][s] 就表示在只考虑前 i 行时，在前 i 行（包括第 i 行）有且仅有 s 个国王，且第 i 行国王的情况是编号为 j 的状态时情况的总数。而 k 就代表第 i - 1 行的国王情况的状态编号</p>
+<p>其中 k 在 1 到 n 之间，j 与 k 都表示状态的编号，且 k 与 j 必须满足两行之间国王要满足的关系。（对于这一点的处理我们待会儿再说）</p>
+<p>这个状态转移方程也十分好理解。其实就是上一行所有能够与这一行要使用的状态切合的状态都计入状态统计的加和当中。其中 i, j, s, k 都要枚举。</p>
+<p>再考虑国王之间的关系该如何处理呢？在同一行国王之间的关系我们可以直接在预处理状态时舍去那些不符合题意的状态，而相邻行之间的关系我们就可以用到一个高端的东西：位运算。由于状态已经用数字表示了，因此我们可以用与（∧）运算来判断两个状态在同一个或者相邻位置是否都有国王——如果：</p>
+<p>sit[j] &amp; sit[k] (及上下有重复的king)</p>
+<p>(sit[j] &lt;&lt; 1) &amp; sit[k] (及左上右下有重复king)</p>
+<p>sit[j] &amp; (sit[k]&lt;&lt;1) (及右上左下有重复king)</p>
+<p>这样就可以处理掉那些不符合题意的状态了。</p>
+<p>总结一下。其实状压 DP 不过就是将一个状态转化成一个数，然后用位运算进行状态的处理。理解了这一点，其实就跟普通的 DP 没有什么两样了。</p>
+<h4 id="Accepted-Code-7"><a href="#Accepted-Code-7" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+
+int sit[2000], gs[2000];
+int cnt = 0;
+int n, yong;
+long long f[10][2000][100], ans;
+
+void dfs(int he, int sum, int node) //预处理出每一个状态
+{
+    if(node &gt;= n)   //如果已经处理完毕（注意是大于等于）
+    {
+        sit[++cnt] = he;
+        gs[cnt] = sum;
+        return; //新建一个状态
+    }
+    
+    dfs(he, sum, node + 1); //不用第node个
+    dfs(he + (1 &lt;&lt; node), sum + 1, node + 2);   //用第node个，此时node要加2，及跳过下一个格子
+}
+
+int main()
+{
+    scanf("%d%d", &amp;n, &amp;yong);
+    dfs(0, 0, 0);
+    for(int i = 1; i &lt;= cnt; i++) f[1][i][gs[i]] = 1;   //第一层的所有状态均是有1种情况的
+    for(int i = 2; i &lt;= n; i++)
+        for(int j = 1; j &lt;= cnt; j++)
+            for(int k = 1; k &lt;= cnt; k++)   //枚举i、j、k
+            {
+                if(sit[j] &amp; sit[k]) continue;
+                if((sit[j] &lt;&lt; 1) &amp; sit[k]) continue;
+                if(sit[j] &amp; (sit[k] &lt;&lt; 1)) continue;    //排除不合法国王情况
+                for(int s = yong; s &gt;= gs[j]; s--)  //枚举s，计算f[i][j][s]
+                    f[i][j][s] += f[i-1][k][s-gs[j]];
+            }
+    
+    for(int i = 1; i &lt;= cnt; i++)
+        ans += f[n][i][yong];   //统计最终答案，记得用long long
+    printf("%lld", ans);
+    
+    return 0;
+    
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h2 id="数位-DP"><a href="#数位-DP" class="headerlink" title="数位 DP"></a>数位 DP</h2><h3 id="简介-11"><a href="#简介-11" class="headerlink" title="简介"></a>简介</h3><p>数位 DP 问题往往都是这样的题型，给定一个闭区间 [l, r]，让你求这个区间中满足 <strong>某种条件</strong> 的数的总数。 </p>
+<h3 id="数字计数"><a href="#数字计数" class="headerlink" title="数字计数"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2602">数字计数</a></h3><h4 id="Description-7"><a href="#Description-7" class="headerlink" title="Description"></a>Description</h4><p>给定两个正整数 a<em>a</em> 和 b<em>b</em>，求在 [a,b][<em>a</em>,<em>b</em>] 中的所有整数中，每个数码(digit)各出现了多少次。</p>
+<h4 id="Input-9"><a href="#Input-9" class="headerlink" title="Input"></a>Input</h4><p>仅包含一行两个整数 a,b<em>a</em>,<em>b</em>，含义如上所述。</p>
+<h4 id="Output-9"><a href="#Output-9" class="headerlink" title="Output"></a>Output</h4><p>包含一行十个整数，分别表示 0∼90∼9 在 [a,b][<em>a</em>,<em>b</em>] 中出现了多少次。</p>
+<h4 id="Sample-Input-7"><a href="#Sample-Input-7" class="headerlink" title="Sample Input"></a>Sample Input</h4><pre class="line-numbers language-none"><code class="language-none">1 99<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h4 id="Sample-Output-7"><a href="#Sample-Output-7" class="headerlink" title="Sample Output"></a>Sample Output</h4><pre class="line-numbers language-none"><code class="language-none">9 20 20 20 20 20 20 20 20 20<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h4 id="Hint-3"><a href="#Hint-3" class="headerlink" title="Hint"></a>Hint</h4><ul>
+<li>对于 30% 的数据，保证 a ≤ b ≤ 10<sup>6</sup>；</li>
+<li>对于 100% 的数据，保证 1 ≤ a ≤ b ≤ 10<sup>12</sup>。</li>
+</ul>
+<h4 id="Solution-9"><a href="#Solution-9" class="headerlink" title="Solution"></a>Solution</h4><p>f[i] 代表在有i位数字的情况下，每个数字有多少个。如果不考虑前导 0，你会发现对于每一个数，它的数量都是相等的，也就是 f[i] = f[i-1] * 10 + 10<sup>i - 1</sup>;</p>
+<p>我们先设数字为 ABCD</p>
+<p>看 A000，如果我们要求出它所有数位之和，我们会怎么求？</p>
+<p>鉴于我们其实已经求出了 0 ~ 9, 0 ~ 99, 0 ~ 999… 上所有数字个数（f[i], 且没有考虑前导 0）我们何不把这个 A000 看成 0000 ~ 1000 ~ 2000… A000 对于不考虑首位每一个式子的数字的出现个数为 A * f[3]。加上首位出现也就是小于 A 每一个数都出现了 10<sup>3</sup> 次，再加上，我们就把 A000 处理完了。</p>
+<p>这样你以为就把第一位处理完了？不不不，首位 A 还出现了 BCD + 1 次呢，也就是从 A000 ~ ABCD，这个 A 还出现了 BCD + 1 次，所以再加上这些才行呢。那么你发现，我们成功把首位代表的所有数字个数求出来了，剩下的求解与 A 完全没有任何关系，只是 BCD 的求解，于是我们发现我们已经把一个大问题，化成了一个个小问题，也即是，对于一个这样 n 位的数，把他一位位的分离开来。</p>
+<p>当然你还需要处理前导 0 你会发现前导 0 一定是 0001, 0002, …, 0012, 0013, …, 0101, 0102, …, 0999 这样的数，一共出现了 10 *(i - 1) + 10 * (i - 2) + … 10 (i 表示数字位数），让 0 的统计减去这个值，那么恭喜你这道题做完了。</p>
+<p>总结 对于 DP 这个东西，最重要的其实只有一点，推状态，状态又是什么？是大问题的子问题，对于这种题最重要的特点是，无后效性，问题可拆分，并且答案的求解具有一定的规律，这样的题应该就可以用 DP 做，数位 DP 最重要的就是把一整个数字拆分成一位一位的单独来看，那么对于数位 DP，它的子问题也就一般是每一位上对于答案的求解，层层递进的这么一个思路。</p>
+<h4 id="Accepted-Code-8"><a href="#Accepted-Code-8" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+
+long long a,b;
+long long ten[20],f[20];
+long long cnta[20],cntb[20];
+
+void solve(long long x,long long *cnt)
+{
+    long long num[20]={0};
+    int len=0;
+    while(x)
+    {
+        num[++len]=x%10;
+        x=x/10;
+    }
+    for(int i=len;i&gt;=1;i--)
+    {
+        for(int j=0;j&lt;=9;j++)
+        cnt[j]+=f[i-1]*num[i];
+        for(int j=0;j&lt;num[i];j++)
+        cnt[j]+=ten[i-1];
+        long long num2=0;
+        for(int j=i-1;j&gt;=1;j--)
+        {
+            num2=num2*10+num[j];
+        }
+        cnt[num[i]]+=num2+1;
+        cnt[0]-=ten[i-1];
+    }
+}
+
+int main()
+{
+    scanf("%lld %lld",&amp;a,&amp;b);
+    ten[0]=1;
+    for(int i=1;i&lt;=15;i++)
+    {
+        f[i]=f[i-1]*10+ten[i-1];
+        ten[i]=10*ten[i-1];
+    }
+    solve(a-1,cnta);
+    solve(b,cntb);
+    for(int i=0;i&lt;=9;i++)
+    printf("%lld ",cntb[i]-cnta[i]);
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">OwlllOvO</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://owlllovo.github.io/2021/05/02/2021-5-2-dp/">http://owlllovo.github.io/2021/05/02/2021-5-2-dp/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">OwlllOvO</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
+                                </a>
+                            
+                                <a href="/tags/DP/">
+                                    <span class="chip bg-color">DP</span>
+                                </a>
+                            
+                                <a href="/tags/%E5%8C%BA%E9%97%B4DP/">
+                                    <span class="chip bg-color">区间DP</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/05/09/2021-5-9-shu/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="树">
+                        
+                        <span class="card-title">树</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-05-09
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/ACM/" class="post-category">
+                                    ACM
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/C/">
+                        <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                    <a href="/tags/%E6%A0%91/">
+                        <span class="chip bg-color">树</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/04/27/2021-4-27-vim/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="Vim">
+                        
+                        <span class="card-title">Vim</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-27
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/Coding/" class="post-category">
+                                    Coding
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Vim/">
+                        <span class="chip bg-color">Vim</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="491164332"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='list'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
+
+    
+    <div class="container row center-align" style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2021</span>
+            
+            <span id="year">2021</span>
+            <a href="/about" target="_blank">OwlllOvO</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
+                class="white-color">35k</span>&nbsp;字
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/OwlllOvO" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:Im@OwlllOvO.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="https://www.facebook.com/profile.php?id=100046032892124" class="tooltipped" target="_blank" data-tooltip="关注我的Facebook: https://www.facebook.com/profile.php?id=100046032892124" data-position="top" data-delay="50">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+
+
+    <a href="https://twitter.com/OwlllOvO" class="tooltipped" target="_blank" data-tooltip="关注我的Twitter: https://twitter.com/OwlllOvO" data-position="top" data-delay="50">
+        <i class="fab fa-twitter"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=2476160526" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 2476160526" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+<script>
+!function(){
+function n(n,e,t){
+return n.getAttribute(e)||t
+}
+function e(n){
+return document.getElementsByTagName(n)
+}
+function t(){
+var t=e("script"),o=t.length,i=t[o-1];
+return{l:o,z:n(i,"zIndex",-1),o:n(i,"opacity",.5),c:n(i,"color","0,0,0"),n:n(i,"count",99)}
+}
+function o(){
+a=m.width=window.innerWidth||document.documentElement.clientWidth||document.body.clientWidth,
+c=m.height=window.innerHeight||document.documentElement.clientHeight||document.body.clientHeight
+}
+function i(){
+r.clearRect(0,0,a,c);
+var n,e,t,o,m,l;
+s.forEach(function(i,x){
+for(i.x+=i.xa,i.y+=i.ya,i.xa*=i.x>a||i.x<0?-1:1,i.ya*=i.y>c||i.y<0?-1:1,r.fillRect(i.x-.5,i.y-.5,1,1),e=x+1;e<u.length;e++)n=u[e],
+null!==n.x&&null!==n.y&&(o=i.x-n.x,m=i.y-n.y,
+l=o*o+m*m,l<n.max&&(n===y&&l>=n.max/2&&(i.x-=.03*o,i.y-=.03*m),
+t=(n.max-l)/n.max,r.beginPath(),r.lineWidth=t/2,r.strokeStyle="rgba("+d.c+","+(t+.2)+")",r.moveTo(i.x,i.y),r.lineTo(n.x,n.y),r.stroke()))
+}),
+x(i)
+}
+var a,c,u,m=document.createElement("canvas"),
+d=t(),l="c_n"+d.l,r=m.getContext("2d"),
+x=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame||window.oRequestAnimationFrame||window.msRequestAnimationFrame||
+function(n){
+window.setTimeout(n,1e3/45)
+},
+w=Math.random,y={x:null,y:null,max:2e4};m.id=l,m.style.cssText="position:fixed;top:0;left:0;z-index:"+d.z+";opacity:"+d.o,e("body")[0].appendChild(m),o(),window.onresize=o,
+window.onmousemove=function(n){
+n=n||window.event,y.x=n.clientX,y.y=n.clientY
+},
+window.onmouseout=function(){
+y.x=null,y.y=null
+};
+for(var s=[],f=0;d.n>f;f++){
+var h=w()*a,g=w()*c,v=2*w()-1,p=2*w()-1;s.push({x:h,y:g,xa:v,ya:p,max:6e3})
+}
+u=s.concat([y]),
+setTimeout(function(){i()},100)
+}();
+</script>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
