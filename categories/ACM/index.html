@@ -339,11 +339,11 @@
                 </a>
                 
                 
-                <a href="/categories/ACM/" title="ACM: 20">
+                <a href="/categories/ACM/" title="ACM: 23">
                     <span class="chip center-align waves-effect waves-light
                              chip-active "
                             style="background-color: #F5EEF8;">ACM
-                        <span class="tag-length">20</span>
+                        <span class="tag-length">23</span>
                     </span>
                 </a>
                 
@@ -367,6 +367,60 @@
 
     <article id="articles" class="container articles">
         <div class="row tags-posts">
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/05/13/2021-5-13-ac-zi-dong-ji/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="AC 自动机">
+                            
+                            <span class="card-title">AC 自动机</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                AC 自动机简介AC 自动机是以 Trie 的结构为基础，结合 KMP 的思想建立的。
+简单来说，建立一个 AC 自动机有两个步骤：
+
+基础的 Trie 结构：将所有的模式串构成一棵 Trie。
+KMP 的思想：对 Trie 树上所有的结点
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-05-13
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/ACM/" class="post-category">
+                                    ACM
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/C/">
+                            <span class="chip bg-color">C++</span>
+                        </a>
+                        
+                        <a href="/tags/AC-%E8%87%AA%E5%8A%A8%E6%9C%BA/">
+                            <span class="chip bg-color">AC 自动机</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
@@ -459,10 +513,6 @@
 
                     
                     <div class="card-action article-tags">
-                        
-                        <a href="/tags/C/">
-                            <span class="chip bg-color">C++</span>
-                        </a>
                         
                         <a href="/tags/%E6%A0%91/">
                             <span class="chip bg-color">树</span>
@@ -741,23 +791,74 @@ sgnint sgn(double x)	// 判断x是否等于0
             
             <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
                 <div class="card">
-                    <a href="/2021/02/04/2021-2-4/">
+                    <a href="/2021/02/20/2021-2-20-bo-yi-lun/">
                         <div class="card-image tag-image">
                             
                             
-                            <img src="/medias/featureimages/9.jpg" class="responsive-img" alt="2021.2.4">
+                            <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="博弈论">
                             
-                            <span class="card-title">2021.2.4</span>
+                            <span class="card-title">博弈论</span>
                         </div>
                     </a>
                     <div class="card-content article-content">
                         <div class="summary block-with-text">
                             
-                                2021.2.4LCA定义
+                                博弈论巴什博弈简介一堆物品有 n 个，两个人轮流从这堆物品中取物，规定每次可以取走 1 ~ m 个，最后取光者得胜。
+解法显然，如果 n = m + 1，那么由于一次最多只能取 m 个，所以，无论先取者拿走多少个，后取者都能够一次拿走剩余的
+                            
+                        </div>
+                        <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-20
+                            </span>
+                            <span class="publish-author">
+                                
+                                <i class="fas fa-bookmark fa-fw icon-category"></i>
+                                
+                                <a href="/categories/ACM/" class="post-category">
+                                    ACM
+                                </a>
+                                
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    
+                    <div class="card-action article-tags">
+                        
+                        <a href="/tags/C/">
+                            <span class="chip bg-color">C++</span>
+                        </a>
+                        
+                        <a href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/">
+                            <span class="chip bg-color">博弈论</span>
+                        </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            
+            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
+                <div class="card">
+                    <a href="/2021/02/04/2021-2-4-lca/">
+                        <div class="card-image tag-image">
+                            
+                            
+                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="LCA">
+                            
+                            <span class="card-title">LCA</span>
+                        </div>
+                    </a>
+                    <div class="card-content article-content">
+                        <div class="summary block-with-text">
+                            
+                                LCA定义
 对于有根树 T 的两个结点 u、v，最近公共祖先 LCA(T, u, v) 表示一个结点 x，满足 x 是 u 和 v 的祖先且 x 的深度尽可能大。在这里，一个节点也可以是它自己的祖先。
 ——百度百科
 
-Tar
+记某点集 $S \ =
                             
                         </div>
                         <div class="publish-info">
@@ -793,126 +894,6 @@ Tar
                 </div>
             </div>
             
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/02/03/2021-2-3-shu-lun/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/10.jpg" class="responsive-img" alt="2021.2.3">
-                            
-                            <span class="card-title">2021.2.3</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                数论素数简介一个大于 1 的自然数，除了 1 和它自身外，不能被其他自然数整除的数叫做素数；否则称为合数
-
-1既不是质数也不是合数
-
-判断方法暴力 · $O(\frac{n}{2})$bool isPrime(a)
-{
-  if (a &l
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-03
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/ACM/" class="post-category">
-                                    ACM
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/C/">
-                            <span class="chip bg-color">C++</span>
-                        </a>
-                        
-                        <a href="/tags/%E6%95%B0%E8%AE%BA/">
-                            <span class="chip bg-color">数论</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
-            <div class="article tag-post col s12 m6 l4" data-aos="zoom-in">
-                <div class="card">
-                    <a href="/2021/02/02/2021-2-2/">
-                        <div class="card-image tag-image">
-                            
-                            
-                            <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="2021.2.2">
-                            
-                            <span class="card-title">2021.2.2</span>
-                        </div>
-                    </a>
-                    <div class="card-content article-content">
-                        <div class="summary block-with-text">
-                            
-                                2021.2.2背包问题定义
-背包问题 (Knapsack problem) 是一种组合优化的 NP 完全问题。问题可以描述为：给定一组物品，每种物品都有自己的重量和价格，在限定的总重量内，我们如何选择，才能使得物品的总价格最高。
-——百度
-                            
-                        </div>
-                        <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-02-02
-                            </span>
-                            <span class="publish-author">
-                                
-                                <i class="fas fa-bookmark fa-fw icon-category"></i>
-                                
-                                <a href="/categories/ACM/" class="post-category">
-                                    ACM
-                                </a>
-                                
-                                
-                            </span>
-                        </div>
-                    </div>
-
-                    
-                    <div class="card-action article-tags">
-                        
-                        <a href="/tags/C/">
-                            <span class="chip bg-color">C++</span>
-                        </a>
-                        
-                        <a href="/tags/DP/">
-                            <span class="chip bg-color">DP</span>
-                        </a>
-                        
-                        <a href="/tags/01%E8%83%8C%E5%8C%85/">
-                            <span class="chip bg-color">01背包</span>
-                        </a>
-                        
-                        <a href="/tags/%E5%AE%8C%E5%85%A8%E8%83%8C%E5%8C%85/">
-                            <span class="chip bg-color">完全背包</span>
-                        </a>
-                        
-                        <a href="/tags/%E5%A4%9A%E9%87%8D%E8%83%8C%E5%8C%85/">
-                            <span class="chip bg-color">多重背包</span>
-                        </a>
-                        
-                    </div>
-                    
-                </div>
-            </div>
-            
         </div>
     </article>
 </main>
@@ -928,7 +909,7 @@ Tar
             
         </div>
         <div class="page-info col m4 l4 hide-on-small-only">
-            <div class="center-align b-text-gray">1 / 2</div>
+            <div class="center-align b-text-gray">1 / 3</div>
         </div>
         <div class="col s6 m4 l4">
             
@@ -1013,7 +994,7 @@ Tar
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">35k</span>&nbsp;字
+                class="white-color">42.5k</span>&nbsp;字
             
             
             

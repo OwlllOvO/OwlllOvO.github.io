@@ -427,7 +427,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    3k
                 </div>
                 
 
@@ -512,7 +512,7 @@
 <h2 id="最大公约数-·-GCD"><a href="#最大公约数-·-GCD" class="headerlink" title="最大公约数 · GCD"></a>最大公约数 · GCD</h2><h3 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h3><p>最大公约数即为 Greatest Common Divisor，常缩写为 gcd。</p>
 <p>在素数一节中，我们已经介绍了约数的概念。</p>
 <p>一组数的公约数，是指同时是这组数中每一个数的约数的数。而最大公约数，则是指所有公约数里面最大的一个。</p>
-<h3 id="求法"><a href="#求法" class="headerlink" title="求法"></a>求法</h3><h4 id="欧几里得算法-·-O-log-n"><a href="#欧几里得算法-·-O-log-n" class="headerlink" title="欧几里得算法 · O(log n)"></a>欧几里得算法 · O(log n)</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int gcd(int a, int b)
+<h3 id="求法"><a href="#求法" class="headerlink" title="求法"></a>求法</h3><h4 id="欧几里得算法-·-O-log-n"><a href="#欧几里得算法-·-O-log-n" class="headerlink" title="欧几里得算法 · $O(\log n)$"></a>欧几里得算法 · $O(\log n)$</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int gcd(int a, int b)
 {
   if (!b) return a;
   return gcd(b, a % b);
@@ -608,6 +608,217 @@ int multi_lcm(int n)
 
 <h3 id="欧拉定理"><a href="#欧拉定理" class="headerlink" title="欧拉定理"></a>欧拉定理</h3><p>若 $gcd(a, \ m) \ = \ 1$ 则 $a^{\phi(m)} \equiv 1 (mod m)$</p>
 <h3 id="扩展欧拉定理"><a href="#扩展欧拉定理" class="headerlink" title="扩展欧拉定理"></a>扩展欧拉定理</h3><p>$$<br>a^{b} \equiv \left{<br>\begin{aligned}<br>a^{b \ mod \ \phi(p)} &amp; , &amp; gcd(a, \ p) \ = \ 1 \<br>a^{b} &amp; , &amp; gcd(a, \ p) \ \neq \ 1 &amp; , \ b \ &lt; \ \phi(p) \ (mod \ p)\<br>a^{b \ mod \ \phi(p)+\phi(p)} &amp; , &amp; gcd(a, \ b) \ \neq \ 1 &amp; , \ b \ \geq \ \phi(p)<br>\end{aligned}<br>\right.<br>$$</p>
+<h2 id="筛法"><a href="#筛法" class="headerlink" title="筛法"></a>筛法</h2><h3 id="素数筛法"><a href="#素数筛法" class="headerlink" title="素数筛法"></a>素数筛法</h3><p>如果我们想要知道小于等于 n 有多少个素数呢？</p>
+<p>一个自然的想法是对于小于等于 n 的每个数进行一次质数检验。这种暴力的做法显然不能达到最优复杂度。</p>
+<h4 id="埃拉托斯特尼（Eratosthenes）筛法-·-O-n-log-log-n"><a href="#埃拉托斯特尼（Eratosthenes）筛法-·-O-n-log-log-n" class="headerlink" title="埃拉托斯特尼（Eratosthenes）筛法 · $O(n\log\log n)$"></a>埃拉托斯特尼（Eratosthenes）筛法 · $O(n\log\log n)$</h4><p>如果 x 是合数，那么 x 的倍数也一定是合数。利用这个结论，我们可以避免很多次不必要的检测。</p>
+<p>如果我们从小到大考虑每个数，然后同时把当前这个数的所有（比自己大的）倍数记为合数，那么运行结束的时候没有被标记的数就是素数了。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int Eratosthenes(int n)
+{
+  int p = 0;
+  for (int i = 0; i &lt;= n; ++i) is_prime[i] = 1;
+  is_prime[0] = is_prime[1] = 0;
+  for (int i = 2; i &lt;= n; ++i)
+  {
+    if (is_prime[i])
+    {
+      prime[p++] = i;  // prime[p]是i,后置自增运算代表当前素数数量
+      if ((long long)i * i &lt;= n)
+        for (int j = i * i; j &lt;= n; j += i)
+          // 因为从 2 到 i - 1 的倍数我们之前筛过了，这里直接从 i
+          // 的倍数开始，提高了运行速度
+          is_prime[j] = 0;  // 是i的倍数的均不是素数
+    }
+  }
+  return p;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h5 id="筛至平方根-amp-amp-只筛奇数"><a href="#筛至平方根-amp-amp-只筛奇数" class="headerlink" title="筛至平方根 &amp;&amp; 只筛奇数"></a>筛至平方根 &amp;&amp; 只筛奇数</h5><p>显然，要找到直到 n 为止的所有素数，仅对不超过 $\sqrt{n}$ 的素数进行筛选就足够了。</p>
+<p>因为除 2 以外的偶数都是合数，所以我们可以直接跳过它们，只用关心奇数就好。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int n;
+vector&lt;char&gt; is_prime(n + 1, true);
+is_prime[0] = is_prime[1] = false;
+for (int i = 2; i * i &lt;= n; i++)
+{
+  if (!(i % 2)) continue;
+  if (is_prime[i])
+  {
+    for (int j = i * i; j &lt;= n; j += i) is_prime[j] = false;
+  }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="线性筛法"><a href="#线性筛法" class="headerlink" title="线性筛法"></a>线性筛法</h4><p>埃氏筛法仍有优化空间，它会将一个合数重复多次标记。有没有什么办法省掉无意义的步骤呢？答案是肯定的。</p>
+<p>如果能让每个合数都只被标记一次，那么时间复杂度就可以降到 $O(n)$ 了</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void init()
+{
+  phi[1] = 1;
+  for (int i = 2; i &lt; MAXN; ++i)
+  {
+    if (!vis[i])
+    {
+      phi[i] = i - 1;
+      pri[cnt++] = i;
+    }
+    for (int j = 0; j &lt; cnt; ++j)
+    {
+      if (1ll * i * pri[j] &gt;= MAXN) break;
+      vis[i * pri[j]] = 1;
+      if (i % pri[j])
+      {
+        phi[i * pri[j]] = phi[i] * (pri[j] - 1);
+      }
+      else
+      {
+        // i % pri[j] == 0
+        // 换言之，i 之前被 pri[j] 筛过了
+        // 由于 pri 里面质数是从小到大的，所以 i 乘上其他的质数的结果一定也是
+        // pri[j] 的倍数 它们都被筛过了，就不需要再筛了，所以这里直接 break
+        // 掉就好了
+        phi[i * pri[j]] = phi[i] * pri[j];
+        break;
+      }
+    }
+  }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>pri[i]: 第 i 个素数</li>
+<li>phi[i]: 1 ~ i 中与 i 互质的数的个数</li>
+</ul>
+<h3 id="筛法求欧拉函数"><a href="#筛法求欧拉函数" class="headerlink" title="筛法求欧拉函数"></a>筛法求欧拉函数</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void phi_table(int n, int* phi)
+{
+  for (int i = 2; i &lt;= n; i++) phi[i] = 0;
+  phi[1] = 1;
+  for (int i = 2; i &lt;= n; i++)
+    if (!phi[i])
+      for (int j = i; j &lt;= n; j += i)
+      {
+        if (!phi[j]) phi[j] = j;
+        phi[j] = phi[j] / i * (i - 1);
+      }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="筛法求约数个数"><a href="#筛法求约数个数" class="headerlink" title="筛法求约数个数"></a>筛法求约数个数</h3><p>d[i]: i 的约数个数</p>
+<p>num[i]: i 的最小质因子出现次数</p>
+<p>定理：若 $n \ = \ \prod_{i=1}^{m} p_{i}^{c_{i}}$ 则 $d_{i} \ = \ \prod_{i=1}^{m}c_{i} \ + \ 1$</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void pre()
+{
+  d[1] = 1;
+  for (int i = 2; i &lt;= n; ++i)
+  {
+    if (!v[i]) v[i] = 1, p[++tot] = i, d[i] = 2, num[i] = 1;
+    for (int j = 1; j &lt;= tot &amp;&amp; i &lt;= n / p[j]; ++j)
+    {
+      v[p[j] * i] = 1;
+      if (i % p[j] == 0)
+      {
+        num[i * p[j]] = num[i] + 1;
+        d[i * p[j]] = d[i] / num[i * p[j]] * (num[i * p[j]] + 1);
+        break;
+      }
+        else
+      {
+        num[i * p[j]] = 1;
+        d[i * p[j]] = d[i] * 2;
+      }
+    }
+  }
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="筛法求约数和"><a href="#筛法求约数和" class="headerlink" title="筛法求约数和"></a>筛法求约数和</h3><p>f[i]: i 的约数和</p>
+<p>g[i]: i 的最小质因子的 $p \ + \ p^{1} \ + \ p^{2} \ + \ \cdots \ + \ p^{k}$</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void pre()
+{
+  g[1] = f[1] = 1;
+  for (int i = 2; i &lt;= n; ++i)
+  {
+    if (!v[i]) v[i] = 1, p[++tot] = i, g[i] = i + 1, f[i] = i + 1;
+    for (int j = 1; j &lt;= tot &amp;&amp; i &lt;= n / p[j]; ++j)
+    {
+      v[p[j] * i] = 1;
+      if (i % p[j] == 0)
+      {
+        g[i * p[j]] = g[i] * p[j] + 1;
+        f[i * p[j]] = f[i] / g[i] * g[i * p[j]];
+        break;
+      }
+      else
+      {
+        f[i * p[j]] = f[i] * f[p[j]];
+        g[i * p[j]] = 1 + p[j];
+      }
+    }
+  }
+  for (int i = 1; i &lt;= n; ++i) f[i] = (f[i - 1] + f[i]) % Mod;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+<h2 id="乘法逆元"><a href="#乘法逆元" class="headerlink" title="乘法逆元"></a>乘法逆元</h2><h3 id="简介-2"><a href="#简介-2" class="headerlink" title="简介"></a>简介</h3><p>如果一个线性同余方程 $ax \ \equiv \ 1 \ (mod \ b)$ ，则 x 称为 a mod b 的逆元，记作 $a^{-1}$。</p>
+<h3 id="如何求逆元"><a href="#如何求逆元" class="headerlink" title="如何求逆元"></a>如何求逆元</h3><h4 id="扩展欧几里得法"><a href="#扩展欧几里得法" class="headerlink" title="扩展欧几里得法"></a>扩展欧几里得法</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void exgcd(int a, int b, int&amp; x, int&amp; y)
+{
+  if (!b)
+  {
+    x = 1;
+    y = 0;
+    return;
+  }
+  exgcd(b, a % b, y, x);
+  y -= a / b * x;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="快速幂法"><a href="#快速幂法" class="headerlink" title="快速幂法"></a>快速幂法</h4><p>因为 $ax \ \equiv \ 1 \ (mod \ b)$；</p>
+<p>所以 $ax \ \equiv \ a^{b-1} \ (mod \ b)$（根据费马小定理）；</p>
+<p>所以 $x \ \equiv \ a^{b-2} \ (mod \ b)$。</p>
+<p>然后我们就可以用快速幂来求了。</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">inline int qpow(long long a, int b)
+{
+  int ans = 1;
+  a = (a % p + p) % p;
+  for (; b; b &gt;&gt;= 1)
+  {
+    if (b &amp; 1) ans = (a * ans) % p;
+    a = (a * a) % p;
+  }
+  return ans;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>使用费马小定理需要限制 b 是一个素数，而扩展欧几里得算法只要求 $\gcd(a, \ p) \ = \ 1$。</li>
+</ul>
+<h4 id="线性求逆元"><a href="#线性求逆元" class="headerlink" title="线性求逆元"></a>线性求逆元</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">inv[1] = 1;
+for (int i = 2; i &lt;= n; ++i)
+{
+  inv[i] = (long long)(p - p / i) * inv[p % i] % p;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="线性求任意-n-个数的逆元"><a href="#线性求任意-n-个数的逆元" class="headerlink" title="线性求任意 n 个数的逆元"></a>线性求任意 n 个数的逆元</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">s[0] = 1;
+for (int i = 1; i &lt;= n; ++i) s[i] = s[i - 1] * a[i] % p;
+sv[n] = qpow(s[n], p - 2);
+// 当然这里也可以用 exgcd 来求逆元,视个人喜好而定.
+for (int i = n; i &gt;= 1; --i) sv[i - 1] = sv[i] * a[i] % p;
+for (int i = 1; i &lt;= n; ++i) inv[i] = sv[i] * s[i - 1] % p;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+<h2 id="中国剩余定理"><a href="#中国剩余定理" class="headerlink" title="中国剩余定理"></a>中国剩余定理</h2><h3 id="简介-3"><a href="#简介-3" class="headerlink" title="简介"></a>简介</h3><p>中国剩余定理 (Chinese Remainder Theorem, CRT) 可求解如下形式的一元线性同余方程组（其中 $n_{1}, \ n_{2}, \ \cdots, \ n_{k}$ 两两互质）：<br>$$<br>\left {<br>\begin{array}{c}<br>x \ &amp;\equiv \ &amp;a_{1} \ (mod \ n_{1}) \<br>x \ &amp;\equiv \ &amp;a_{2} \ (mod \ n_{2}) \<br>&amp;\cdots\ \<br>x \ &amp;\equiv \ &amp;a_{k} \ (mod \ n_{k})<br>\end{array}<br>\right .<br>$$</p>
+<h3 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h3><ol>
+<li>计算所有模数的积 n；</li>
+<li>对于第 i 个方程：<ol>
+<li>计算 $m_{i} \ = \ \frac{n}{n_{i}}$；</li>
+<li>计算 $m_{i}$ 在模 $n_{i}$ 意义下的逆元 $m_{i}^{-1}$</li>
+<li>计算 $c_{i} \ = \ m_{i}m_{i}^{-1}$（<strong>不要对 $n_{i}$ 取模</strong>）。</li>
+</ol>
+</li>
+<li>方程组的唯一解为：$a \ = \ \sum_{i=1}^{k}a_{i}c_{i} \ (mod \ n)$。</li>
+</ol>
 
                 
             </div>
@@ -1041,7 +1252,7 @@ int multi_lcm(int n)
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">35k</span>&nbsp;字
+                class="white-color">42.5k</span>&nbsp;字
             
             
             
