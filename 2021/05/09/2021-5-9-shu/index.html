@@ -423,7 +423,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.5k
+                    672
                 </div>
                 
 
@@ -479,164 +479,6 @@
 <p>DLR - 前序遍历（根在前，从左往右，一棵树的根永远在左子树前面，左子树又永远在右子树前面 ）</p>
 <p>LDR - 中序遍历（根在中，从左往右，一棵树的左子树永远在根前面，根永远在右子树前面）</p>
 <p>LRD - 后序遍历（根在后，从左往右，一棵树的左子树永远在右子树前面，右子树永远在根前面）</p>
-<h2 id="字典树"><a href="#字典树" class="headerlink" title="字典树"></a>字典树</h2><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">struct TRIE
-{
-  int nex[100000][26], cnt;
-  bool exist[100000];  // 该结点结尾的字符串是否存在
-
-  void insert(char *s, int l)  // 插入字符串
-  {
-    int p = 0;
-    for (int i = 0; i &lt; l; i++)
-    {
-      int c = s[i] - 'a';
-      if (!nex[p][c]) nex[p][c] = ++cnt;  // 如果没有，就添加结点
-      p = nex[p][c];
-    }
-    exist[p] = 1;
-  }
-  bool find(char *s, int l)  // 查找字符串
-  {
-    int p = 0;
-    for (int i = 0; i &lt; l; i++)
-    {
-      int c = s[i] - 'a';
-      if (!nex[p][c]) return 0;
-      p = nex[p][c];
-    }
-    return exist[p];
-  }
-};<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h3 id="于是他错误的点名开始了"><a href="#于是他错误的点名开始了" class="headerlink" title="于是他错误的点名开始了"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2580">于是他错误的点名开始了</a></h3><h4 id="Background"><a href="#Background" class="headerlink" title="Background"></a>Background</h4><p>XS 中学化学竞赛组教练是一个酷爱炉石的人。</p>
-<p>他会一边搓炉石一边点名以至于有一天他连续点到了某个同学两次，然后正好被路过的校长发现了然后就是一顿欧拉欧拉欧拉（详情请见已结束比赛 CON900）。</p>
-<h4 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h4><p>这之后校长任命你为特派探员，每天记录他的点名。校长会提供化学竞赛学生的人数和名单，而你需要告诉校长他有没有点错名。（为什么不直接不让他玩炉石。）</p>
-<h4 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h4><p>第一行一个整数 n，表示班上人数。</p>
-<p>接下来 n 行，每行一个字符串表示其名字（互不相同，且只含小写字母，长度不超过 50）。</p>
-<p>第 n + 2 行一个整数 m，表示教练报的名字个数。</p>
-<p>接下来 m 行，每行一个字符串表示教练报的名字（只含小写字母，且长度不超过 50）。</p>
-<h4 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h4><p>对于每个教练报的名字，输出一行。</p>
-<p>如果该名字正确且是第一次出现，输出 <code>OK</code>，如果该名字错误，输出 <code>WRONG</code>，如果该名字正确但不是第一次出现，输出 <code>REPEAT</code>。</p>
-<h4 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h4><pre class="line-numbers language-none"><code class="language-none">5  
-a
-b
-c
-ad
-acd
-3
-a
-a
-e<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h4 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h4><pre class="line-numbers language-none"><code class="language-none">OK
-REPEAT
-WRONG<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-
-<h4 id="Hint"><a href="#Hint" class="headerlink" title="Hint"></a>Hint</h4><ul>
-<li>对于 40% 的数据，$n \ \leq 1000, \ m \ \leq \ 2000$</li>
-<li>对于 70% 的数据，$n \ \leq 10^{4}, \ m \ \leq \ 2 \ \times \ 10^{4}$</li>
-<li>对于 100% 的数据，$n \ \leq 10^{4}, \ m \ \leq \ 2 \ \times \ 10^{5}$</li>
-</ul>
-<h4 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h4><p>Trie</p>
-<p>把模板中的标记数组 exist 改成 int，插入时标记为 1，查询时每查询一次 +1 即可判断是否 REPEAT</p>
-<h4 id="Accepted-Code"><a href="#Accepted-Code" class="headerlink" title="Accepted Code"></a>Accepted Code</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#define _CRTSECURE_NOWARNINGS
-#pragma warning(disable:4996)
-#include&lt;cstdio&gt;
-#include&lt;cstring&gt;
-#include&lt;string&gt;
-#include&lt;cmath&gt;
-#include&lt;cctype&gt;
-#include&lt;algorithm&gt;
-#include&lt;iostream&gt;
-#include&lt;queue&gt;
-#include&lt;stack&gt;
-#include&lt;vector&gt;
-#include&lt;map&gt;
-#include&lt;set&gt;
-#include&lt;list&gt;
-using namespace std;
-
-int n, m;
-char x[101];
-
-struct TRIE
-{
-	int nex[10000000][26], cnt;
-	int exist[10000000];  // 该结点结尾的字符串是否存在
-
-	void insert(char* s, int l)  // 插入字符串
-	{
-		int p = 0;
-		for (int i = 0; i &lt; l; i++)
-		{
-			int c = s[i] - 'a';
-			if (!nex[p][c]) nex[p][c] = ++cnt;  // 如果没有，就添加结点
-			p = nex[p][c];
-		}
-		exist[p] = 1;
-	}
-	int find(char* s, int l)  // 查找字符串
-	{
-		int p = 0;
-		for (int i = 0; i &lt; l; i++)
-		{
-			int c = s[i] - 'a';
-			if (!nex[p][c]) return 0;
-			p = nex[p][c];
-		}
-		if (exist[p]) return exist[p]++;
-	}
-};
-
-TRIE trie;
-
-int main()
-{
-	scanf("%d", &amp;n);
-	while (n--)
-	{
-		scanf("%s", x);
-		int l = strlen(x);
-		trie.insert(x, l);
-	}
-	scanf("%d", &amp;n);
-	while (n--)
-	{
-		scanf("%s", x);
-		int l = strlen(x);
-		int ans = trie.find(x, l);
-		if (ans)
-		{
-			if (ans == 1) printf("OK\n");
-			else printf("REPEAT\n");
-		}
-		else printf("WRONG\n");
-	}
-
-	return 0;
-
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 
             </div>
@@ -1051,7 +893,7 @@ int main()
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">42.5k</span>&nbsp;字
+                class="white-color">45.9k</span>&nbsp;字
             
             
             

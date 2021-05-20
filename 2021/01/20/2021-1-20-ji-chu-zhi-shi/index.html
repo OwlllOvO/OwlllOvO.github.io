@@ -427,7 +427,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    742
+                    1.1k
                 </div>
                 
 
@@ -492,7 +492,7 @@
 #include &lt;vector&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>(Visual Studio 不自带万能头文件)</p>
 <h2 id="时间（空间）复杂度"><a href="#时间（空间）复杂度" class="headerlink" title="时间（空间）复杂度"></a>时间（空间）复杂度</h2><p><del>dddd懂的都懂</del></p>
-<h2 id="C-STL"><a href="#C-STL" class="headerlink" title="C++: STL"></a>C++: STL</h2><h3 id="string-•-字符串"><a href="#string-•-字符串" class="headerlink" title="string • 字符串"></a>string • 字符串</h3><h4 id="头文件-include-lt-string-gt"><a href="#头文件-include-lt-string-gt" class="headerlink" title="头文件 : #include<string>"></a>头文件 : <code>#include&lt;string&gt;</code></h4><h4 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h4><ul>
+<h2 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h2><h3 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h3><h4 id="string-•-字符串"><a href="#string-•-字符串" class="headerlink" title="string • 字符串"></a>string • 字符串</h4><h5 id="头文件-include-lt-string-gt"><a href="#头文件-include-lt-string-gt" class="headerlink" title="头文件 : #include<string>"></a>头文件 : <code>#include&lt;string&gt;</code></h5><h5 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h5><ul>
 <li>赋初值</li>
 </ul>
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">string s1 = "1234";
@@ -518,11 +518,11 @@ s2 = "1234";<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <p><code>s1.erase()</code></p>
 </li>
 </ul>
-<h3 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h3><h4 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h4><p>​    <code>    vector&lt;int&gt;v1;</code></p>
+<h4 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h4><h5 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h5><p>​    <code>    vector&lt;int&gt;v1;</code></p>
 <p>​    <code>vector&lt;string&gt;v2("1234");</code></p>
 <p>​    <code>vecotr&lt;int&gt;v3(5,2);</code></p>
 <p>​    <code>vector&lt;int&gt;v4(v3);</code></p>
-<h4 id="常用函数-1"><a href="#常用函数-1" class="headerlink" title="常用函数"></a>常用函数</h4><ul>
+<h5 id="常用函数-1"><a href="#常用函数-1" class="headerlink" title="常用函数"></a>常用函数</h5><ul>
 <li><p>在数组的最后添加一个数据</p>
 <p><code>v1.push_back();</code></p>
 </li>
@@ -539,12 +539,12 @@ s2 = "1234";<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <p><code>v1.size();</code></p>
 </li>
 </ul>
-<h4 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><ul>
+<h5 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h5><ul>
 <li>随机访问 <strong>O(1)</strong></li>
 <li>删除 <strong>O(n)</strong></li>
 </ul>
-<h3 id="queue-•-FIFO"><a href="#queue-•-FIFO" class="headerlink" title="queue • FIFO"></a>queue • FIFO</h3><h4 id="构造-1"><a href="#构造-1" class="headerlink" title="构造"></a>构造</h4><p>​    <code>queue&lt;int&gt; q;</code></p>
-<h4 id="常用函数-2"><a href="#常用函数-2" class="headerlink" title="常用函数"></a>常用函数</h4><ul>
+<h4 id="queue-•-FIFO"><a href="#queue-•-FIFO" class="headerlink" title="queue • FIFO"></a>queue • FIFO</h4><h5 id="构造-1"><a href="#构造-1" class="headerlink" title="构造"></a>构造</h5><p>​    <code>queue&lt;int&gt; q;</code></p>
+<h5 id="常用函数-2"><a href="#常用函数-2" class="headerlink" title="常用函数"></a>常用函数</h5><ul>
 <li><p>入队</p>
 <p><code>q.push();</code></p>
 </li>
@@ -564,8 +564,8 @@ s2 = "1234";<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <p><code>q.empty();</code></p>
 </li>
 </ul>
-<h3 id="stack-•-FILO"><a href="#stack-•-FILO" class="headerlink" title="stack • FILO"></a>stack • FILO</h3><h4 id="构造-2"><a href="#构造-2" class="headerlink" title="构造"></a>构造</h4><p>​    <code>stack&lt;int&gt; s;</code></p>
-<h4 id="常用函数-3"><a href="#常用函数-3" class="headerlink" title="常用函数"></a>常用函数</h4><ul>
+<h4 id="stack-•-FILO"><a href="#stack-•-FILO" class="headerlink" title="stack • FILO"></a>stack • FILO</h4><h5 id="构造-2"><a href="#构造-2" class="headerlink" title="构造"></a>构造</h5><p>​    <code>stack&lt;int&gt; s;</code></p>
+<h5 id="常用函数-3"><a href="#常用函数-3" class="headerlink" title="常用函数"></a>常用函数</h5><ul>
 <li><p>入队</p>
 <p><code>s.push();</code></p>
 </li>
@@ -582,8 +582,8 @@ s2 = "1234";<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <p><code>s.empty();</code></p>
 </li>
 </ul>
-<h3 id="set-•-集合"><a href="#set-•-集合" class="headerlink" title="set • 集合"></a>set • 集合</h3><h4 id="构造-3"><a href="#构造-3" class="headerlink" title="构造"></a>构造</h4><p>​    <code>set&lt;int&gt;s;</code></p>
-<h4 id="常用函数-4"><a href="#常用函数-4" class="headerlink" title="常用函数"></a>常用函数</h4><ul>
+<h4 id="set-•-集合"><a href="#set-•-集合" class="headerlink" title="set • 集合"></a>set • 集合</h4><h5 id="构造-3"><a href="#构造-3" class="headerlink" title="构造"></a>构造</h5><p>​    <code>set&lt;int&gt;s;</code></p>
+<h5 id="常用函数-4"><a href="#常用函数-4" class="headerlink" title="常用函数"></a>常用函数</h5><ul>
 <li><p>插入</p>
 <p><code>s.insert();</code></p>
 </li>
@@ -612,25 +612,25 @@ s2 = "1234";<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <p><code>s.empty();</code></p>
 </li>
 </ul>
-<h4 id="时间复杂度-1"><a href="#时间复杂度-1" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><ul>
+<h5 id="时间复杂度-1"><a href="#时间复杂度-1" class="headerlink" title="时间复杂度"></a>时间复杂度</h5><ul>
 <li>查询 <strong>O(logn)</strong></li>
 <li>插入 <strong>O(logn)</strong></li>
 <li>删除 <strong>O(logn)</strong></li>
 </ul>
-<h3 id="map-•-key-value"><a href="#map-•-key-value" class="headerlink" title="map • key - value"></a>map • key - value</h3><h4 id="构造-4"><a href="#构造-4" class="headerlink" title="构造"></a>构造</h4><p>​    1.<code>map&lt;int,int&gt;mp;</code></p>
+<h4 id="map-•-key-value"><a href="#map-•-key-value" class="headerlink" title="map • key - value"></a>map • key - value</h4><h5 id="构造-4"><a href="#构造-4" class="headerlink" title="构造"></a>构造</h5><p>​    1.<code>map&lt;int,int&gt;mp;</code></p>
 <p>​    2.<code>map&lt;string,int&gt;mp;</code></p>
-<h4 id="常用函数-5"><a href="#常用函数-5" class="headerlink" title="常用函数"></a>常用函数</h4><ul>
+<h5 id="常用函数-5"><a href="#常用函数-5" class="headerlink" title="常用函数"></a>常用函数</h5><ul>
 <li><p>访问</p>
 <p>1.<code>mp[[int]] = [int];</code></p>
 <p>2.<code>mp[[string]] = [int];</code></p>
 </li>
 </ul>
-<h4 id="时间复杂度-2"><a href="#时间复杂度-2" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><ul>
+<h5 id="时间复杂度-2"><a href="#时间复杂度-2" class="headerlink" title="时间复杂度"></a>时间复杂度</h5><ul>
 <li>插入 <strong>O(logn)</strong></li>
 <li>删除 <strong>O(logn)</strong></li>
 </ul>
-<h3 id="list-•-双向链表"><a href="#list-•-双向链表" class="headerlink" title="list • 双向链表"></a>list • 双向链表</h3><h4 id="构造-5"><a href="#构造-5" class="headerlink" title="构造"></a>构造</h4><p>​    <code>list&lt;int&gt;li;</code></p>
-<h4 id="常用函数-6"><a href="#常用函数-6" class="headerlink" title="常用函数"></a>常用函数</h4><ul>
+<h4 id="list-•-双向链表"><a href="#list-•-双向链表" class="headerlink" title="list • 双向链表"></a>list • 双向链表</h4><h5 id="构造-5"><a href="#构造-5" class="headerlink" title="构造"></a>构造</h5><p>​    <code>list&lt;int&gt;li;</code></p>
+<h5 id="常用函数-6"><a href="#常用函数-6" class="headerlink" title="常用函数"></a>常用函数</h5><ul>
 <li><p>加到末位</p>
 <p><code>li.push_back();</code></p>
 </li>
@@ -650,13 +650,133 @@ s2 = "1234";<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
 <p><code>li.erase();</code></p>
 </li>
 </ul>
-<h4 id="时间复杂度-3"><a href="#时间复杂度-3" class="headerlink" title="时间复杂度"></a>时间复杂度</h4><ul>
+<h5 id="时间复杂度-3"><a href="#时间复杂度-3" class="headerlink" title="时间复杂度"></a>时间复杂度</h5><ul>
 <li>随机访问 <strong>×</strong></li>
 <li>插入 <strong>O(1)</strong></li>
 <li>删除 <strong>O(1)</strong></li>
 </ul>
-<h3 id="sort-•-快速排序"><a href="#sort-•-快速排序" class="headerlink" title="sort • 快速排序"></a>sort • 快速排序</h3><p><del>用习惯 sort 后受够了 qsort 的折磨，现在终于回来了</del></p>
+<h4 id="sort-•-快速排序"><a href="#sort-•-快速排序" class="headerlink" title="sort • 快速排序"></a>sort • 快速排序</h4><p><code>#include&lt;algorithm&gt;</code></p>
+<p><del>用习惯 sort 后受够了 qsort 的折磨，现在终于回来了</del></p>
 <p><del>qsort 到现在都还没学会，还好期末开卷照着书打</del></p>
+<h3 id="struct"><a href="#struct" class="headerlink" title="struct"></a>struct</h3><h4 id="重载运算符"><a href="#重载运算符" class="headerlink" title="重载运算符"></a>重载运算符</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+
+int n;
+
+struct NODE
+{
+  int a, b, c;
+  bool operator == (const NODE x) const
+  {
+    return this-&gt;a + b + c == x.a + x.b + x.c;
+  }
+  bool operator != (const NODE x) const
+  {
+    return this-&gt;a + b + c != x.a + x.b + x.c;
+  }
+  bool operator &lt;= (const NODE x) const
+  {
+    return this-&gt;a + b + c &lt;= x.a + x.b + x.c;
+  }
+  bool operator &gt;= (const NODE x) const
+  {
+    return this-&gt;a + b + c &gt;= x.a + x.b + x.c;
+  }
+  bool operator &lt; (const NODE x) const
+  {
+    return this-&gt;a + b + c &lt; x.a + x.b + x.c;
+  }
+  bool operator &gt; (const NODE x) const
+  {
+    return this-&gt;a + b + c &gt; x.a + x.b + x.c;
+  }
+} s[1001];
+
+bool cmp (NODE x, NODE y)
+{
+    return x &lt; y;
+}
+
+int main()
+{
+    scanf ("%d", &amp;n);
+    for (int i = 1; i &lt;= n; i++) scanf ("%d%d%d", &amp;s[i].a, &amp;s[i].b, &amp;s[i].c);
+    sort(s + 1, s + n + 1, cmp);
+    for (int i = 1; i &lt;= n; i++) printf ("%2d %d %d %d\n",s[i].a + s[i].b + s[i].c, s[i].a, s[i].b, s[i].c);
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h4 id="封装函数"><a href="#封装函数" class="headerlink" title="封装函数"></a>封装函数</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">#define _CRTSECURE_NOWARNINGS
+#pragma warning(disable:4996)
+#include&lt;cstdio&gt;
+#include&lt;cstring&gt;
+#include&lt;string&gt;
+#include&lt;cmath&gt;
+#include&lt;cctype&gt;
+#include&lt;algorithm&gt;
+#include&lt;iostream&gt;
+#include&lt;queue&gt;
+#include&lt;stack&gt;
+#include&lt;vector&gt;
+#include&lt;map&gt;
+#include&lt;set&gt;
+#include&lt;list&gt;
+using namespace std;
+
+struct NODE
+{
+    int a[1001];
+    
+    void scan()
+    {
+        int n;
+        scanf ("%d", &amp;n);
+        for (int i = 1; i &lt;= n; i++)
+        {
+            scanf ("%d", &amp;a[i]);
+        }
+    }
+    
+    int sum(int x)
+    {
+        int SUM = 0;
+        for (int i = 1; i &lt;= x; i++)
+        {
+            SUM += a[i];
+        }
+        return SUM;
+    }
+    
+} s;
+
+int main()
+{
+    s.scan();
+    printf ("%d", s.sum(5));
+    
+    return 0;
+    
+}
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
 <h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><h3 id="A-Rails-•-POJ-1363"><a href="#A-Rails-•-POJ-1363" class="headerlink" title="A Rails • POJ 1363"></a>A <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418487#problem/A">Rails</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/POJ-1363/origin">POJ 1363</a></h3><h3 id="B-表达式括号匹配-•-计蒜客-T1655"><a href="#B-表达式括号匹配-•-计蒜客-T1655" class="headerlink" title="B 表达式括号匹配 • 计蒜客 T1655"></a>B <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418487#problem/B">表达式括号匹配</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/%E8%AE%A1%E8%92%9C%E5%AE%A2-T1655/origin">计蒜客 T1655</a></h3><h3 id="C-Let-the-Balloon-Rise-•-HDU-1004"><a href="#C-Let-the-Balloon-Rise-•-HDU-1004" class="headerlink" title="C  Let the Balloon Rise  • HDU 1004"></a>C <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418487#problem/C"> Let the Balloon Rise</a>  • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1004/origin">HDU 1004</a></h3><h3 id="D-ACboy-needs-your-help-again-•-HDU-1702"><a href="#D-ACboy-needs-your-help-again-•-HDU-1702" class="headerlink" title="D  ACboy needs your help again! • HDU 1702"></a>D <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418487#problem/D"> ACboy needs your help again!</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1702/origin">HDU 1702</a></h3><h3 id="E-排名-•-HDU-1236"><a href="#E-排名-•-HDU-1236" class="headerlink" title="E 排名 • HDU 1236"></a>E <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418487#problem/E">排名</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1236/origin">HDU 1236</a></h3><h3 id="F-人见人爱A-B-•-HDU-2034"><a href="#F-人见人爱A-B-•-HDU-2034" class="headerlink" title="F  人见人爱A-B • HDU 2034"></a>F <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418487#problem/F"> 人见人爱A-B</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-2034/origin">HDU 2034</a></h3><h3 id="G-水果-•-HDU-1263"><a href="#G-水果-•-HDU-1263" class="headerlink" title="G 水果 • HDU 1263"></a>G <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418487#problem/G">水果</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1263/origin">HDU 1263</a></h3><h3 id="H-看病要排队-•-HDU-1873"><a href="#H-看病要排队-•-HDU-1873" class="headerlink" title="H 看病要排队 • HDU 1873"></a>H <a target="_blank" rel="noopener" href="https://vjudge.net/contest/418487#problem/H">看病要排队</a> • <a target="_blank" rel="noopener" href="https://vjudge.net/problem/HDU-1873/origin">HDU 1873</a></h3>
                 
             </div>
@@ -1070,7 +1190,7 @@ s2 = "1234";<span aria-hidden="true" class="line-numbers-rows"><span></span><spa
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">42.5k</span>&nbsp;字
+                class="white-color">45.9k</span>&nbsp;字
             
             
             
