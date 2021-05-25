@@ -479,56 +479,56 @@ int fa[MXN][31], cost[MXN][31], dep[MXN];
 int n, m;
 int a, b, c;
 void dfs(int root, int fno) {
-  fa[root][0] = fno;
-  dep[root] = dep[fa[root][0]] + 1;
-  for (int i = 1; i &lt; 31; ++i) {
-    fa[root][i] = fa[fa[root][i - 1]][i - 1];
-    cost[root][i] = cost[fa[root][i - 1]][i - 1] + cost[root][i - 1];
-  }
-  int sz = v[root].size();
-  for (int i = 0; i &lt; sz; ++i) {
-    if (v[root][i] == fno) continue;
-    cost[v[root][i]][0] = w[root][i];
-    dfs(v[root][i], root);
-  }
+	fa[root][0] = fno;
+	dep[root] = dep[fa[root][0]] + 1;
+	for (int i = 1; i &lt; 31; ++i) {
+		fa[root][i] = fa[fa[root][i - 1]][i - 1];
+		cost[root][i] = cost[fa[root][i - 1]][i - 1] + cost[root][i - 1];
+	}
+	int sz = v[root].size();
+	for (int i = 0; i &lt; sz; ++i) {
+		if (v[root][i] == fno) continue;
+		cost[v[root][i]][0] = w[root][i];
+		dfs(v[root][i], root);
+	}
 }
 int lca(int x, int y) {
-  if (dep[x] &gt; dep[y]) swap(x, y);
-  int tmp = dep[y] - dep[x], ans = 0;
-  for (int j = 0; tmp; ++j, tmp &gt;&gt;= 1)
-    if (tmp &amp; 1) ans += cost[y][j], y = fa[y][j];
-  if (y == x) return ans;
-  for (int j = 30; j &gt;= 0 &amp;&amp; y != x; --j) {
-    if (fa[x][j] != fa[y][j]) {
-      ans += cost[x][j] + cost[y][j];
-      x = fa[x][j];
-      y = fa[y][j];
-    }
-  }
-  ans += cost[x][0] + cost[y][0];
-  return ans;
+	if (dep[x] &gt; dep[y]) swap(x, y);
+	int tmp = dep[y] - dep[x], ans = 0;
+	for (int j = 0; tmp; ++j, tmp &gt;&gt;= 1)
+		if (tmp &amp; 1) ans += cost[y][j], y = fa[y][j];
+	if (y == x) return ans;
+	for (int j = 30; j &gt;= 0 &amp;&amp; y != x; --j) {
+		if (fa[x][j] != fa[y][j]) {
+			ans += cost[x][j] + cost[y][j];
+			x = fa[x][j];
+			y = fa[y][j];
+		}
+	}
+	ans += cost[x][0] + cost[y][0];
+	return ans;
 }
 int main() {
-  memset(fa, 0, sizeof(fa));
-  memset(cost, 0, sizeof(cost));
-  memset(dep, 0, sizeof(dep));
-  scanf("%d", &amp;n);
-  for (int i = 1; i &lt; n; ++i) {
-    scanf("%d %d %d", &amp;a, &amp;b, &amp;c);
-    ++a, ++b;
-    v[a].push_back(b);
-    v[b].push_back(a);
-    w[a].push_back(c);
-    w[b].push_back(c);
-  }
-  dfs(1, 0);
-  scanf("%d", &amp;m);
-  for (int i = 0; i &lt; m; ++i) {
-    scanf("%d %d", &amp;a, &amp;b);
-    ++a, ++b;
-    printf("%d\n", lca(a, b));
-  }
-  return 0;
+	memset(fa, 0, sizeof(fa));
+	memset(cost, 0, sizeof(cost));
+	memset(dep, 0, sizeof(dep));
+	scanf("%d", &amp;n);
+	for (int i = 1; i &lt; n; ++i) {
+		scanf("%d %d %d", &amp;a, &amp;b, &amp;c);
+		++a, ++b;
+		v[a].push_back(b);
+		v[b].push_back(a);
+		w[a].push_back(c);
+		w[b].push_back(c);
+	}
+	dfs(1, 0);
+	scanf("%d", &amp;m);
+	for (int i = 0; i &lt; m; ++i) {
+		scanf("%d %d", &amp;a, &amp;b);
+		++a, ++b;
+		printf("%d\n", lca(a, b));
+	}
+	return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -550,12 +550,12 @@ using namespace std;
 
 class Edge
 {
- public:
-  int toVertex, fromVertex;
-  int next;
-  int LCA;
-  Edge() : toVertex(-1), fromVertex(-1), next(-1), LCA(-1){};
-  Edge(int u, int v, int n) : fromVertex(u), toVertex(v), next(n), LCA(-1){};
+public:
+	int toVertex, fromVertex;
+	int next;
+	int LCA;
+	Edge() : toVertex(-1), fromVertex(-1), next(-1), LCA(-1) {};
+	Edge(int u, int v, int n) : fromVertex(u), toVertex(v), next(n), LCA(-1) {};
 };
 
 const int MAX = 100;
@@ -566,83 +566,84 @@ int vertexCount, edgeCount, queryCount;
 
 void init()
 {
-  for (int i = 0; i &lt;= vertexCount; i++)
-  {
-    parent[i] = i;
-  }
+	for (int i = 0; i &lt;= vertexCount; i++)
+	{
+		parent[i] = i;
+	}
 }
 
 int find(int x) {
-  if (parent[x] == x) {
-    return x;
-  } else {
-    return find(parent[x]);
-  }
+	if (parent[x] == x) {
+		return x;
+	}
+	else {
+		return find(parent[x]);
+	}
 }
 
 void tarjan(int u) {
-  parent[u] = u;
-  visited[u] = 1;
+	parent[u] = u;
+	visited[u] = 1;
 
-  for (int i = head[u]; i != -1; i = edge[i].next) {
-    Edge&amp; e = edge[i];
-    if (!visited[e.toVertex]) {
-      tarjan(e.toVertex);
-      parent[e.toVertex] = u;
-    }
-  }
+	for (int i = head[u]; i != -1; i = edge[i].next) {
+		Edge&amp; e = edge[i];
+		if (!visited[e.toVertex]) {
+			tarjan(e.toVertex);
+			parent[e.toVertex] = u;
+		}
+	}
 
-  for (int i = queryHead[u]; i != -1; i = queryEdge[i].next) {
-    Edge&amp; e = queryEdge[i];
-    if (visited[e.toVertex]) {
-      queryEdge[i ^ 1].LCA = e.LCA = find(e.toVertex);
-    }
-  }
+	for (int i = queryHead[u]; i != -1; i = queryEdge[i].next) {
+		Edge&amp; e = queryEdge[i];
+		if (visited[e.toVertex]) {
+			queryEdge[i ^ 1].LCA = e.LCA = find(e.toVertex);
+		}
+	}
 }
 
 int main() {
-  memset(head, 0xff, sizeof(head));
-  memset(queryHead, 0xff, sizeof(queryHead));
+	memset(head, 0xff, sizeof(head));
+	memset(queryHead, 0xff, sizeof(queryHead));
 
-  cin &gt;&gt; vertexCount &gt;&gt; edgeCount &gt;&gt; queryCount;
-  int count = 0;
-  for (int i = 0; i &lt; edgeCount; i++) {
-    int start = 0, end = 0;
-    cin &gt;&gt; start &gt;&gt; end;
+	cin &gt;&gt; vertexCount &gt;&gt; edgeCount &gt;&gt; queryCount;
+	int count = 0;
+	for (int i = 0; i &lt; edgeCount; i++) {
+		int start = 0, end = 0;
+		cin &gt;&gt; start &gt;&gt; end;
 
-    edge[count] = Edge(start, end, head[start]);
-    head[start] = count;
-    count++;
+		edge[count] = Edge(start, end, head[start]);
+		head[start] = count;
+		count++;
 
-    edge[count] = Edge(end, start, head[end]);
-    head[end] = count;
-    count++;
-  }
+		edge[count] = Edge(end, start, head[end]);
+		head[end] = count;
+		count++;
+	}
 
-  count = 0;
-  for (int i = 0; i &lt; queryCount; i++) {
-    int start = 0, end = 0;
-    cin &gt;&gt; start &gt;&gt; end;
+	count = 0;
+	for (int i = 0; i &lt; queryCount; i++) {
+		int start = 0, end = 0;
+		cin &gt;&gt; start &gt;&gt; end;
 
-    queryEdge[count] = Edge(start, end, queryHead[start]);
-    queryHead[start] = count;
-    count++;
+		queryEdge[count] = Edge(start, end, queryHead[start]);
+		queryHead[start] = count;
+		count++;
 
-    queryEdge[count] = Edge(end, start, queryHead[end]);
-    queryHead[end] = count;
-    count++;
-  }
+		queryEdge[count] = Edge(end, start, queryHead[end]);
+		queryHead[end] = count;
+		count++;
+	}
 
-  init();
-  tarjan(1);
+	init();
+	tarjan(1);
 
-  for (int i = 0; i &lt; queryCount; i++) {
-    Edge&amp; e = queryEdge[i * 2];
-    cout &lt;&lt; "(" &lt;&lt; e.fromVertex &lt;&lt; "," &lt;&lt; e.toVertex &lt;&lt; ") " &lt;&lt; e.LCA &lt;&lt; endl;
-  }
+	for (int i = 0; i &lt; queryCount; i++) {
+		Edge&amp; e = queryEdge[i * 2];
+		cout &lt;&lt; "(" &lt;&lt; e.fromVertex &lt;&lt; "," &lt;&lt; e.toVertex &lt;&lt; ") " &lt;&lt; e.LCA &lt;&lt; endl;
+	}
 
-  return 0;
-}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+	return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -655,42 +656,42 @@ int n, m, s;
 struct lca {
 	int cnt, head[maxn];
 	struct edge { int to, next; } e[maxn &lt;&lt; 1];
-	void add (int u, int v) {
-		e[++cnt] = {v, head[u]}; head[u] = cnt;
-		e[++cnt] = {u, head[v]}; head[v] = cnt;
+	void add(int u, int v) {
+		e[++cnt] = { v, head[u] }; head[u] = cnt;
+		e[++cnt] = { u, head[v] }; head[v] = cnt;
 	}
-	
+
 	int dep[maxn];
 	int lg[maxn];
 	int fa[maxn][22];
-	
-	void init () {
-		for (int i = 1; i &lt;= n; ++i){
+
+	void init() {
+		for (int i = 1; i &lt;= n; ++i) {
 			lg[i] = lg[i - 1] + (1 &lt;&lt; lg[i - 1] == i);
-	//		cout &lt;&lt; i &lt;&lt; " -&gt; " &lt;&lt; lg[i] &lt;&lt; endl;
+			//		cout &lt;&lt; i &lt;&lt; " -&gt; " &lt;&lt; lg[i] &lt;&lt; endl;
 		}
 	}
 
-	void dfs (int now, int pre) {
+	void dfs(int now, int pre) {
 		fa[now][0] = pre; dep[now] = dep[pre] + 1;
 		for (int i = 1; i &lt;= lg[dep[now]]; ++i)
 			fa[now][i] = fa[fa[now][i - 1]][i - 1];
-		for (int i = head[now]; i; i = e[i].next) 
+		for (int i = head[now]; i; i = e[i].next)
 			if (e[i].to != pre) dfs(e[i].to, now);
 	}
-	
-	int LCA (int x, int y) {
+
+	int LCA(int x, int y) {
 		if (dep[x] &lt; dep[y]) swap(x, y);
 		while (dep[x] &gt; dep[y]) x = fa[x][lg[dep[x] - dep[y]] - 1];
 		if (x == y) return x;
-		for (int k = lg[dep[x]] - 1; k &gt;= 0; --k) 
+		for (int k = lg[dep[x]] - 1; k &gt;= 0; --k)
 			if (fa[x][k] != fa[y][k])
 				x = fa[x][k], y = fa[y][k];
 		return fa[x][0];
 	}
 
 } Lca;
-int main () {
+int main() {
 	scanf("%d%d%d", &amp;n, &amp;m, &amp;s);
 	for (int i = 1; i &lt; n; ++i) {
 		int x, y;
@@ -718,26 +719,26 @@ int n, m, r;
 int ans[maxn];
 struct LCA {
 	int vis[maxn];
-	
+
 	int s[maxn];
-	void init () { for (int i = 1; i &lt;= n; ++i) s[i] = i;	}
-	int find (int x) { return s[x] == x ? x : s[x] = find(s[x]); }
-	
+	void init() { for (int i = 1; i &lt;= n; ++i) s[i] = i; }
+	int find(int x) { return s[x] == x ? x : s[x] = find(s[x]); }
+
 	int tot, first[maxn];
 	struct query { int to, next; } q[maxn &lt;&lt; 1];
-	void insert (int x, int y) {
-		q[++tot] = {y, first[x]}; first[x] = tot;
-		q[++tot] = {x, first[y]}; first[y] = tot;
+	void insert(int x, int y) {
+		q[++tot] = { y, first[x] }; first[x] = tot;
+		q[++tot] = { x, first[y] }; first[y] = tot;
 	}
-	
+
 	int cnt, head[maxn];
 	struct edge { int to, next; } e[maxn &lt;&lt; 1];
-	void add (int u, int v) {
-		e[++cnt] = {v, head[u]}; head[u] = cnt;
-		e[++cnt] = {u, head[v]}; head[v] = cnt;
+	void add(int u, int v) {
+		e[++cnt] = { v, head[u] }; head[u] = cnt;
+		e[++cnt] = { u, head[v] }; head[v] = cnt;
 	}
-	
-	void Tarjan (int u, int fa) {
+
+	void Tarjan(int u, int fa) {
 		for (int i = head[u]; i; i = e[i].next) {
 			if (e[i].to == fa) continue;
 			Tarjan(e[i].to, u);
@@ -751,7 +752,7 @@ struct LCA {
 	}
 } Lca;
 
-int main () {
+int main() {
 	scanf("%d%d%d", &amp;n, &amp;m, &amp;r);
 	Lca.init();
 	for (int i = 1; i &lt; n; ++i) {
@@ -1191,7 +1192,7 @@ int main () {
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">45.9k</span>&nbsp;字
+                class="white-color">46.6k</span>&nbsp;字
             
             
             

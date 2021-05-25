@@ -453,26 +453,26 @@
 </ul>
 <h3 id="判断方法"><a href="#判断方法" class="headerlink" title="判断方法"></a>判断方法</h3><h4 id="暴力-·-O-frac-n-2"><a href="#暴力-·-O-frac-n-2" class="headerlink" title="暴力 · $O(\frac{n}{2})$"></a>暴力 · $O(\frac{n}{2})$</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">bool isPrime(a)
 {
-  if (a &lt; 2) return 0;
-  for (int i = 2; i * i &lt; a; ++i)
-    if (!(a % i)) return 0;
-  return 1;
+	if (a &lt; 2) return 0;
+	for (int i = 2; i * i &lt; a; ++i)
+		if (!(a % i)) return 0;
+	return 1;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <h4 id="Miller-Rabin-素性测试-·-O-k-log-3-n"><a href="#Miller-Rabin-素性测试-·-O-k-log-3-n" class="headerlink" title="Miller-Rabin 素性测试 · $ O(k \ log^{3}n)$"></a>Miller-Rabin 素性测试 · $ O(k \ log^{3}n)$</h4><h5 id="Fermat-素性测试"><a href="#Fermat-素性测试" class="headerlink" title="Fermat 素性测试"></a>Fermat 素性测试</h5><p>我们可以根据费马小定理得出一种检验素数的思路：</p>
 <p>它的基本思想是不断地选取在 [2, n - 1] 中的基 a，并检验是否每次都有 $a^{n - 1} \ \equiv \ 1 \ (mod \ n)$</p>
-<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">bool millerRabin(int n) 
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">bool millerRabin(int n)
 {
-  if (n &lt; 3) return n == 2;
-  // test_time 为测试次数,建议设为不小于 8
-  // 的整数以保证正确率,但也不宜过大,否则会影响效率
-  for (int i = 1; i &lt;= test_time; ++i) 
-  {
-    int a = rand() % (n - 2) + 2;
-    if (quickPow(a, n - 1, n) != 1) return 0;
-  }
-  return 1;
+    if (n &lt; 3) return n == 2;
+    // test_time 为测试次数,建议设为不小于 8
+    // 的整数以保证正确率,但也不宜过大,否则会影响效率
+    for (int i = 1; i &lt;= test_time; ++i)
+    {
+        int a = rand() % (n - 2) + 2;
+        if (quickPow(a, n - 1, n) != 1) return 0;
+    }
+    return 1;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>很遗憾，费马小定理的逆定理并不成立，换言之，满足了 $a^{n - 1} \ \equiv \ 1 \ (mod \ n)$，a 也不一定是素数。</p>
 <h5 id="卡迈克尔数"><a href="#卡迈克尔数" class="headerlink" title="卡迈克尔数"></a>卡迈克尔数</h5><p>上面的做法中随机地选择 a，很大程度地降低了犯错的概率。但是仍有一类数，上面的做法并不能准确地判断。</p>
@@ -486,26 +486,26 @@
 <p>将 $a^{n - 1} \ \equiv \ 1 \ (mod \ n)$ 中的指数 n - 1 分解为 $n \ - \ 1 \ = \ u \ \times \ 2^{t}$，在每轮测试中对随机出来的 a 先求出 $a^{u} \ (mod \ n)$，之后对这个值执行最多 t 次平方操作，若发现非平凡平方根时即可判断出其不是素数，否则通过此轮测试。</p>
 <h5 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h5><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">bool millerRabbin(int n)
 {
-  if (n &lt; 3) return n == 2;
-  int a = n - 1, b = 0;
-  while (!(a % 2))
-  {
-    a /= 2;
-    ++b;
-  }
-  // test_time 为测试次数,建议设为不小于 8 的整数以保证正确率,但也不宜过大,否则会影响效率
-  for (int i = 1, j; i &lt;= test_time; ++i)
-  {
-    int x = rand() % (n - 2) + 2, v = quickPow(x, a, n);
-    if (v == 1 || v == n - 1) continue;
-    for (j = 0; j &lt; b; ++j)
+    if (n &lt; 3) return n == 2;
+    int a = n - 1, b = 0;
+    while (!(a % 2))
     {
-      v = (long long)v * v % n;
-      if (v == n - 1) break;
+        a /= 2;
+        ++b;
     }
-    if (j &gt;= b) return 0;
-  }
-  return 1;
+    // test_time 为测试次数,建议设为不小于 8 的整数以保证正确率,但也不宜过大,否则会影响效率
+    for (int i = 1, j; i &lt;= test_time; ++i)
+    {
+        int x = rand() % (n - 2) + 2, v = quickPow(x, a, n);
+        if (v == 1 || v == n - 1) continue;
+        for (j = 0; j &lt; b; ++j)
+        {
+            v = (long long)v * v % n;
+            if (v == n - 1) break;
+        }
+        if (j &gt;= b) return 0;
+    }
+    return 1;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -514,8 +514,8 @@
 <p>一组数的公约数，是指同时是这组数中每一个数的约数的数。而最大公约数，则是指所有公约数里面最大的一个。</p>
 <h3 id="求法"><a href="#求法" class="headerlink" title="求法"></a>求法</h3><h4 id="欧几里得算法-·-O-log-n"><a href="#欧几里得算法-·-O-log-n" class="headerlink" title="欧几里得算法 · $O(\log n)$"></a>欧几里得算法 · $O(\log n)$</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int gcd(int a, int b)
 {
-  if (!b) return a;
-  return gcd(b, a % b);
+	if (!b) return a;
+	return gcd(b, a % b);
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -523,16 +523,16 @@
 <pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">int a[MAXN];
 int multi_gcd(int n)
 {
-  int tmp1, tmp2;
-  tmp1 = a[1];
-  for (int i = 2; i &lt;= n; i++)
-  {
-    tmp2 = a[i];
-    a[i] = gcd(tmp1, tmp2);
-    tmp1 = a[i];
-  }
-  
-  return a[n];
+    int tmp1, tmp2;
+    tmp1 = a[1];
+    for (int i = 2; i &lt;= n; i++)
+    {
+        tmp2 = a[i];
+        a[i] = gcd(tmp1, tmp2);
+        tmp1 = a[i];
+    }
+
+    return a[n];
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -550,16 +550,16 @@ int multi_gcd(int n)
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int a[MAXN];
 int multi_lcm(int n)
 {
-  int tmp1, tmp2;
-  tmp1 = a[1];
-  for (int i = 2; i &lt;= n; i++)
-  {
-    tmp2 = a[i];
-    a[i] = lcm(tmp1, tmp2);
-    tmp1 = a[i];
-  }
-  
-  return a[n];
+    int tmp1, tmp2;
+    tmp1 = a[1];
+    for (int i = 2; i &lt;= n; i++)
+    {
+        tmp2 = a[i];
+        a[i] = lcm(tmp1, tmp2);
+        tmp1 = a[i];
+    }
+
+    return a[n];
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -580,29 +580,29 @@ int multi_lcm(int n)
 </ul>
 <h3 id="求欧拉函数值"><a href="#求欧拉函数值" class="headerlink" title="求欧拉函数值"></a>求欧拉函数值</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int euler_phi(int n)
 {
-  int m = int(sqrt(n + 0.5));
-  int ans = n;
-  for (int i = 2; i &lt;= m; i++)
-    if (n % i == 0)
-    {
-      ans = ans / i * (i - 1);
-      while (n % i == 0) n /= i;
-    }
-  if (n &gt; 1) ans = ans / n * (n - 1);
-  return ans;
+    int m = int(sqrt(n + 0.5));
+    int ans = n;
+    for (int i = 2; i &lt;= m; i++)
+        if (n % i == 0)
+        {
+            ans = ans / i * (i - 1);
+            while (n % i == 0) n /= i;
+        }
+    if (n &gt; 1) ans = ans / n * (n - 1);
+    return ans;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>如果将上面的程序改成如下形式，会提升一点效率：</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int euler_phi(int n)
 {
-  int ans = n;
-  for (int i = 2; i * i &lt;= n; i++)
-    if (n % i == 0)
-    {
-      ans = ans / i * (i - 1);
-      while (n % i == 0) n /= i;
-    }
-  if (n &gt; 1) ans = ans / n * (n - 1);
-  return ans;
+    int ans = n;
+    for (int i = 2; i * i &lt;= n; i++)
+        if (n % i == 0)
+        {
+            ans = ans / i * (i - 1);
+            while (n % i == 0) n /= i;
+        }
+    if (n &gt; 1) ans = ans / n * (n - 1);
+    return ans;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -614,22 +614,22 @@ int multi_lcm(int n)
 <p>如果我们从小到大考虑每个数，然后同时把当前这个数的所有（比自己大的）倍数记为合数，那么运行结束的时候没有被标记的数就是素数了。</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">int Eratosthenes(int n)
 {
-  int p = 0;
-  for (int i = 0; i &lt;= n; ++i) is_prime[i] = 1;
-  is_prime[0] = is_prime[1] = 0;
-  for (int i = 2; i &lt;= n; ++i)
-  {
-    if (is_prime[i])
+    int p = 0;
+    for (int i = 0; i &lt;= n; ++i) is_prime[i] = 1;
+    is_prime[0] = is_prime[1] = 0;
+    for (int i = 2; i &lt;= n; ++i)
     {
-      prime[p++] = i;  // prime[p]是i,后置自增运算代表当前素数数量
-      if ((long long)i * i &lt;= n)
-        for (int j = i * i; j &lt;= n; j += i)
-          // 因为从 2 到 i - 1 的倍数我们之前筛过了，这里直接从 i
-          // 的倍数开始，提高了运行速度
-          is_prime[j] = 0;  // 是i的倍数的均不是素数
+        if (is_prime[i])
+        {
+            prime[p++] = i;  // prime[p]是i,后置自增运算代表当前素数数量
+            if ((long long)i * i &lt;= n)
+                for (int j = i * i; j &lt;= n; j += i)
+                    // 因为从 2 到 i - 1 的倍数我们之前筛过了，这里直接从 i
+                    // 的倍数开始，提高了运行速度
+                    is_prime[j] = 0;  // 是i的倍数的均不是素数
+        }
     }
-  }
-  return p;
+    return p;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -640,11 +640,11 @@ vector&lt;char&gt; is_prime(n + 1, true);
 is_prime[0] = is_prime[1] = false;
 for (int i = 2; i * i &lt;= n; i++)
 {
-  if (!(i % 2)) continue;
-  if (is_prime[i])
-  {
-    for (int j = i * i; j &lt;= n; j += i) is_prime[j] = false;
-  }
+    if (!(i % 2)) continue;
+    if (is_prime[i])
+    {
+        for (int j = i * i; j &lt;= n; j += i) is_prime[j] = false;
+    }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -652,34 +652,34 @@ for (int i = 2; i * i &lt;= n; i++)
 <p>如果能让每个合数都只被标记一次，那么时间复杂度就可以降到 $O(n)$ 了</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void init()
 {
-  phi[1] = 1;
-  for (int i = 2; i &lt; MAXN; ++i)
-  {
-    if (!vis[i])
+    phi[1] = 1;
+    for (int i = 2; i &lt; MAXN; ++i)
     {
-      phi[i] = i - 1;
-      pri[cnt++] = i;
+        if (!vis[i])
+        {
+            phi[i] = i - 1;
+            pri[cnt++] = i;
+        }
+        for (int j = 0; j &lt; cnt; ++j)
+        {
+            if (1ll * i * pri[j] &gt;= MAXN) break;
+            vis[i * pri[j]] = 1;
+            if (i % pri[j])
+            {
+                phi[i * pri[j]] = phi[i] * (pri[j] - 1);
+            }
+            else
+            {
+                // i % pri[j] == 0
+                // 换言之，i 之前被 pri[j] 筛过了
+                // 由于 pri 里面质数是从小到大的，所以 i 乘上其他的质数的结果一定也是
+                // pri[j] 的倍数 它们都被筛过了，就不需要再筛了，所以这里直接 break
+                // 掉就好了
+                phi[i * pri[j]] = phi[i] * pri[j];
+                break;
+            }
+        }
     }
-    for (int j = 0; j &lt; cnt; ++j)
-    {
-      if (1ll * i * pri[j] &gt;= MAXN) break;
-      vis[i * pri[j]] = 1;
-      if (i % pri[j])
-      {
-        phi[i * pri[j]] = phi[i] * (pri[j] - 1);
-      }
-      else
-      {
-        // i % pri[j] == 0
-        // 换言之，i 之前被 pri[j] 筛过了
-        // 由于 pri 里面质数是从小到大的，所以 i 乘上其他的质数的结果一定也是
-        // pri[j] 的倍数 它们都被筛过了，就不需要再筛了，所以这里直接 break
-        // 掉就好了
-        phi[i * pri[j]] = phi[i] * pri[j];
-        break;
-      }
-    }
-  }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>pri[i]: 第 i 个素数</li>
@@ -687,15 +687,15 @@ for (int i = 2; i * i &lt;= n; i++)
 </ul>
 <h3 id="筛法求欧拉函数"><a href="#筛法求欧拉函数" class="headerlink" title="筛法求欧拉函数"></a>筛法求欧拉函数</h3><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void phi_table(int n, int* phi)
 {
-  for (int i = 2; i &lt;= n; i++) phi[i] = 0;
-  phi[1] = 1;
-  for (int i = 2; i &lt;= n; i++)
-    if (!phi[i])
-      for (int j = i; j &lt;= n; j += i)
-      {
-        if (!phi[j]) phi[j] = j;
-        phi[j] = phi[j] / i * (i - 1);
-      }
+    for (int i = 2; i &lt;= n; i++) phi[i] = 0;
+    phi[1] = 1;
+    for (int i = 2; i &lt;= n; i++)
+        if (!phi[i])
+            for (int j = i; j &lt;= n; j += i)
+            {
+                if (!phi[j]) phi[j] = j;
+                phi[j] = phi[j] / i * (i - 1);
+            }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -704,26 +704,26 @@ for (int i = 2; i * i &lt;= n; i++)
 <p>定理：若 $n \ = \ \prod_{i=1}^{m} p_{i}^{c_{i}}$ 则 $d_{i} \ = \ \prod_{i=1}^{m}c_{i} \ + \ 1$</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void pre()
 {
-  d[1] = 1;
-  for (int i = 2; i &lt;= n; ++i)
-  {
-    if (!v[i]) v[i] = 1, p[++tot] = i, d[i] = 2, num[i] = 1;
-    for (int j = 1; j &lt;= tot &amp;&amp; i &lt;= n / p[j]; ++j)
+    d[1] = 1;
+    for (int i = 2; i &lt;= n; ++i)
     {
-      v[p[j] * i] = 1;
-      if (i % p[j] == 0)
-      {
-        num[i * p[j]] = num[i] + 1;
-        d[i * p[j]] = d[i] / num[i * p[j]] * (num[i * p[j]] + 1);
-        break;
-      }
-        else
-      {
-        num[i * p[j]] = 1;
-        d[i * p[j]] = d[i] * 2;
-      }
+        if (!v[i]) v[i] = 1, p[++tot] = i, d[i] = 2, num[i] = 1;
+        for (int j = 1; j &lt;= tot &amp;&amp; i &lt;= n / p[j]; ++j)
+        {
+            v[p[j] * i] = 1;
+            if (i % p[j] == 0)
+            {
+                num[i * p[j]] = num[i] + 1;
+                d[i * p[j]] = d[i] / num[i * p[j]] * (num[i * p[j]] + 1);
+                break;
+            }
+            else
+            {
+                num[i * p[j]] = 1;
+                d[i * p[j]] = d[i] * 2;
+            }
+        }
     }
-  }
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -731,27 +731,27 @@ for (int i = 2; i * i &lt;= n; i++)
 <p>g[i]: i 的最小质因子的 $p \ + \ p^{1} \ + \ p^{2} \ + \ \cdots \ + \ p^{k}$</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void pre()
 {
-  g[1] = f[1] = 1;
-  for (int i = 2; i &lt;= n; ++i)
-  {
-    if (!v[i]) v[i] = 1, p[++tot] = i, g[i] = i + 1, f[i] = i + 1;
-    for (int j = 1; j &lt;= tot &amp;&amp; i &lt;= n / p[j]; ++j)
+    g[1] = f[1] = 1;
+    for (int i = 2; i &lt;= n; ++i)
     {
-      v[p[j] * i] = 1;
-      if (i % p[j] == 0)
-      {
-        g[i * p[j]] = g[i] * p[j] + 1;
-        f[i * p[j]] = f[i] / g[i] * g[i * p[j]];
-        break;
-      }
-      else
-      {
-        f[i * p[j]] = f[i] * f[p[j]];
-        g[i * p[j]] = 1 + p[j];
-      }
+        if (!v[i]) v[i] = 1, p[++tot] = i, g[i] = i + 1, f[i] = i + 1;
+        for (int j = 1; j &lt;= tot &amp;&amp; i &lt;= n / p[j]; ++j)
+        {
+            v[p[j] * i] = 1;
+            if (i % p[j] == 0)
+            {
+                g[i * p[j]] = g[i] * p[j] + 1;
+                f[i * p[j]] = f[i] / g[i] * g[i * p[j]];
+                break;
+            }
+            else
+            {
+                f[i * p[j]] = f[i] * f[p[j]];
+                g[i * p[j]] = 1 + p[j];
+            }
+        }
     }
-  }
-  for (int i = 1; i &lt;= n; ++i) f[i] = (f[i - 1] + f[i]) % Mod;
+    for (int i = 1; i &lt;= n; ++i) f[i] = (f[i - 1] + f[i]) % Mod;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -760,14 +760,14 @@ for (int i = 2; i * i &lt;= n; i++)
 <h2 id="乘法逆元"><a href="#乘法逆元" class="headerlink" title="乘法逆元"></a>乘法逆元</h2><h3 id="简介-2"><a href="#简介-2" class="headerlink" title="简介"></a>简介</h3><p>如果一个线性同余方程 $ax \ \equiv \ 1 \ (mod \ b)$ ，则 x 称为 a mod b 的逆元，记作 $a^{-1}$。</p>
 <h3 id="如何求逆元"><a href="#如何求逆元" class="headerlink" title="如何求逆元"></a>如何求逆元</h3><h4 id="扩展欧几里得法"><a href="#扩展欧几里得法" class="headerlink" title="扩展欧几里得法"></a>扩展欧几里得法</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">void exgcd(int a, int b, int&amp; x, int&amp; y)
 {
-  if (!b)
-  {
-    x = 1;
-    y = 0;
-    return;
-  }
-  exgcd(b, a % b, y, x);
-  y -= a / b * x;
+    if (!b)
+    {
+        x = 1;
+        y = 0;
+        return;
+    }
+    exgcd(b, a % b, y, x);
+    y -= a / b * x;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -777,14 +777,14 @@ for (int i = 2; i * i &lt;= n; i++)
 <p>然后我们就可以用快速幂来求了。</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">inline int qpow(long long a, int b)
 {
-  int ans = 1;
-  a = (a % p + p) % p;
-  for (; b; b &gt;&gt;= 1)
-  {
-    if (b &amp; 1) ans = (a * ans) % p;
-    a = (a * a) % p;
-  }
-  return ans;
+    int ans = 1;
+    a = (a % p + p) % p;
+    for (; b; b &gt;&gt;= 1)
+    {
+        if (b &amp; 1) ans = (a * ans) % p;
+        a = (a * a) % p;
+    }
+    return ans;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <ul>
 <li>使用费马小定理需要限制 b 是一个素数，而扩展欧几里得算法只要求 $\gcd(a, \ p) \ = \ 1$。</li>
@@ -792,7 +792,7 @@ for (int i = 2; i * i &lt;= n; i++)
 <h4 id="线性求逆元"><a href="#线性求逆元" class="headerlink" title="线性求逆元"></a>线性求逆元</h4><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">inv[1] = 1;
 for (int i = 2; i &lt;= n; ++i)
 {
-  inv[i] = (long long)(p - p / i) * inv[p % i] % p;
+	inv[i] = (long long)(p - p / i) * inv[p % i] % p;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -1252,7 +1252,7 @@ for (int i = 1; i &lt;= n; ++i) inv[i] = sv[i] * s[i - 1] % p;<span aria-hidden=
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">45.9k</span>&nbsp;字
+                class="white-color">46.6k</span>&nbsp;字
             
             
             

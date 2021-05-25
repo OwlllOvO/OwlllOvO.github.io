@@ -541,11 +541,11 @@ int main()
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h3 id="复杂度-·-O-m-log-m"><a href="#复杂度-·-O-m-log-m" class="headerlink" title="复杂度 · O(m log m)"></a>复杂度 · O(m log m)</h3><h2 id="Prim"><a href="#Prim" class="headerlink" title="Prim"></a>Prim</h2><h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><ol>
-<li>选用图中的任意一个顶点 v<sub>0</sub>，从 v<sub>0</sub> 开始生成最小生成树</li>
-<li>初始化 d[v<sub>0</sub>] = 0，其他的点的距离值 d[i] = INF，其中 d[i] 表示当前这棵小树到其他点的最小距离值</li>
+<h3 id="复杂度-·-O-m-log-m"><a href="#复杂度-·-O-m-log-m" class="headerlink" title="复杂度 · $O(m \ log m)$"></a>复杂度 · $O(m \ log m)$</h3><h2 id="Prim"><a href="#Prim" class="headerlink" title="Prim"></a>Prim</h2><h3 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h3><ol>
+<li>选用图中的任意一个顶点$V_{0}$，从 $v_{0}$ 开始生成最小生成树</li>
+<li>初始化 $d[v_{0}] \ = \ 0$，其他的点的距离值 $d[i] \ = \ INF$，其中 $d[i]$ 表示当前这棵小树到其他点的最小距离值</li>
 <li>经过 N 次如下步骤操作，最后得到一个含 N 各顶点，N - 1 条边的最小生成树<ol>
-<li>选择一个未标记的点 K，并且 d[K] 的值是最小的</li>
+<li>选择一个未标记的点 K，并且 $d[K]$ 的值是最小的</li>
 <li>标记点 K 进入这棵小树</li>
 <li>以 K 为中间点，更新这棵小树到未标记点的距离的最小值</li>
 </ol>
@@ -614,7 +614,7 @@ void Prim(int n, int m)
 }
 int main()
 {
-	freopen("in.txt", "r", stdin);
+	//freopen("in.txt", "r", stdin);
 
 	while (scanf("%d%d", &amp;n, &amp;m) != EOF)
 	{
@@ -634,7 +634,7 @@ int main()
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
-<h3 id="复杂度-·-O-n2"><a href="#复杂度-·-O-n2" class="headerlink" title="复杂度 · O(n2)"></a>复杂度 · O(n<sup>2</sup>)</h3>
+<h3 id="复杂度-·-O-n-2"><a href="#复杂度-·-O-n-2" class="headerlink" title="复杂度 · $O(n^{2})$"></a>复杂度 · $O(n^{2})$</h3>
                 
             </div>
             <hr/>
@@ -1005,6 +1005,13 @@ int main()
 </main>
 
 
+<script src="https://cdn.bootcss.com/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<script>
+    MathJax.Hub.Config({
+        tex2jax: {inlineMath: [['$', '$'], ['\(', '\)']]}
+    });
+</script>
+
 
 
     <footer class="page-footer bg-color">
@@ -1076,7 +1083,7 @@ int main()
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">45.9k</span>&nbsp;字
+                class="white-color">46.6k</span>&nbsp;字
             
             
             

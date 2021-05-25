@@ -466,12 +466,12 @@
 <li><p>递归法</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">long long binpow(long long a, long long b)
 {
-  if (!b) return 1;
-  long long res = binpow(a, b / 2);
-  if (b % 2)
-    return res * res * a;
-  else
-    return res * res;
+    if (!b) return 1;
+    long long res = binpow(a, b / 2);
+    if (b % 2)
+        return res * res * a;
+    else
+        return res * res;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -481,14 +481,14 @@
 <li><p>非递归法（稍快）</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">long long binpow(long long a, long long b)
 {
-  long long res = 1;
-  while (b &gt; 0)
-  {
-    if (b &amp; 1) res = res * a;
-    a = a * a;
-    b &gt;&gt;= 1;
-  }
-  return res;
+    long long res = 1;
+    while (b &gt; 0)
+    {
+        if (b &amp; 1) res = res * a;
+        a = a * a;
+        b &gt;&gt;= 1;
+    }
+    return res;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -499,15 +499,15 @@
 <p>既然我们知道取模的运算不会干涉乘法运算，因此我们只需要在计算的过程中取模即可。</p>
 <pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">long long binpow(long long a, long long b, long long m)
 {
-  a %= m;
-  long long res = 1;
-  while (b &gt; 0)
-  {
-    if (b &amp; 1) res = res * a % m;
-    a = a * a % m;
-    b &gt;&gt;= 1;
-  }
-  return res;
+    a %= m;
+    long long res = 1;
+    while (b &gt; 0)
+    {
+        if (b &amp; 1) res = res * a % m;
+        a = a * a % m;
+        b &gt;&gt;= 1;
+    }
+    return res;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>注意：根据费马小定理，如果 m 是一个质数，我们可以计算 $x^{n \ mod \ (m-1)}$ 来加速算法过程。</p>
 <h3 id="模意义下大整数乘法"><a href="#模意义下大整数乘法" class="headerlink" title="模意义下大整数乘法"></a>模意义下大整数乘法</h3><p>计算 $a \ \times \ b \ mod \ m, \ a, \ b \ \leq \ m \ \leq \ 10^{18}$</p>
@@ -931,7 +931,7 @@
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">45.9k</span>&nbsp;字
+                class="white-color">46.6k</span>&nbsp;字
             
             
             

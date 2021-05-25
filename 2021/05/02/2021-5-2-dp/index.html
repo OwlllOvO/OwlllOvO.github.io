@@ -482,22 +482,22 @@ int maxn;
 
 int main()
 {
-    scanf ("%s", a + 1);
-    scanf ("%s", b + 1);
-    int n = strlen (a + 1);
-    int m = strlen (b + 1);
-    for (int i = 1; i &lt;= n; i++)
-    {
-        for (int j = 1; j &lt;= m; j++)
-        {
-            if (a[i]  == b[j]) dp[i][j] = dp[i-1][j-1] + 1;
-            maxn = max (maxn, dp[i][j]);
-        }
-    }
-    printf ("%d", maxn);
-    
-    return 0;
-    
+	scanf("%s", a + 1);
+	scanf("%s", b + 1);
+	int n = strlen(a + 1);
+	int m = strlen(b + 1);
+	for (int i = 1; i &lt;= n; i++)
+	{
+		for (int j = 1; j &lt;= m; j++)
+		{
+			if (a[i] == b[j]) dp[i][j] = dp[i - 1][j - 1] + 1;
+			maxn = max(maxn, dp[i][j]);
+		}
+	}
+	printf("%d", maxn);
+
+	return 0;
+
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -530,33 +530,33 @@ int dp[10001][10001];
 
 bool cmp(int x, int y)
 {
-    return x &gt; y;
+	return x &gt; y;
 }
 
 int max1(int x, int y, int z)
 {
-    int t[4] = { 0, x, y, z };
-    sort (t + 1, t + 4, cmp);
-    return t[1];
+	int t[4] = { 0, x, y, z };
+	sort(t + 1, t + 4, cmp);
+	return t[1];
 }
 
 int main()
 {
-    scanf ("%d%d", &amp;n, &amp;m);
-    for (int i = 1; i &lt;= n; i++) scanf ("%d", &amp;a[i]);
-    for (int i = 1; i &lt;= m; i++) scanf ("%d", &amp;b[i]);
-    for (int i = 1; i &lt;= n; i++)
-    {
-        for (int j = 1; j &lt;= m; j++)
-        {
-            if (a[i] == b[j]) dp[i][j] = dp[i-1][j-1] + 1;
-            dp[i][j] = max1(dp[i][j], dp[i-1][j], dp[i][j-1]);
-        }
-    }
-    printf ("%d", dp[n][m]);
-    
-    return 0;
-    
+	scanf("%d%d", &amp;n, &amp;m);
+	for (int i = 1; i &lt;= n; i++) scanf("%d", &amp;a[i]);
+	for (int i = 1; i &lt;= m; i++) scanf("%d", &amp;b[i]);
+	for (int i = 1; i &lt;= n; i++)
+	{
+		for (int j = 1; j &lt;= m; j++)
+		{
+			if (a[i] == b[j]) dp[i][j] = dp[i - 1][j - 1] + 1;
+			dp[i][j] = max1(dp[i][j], dp[i - 1][j], dp[i][j - 1]);
+		}
+	}
+	printf("%d", dp[n][m]);
+
+	return 0;
+
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -692,7 +692,7 @@ for (int i = 1; i &lt;= m; i++)
 <li><strong>求解</strong>：对整个问题设最优值，枚举合并点，将问题分解为左右两个部分，最后合并两个部分的最优值得到原问题的最优值。</li>
 </ul>
 <h3 id="思路-7"><a href="#思路-7" class="headerlink" title="思路"></a>思路</h3><p>既然让我求解在一个区间上的最优解，那么我把这个区间分割成一个个小区间，求解每个小区间的最优解，再合并小区间得到大区间即可。所以在代码实现上，我可以枚举区间长度 len 为每次分割成的小区间长度（由短到长不断合并），内层枚举该长度下可以的起点，自然终点也就明了了。然后在这个起点终点之间枚举分割点，求解这段小区间在某个分割点下的最优解。</p>
-<h3 id="模板-8"><a href="#模板-8" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">for(int len = 1; len&lt;=n; len++)	//枚举长度
+<h3 id="模板-8"><a href="#模板-8" class="headerlink" title="模板"></a>模板</h3><pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">for(int len = 1; len &lt;= n; len++)	//枚举长度
 {
 		for(int j = 1; j + len &lt;= n + 1; j++)	//枚举起点，ends &lt;= n
 		{
@@ -1607,8 +1607,8 @@ int main()
 
 
 <h2 id="数位-DP"><a href="#数位-DP" class="headerlink" title="数位 DP"></a>数位 DP</h2><h3 id="简介-11"><a href="#简介-11" class="headerlink" title="简介"></a>简介</h3><p>数位 DP 问题往往都是这样的题型，给定一个闭区间 [l, r]，让你求这个区间中满足 <strong>某种条件</strong> 的数的总数。 </p>
-<h3 id="数字计数"><a href="#数字计数" class="headerlink" title="数字计数"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2602">数字计数</a></h3><h4 id="Description-7"><a href="#Description-7" class="headerlink" title="Description"></a>Description</h4><p>给定两个正整数 a<em>a</em> 和 b<em>b</em>，求在 [a,b] 中的所有整数中，每个数码(digit)各出现了多少次。</p>
-<h4 id="Input-9"><a href="#Input-9" class="headerlink" title="Input"></a>Input</h4><p>仅包含一行两个整数 a,b，含义如上所述。</p>
+<h3 id="数字计数"><a href="#数字计数" class="headerlink" title="数字计数"></a><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P2602">数字计数</a></h3><h4 id="Description-7"><a href="#Description-7" class="headerlink" title="Description"></a>Description</h4><p>给定两个正整数 a 和 b，求在 [a,b] 中的所有整数中，每个数码(digit)各出现了多少次。</p>
+<h4 id="Input-9"><a href="#Input-9" class="headerlink" title="Input"></a>Input</h4><p>仅包含一行两个整数 a, b，含义如上所述。</p>
 <h4 id="Output-9"><a href="#Output-9" class="headerlink" title="Output"></a>Output</h4><p>包含一行十个整数，分别表示 0∼9 在 [a,b] 中出现了多少次。</p>
 <h4 id="Sample-Input-7"><a href="#Sample-Input-7" class="headerlink" title="Sample Input"></a>Sample Input</h4><pre class="line-numbers language-none"><code class="language-none">1 99<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
@@ -2132,7 +2132,7 @@ int main()
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">45.9k</span>&nbsp;字
+                class="white-color">46.6k</span>&nbsp;字
             
             
             

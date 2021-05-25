@@ -427,7 +427,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.1k
+                    1.2k
                 </div>
                 
 
@@ -492,13 +492,24 @@
 #include &lt;vector&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>(Visual Studio 不自带万能头文件)</p>
 <h2 id="时间（空间）复杂度"><a href="#时间（空间）复杂度" class="headerlink" title="时间（空间）复杂度"></a>时间（空间）复杂度</h2><p><del>dddd懂的都懂</del></p>
-<h2 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h2><h3 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h3><h4 id="string-•-字符串"><a href="#string-•-字符串" class="headerlink" title="string • 字符串"></a>string • 字符串</h4><h5 id="头文件-include-lt-string-gt"><a href="#头文件-include-lt-string-gt" class="headerlink" title="头文件 : #include<string>"></a>头文件 : <code>#include&lt;string&gt;</code></h5><h5 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h5><ul>
-<li>赋初值</li>
-</ul>
-<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">string s1 = "1234";
+<h2 id="C"><a href="#C" class="headerlink" title="C++"></a>C++</h2><h3 id="STL"><a href="#STL" class="headerlink" title="STL"></a>STL</h3><h4 id="string-•-字符串"><a href="#string-•-字符串" class="headerlink" title="string • 字符串"></a>string • 字符串</h4><h5 id="头文件-include-lt-string-gt"><a href="#头文件-include-lt-string-gt" class="headerlink" title="头文件 : #include<string>"></a>头文件 : <code>#include&lt;string&gt;</code></h5><h5 id=""><a href="#" class="headerlink" title=""></a></h5><h5 id="定义、赋值"><a href="#定义、赋值" class="headerlink" title="定义、赋值"></a>定义、赋值</h5><pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">string s1 = "1234";
 string s2;
 s2 = "1234";<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<ul>
+
+
+<h5 id="读写"><a href="#读写" class="headerlink" title="读写"></a>读写</h5><ul>
+<li><p>cin/cout</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">string s;
+cin &gt;&gt; s;	//到空格为止
+cout &lt;&lt; s &lt;&lt; endl;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre></li>
+<li><p>getline</p>
+<pre class="line-numbers language-C++" data-language="C++"><code class="language-C++">string s;
+getline(cin, s);	//到回车为止<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+
+</li>
+</ul>
+<h5 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h5><ul>
 <li><p>清除</p>
 <p><code>s1.clear();</code></p>
 </li>
@@ -679,44 +690,44 @@ int n;
 
 struct NODE
 {
-  int a, b, c;
-  bool operator == (const NODE x) const
-  {
-    return this-&gt;a + b + c == x.a + x.b + x.c;
-  }
-  bool operator != (const NODE x) const
-  {
-    return this-&gt;a + b + c != x.a + x.b + x.c;
-  }
-  bool operator &lt;= (const NODE x) const
-  {
-    return this-&gt;a + b + c &lt;= x.a + x.b + x.c;
-  }
-  bool operator &gt;= (const NODE x) const
-  {
-    return this-&gt;a + b + c &gt;= x.a + x.b + x.c;
-  }
-  bool operator &lt; (const NODE x) const
-  {
-    return this-&gt;a + b + c &lt; x.a + x.b + x.c;
-  }
-  bool operator &gt; (const NODE x) const
-  {
-    return this-&gt;a + b + c &gt; x.a + x.b + x.c;
-  }
+	int a, b, c;
+	bool operator == (const NODE x) const
+	{
+		return this-&gt;a + b + c == x.a + x.b + x.c;
+	}
+	bool operator != (const NODE x) const
+	{
+		return this-&gt;a + b + c != x.a + x.b + x.c;
+	}
+	bool operator &lt;= (const NODE x) const
+	{
+		return this-&gt;a + b + c &lt;= x.a + x.b + x.c;
+	}
+	bool operator &gt;= (const NODE x) const
+	{
+		return this-&gt;a + b + c &gt;= x.a + x.b + x.c;
+	}
+	bool operator &lt; (const NODE x) const
+	{
+		return this-&gt;a + b + c &lt; x.a + x.b + x.c;
+	}
+	bool operator &gt; (const NODE x) const
+	{
+		return this-&gt;a + b + c &gt; x.a + x.b + x.c;
+	}
 } s[1001];
 
-bool cmp (NODE x, NODE y)
+bool cmp(NODE x, NODE y)
 {
-    return x &lt; y;
+	return x &lt; y;
 }
 
 int main()
 {
-    scanf ("%d", &amp;n);
-    for (int i = 1; i &lt;= n; i++) scanf ("%d%d%d", &amp;s[i].a, &amp;s[i].b, &amp;s[i].c);
-    sort(s + 1, s + n + 1, cmp);
-    for (int i = 1; i &lt;= n; i++) printf ("%2d %d %d %d\n",s[i].a + s[i].b + s[i].c, s[i].a, s[i].b, s[i].c);
+	scanf("%d", &amp;n);
+	for (int i = 1; i &lt;= n; i++) scanf("%d%d%d", &amp;s[i].a, &amp;s[i].b, &amp;s[i].c);
+	sort(s + 1, s + n + 1, cmp);
+	for (int i = 1; i &lt;= n; i++) printf("%2d %d %d %d\n", s[i].a + s[i].b + s[i].c, s[i].a, s[i].b, s[i].c);
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -740,37 +751,37 @@ using namespace std;
 
 struct NODE
 {
-    int a[1001];
-    
-    void scan()
-    {
-        int n;
-        scanf ("%d", &amp;n);
-        for (int i = 1; i &lt;= n; i++)
-        {
-            scanf ("%d", &amp;a[i]);
-        }
-    }
-    
-    int sum(int x)
-    {
-        int SUM = 0;
-        for (int i = 1; i &lt;= x; i++)
-        {
-            SUM += a[i];
-        }
-        return SUM;
-    }
-    
+	int a[1001];
+
+	void scan()
+	{
+		int n;
+		scanf("%d", &amp;n);
+		for (int i = 1; i &lt;= n; i++)
+		{
+			scanf("%d", &amp;a[i]);
+		}
+	}
+
+	int sum(int x)
+	{
+		int SUM = 0;
+		for (int i = 1; i &lt;= x; i++)
+		{
+			SUM += a[i];
+		}
+		return SUM;
+	}
+
 } s;
 
 int main()
 {
-    s.scan();
-    printf ("%d", s.sum(5));
-    
-    return 0;
-    
+	s.scan();
+	printf("%d", s.sum(5));
+
+	return 0;
+
 }
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
@@ -1190,7 +1201,7 @@ int main()
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">45.9k</span>&nbsp;字
+                class="white-color">46.6k</span>&nbsp;字
             
             
             

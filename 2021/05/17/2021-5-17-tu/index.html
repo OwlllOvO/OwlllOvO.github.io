@@ -479,7 +479,7 @@ using namespace std;
 
 struct Edge
 {
-  int u, v;
+	int u, v;
 };
 
 int n, m;
@@ -488,39 +488,39 @@ vector&lt;bool&gt; vis;
 
 bool find_edge(int u, int v)
 {
-  for (int i = 1; i &lt;= m; ++i)
-  {
-    if (e[i].u == u &amp;&amp; e[i].v == v)
-    {
-      return true;
-    }
-  }
-  return false;
+	for (int i = 1; i &lt;= m; ++i)
+	{
+		if (e[i].u == u &amp;&amp; e[i].v == v)
+		{
+			return true;
+		}
+	}
+	return false;
 }
 
-void dfs(int u) 
+void dfs(int u)
 {
-  if (vis[u]) return;
-  vis[u] = true;
-  for (int i = 1; i &lt;= m; ++i)
-  {
-    if (e[i].u == u)
-    {
-      dfs(e[i].v);
-    }
-  }
+	if (vis[u]) return;
+	vis[u] = true;
+	for (int i = 1; i &lt;= m; ++i)
+	{
+		if (e[i].u == u)
+		{
+			dfs(e[i].v);
+		}
+	}
 }
 
 int main()
 {
-  cin &gt;&gt; n &gt;&gt; m;
+	cin &gt;&gt; n &gt;&gt; m;
 
-  vis.resize(n + 1, false);
-  e.resize(m + 1);
+	vis.resize(n + 1, false);
+	e.resize(m + 1);
 
-  for (int i = 1; i &lt;= m; ++i) cin &gt;&gt; e[i].u &gt;&gt; e[i].v;
+	for (int i = 1; i &lt;= m; ++i) cin &gt;&gt; e[i].u &gt;&gt; e[i].v;
 
-  return 0;
+	return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -545,32 +545,32 @@ bool find_edge(int u, int v) { return adj[u][v]; }
 
 void dfs(int u)
 {
-  if (vis[u]) return;
-  vis[u] = true;
-  for (int v = 1; v &lt;= n; ++v)
-  {
-    if (adj[u][v])
-    {
-      dfs(v);
-    }
-  }
+	if (vis[u]) return;
+	vis[u] = true;
+	for (int v = 1; v &lt;= n; ++v)
+	{
+		if (adj[u][v])
+		{
+			dfs(v);
+		}
+	}
 }
 
 int main()
 {
-  cin &gt;&gt; n &gt;&gt; m;
+	cin &gt;&gt; n &gt;&gt; m;
 
-  vis.resize(n + 1, false);
-  adj.resize(n + 1, vector&lt;bool&gt;(n + 1, false));
+	vis.resize(n + 1, false);
+	adj.resize(n + 1, vector&lt;bool&gt;(n + 1, false));
 
-  for (int i = 1; i &lt;= m; ++i)
-  {
-    int u, v;
-    cin &gt;&gt; u &gt;&gt; v;
-    adj[u][v] = true;
-  }
+	for (int i = 1; i &lt;= m; ++i)
+	{
+		int u, v;
+		cin &gt;&gt; u &gt;&gt; v;
+		adj[u][v] = true;
+	}
 
-  return 0;
+	return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -593,38 +593,38 @@ vector&lt;vector&lt;int&gt; &gt; adj;
 
 bool find_edge(int u, int v)
 {
-  for (int i = 0; i &lt; adj[u].size(); ++i)
-  {
-    if (adj[u][i] == v)
-    {
-      return true;
-    }
-  }
-  return false;
+	for (int i = 0; i &lt; adj[u].size(); ++i)
+	{
+		if (adj[u][i] == v)
+		{
+			return true;
+		}
+	}
+	return false;
 }
 
 void dfs(int u)
 {
-  if (vis[u]) return;
-  vis[u] = true;
-  for (int i = 0; i &lt; adj[u].size(); ++i) dfs(adj[u][i]);
+	if (vis[u]) return;
+	vis[u] = true;
+	for (int i = 0; i &lt; adj[u].size(); ++i) dfs(adj[u][i]);
 }
 
 int main()
 {
-  cin &gt;&gt; n &gt;&gt; m;
+	cin &gt;&gt; n &gt;&gt; m;
 
-  vis.resize(n + 1, false);
-  adj.resize(n + 1);
+	vis.resize(n + 1, false);
+	adj.resize(n + 1);
 
-  for (int i = 1; i &lt;= m; ++i)
-  {
-    int u, v;
-    cin &gt;&gt; u &gt;&gt; v;
-    adj[u].push_back(v);
-  }
+	for (int i = 1; i &lt;= m; ++i)
+	{
+		int u, v;
+		cin &gt;&gt; u &gt;&gt; v;
+		adj[u].push_back(v);
+	}
 
-  return 0;
+	return 0;
 }<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
@@ -672,8 +672,8 @@ void Init()
 void add_edge(int u, int v, int w)
 {
 	++cnt;
-	edge[cnt].to   = v;
-	edge[cnt].w    = w;
+	edge[cnt].to = v;
+	edge[cnt].w = w;
 	edge[cnt].next = front[u];
 	front[u] = cnt;
 }
@@ -1134,7 +1134,7 @@ int main()
             <br>
             
             &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                class="white-color">45.9k</span>&nbsp;字
+                class="white-color">46.6k</span>&nbsp;字
             
             
             
